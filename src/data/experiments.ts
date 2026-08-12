@@ -1,6 +1,6 @@
 export type ExperimentStatus = 'coming-soon' | 'available' | 'draft'
 
-export type ExperimentPreviewType = 'breathe' | 'timer' | 'colors' | 'bill' | 'affirmations' | 'oracle'
+export type ExperimentPreviewType = 'breathe' | 'timer' | 'colors' | 'bill' | 'affirmations'
 
 export type ExperimentSize = 'large' | 'medium' | 'small'
 
@@ -40,12 +40,6 @@ export const experiments: Experiment[] = [
     id: 'affirmations',
     status: 'available',
     previewType: 'affirmations',
-    size: 'medium',
-  },
-  {
-    id: 'oracle-cards',
-    status: 'available',
-    previewType: 'oracle',
     size: 'medium',
   },
 ]

@@ -81,19 +81,6 @@ function BillPreview() {
   )
 }
 
-function OraclePreview() {
-  return (
-    <div className="preview preview--oracle">
-      <div className="preview-oracle">
-        <div className="preview-oracle__card">
-          <span className="preview-oracle__mark">✦</span>
-        </div>
-        <span className="preview-oracle__btn">Tirar carta</span>
-      </div>
-    </div>
-  )
-}
-
 function AffirmationsPreview() {
   return (
     <div className="preview preview--affirmations">
@@ -114,7 +101,6 @@ const previewComponents: Record<ExperimentPreviewType, () => JSX.Element> = {
   colors: ColorsPreview,
   bill: BillPreview,
   affirmations: AffirmationsPreview,
-  oracle: OraclePreview,
 }
 
 export function ExperimentPreview({ type }: ExperimentPreviewProps) {

@@ -57,11 +57,6 @@ const es: SiteTranslations = {
         category: 'Bienestar',
         description: 'Un generador suave de afirmaciones positivas de Jung, Fromm, Hillman, Buda, Neville Goddard y más.',
       },
-      'oracle-cards': {
-        name: 'Cartas del oráculo',
-        category: 'Bienestar',
-        description: 'Saca una carta ilustrada — un mensaje del oráculo que te acompañará durante tu día.',
-      },
     },
   },
   projects: {
@@ -102,11 +97,12 @@ const es: SiteTranslations = {
     },
     colorStudio: {
       label: 'Medidor de color',
+      chooseColor: 'Elegir color',
       pick: 'Capturar de pantalla',
       picking: 'Capturando…',
       recent: 'Recientes',
       fallback:
-        'La captura de pantalla funciona en Chrome y Edge. Usa un navegador compatible para capturar cualquier color.',
+        'La captura de pantalla está disponible en Chrome y Edge en escritorio. Usa el selector de color para elegir cualquier tono.',
       copyHex: 'Copiar color hex',
       copied: 'Copiado',
     },
@@ -124,29 +120,8 @@ const es: SiteTranslations = {
     affirmations: {
       newAffirmation: 'Nueva afirmación',
     },
-    oracleCards: {
-      label: 'Oráculo',
-      draw: 'Sacar carta',
-      drawAgain: 'Sacar otra',
-      themeLove: 'Amor',
-      themeRelations: 'Relaciones',
-      themeWork: 'Trabajo',
-      intentionLabel: '¿Qué te pasa por el corazón?',
-      intentionOpen: 'Abierto',
-      introOpen: 'Para un momento. Piensa en lo que necesitas escuchar hoy.',
-      introLove: 'Piensa en el amor — lo que das, lo que recibes, lo que deseas en silencio.',
-      introRelations: 'Piensa en alguien — o en un vínculo que te ha ocupado la cabeza últimamente.',
-      introWork: 'Piensa en tu camino — el trabajo, la duda, el siguiente paso que pospones.',
-      revealOpen: 'Este mensaje te ha encontrado.',
-      revealLove: 'Has preguntado por el amor — esto es lo que ha llegado.',
-      revealRelations: 'Has preguntado por tus relaciones — escucha con calma.',
-      revealWork: 'Has preguntado por tu camino — esto es para ti.',
-      forYou: 'Para ti',
-    },
   },
   controls: {
-    themeLight: 'Cambiar a modo oscuro',
-    themeDark: 'Cambiar a modo claro',
     language: 'Idioma',
   },
 }

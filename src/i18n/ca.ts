@@ -57,11 +57,6 @@ const ca: SiteTranslations = {
         category: 'Benestar',
         description: 'Un generador suau d\'afirmacions positives de Jung, Fromm, Hillman, Budha, Neville Goddard i més.',
       },
-      'oracle-cards': {
-        name: 'Cartes de l\'oràcul',
-        category: 'Benestar',
-        description: 'Tira una carta il·lustrada — un missatge de l\'oràcul que t\'acompanyarà durant el teu dia.',
-      },
     },
   },
   projects: {
@@ -102,11 +97,12 @@ const ca: SiteTranslations = {
     },
     colorStudio: {
       label: 'Mesurador de color',
+      chooseColor: 'Triar color',
       pick: 'Capturar de pantalla',
       picking: 'Capturant…',
       recent: 'Recents',
       fallback:
-        'La captura de pantalla funciona a Chrome i Edge. Utilitza un navegador compatible per capturar qualsevol color.',
+        'La captura de pantalla està disponible a Chrome i Edge en ordinador. Utilitza el selector de color per triar qualsevol to.',
       copyHex: 'Copiar color hex',
       copied: 'Copiat',
     },
@@ -124,29 +120,8 @@ const ca: SiteTranslations = {
     affirmations: {
       newAffirmation: 'Nova afirmació',
     },
-    oracleCards: {
-      label: 'Oràcul',
-      draw: 'Tirar carta',
-      drawAgain: 'Tornar a tirar',
-      themeLove: 'Amor',
-      themeRelations: 'Relacions',
-      themeWork: 'Feina',
-      intentionLabel: 'Què et passa pel cor?',
-      intentionOpen: 'Obert',
-      introOpen: 'Para un moment. Pensa en què necessites escoltar avui.',
-      introLove: 'Pensa en l\'amor — el que dones, el que reps, el que desitges en silenci.',
-      introRelations: 'Pensa en algú — o en un vincle que t\'ha ocupat el cap darrerament.',
-      introWork: 'Pensa en el teu camí — la feina, el dubte, el pas següent que ajornes.',
-      revealOpen: 'Aquest missatge t\'ha trobat.',
-      revealLove: 'Has preguntat per l\'amor — això és el que ha vingut.',
-      revealRelations: 'Has preguntat per les teves relacions — escolta amb calma.',
-      revealWork: 'Has preguntat pel teu camí — això és per a tu.',
-      forYou: 'Per a tu',
-    },
   },
   controls: {
-    themeLight: 'Canviar a mode fosc',
-    themeDark: 'Canviar a mode clar',
     language: 'Idioma',
   },
 }

@@ -57,11 +57,6 @@ const fr: SiteTranslations = {
         category: 'Bien-être',
         description: 'Un générateur d\'affirmations positives de Jung, Fromm, Hillman, Bouddha, Neville Goddard et plus.',
       },
-      'oracle-cards': {
-        name: 'Cartes de l\'oracle',
-        category: 'Bien-être',
-        description: 'Tirez une carte illustrée — un message de l\'oracle qui vous accompagnera tout au long de la journée.',
-      },
     },
   },
   projects: {
@@ -102,11 +97,12 @@ const fr: SiteTranslations = {
     },
     colorStudio: {
       label: 'Colorimètre',
+      chooseColor: 'Choisir une couleur',
       pick: 'Capturer à l\'écran',
       picking: 'Capture…',
       recent: 'Récents',
       fallback:
-        'La capture fonctionne sur Chrome et Edge. Utilisez un navigateur compatible pour capturer n\'importe quelle couleur.',
+        'La capture d\'écran est disponible sur Chrome et Edge en bureau. Utilisez le sélecteur de couleur pour choisir n\'importe quelle teinte.',
       copyHex: 'Copier la couleur hex',
       copied: 'Copié',
     },
@@ -124,29 +120,8 @@ const fr: SiteTranslations = {
     affirmations: {
       newAffirmation: 'Nouvelle affirmation',
     },
-    oracleCards: {
-      label: 'Oracle',
-      draw: 'Tirer une carte',
-      drawAgain: 'Tirer à nouveau',
-      themeLove: 'Amour',
-      themeRelations: 'Relations',
-      themeWork: 'Travail',
-      intentionLabel: 'Qu\'est-ce qui vous touche le cœur ?',
-      intentionOpen: 'Ouvert',
-      introOpen: 'Pausez un instant. Pensez à ce que vous avez besoin d\'entendre aujourd\'hui.',
-      introLove: 'Pensez à l\'amour — ce que vous donnez, ce que vous recevez, ce que vous désirez en silence.',
-      introRelations: 'Pensez à quelqu\'un — ou à un lien qui vous occupe l\'esprit ces derniers temps.',
-      introWork: 'Pensez à votre chemin — le travail, le doute, la prochaine étape que vous repoussez.',
-      revealOpen: 'Ce message vous a trouvée.',
-      revealLove: 'Vous avez demandé l\'amour — voici ce qui est venu.',
-      revealRelations: 'Vous avez demandé vos relations — écoutez avec attention.',
-      revealWork: 'Vous avez demandé votre chemin — ceci est pour vous.',
-      forYou: 'Pour vous',
-    },
   },
   controls: {
-    themeLight: 'Passer en mode sombre',
-    themeDark: 'Passer en mode clair',
     language: 'Langue',
   },
 }

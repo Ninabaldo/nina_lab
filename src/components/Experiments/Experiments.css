@@ -206,8 +206,7 @@
     aspect-ratio: 16 / 10;
   }
 
-  .experiment--affirmations,
-  .experiment--oracle-cards {
+  .experiment--affirmations {
     grid-column: 1 / 13;
     max-width: 640px;
     justify-self: center;
@@ -233,10 +232,6 @@
   }
 
   .experiment--affirmations {
-    grid-column: 1 / 7;
-  }
-
-  .experiment--oracle-cards {
     grid-column: 7 / 13;
   }
 }

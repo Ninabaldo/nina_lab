@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { LANGUAGE_LABELS, SUPPORTED_LANGUAGES, type Language } from '../../lib/preferences'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
-import { useSiteTheme } from '../../hooks/useSiteTheme'
 import './SiteControls.css'
 
 export function SiteControls() {
   const { language, setLanguage, t } = useSiteLanguage()
-  const { theme, toggleTheme } = useSiteTheme()
   const [open, setOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -67,15 +65,6 @@ export function SiteControls() {
           </ul>
         )}
       </div>
-
-      <button
-        type="button"
-        className="site-controls__theme"
-        onClick={toggleTheme}
-        aria-label={theme === 'light' ? t.controls.themeLight : t.controls.themeDark}
-      >
-        <span aria-hidden="true">{theme === 'light' ? '◐' : '◑'}</span>
-      </button>
     </div>
   )
 }

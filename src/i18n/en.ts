@@ -57,11 +57,6 @@ const en: SiteTranslations = {
         category: 'Wellness',
         description: 'A gentle generator of positive affirmations from Jung, Fromm, Hillman, Buddha, Neville Goddard and more.',
       },
-      'oracle-cards': {
-        name: 'Oracle Cards',
-        category: 'Wellness',
-        description: 'Draw an illustrated card — an oracle message to accompany you through your day.',
-      },
     },
   },
   projects: {
@@ -102,11 +97,12 @@ const en: SiteTranslations = {
     },
     colorStudio: {
       label: 'Color meter',
+      chooseColor: 'Choose color',
       pick: 'Pick from screen',
       picking: 'Sampling…',
       recent: 'Recent',
       fallback:
-        'Screen sampling works in Chrome and Edge. Use a supported browser to pick any color on your display.',
+        'Screen sampling is available on Chrome and Edge desktop. Use the color picker to choose any shade.',
       copyHex: 'Copy hex color',
       copied: 'Copied',
     },
@@ -124,29 +120,8 @@ const en: SiteTranslations = {
     affirmations: {
       newAffirmation: 'New affirmation',
     },
-    oracleCards: {
-      label: 'Oracle',
-      draw: 'Draw a card',
-      drawAgain: 'Draw again',
-      themeLove: 'Love',
-      themeRelations: 'Relations',
-      themeWork: 'Work',
-      intentionLabel: 'What is on your heart?',
-      intentionOpen: 'Open',
-      introOpen: 'Pause for a moment. Think of what you need to hear today.',
-      introLove: 'Think of love — what you give, what you receive, what you quietly long for.',
-      introRelations: 'Think of someone — or a bond that has been on your mind lately.',
-      introWork: 'Think of your path — the work, the doubt, the next step you keep postponing.',
-      revealOpen: 'This message found you.',
-      revealLove: 'You asked about love — this is what came through.',
-      revealRelations: 'You asked about your relationships — listen closely.',
-      revealWork: 'You asked about your path — this is for you.',
-      forYou: 'For you',
-    },
   },
   controls: {
-    themeLight: 'Switch to dark mode',
-    themeDark: 'Switch to light mode',
     language: 'Language',
   },
 }

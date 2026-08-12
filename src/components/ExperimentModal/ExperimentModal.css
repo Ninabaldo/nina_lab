@@ -56,16 +56,6 @@
   max-height: 72svh;
 }
 
-.experiment-modal__preview--oracle {
-  min-height: unset;
-  max-height: none;
-  overflow: visible;
-}
-
-.experiment-modal__dialog--oracle {
-  max-width: 400px;
-}
-
 .experiment-modal__content {
   padding: clamp(1.25rem, 4vw, 1.75rem);
   display: flex;

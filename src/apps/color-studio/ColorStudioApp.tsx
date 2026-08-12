@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { hexToRgb } from './colorUtils'
@@ -10,6 +10,7 @@ const MAX_HISTORY = 6
 export function ColorStudioApp() {
   const { t } = useSiteLanguage()
   const app = t.apps.colorStudio
+  const colorInputRef = useRef<HTMLInputElement>(null)
 
   const [color, setColor] = useState('#8ba888')
   const [history, setHistory] = useState<string[]>(['#8ba888'])
@@ -26,6 +27,10 @@ export function ColorStudioApp() {
       const filtered = current.filter((item) => item !== normalized)
       return [normalized, ...filtered].slice(0, MAX_HISTORY)
     })
+  }
+
+  const openColorPicker = () => {
+    colorInputRef.current?.click()
   }
 
   const handlePickFromScreen = async () => {
@@ -49,11 +54,25 @@ export function ColorStudioApp() {
     <div className="color-studio">
       <p className="color-studio__label">{app.label}</p>
 
+      <input
+        ref={colorInputRef}
+        type="color"
+        className="color-studio__input"
+        value={color}
+        onChange={(event) => applyColor(event.target.value)}
+        aria-label={app.chooseColor}
+      />
+
       <div className="color-studio__meter" style={{ '--meter-color': color } as CSSProperties}>
-        <div className="color-studio__sample" aria-hidden="true">
-          <span className="color-studio__sample-fill" />
-          <span className="color-studio__sample-ring" />
-        </div>
+        <button
+          type="button"
+          className="color-studio__sample"
+          onClick={openColorPicker}
+          aria-label={app.chooseColor}
+        >
+          <span className="color-studio__sample-fill" aria-hidden="true" />
+          <span className="color-studio__sample-ring" aria-hidden="true" />
+        </button>
 
         <div className="color-studio__readout">
           <div className="color-studio__hex-row">
@@ -77,19 +96,23 @@ export function ColorStudioApp() {
         </div>
       </div>
 
-      <button
-        type="button"
-        className="color-studio__pick"
-        onClick={handlePickFromScreen}
-        disabled={!canPickFromScreen || picking}
-      >
-        <span className="color-studio__pick-icon" aria-hidden="true">◉</span>
-        {picking ? app.picking : app.pick}
-      </button>
+      <div className="color-studio__actions">
+        <button type="button" className="color-studio__choose" onClick={openColorPicker}>
+          {app.chooseColor}
+        </button>
 
-      {!canPickFromScreen && (
-        <p className="color-studio__fallback">{app.fallback}</p>
-      )}
+        {canPickFromScreen && (
+          <button
+            type="button"
+            className="color-studio__pick"
+            onClick={handlePickFromScreen}
+            disabled={picking}
+          >
+            <span className="color-studio__pick-icon" aria-hidden="true">◉</span>
+            {picking ? app.picking : app.pick}
+          </button>
+        )}
+      </div>
 
       {history.length > 0 && (
         <div className="color-studio__history">
@@ -101,7 +124,7 @@ export function ColorStudioApp() {
                 type="button"
                 className={`color-studio__history-swatch ${swatch === color ? 'color-studio__history-swatch--active' : ''}`}
                 style={{ background: swatch }}
-                onClick={() => setColor(swatch)}
+                onClick={() => applyColor(swatch)}
                 aria-label={`Select ${swatch}`}
               />
             ))}

@@ -81,6 +81,7 @@ export interface SiteTranslations {
     }
     colorStudio: {
       label: string
+      chooseColor: string
       pick: string
       picking: string
       recent: string
@@ -102,29 +103,8 @@ export interface SiteTranslations {
     affirmations: {
       newAffirmation: string
     }
-    oracleCards: {
-      label: string
-      draw: string
-      drawAgain: string
-      themeLove: string
-      themeRelations: string
-      themeWork: string
-      intentionLabel: string
-      intentionOpen: string
-      introOpen: string
-      introLove: string
-      introRelations: string
-      introWork: string
-      revealOpen: string
-      revealLove: string
-      revealRelations: string
-      revealWork: string
-      forYou: string
-    }
   }
   controls: {
-    themeLight: string
-    themeDark: string
     language: string
   }
 }
