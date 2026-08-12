@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useId, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { hexToRgb } from './colorUtils'
@@ -10,7 +10,7 @@ const MAX_HISTORY = 6
 export function ColorStudioApp() {
   const { t } = useSiteLanguage()
   const app = t.apps.colorStudio
-  const colorInputRef = useRef<HTMLInputElement>(null)
+  const colorInputId = useId()
 
   const [color, setColor] = useState('#8ba888')
   const [history, setHistory] = useState<string[]>(['#8ba888'])
@@ -27,10 +27,6 @@ export function ColorStudioApp() {
       const filtered = current.filter((item) => item !== normalized)
       return [normalized, ...filtered].slice(0, MAX_HISTORY)
     })
-  }
-
-  const openColorPicker = () => {
-    colorInputRef.current?.click()
   }
 
   const handlePickFromScreen = async () => {
@@ -54,25 +50,19 @@ export function ColorStudioApp() {
     <div className="color-studio">
       <p className="color-studio__label">{app.label}</p>
 
-      <input
-        ref={colorInputRef}
-        type="color"
-        className="color-studio__input"
-        value={color}
-        onChange={(event) => applyColor(event.target.value)}
-        aria-label={app.chooseColor}
-      />
-
       <div className="color-studio__meter" style={{ '--meter-color': color } as CSSProperties}>
-        <button
-          type="button"
-          className="color-studio__sample"
-          onClick={openColorPicker}
-          aria-label={app.chooseColor}
-        >
+        <label className="color-studio__sample" htmlFor={colorInputId}>
+          <input
+            id={colorInputId}
+            type="color"
+            className="color-studio__input"
+            value={color}
+            onChange={(event) => applyColor(event.target.value)}
+            aria-label={app.chooseColor}
+          />
           <span className="color-studio__sample-fill" aria-hidden="true" />
           <span className="color-studio__sample-ring" aria-hidden="true" />
-        </button>
+        </label>
 
         <div className="color-studio__readout">
           <div className="color-studio__hex-row">
@@ -97,9 +87,9 @@ export function ColorStudioApp() {
       </div>
 
       <div className="color-studio__actions">
-        <button type="button" className="color-studio__choose" onClick={openColorPicker}>
+        <label className="color-studio__choose" htmlFor={colorInputId}>
           {app.chooseColor}
-        </button>
+        </label>
 
         {canPickFromScreen && (
           <button

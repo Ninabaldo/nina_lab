@@ -20,14 +20,16 @@
 
 .color-studio__input {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  border: none;
+  opacity: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .color-studio__meter {
@@ -174,9 +176,10 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: opacity 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.color-studio__choose:hover {
+.color-studio__choose:active {
   opacity: 0.88;
 }
 
@@ -204,6 +207,12 @@
 .color-studio__pick:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .color-studio__pick {
+    display: none;
+  }
 }
 
 .color-studio__pick-icon {
