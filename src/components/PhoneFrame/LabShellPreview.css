@@ -1,0 +1,142 @@
+.lab-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.875rem 1.25rem;
+  background: var(--color-bg);
+  min-height: 0;
+}
+
+.lab-shell__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.lab-shell__lang,
+.lab-shell__theme {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+}
+
+.lab-shell__theme {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 0.55rem;
+}
+
+.lab-shell__intro {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.lab-shell__name {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.lab-shell__subtitle {
+  margin: 0;
+  font-size: 0.52rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.lab-shell__grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.lab-shell__tile {
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  min-height: 52px;
+}
+
+.lab-shell__tile--timer {
+  background:
+    radial-gradient(circle at center, transparent 42%, var(--color-border) 43%, transparent 44%),
+    var(--color-bg-warm);
+}
+
+.lab-shell__tile--colors {
+  background: var(--color-bg-warm);
+  position: relative;
+}
+
+.lab-shell__tile--colors::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-accent-sage);
+  opacity: 0.75;
+}
+
+.lab-shell__tile--bill {
+  background: var(--color-bg-alt);
+}
+
+.lab-shell__tile--quote {
+  background: var(--color-bg-warm);
+  position: relative;
+}
+
+.lab-shell__tile--quote::before {
+  content: '“';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  opacity: 0.5;
+}
+
+.lab-shell__meta {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.45rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.lab-shell__langs {
+  display: block;
+  margin-top: 0.15rem;
+  opacity: 0.75;
+}
+
+.phone-frame__screen .lab-shell {
+  flex: 1;
+  min-height: 0;
+}

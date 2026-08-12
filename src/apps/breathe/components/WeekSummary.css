@@ -1,0 +1,54 @@
+.week-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  width: 100%;
+}
+
+.week-summary__title {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--breathe-text-light);
+}
+
+.week-summary__stats {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--breathe-text-muted);
+}
+
+.week-summary__dot {
+  margin: 0 0.35rem;
+  opacity: 0.5;
+}
+
+.week-summary__days {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.week-summary__day {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--breathe-border);
+}
+
+.week-summary__day--active {
+  background: var(--breathe-accent);
+}
+
+.week-summary--compact .week-summary__stats {
+  font-size: 0.7rem;
+}
+
+.week-summary--compact .week-summary__day {
+  width: 5px;
+  height: 5px;
+}

@@ -1,0 +1,175 @@
+.experiment-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+.experiment-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: var(--color-overlay);
+  cursor: pointer;
+  animation: modal-fade-in 0.3s ease;
+}
+
+.experiment-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100svh - 2rem);
+  overflow: auto;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  animation: modal-slide-up 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.experiment-modal__preview {
+  border-bottom: 1px solid var(--color-border);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.experiment-modal__preview--app {
+  aspect-ratio: auto;
+  min-height: 280px;
+  max-height: 55svh;
+  overflow-y: auto;
+}
+
+.experiment-modal__dialog--app {
+  max-width: 440px;
+}
+
+.experiment-modal__dialog--breathe {
+  max-width: 480px;
+}
+
+.experiment-modal__preview--breathe {
+  min-height: 420px;
+  max-height: 72svh;
+}
+
+.experiment-modal__preview--oracle {
+  min-height: unset;
+  max-height: none;
+  overflow: visible;
+}
+
+.experiment-modal__dialog--oracle {
+  max-width: 400px;
+}
+
+.experiment-modal__content {
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.experiment-modal__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.experiment-modal__category {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+.experiment-modal__status {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+}
+
+.experiment-modal__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.experiment-modal__description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.experiment-modal__note {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-light);
+}
+
+.experiment-modal__close {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.experiment-modal__close:hover {
+  border-color: var(--color-text-light);
+  background: var(--color-bg);
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experiment-modal__backdrop,
+  .experiment-modal__dialog {
+    animation: none;
+  }
+
+  .experiment-modal__close {
+    transition: none;
+  }
+}

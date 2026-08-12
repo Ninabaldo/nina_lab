@@ -1,0 +1,56 @@
+.breathing-orb {
+  position: relative;
+  width: min(220px, 55vw);
+  height: min(220px, 55vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breathing-orb__ring,
+.breathing-orb__core {
+  position: absolute;
+  border-radius: 50%;
+  transition: transform 0.1s linear;
+}
+
+.breathing-orb__ring--outer {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--breathe-orb-ring);
+  opacity: 0.35;
+}
+
+.breathing-orb__ring--middle {
+  width: 78%;
+  height: 78%;
+  background: var(--breathe-orb-glow);
+  opacity: 0.5;
+}
+
+.breathing-orb__core {
+  width: 52%;
+  height: 52%;
+  background: var(--breathe-orb-core);
+  box-shadow: 0 0 40px var(--breathe-orb-glow);
+}
+
+.breathing-orb__ring--static,
+.breathing-orb__core--static {
+  transition: opacity 0.6s ease;
+}
+
+.breathing-orb__core--static[data-phase='inhale'] {
+  opacity: 1;
+}
+
+.breathing-orb__core--static[data-phase='exhale'] {
+  opacity: 0.72;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathing-orb__ring,
+  .breathing-orb__core {
+    transition: opacity 0.6s ease;
+  }
+}

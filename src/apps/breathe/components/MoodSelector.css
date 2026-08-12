@@ -1,0 +1,57 @@
+.mood-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.mood-selector__label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--breathe-text-light);
+  text-align: center;
+}
+
+.mood-selector__options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mood-selector__option {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--breathe-border);
+  border-radius: 50%;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--breathe-text-muted);
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+
+.mood-selector__option:hover {
+  border-color: var(--breathe-text-light);
+  color: var(--breathe-text);
+}
+
+.mood-selector__option--active {
+  border-color: var(--breathe-text);
+  color: var(--breathe-text);
+  background: var(--breathe-surface);
+}
+
+.breathe-app--compact .mood-selector__option {
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.62rem;
+}
+
+.breathe-app--static .mood-selector__option {
+  pointer-events: none;
+}

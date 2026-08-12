@@ -1,0 +1,49 @@
+/* Breathe theme tokens — scoped to the app */
+.breathe-app {
+  --breathe-bg: #f5f2eb;
+  --breathe-surface: #ffffff;
+  --breathe-text: #1c1c1c;
+  --breathe-text-muted: #6b6560;
+  --breathe-text-light: #9a948d;
+  --breathe-border: #e0dbd3;
+  --breathe-accent: #8ba888;
+  --breathe-orb-core: rgba(139, 168, 136, 0.55);
+  --breathe-orb-glow: rgba(139, 168, 136, 0.18);
+  --breathe-orb-ring: rgba(139, 168, 136, 0.35);
+
+  background: var(--breathe-bg);
+  color: var(--breathe-text);
+  font-family: var(--font-body);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+[data-theme='dark'] .breathe-app {
+  --breathe-bg: #161514;
+  --breathe-surface: #1f1e1c;
+  --breathe-text: #f0ebe3;
+  --breathe-text-muted: #b5afa6;
+  --breathe-text-light: #8a837a;
+  --breathe-border: #3a3834;
+  --breathe-accent: #9db89a;
+  --breathe-orb-core: rgba(157, 184, 154, 0.48);
+  --breathe-orb-glow: rgba(157, 184, 154, 0.14);
+  --breathe-orb-ring: rgba(157, 184, 154, 0.32);
+}
+
+.breathe-app--standalone {
+  min-height: 100svh;
+}
+
+.breathe-app--compact {
+  min-height: clamp(480px, 62vw, 640px);
+  border-radius: calc(var(--radius-xl) - 4px);
+  overflow: hidden;
+}
+
+.breathe-app--static {
+  pointer-events: none;
+  min-height: 100%;
+}

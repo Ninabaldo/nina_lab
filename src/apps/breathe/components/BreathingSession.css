@@ -1,0 +1,170 @@
+.breathing-session {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2rem);
+  min-height: 100%;
+}
+
+.breathing-session__center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.breathing-session__instruction {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--breathe-text-muted);
+}
+
+.breathing-session__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.breathing-session__action {
+  padding: 0.65rem 1.25rem;
+  border: 1px solid var(--breathe-border);
+  border-radius: 100px;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--breathe-text-muted);
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.breathing-session__action:hover {
+  border-color: var(--breathe-text-light);
+  color: var(--breathe-text);
+}
+
+.breathing-session__action--end {
+  border-color: transparent;
+  color: var(--breathe-text-light);
+}
+
+.breathing-session--complete {
+  justify-content: center;
+}
+
+.breathing-session__complete {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.breathing-session__done {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--breathe-text);
+}
+
+.breathing-session__done-message {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--breathe-text-muted);
+  max-width: 24ch;
+}
+
+.breathing-session__close {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--breathe-text);
+  border-radius: 100px;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--breathe-text);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.breathing-session__close:hover {
+  background: var(--breathe-text);
+  color: var(--breathe-bg);
+}
+
+.breathing-session__complete-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.breathing-session__mood-compare {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--breathe-text-light);
+}
+
+.breathing-session__mood-sep {
+  margin: 0 0.4rem;
+}
+
+.breathing-session__confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.breathing-session__confirm-text {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--breathe-text-muted);
+}
+
+.breathing-session__confirm-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.breathe-app--compact .breathing-session {
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.breathe-app--compact .breathing-session__instruction {
+  font-size: 0.62rem;
+}
+
+.breathe-app--compact .breathing-session__action {
+  padding: 0.5rem 1rem;
+  font-size: 0.6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathing-session__action,
+  .breathing-session__close {
+    transition: none;
+  }
+}

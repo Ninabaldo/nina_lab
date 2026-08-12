@@ -1,0 +1,120 @@
+.focus-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  min-height: 280px;
+  background: var(--color-bg-warm);
+}
+
+.focus-timer__presets {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.focus-timer__preset {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.focus-timer__preset:hover:not(:disabled) {
+  border-color: var(--color-text-light);
+  color: var(--color-text);
+}
+
+.focus-timer__preset--active {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.focus-timer__preset:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.focus-timer__display {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.focus-timer__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.focus-timer__progress {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.focus-timer__time {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+.focus-timer__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.focus-timer__btn {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.focus-timer__btn:hover {
+  border-color: var(--color-text-light);
+  color: var(--color-text);
+}
+
+.focus-timer__btn--primary {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg-alt);
+}
+
+.focus-timer__btn--primary:hover {
+  opacity: 0.88;
+  color: var(--color-bg-alt);
+}
+
+.focus-timer__btn--ghost {
+  border-color: transparent;
+  color: var(--color-text-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focus-timer__progress {
+    transition: none;
+  }
+}
