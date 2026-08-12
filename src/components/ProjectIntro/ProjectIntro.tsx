@@ -25,7 +25,7 @@ export function ProjectIntro() {
             </div>
             <div className="meta-list__item">
               <dt>{t.intro.meta.tech}</dt>
-              <dd>React · TypeScript · PWA · IA</dd>
+              <dd>{t.intro.meta.techValue}</dd>
             </div>
           </dl>
         </aside>

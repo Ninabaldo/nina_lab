@@ -19,6 +19,7 @@ const fr: SiteTranslations = {
       type: 'Type',
       year: 'Année',
       tech: 'Tech',
+      techValue: 'React · TypeScript · PWA · GitHub · Vercel · IA (Cursor)',
       projectValue: "Nina's Lab",
       typeValue: 'Expériences digitales',
     },

@@ -95,6 +95,7 @@ export interface SiteTranslations {
       type: string
       year: string
       tech: string
+      techValue: string
       projectValue: string
       typeValue: string
     }
