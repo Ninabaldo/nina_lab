@@ -26,7 +26,7 @@ export function LabShellPreview() {
 
           <div className="lab-shell__grid" aria-hidden="true">
             <span className="lab-shell__tile lab-shell__tile--timer" />
-            <span className="lab-shell__tile lab-shell__tile--colors" />
+            <span className="lab-shell__tile lab-shell__tile--life" />
             <span className="lab-shell__tile lab-shell__tile--bill" />
             <span className="lab-shell__tile lab-shell__tile--quote" />
           </div>

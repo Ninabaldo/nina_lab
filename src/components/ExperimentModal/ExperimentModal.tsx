@@ -51,13 +51,13 @@ export function ExperimentModal({ experiment, onClose }: ExperimentModalProps) {
 
       <div
         ref={dialogRef}
-        className={`experiment-modal__dialog ${isInteractive ? 'experiment-modal__dialog--app' : ''} ${experiment.id === 'breathe' ? 'experiment-modal__dialog--breathe' : ''}`}
+        className={`experiment-modal__dialog ${isInteractive ? 'experiment-modal__dialog--app' : ''} ${experiment.id === 'breathe' ? 'experiment-modal__dialog--breathe' : ''} ${experiment.id === 'life-algorithm' ? 'experiment-modal__dialog--life' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="experiment-modal-title"
       >
         <div
-          className={`experiment-modal__preview ${isInteractive ? 'experiment-modal__preview--app' : ''} ${experiment.id === 'breathe' ? 'experiment-modal__preview--breathe' : ''}`}
+          className={`experiment-modal__preview ${isInteractive ? 'experiment-modal__preview--app' : ''} ${experiment.id === 'breathe' ? 'experiment-modal__preview--breathe' : ''} ${experiment.id === 'life-algorithm' ? 'experiment-modal__preview--life' : ''}`}
         >
           {isInteractive ? (
             <ExperimentApp type={experiment.previewType} />

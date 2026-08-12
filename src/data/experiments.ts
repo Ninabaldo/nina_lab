@@ -1,6 +1,6 @@
 export type ExperimentStatus = 'coming-soon' | 'available' | 'draft'
 
-export type ExperimentPreviewType = 'breathe' | 'timer' | 'colors' | 'bill' | 'affirmations'
+export type ExperimentPreviewType = 'breathe' | 'timer' | 'life' | 'bill' | 'affirmations'
 
 export type ExperimentSize = 'large' | 'medium' | 'small'
 
@@ -25,9 +25,9 @@ export const experiments: Experiment[] = [
     size: 'small',
   },
   {
-    id: 'color-studio',
+    id: 'life-algorithm',
     status: 'available',
-    previewType: 'colors',
+    previewType: 'life',
     size: 'medium',
   },
   {

@@ -6,6 +6,77 @@ export interface ExperimentCopy {
   category: string
 }
 
+export interface LifeAlgorithmOptionCopy {
+  label: string
+  detail: string
+  subdetail: string
+}
+
+export interface LifeAlgorithmQuestionCopy {
+  theme: string
+  a: LifeAlgorithmOptionCopy
+  b: LifeAlgorithmOptionCopy
+}
+
+export interface LifeAlgorithmTimelineItem {
+  time: string
+  activity: string
+}
+
+export interface LifeAlgorithmProfileCopy {
+  name: string
+  city: string
+  lifestyle: string
+  timeline: LifeAlgorithmTimelineItem[]
+  observations: {
+    value: string
+    need: string
+    enjoy: string
+    miss: string
+  }
+}
+
+export interface LifeAlgorithmCopy {
+  lab: string
+  title: string
+  subtitle: string
+  introHint: string
+  start: string
+  tryAgain: string
+  resultEyebrow: string
+  resultLead: string
+  yourVersion: string
+  idealDay: string
+  obsYouValue: string
+  obsYouNeed: string
+  obsYouEnjoy: string
+  obsYouMiss: string
+  closing1: string
+  closing2: string
+  questions: Record<
+    | 'morning'
+    | 'home'
+    | 'saturday'
+    | 'work'
+    | 'distance'
+    | 'evening'
+    | 'money'
+    | 'travel'
+    | 'weather'
+    | 'life',
+    LifeAlgorithmQuestionCopy
+  >
+  profiles: Record<
+    | 'coastalCreative'
+    | 'urbanNomad'
+    | 'slowBuilder'
+    | 'culturalExplorer'
+    | 'sunSeeker'
+    | 'quietAchiever',
+    LifeAlgorithmProfileCopy
+  >
+}
+
 export interface SiteTranslations {
   hero: {
     subtitle1: string
@@ -49,6 +120,8 @@ export interface SiteTranslations {
     teaserTitle: string
     teaserText: string
     empty: string
+    comingSoonHeadline: string
+    comingSoonText: string
     items: Record<string, {
       name: string
       category: string
@@ -79,16 +152,7 @@ export interface SiteTranslations {
       resume: string
       reset: string
     }
-    colorStudio: {
-      label: string
-      chooseColor: string
-      pick: string
-      picking: string
-      recent: string
-      fallback: string
-      copyHex: string
-      copied: string
-    }
+    lifeAlgorithm: LifeAlgorithmCopy
     splitBill: {
       billTotal: string
       tip: string

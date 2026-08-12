@@ -1,15 +1,15 @@
 import type { JSX } from 'react'
 import { AffirmationsApp } from '../../apps/affirmations/AffirmationsApp'
 import { BreatheApp } from '../../apps/breathe/BreatheApp'
-import { ColorStudioApp } from '../../apps/color-studio/ColorStudioApp'
 import { FocusTimerApp } from '../../apps/focus-timer/FocusTimerApp'
+import { LifeAlgorithmApp } from '../../apps/life-algorithm/LifeAlgorithmApp'
 import { SplitBillApp } from '../../apps/split-bill/SplitBillApp'
 import type { ExperimentPreviewType } from '../../data/experiments'
 
 const appComponents: Partial<Record<ExperimentPreviewType, () => JSX.Element>> = {
   breathe: () => <BreatheApp embedded />,
   timer: FocusTimerApp,
-  colors: ColorStudioApp,
+  life: LifeAlgorithmApp,
   bill: SplitBillApp,
   affirmations: AffirmationsApp,
 }

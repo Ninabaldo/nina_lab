@@ -1,4 +1,5 @@
 import type { SiteTranslations } from './types'
+import { lifeAlgorithmCa } from './lifeAlgorithm/ca'
 
 const ca: SiteTranslations = {
   hero: {
@@ -42,10 +43,10 @@ const ca: SiteTranslations = {
         category: 'Productivitat',
         description: 'Un temporitzador pomodoro suau amb feedback visual ambiental.',
       },
-      'color-studio': {
-        name: 'Color Studio',
-        category: 'Disseny',
-        description: 'Un mesurador de color minimalista — captura qualsevol color de la teva pantalla.',
+      'life-algorithm': {
+        name: "L'algoritme de la vida",
+        category: 'Experiència',
+        description: '10 decisions. Una vida possible. Un perfil fictici basat en com tries viure.',
       },
       'split-the-bill': {
         name: 'Split the Bill',
@@ -70,6 +71,9 @@ const ca: SiteTranslations = {
     teaserTitle: 'Projectes',
     teaserText: 'Idees més grans prenent forma — fetes a poc a poc, amb calma.',
     empty: 'Més projectes en camí.',
+    comingSoonHeadline: 'Encara al laboratori',
+    comingSoonText:
+      'Idees més grans, fetes sense presses. Mentrestant, pots explorar els experiments del lab.',
     items: {},
   },
   footer: {
@@ -95,17 +99,7 @@ const ca: SiteTranslations = {
       resume: 'Continuar',
       reset: 'Reiniciar',
     },
-    colorStudio: {
-      label: 'Mesurador de color',
-      chooseColor: 'Triar color',
-      pick: 'Capturar de pantalla',
-      picking: 'Capturant…',
-      recent: 'Recents',
-      fallback:
-        'La captura de pantalla està disponible a Chrome i Edge en ordinador. Utilitza el selector de color per triar qualsevol to.',
-      copyHex: 'Copiar color hex',
-      copied: 'Copiat',
-    },
+    lifeAlgorithm: lifeAlgorithmCa,
     splitBill: {
       billTotal: 'Total compte',
       tip: 'Propina',

@@ -40,14 +40,13 @@ function TimerPreview() {
   )
 }
 
-function ColorsPreview() {
+function LifePreview() {
   return (
-    <div className="preview preview--colors">
-      <div className="preview-meter">
-        <span className="preview-meter__ring" aria-hidden="true">
-          <span className="preview-meter__sample" />
-        </span>
-        <span className="preview-meter__hex">#8BA888</span>
+    <div className="preview preview--life">
+      <div className="preview-life">
+        <span className="preview-life__count">01</span>
+        <span className="preview-life__divider" aria-hidden="true" />
+        <span className="preview-life__total">10</span>
       </div>
     </div>
   )
@@ -98,7 +97,7 @@ function AffirmationsPreview() {
 const previewComponents: Record<ExperimentPreviewType, () => JSX.Element> = {
   breathe: BreathePreview,
   timer: TimerPreview,
-  colors: ColorsPreview,
+  life: LifePreview,
   bill: BillPreview,
   affirmations: AffirmationsPreview,
 }

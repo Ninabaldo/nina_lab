@@ -1,4 +1,5 @@
 import type { SiteTranslations } from './types'
+import { lifeAlgorithmEn } from './lifeAlgorithm/en'
 
 const en: SiteTranslations = {
   hero: {
@@ -42,10 +43,10 @@ const en: SiteTranslations = {
         category: 'Productivity',
         description: 'A gentle pomodoro timer with ambient visual feedback.',
       },
-      'color-studio': {
-        name: 'Color Studio',
-        category: 'Design',
-        description: 'A minimal color meter — sample any color directly from your screen.',
+      'life-algorithm': {
+        name: 'The Life Algorithm',
+        category: 'Experience',
+        description: '10 choices. One possible life. A fictional profile shaped by how you choose to live.',
       },
       'split-the-bill': {
         name: 'Split the Bill',
@@ -70,6 +71,9 @@ const en: SiteTranslations = {
     teaserTitle: 'Projects',
     teaserText: 'Bigger ideas taking shape — built slowly, with care.',
     empty: 'More projects on the way.',
+    comingSoonHeadline: 'Still in the lab',
+    comingSoonText:
+      'Bigger ideas, built without rush. In the meantime, explore the experiments on the home page.',
     items: {},
   },
   footer: {
@@ -95,17 +99,7 @@ const en: SiteTranslations = {
       resume: 'Resume',
       reset: 'Reset',
     },
-    colorStudio: {
-      label: 'Color meter',
-      chooseColor: 'Choose color',
-      pick: 'Pick from screen',
-      picking: 'Sampling…',
-      recent: 'Recent',
-      fallback:
-        'Screen sampling is available on Chrome and Edge desktop. Use the color picker to choose any shade.',
-      copyHex: 'Copy hex color',
-      copied: 'Copied',
-    },
+    lifeAlgorithm: lifeAlgorithmEn,
     splitBill: {
       billTotal: 'Bill total',
       tip: 'Tip',

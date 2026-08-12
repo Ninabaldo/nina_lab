@@ -56,6 +56,16 @@
   max-height: 72svh;
 }
 
+.experiment-modal__dialog--life {
+  max-width: 520px;
+}
+
+.experiment-modal__preview--life {
+  min-height: min(78svh, 680px);
+  max-height: 78svh;
+  overflow-y: auto;
+}
+
 .experiment-modal__content {
   padding: clamp(1.25rem, 4vw, 1.75rem);
   display: flex;

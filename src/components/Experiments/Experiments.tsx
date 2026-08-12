@@ -82,7 +82,7 @@ export function Experiments() {
   const { t } = useSiteLanguage()
 
   return (
-    <section className="experiments" aria-labelledby="experiments-heading">
+    <section id="experiments" className="experiments" aria-labelledby="experiments-heading">
       <div className="experiments__inner">
         <header className="experiments__header reveal" ref={sectionRef}>
           <h2 id="experiments-heading" className="experiments__title">{t.experiments.title}</h2>

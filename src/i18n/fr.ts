@@ -1,4 +1,5 @@
 import type { SiteTranslations } from './types'
+import { lifeAlgorithmFr } from './lifeAlgorithm/fr'
 
 const fr: SiteTranslations = {
   hero: {
@@ -42,10 +43,10 @@ const fr: SiteTranslations = {
         category: 'Productivité',
         description: 'Un minuteur pomodoro doux avec un retour visuel apaisant.',
       },
-      'color-studio': {
-        name: 'Color Studio',
-        category: 'Design',
-        description: 'Un colorimètre minimaliste — capturez n\'importe quelle couleur de votre écran.',
+      'life-algorithm': {
+        name: 'L\u2019algorithme de la vie',
+        category: 'Expérience',
+        description: '10 choix. Une vie possible. Un profil fictif selon la façon dont vous choisissez de vivre.',
       },
       'split-the-bill': {
         name: 'Split the Bill',
@@ -70,6 +71,9 @@ const fr: SiteTranslations = {
     teaserTitle: 'Projets',
     teaserText: 'Des idées plus grandes en gestation — construites lentement, avec soin.',
     empty: 'D\'autres projets arrivent bientôt.',
+    comingSoonHeadline: 'Encore au laboratoire',
+    comingSoonText:
+      'Des idées plus grandes, construites sans précipitation. En attendant, explorez les expériences du lab.',
     items: {},
   },
   footer: {
@@ -95,17 +99,7 @@ const fr: SiteTranslations = {
       resume: 'Reprendre',
       reset: 'Réinitialiser',
     },
-    colorStudio: {
-      label: 'Colorimètre',
-      chooseColor: 'Choisir une couleur',
-      pick: 'Capturer à l\'écran',
-      picking: 'Capture…',
-      recent: 'Récents',
-      fallback:
-        'La capture d\'écran est disponible sur Chrome et Edge en bureau. Utilisez le sélecteur de couleur pour choisir n\'importe quelle teinte.',
-      copyHex: 'Copier la couleur hex',
-      copied: 'Copié',
-    },
+    lifeAlgorithm: lifeAlgorithmFr,
     splitBill: {
       billTotal: 'Total addition',
       tip: 'Pourboire',

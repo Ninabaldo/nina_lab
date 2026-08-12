@@ -1,4 +1,5 @@
 import type { SiteTranslations } from './types'
+import { lifeAlgorithmEs } from './lifeAlgorithm/es'
 
 const es: SiteTranslations = {
   hero: {
@@ -42,10 +43,10 @@ const es: SiteTranslations = {
         category: 'Productividad',
         description: 'Un temporizador pomodoro suave con feedback visual ambiental.',
       },
-      'color-studio': {
-        name: 'Color Studio',
-        category: 'Diseño',
-        description: 'Un medidor de color minimalista — captura cualquier color de tu pantalla.',
+      'life-algorithm': {
+        name: 'El algoritmo de la vida',
+        category: 'Experiencia',
+        description: '10 decisiones. Una vida posible. Un perfil ficticio según cómo eliges vivir.',
       },
       'split-the-bill': {
         name: 'Split the Bill',
@@ -70,6 +71,9 @@ const es: SiteTranslations = {
     teaserTitle: 'Proyectos',
     teaserText: 'Ideas más grandes tomando forma — hechas despacio, con calma.',
     empty: 'Más proyectos en camino.',
+    comingSoonHeadline: 'Aún en el laboratorio',
+    comingSoonText:
+      'Ideas más grandes, hechas sin prisas. Mientras tanto, explora los experimentos del lab.',
     items: {},
   },
   footer: {
@@ -95,17 +99,7 @@ const es: SiteTranslations = {
       resume: 'Continuar',
       reset: 'Reiniciar',
     },
-    colorStudio: {
-      label: 'Medidor de color',
-      chooseColor: 'Elegir color',
-      pick: 'Capturar de pantalla',
-      picking: 'Capturando…',
-      recent: 'Recientes',
-      fallback:
-        'La captura de pantalla está disponible en Chrome y Edge en escritorio. Usa el selector de color para elegir cualquier tono.',
-      copyHex: 'Copiar color hex',
-      copied: 'Copiado',
-    },
+    lifeAlgorithm: lifeAlgorithmEs,
     splitBill: {
       billTotal: 'Total cuenta',
       tip: 'Propina',
