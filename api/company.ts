@@ -4,7 +4,7 @@ import {
   isRateLimitMessage,
   normalizeTicker,
   type GlobalQuoteResponse,
-} from './_lib/alphaVantage'
+} from './_lib/alphaVantage.js'
 
 interface ApiRequest {
   method?: string

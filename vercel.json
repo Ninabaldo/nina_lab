@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/company.ts": {
+      "includeFiles": "api/_lib/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/((?!api/).*)",
