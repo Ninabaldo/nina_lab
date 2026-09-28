@@ -86,13 +86,6 @@ const es: SiteTranslations = {
         description: 'Página web interactiva para profesionales del estilismo de interiores.',
         previewAria: 'Vista previa del sitio nook',
       },
-      'incident-brief': {
-        name: 'Incident Brief',
-        category: 'Operaciones',
-        description:
-          'Herramienta de una sola página que traduce errores técnicos y JSON de API a un lenguaje claro para clientes y equipos.',
-        previewAria: 'Vista previa de Incident Brief',
-      },
     },
   },
   footer: {

@@ -15,11 +15,6 @@ export const projects: Project[] = [
     featured: true,
     previewUrl: 'https://nook-ochre-eight.vercel.app/',
   },
-  {
-    id: 'incident-brief',
-    status: 'available',
-    appPath: '/incident-brief',
-  },
 ]
 
 export function getFeaturedProject(): Project | undefined {

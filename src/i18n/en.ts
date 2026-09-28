@@ -86,13 +86,6 @@ const en: SiteTranslations = {
         description: 'An interactive website for interior styling professionals.',
         previewAria: 'Preview of the nook website',
       },
-      'incident-brief': {
-        name: 'Incident Brief',
-        category: 'Operations',
-        description:
-          'A single-page tool that turns technical errors and API JSON into clear language for clients and teams.',
-        previewAria: 'Preview of Incident Brief',
-      },
     },
   },
   footer: {

@@ -86,13 +86,6 @@ const fr: SiteTranslations = {
         description: 'Site web interactif à destination des professionnels du stylisme d\'intérieur.',
         previewAria: 'Aperçu du site nook',
       },
-      'incident-brief': {
-        name: 'Incident Brief',
-        category: 'Opérations',
-        description:
-          'Outil monopage qui traduit les erreurs techniques et les JSON d\'API en langage clair pour les clients et les équipes.',
-        previewAria: 'Aperçu d\'Incident Brief',
-      },
     },
   },
   footer: {
