@@ -2,6 +2,9 @@
   "functions": {
     "api/company.ts": {
       "includeFiles": "api/_lib/**"
+    },
+    "api/incident-brief.ts": {
+      "includeFiles": "api/_lib/**"
     }
   },
   "rewrites": [

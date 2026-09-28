@@ -1,6 +1,11 @@
 export type ExperimentStatus = 'coming-soon' | 'available' | 'draft'
 
-export type ExperimentPreviewType = 'breathe' | 'timer' | 'life' | 'bill' | 'affirmations'
+export type ExperimentPreviewType =
+  | 'breathe'
+  | 'timer'
+  | 'life'
+  | 'bill'
+  | 'affirmations'
 
 export type ExperimentSize = 'large' | 'medium' | 'small'
 

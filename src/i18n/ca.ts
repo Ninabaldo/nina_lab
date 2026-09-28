@@ -1,4 +1,6 @@
 import type { SiteTranslations } from './types'
+import { companyCalculatorCa } from './companyCalculator/ca'
+import { incidentBriefCa } from './incidentBrief/ca'
 import { lifeAlgorithmCa } from './lifeAlgorithm/ca'
 
 const ca: SiteTranslations = {
@@ -63,7 +65,7 @@ const ca: SiteTranslations = {
   },
   projects: {
     title: 'Projectes',
-    subtitle: 'Experiments més grans — fets a poc a poc, amb calma.',
+    subtitle: 'Experiències digitals — producte, disseny i tecnologia.',
     featured: 'Experiment destacat',
     comingSoon: 'Pròximament',
     viewProjects: 'Veure projectes',
@@ -75,7 +77,23 @@ const ca: SiteTranslations = {
     comingSoonHeadline: 'Encara al laboratori',
     comingSoonText:
       'Idees més grans, fetes sense presses. Mentrestant, pots explorar els experiments del lab.',
-    items: {},
+    openProject: 'Obrir el projecte',
+    backToProjects: 'Tornar a projectes',
+    items: {
+      nook: {
+        name: 'nook',
+        category: 'Estilisme d\'interiors',
+        description: 'Pàgina web interactiva per a professionals de l\'estilisme d\'interiors.',
+        previewAria: 'Previsualització del web nook',
+      },
+      'incident-brief': {
+        name: 'Incident Brief',
+        category: 'Operacions',
+        description:
+          'Eina d\'una sola pàgina que tradueix errors tècnics i JSON d\'API a llenguatge clar per a clients i equips.',
+        previewAria: 'Previsualització d\'Incident Brief',
+      },
+    },
   },
   footer: {
     nameFirst: 'Nina',
@@ -115,6 +133,8 @@ const ca: SiteTranslations = {
     affirmations: {
       newAffirmation: 'Nova afirmació',
     },
+    incidentBrief: incidentBriefCa,
+    companyCalculator: companyCalculatorCa,
   },
   controls: {
     language: 'Idioma',

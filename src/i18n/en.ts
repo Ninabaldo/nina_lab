@@ -1,4 +1,6 @@
 import type { SiteTranslations } from './types'
+import { companyCalculatorEn } from './companyCalculator/en'
+import { incidentBriefEn } from './incidentBrief/en'
 import { lifeAlgorithmEn } from './lifeAlgorithm/en'
 
 const en: SiteTranslations = {
@@ -63,7 +65,7 @@ const en: SiteTranslations = {
   },
   projects: {
     title: 'Projects',
-    subtitle: 'Larger experiments — built slowly, with care.',
+    subtitle: 'Digital experiences — product, design, and technology.',
     featured: 'Featured experiment',
     comingSoon: 'Coming soon',
     viewProjects: 'View projects',
@@ -75,7 +77,23 @@ const en: SiteTranslations = {
     comingSoonHeadline: 'Still in the lab',
     comingSoonText:
       'Bigger ideas, built without rush. In the meantime, explore the experiments on the home page.',
-    items: {},
+    openProject: 'Open project',
+    backToProjects: 'Back to projects',
+    items: {
+      nook: {
+        name: 'nook',
+        category: 'Interior styling',
+        description: 'An interactive website for interior styling professionals.',
+        previewAria: 'Preview of the nook website',
+      },
+      'incident-brief': {
+        name: 'Incident Brief',
+        category: 'Operations',
+        description:
+          'A single-page tool that turns technical errors and API JSON into clear language for clients and teams.',
+        previewAria: 'Preview of Incident Brief',
+      },
+    },
   },
   footer: {
     nameFirst: 'Nina',
@@ -115,6 +133,8 @@ const en: SiteTranslations = {
     affirmations: {
       newAffirmation: 'New affirmation',
     },
+    incidentBrief: incidentBriefEn,
+    companyCalculator: companyCalculatorEn,
   },
   controls: {
     language: 'Language',

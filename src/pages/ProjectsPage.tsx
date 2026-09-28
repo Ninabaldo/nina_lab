@@ -1,4 +1,4 @@
-import { getFeaturedProject } from '../data/projects'
+import { projects } from '../data/projects'
 import { FeaturedProject } from '../components/FeaturedProject/FeaturedProject'
 import { Footer } from '../components/Footer/Footer'
 import { useScrollReveal } from '../hooks/useScrollReveal'
@@ -21,7 +21,6 @@ function ProjectsComingSoon() {
 export function ProjectsPage() {
   const headerRef = useScrollReveal<HTMLElement>()
   const { t } = useSiteLanguage()
-  const featured = getFeaturedProject()
 
   return (
     <>
@@ -32,13 +31,17 @@ export function ProjectsPage() {
             <span aria-hidden="true">←</span>
           </a>
 
-          {featured?.id === 'breathe' ? (
+          {projects.length > 0 ? (
             <>
               <header className="projects-page__header reveal" ref={headerRef}>
                 <h1 className="projects-page__title">{t.projects.title}</h1>
                 <p className="projects-page__subtitle">{t.projects.subtitle}</p>
               </header>
-              <FeaturedProject projectId="breathe" />
+              <div className="projects-page__list">
+                {projects.map((project) => (
+                  <FeaturedProject key={project.id} project={project} />
+                ))}
+              </div>
             </>
           ) : (
             <ProjectsComingSoon />

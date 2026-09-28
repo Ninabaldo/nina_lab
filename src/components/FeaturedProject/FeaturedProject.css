@@ -4,7 +4,7 @@
 }
 
 .featured-project__header {
-  max-width: 36ch;
+  max-width: 42ch;
 }
 
 .featured-project__eyebrow {
@@ -56,8 +56,31 @@
   color: var(--color-text-muted);
 }
 
+.featured-project__open {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--color-text);
+  border-radius: 100px;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.featured-project__open:hover {
+  background: var(--color-text);
+  color: var(--color-bg-alt);
+}
+
 .featured-project__stage {
   width: 100%;
+  min-width: 0;
 }
 
 .featured-project__frame {
@@ -66,7 +89,13 @@
   border-radius: var(--radius-xl);
   background: var(--color-bg-alt);
   overflow: hidden;
-  opacity: 0.72;
+  opacity: 1;
+  overscroll-behavior: contain;
+}
+
+.featured-project__frame--preview {
+  min-height: clamp(280px, 38vw, 400px);
+  max-height: 400px;
 }
 
 .featured-project__frame .breathe-app {
@@ -76,7 +105,7 @@
 
 @media (min-width: 768px) {
   .featured-project {
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1.4fr;
     align-items: start;
     gap: clamp(2.5rem, 5vw, 4rem);
   }

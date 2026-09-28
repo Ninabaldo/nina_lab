@@ -36,6 +36,78 @@ export interface LifeAlgorithmProfileCopy {
   }
 }
 
+export interface IncidentBriefCopy {
+  eyebrow: string
+  title: string
+  subtitle: string
+  inputLabel: string
+  inputPlaceholder: string
+  analyze: string
+  analyzing: string
+  clear: string
+  outputTitle: string
+  sections: {
+    whatHappened: string
+    businessImpact: string
+    recommendedAction: string
+  }
+  emptySection: string
+  errors: {
+    emptyInput: string
+    missingApiKey: string
+    generic: string
+  }
+}
+
+export interface CompanyCalculatorMetricCopy {
+  label: string
+  tooltipTitle: string
+  tooltipBody: string
+  tooltipPeriod: string
+  tooltipSource: string
+}
+
+export interface CompanyCalculatorCopy {
+  eyebrow: string
+  title: string
+  subtitle: string
+  tickerLabel: string
+  tickerPlaceholder: string
+  analyze: string
+  analyzing: string
+  loading: string
+  notAvailable: string
+  companyHeaderAria: string
+  metricsAria: string
+  latestTradingDay: string
+  sourcesTitle: string
+  disclaimer: string
+  sources: {
+    price: string
+    eps: string
+    roe: string
+    pe: string
+    debtEquity: string
+    netDebtEbitda: string
+    peg: string
+  }
+  errors: {
+    invalidTicker: string
+    rateLimit: string
+    noData: string
+    network: string
+    unknown: string
+  }
+  metrics: {
+    eps: CompanyCalculatorMetricCopy
+    pe: CompanyCalculatorMetricCopy
+    peg: CompanyCalculatorMetricCopy
+    roe: CompanyCalculatorMetricCopy
+    debtEquity: CompanyCalculatorMetricCopy
+    netDebtEbitda: CompanyCalculatorMetricCopy
+  }
+}
+
 export interface LifeAlgorithmCopy {
   lab: string
   title: string
@@ -123,6 +195,8 @@ export interface SiteTranslations {
     empty: string
     comingSoonHeadline: string
     comingSoonText: string
+    openProject: string
+    backToProjects: string
     items: Record<string, {
       name: string
       category: string
@@ -168,6 +242,8 @@ export interface SiteTranslations {
     affirmations: {
       newAffirmation: string
     }
+    incidentBrief: IncidentBriefCopy
+    companyCalculator: CompanyCalculatorCopy
   }
   controls: {
     language: string

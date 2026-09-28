@@ -7,6 +7,9 @@ import { ProjectsTeaser } from './components/ProjectsTeaser/ProjectsTeaser'
 import { Footer } from './components/Footer/Footer'
 import { SiteControls } from './components/SiteControls/SiteControls'
 import { BreatheApp } from './apps/breathe/BreatheApp'
+import { IncidentBriefApp } from './apps/incident-brief/IncidentBriefApp'
+import { usePathname } from './hooks/usePathname'
+import { ProjectEmbedPage } from './pages/ProjectEmbedPage'
 import { ProjectsPage } from './pages/ProjectsPage'
 
 function Portfolio() {
@@ -22,16 +25,20 @@ function Portfolio() {
 }
 
 function App() {
-  const path = window.location.pathname
+  const path = usePathname()
+  const isEmbedded = window.self !== window.top
+  const projectMatch = path.match(/^\/projects\/([^/]+)\/?$/)
 
   let content = <Portfolio />
   if (path.startsWith('/breathe')) content = <BreatheApp />
-  if (path.startsWith('/projects')) content = <ProjectsPage />
+  else if (path.startsWith('/incident-brief')) content = <IncidentBriefApp />
+  else if (projectMatch) content = <ProjectEmbedPage projectId={projectMatch[1]} />
+  else if (path.startsWith('/projects')) content = <ProjectsPage />
 
   return (
     <SiteThemeProvider>
       <SiteLanguageProvider>
-        <SiteControls />
+        {!isEmbedded && <SiteControls />}
         {content}
       </SiteLanguageProvider>
     </SiteThemeProvider>

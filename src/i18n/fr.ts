@@ -1,4 +1,6 @@
 import type { SiteTranslations } from './types'
+import { companyCalculatorFr } from './companyCalculator/fr'
+import { incidentBriefFr } from './incidentBrief/fr'
 import { lifeAlgorithmFr } from './lifeAlgorithm/fr'
 
 const fr: SiteTranslations = {
@@ -63,7 +65,7 @@ const fr: SiteTranslations = {
   },
   projects: {
     title: 'Projets',
-    subtitle: 'Expériences plus grandes — construites lentement, avec soin.',
+    subtitle: 'Expériences digitales — produit, design et technologie.',
     featured: 'Expérience à la une',
     comingSoon: 'Bientôt',
     viewProjects: 'Voir les projets',
@@ -75,7 +77,23 @@ const fr: SiteTranslations = {
     comingSoonHeadline: 'Encore au laboratoire',
     comingSoonText:
       'Des idées plus grandes, construites sans précipitation. En attendant, explorez les expériences du lab.',
-    items: {},
+    openProject: 'Ouvrir le projet',
+    backToProjects: 'Retour aux projets',
+    items: {
+      nook: {
+        name: 'nook',
+        category: 'Stylisme d\'intérieur',
+        description: 'Site web interactif à destination des professionnels du stylisme d\'intérieur.',
+        previewAria: 'Aperçu du site nook',
+      },
+      'incident-brief': {
+        name: 'Incident Brief',
+        category: 'Opérations',
+        description:
+          'Outil monopage qui traduit les erreurs techniques et les JSON d\'API en langage clair pour les clients et les équipes.',
+        previewAria: 'Aperçu d\'Incident Brief',
+      },
+    },
   },
   footer: {
     nameFirst: 'Nina',
@@ -115,6 +133,8 @@ const fr: SiteTranslations = {
     affirmations: {
       newAffirmation: 'Nouvelle affirmation',
     },
+    incidentBrief: incidentBriefFr,
+    companyCalculator: companyCalculatorFr,
   },
   controls: {
     language: 'Langue',

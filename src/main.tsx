@@ -4,11 +4,19 @@ import './index.css'
 import App from './App.tsx'
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {
-      // Service worker registration is optional in development.
+  if (import.meta.env.PROD) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {
+        // Service worker registration is optional.
+      })
     })
-  })
+  } else {
+    void navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (const registration of registrations) {
+        void registration.unregister()
+      }
+    })
+  }
 }
 
 createRoot(document.getElementById('root')!).render(

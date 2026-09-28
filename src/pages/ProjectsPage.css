@@ -31,6 +31,12 @@
   gap: 0.35rem;
 }
 
+.projects-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 8vw, 5rem);
+}
+
 .projects-page__header {
   max-width: 32ch;
 }
