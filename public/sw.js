@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nina-lab-v3'
+const CACHE_NAME = 'nina-lab-v4'
 const PRECACHE_URLS = ['/', '/breathe', '/manifest.webmanifest', '/favicon.png', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png']
 
 self.addEventListener('install', (event) => {
@@ -19,6 +19,23 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
+
+  const isNavigation = event.request.mode === 'navigate'
+
+  if (isNavigation) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response.ok) {
+            const copy = response.clone()
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy))
+          }
+          return response
+        })
+        .catch(() => caches.match(event.request)),
+    )
+    return
+  }
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
