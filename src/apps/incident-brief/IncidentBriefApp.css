@@ -67,6 +67,26 @@
   color: var(--color-text-light);
 }
 
+.incident-brief__output-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.incident-brief__demo-badge {
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+}
+
 .incident-brief__textarea {
   flex: 1;
   min-height: 280px;

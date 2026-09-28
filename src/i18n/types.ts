@@ -52,11 +52,30 @@ export interface IncidentBriefCopy {
     recommendedAction: string
   }
   emptySection: string
+  demoBadge: string
+  demoDetailSuffix: string
+  demo: {
+    payment: IncidentAnalysisCopy
+    auth: IncidentAnalysisCopy
+    notFound: IncidentAnalysisCopy
+    rateLimit: IncidentAnalysisCopy
+    timeout: IncidentAnalysisCopy
+    server: IncidentAnalysisCopy
+    validation: IncidentAnalysisCopy
+    apiKey: IncidentAnalysisCopy
+    generic: IncidentAnalysisCopy
+  }
   errors: {
     emptyInput: string
     missingApiKey: string
     generic: string
   }
+}
+
+export interface IncidentAnalysisCopy {
+  whatHappened: string
+  businessImpact: string
+  recommendedAction: string
 }
 
 export interface CompanyCalculatorMetricCopy {

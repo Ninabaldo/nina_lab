@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
-import { analyzeIncident } from './api'
+import { analyzeIncidentDemo } from './demoAnalysis'
 import type { IncidentAnalysis } from './types'
 import './IncidentBriefApp.css'
 
@@ -15,39 +15,25 @@ interface IncidentBriefAppProps {
 }
 
 export function IncidentBriefApp({ embedded = false }: IncidentBriefAppProps) {
-  const { language, t } = useSiteLanguage()
+  const { t } = useSiteLanguage()
   const app = t.apps.incidentBrief
 
   const [input, setInput] = useState('')
   const [analysis, setAnalysis] = useState<IncidentAnalysis>(EMPTY_ANALYSIS)
   const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState(false)
   const hasAnalysis = Boolean(
     analysis.whatHappened || analysis.businessImpact || analysis.recommendedAction,
   )
 
-  const handleAnalyze = async () => {
+  const handleAnalyze = () => {
     const trimmed = input.trim()
     if (!trimmed) {
       setError(app.errors.emptyInput)
       return
     }
 
-    setLoading(true)
     setError(null)
-
-    try {
-      const result = await analyzeIncident(trimmed, language)
-      setAnalysis(result)
-    } catch (caught) {
-      setAnalysis(EMPTY_ANALYSIS)
-      const message = caught instanceof Error ? caught.message : app.errors.generic
-      setError(
-        message.includes('OPENAI_API_KEY') ? app.errors.missingApiKey : message || app.errors.generic,
-      )
-    } finally {
-      setLoading(false)
-    }
+    setAnalysis(analyzeIncidentDemo(trimmed, app))
   }
 
   const handleClear = () => {
@@ -83,15 +69,13 @@ export function IncidentBriefApp({ embedded = false }: IncidentBriefAppProps) {
               type="button"
               className="incident-brief__button incident-brief__button--primary"
               onClick={handleAnalyze}
-              disabled={loading}
             >
-              {loading ? app.analyzing : app.analyze}
+              {app.analyze}
             </button>
             <button
               type="button"
               className="incident-brief__button incident-brief__button--ghost"
               onClick={handleClear}
-              disabled={loading}
             >
               {app.clear}
             </button>
@@ -100,9 +84,12 @@ export function IncidentBriefApp({ embedded = false }: IncidentBriefAppProps) {
         </section>
 
         <section className="incident-brief__panel incident-brief__panel--output" aria-labelledby="incident-brief-output-heading">
-          <h2 id="incident-brief-output-heading" className="incident-brief__panel-title">
-            {app.outputTitle}
-          </h2>
+          <div className="incident-brief__output-head">
+            <h2 id="incident-brief-output-heading" className="incident-brief__panel-title">
+              {app.outputTitle}
+            </h2>
+            <span className="incident-brief__demo-badge">{app.demoBadge}</span>
+          </div>
 
           <div className="incident-brief__sections">
             <article className="incident-brief__section">
