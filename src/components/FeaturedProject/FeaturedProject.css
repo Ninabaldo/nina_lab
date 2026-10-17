@@ -98,6 +98,16 @@
   max-height: 400px;
 }
 
+.featured-project__frame--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(420px, 52vw, 520px);
+  max-height: none;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--color-bg-warm);
+}
+
 .featured-project__frame .breathe-app {
   min-height: 100%;
   pointer-events: none;

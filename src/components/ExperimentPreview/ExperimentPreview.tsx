@@ -1,5 +1,4 @@
 import type { JSX } from 'react'
-import { BreatheStaticPreview } from '../../apps/breathe/BreatheApp'
 import type { ExperimentPreviewType } from '../../data/experiments'
 import './ExperimentPreview.css'
 
@@ -10,7 +9,10 @@ interface ExperimentPreviewProps {
 function BreathePreview() {
   return (
     <div className="preview preview--breathe">
-      <BreatheStaticPreview />
+      <div className="preview-breathe" aria-hidden="true">
+        <span className="preview-breathe__ring preview-breathe__ring--outer" />
+        <span className="preview-breathe__ring preview-breathe__ring--inner" />
+      </div>
     </div>
   )
 }

@@ -86,6 +86,13 @@ const en: SiteTranslations = {
         description: 'An interactive website for interior styling professionals.',
         previewAria: 'Preview of the nook website',
       },
+      scopo: {
+        name: 'Scopo',
+        category: 'Mobile app',
+        description:
+          'A mobile-first digital product: quick access, browse freely, and sign up when you are ready.',
+        previewAria: 'Mobile preview of Scopo',
+      },
     },
   },
   footer: {

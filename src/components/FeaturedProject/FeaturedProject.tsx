@@ -4,6 +4,7 @@ import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { withNookLanguage } from '../../lib/nookPreview'
 import { ExternalSitePreview } from './ExternalSitePreview'
+import { MobileSitePreview } from './MobileSitePreview'
 import './FeaturedProject.css'
 
 interface FeaturedProjectProps {
@@ -19,6 +20,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
   const previewSource = rawPreviewSource
     ? withNookLanguage(rawPreviewSource, language)
     : undefined
+  const isMobilePreview = project.previewLayout === 'mobile'
 
   if (!copy) return null
 
@@ -49,9 +51,19 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
       </header>
 
       {previewSource ? (
-        <div className="featured-project__stage" aria-hidden="true">
-          <div className="featured-project__frame featured-project__frame--preview">
-            <ExternalSitePreview url={previewSource} title={copy.previewAria} static />
+        <div className="featured-project__stage" aria-hidden={isMobilePreview ? true : undefined}>
+          <div
+            className={`featured-project__frame${
+              isMobilePreview
+                ? ' featured-project__frame--mobile'
+                : ' featured-project__frame--preview'
+            }`}
+          >
+            {isMobilePreview ? (
+              <MobileSitePreview url={previewSource} title={copy.previewAria} static />
+            ) : (
+              <ExternalSitePreview url={previewSource} title={copy.previewAria} static />
+            )}
           </div>
         </div>
       ) : project.id === 'breathe' ? (

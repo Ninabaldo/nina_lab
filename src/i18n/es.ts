@@ -86,6 +86,13 @@ const es: SiteTranslations = {
         description: 'Página web interactiva para profesionales del estilismo de interiores.',
         previewAria: 'Vista previa del sitio nook',
       },
+      scopo: {
+        name: 'Scopo',
+        category: 'App móvil',
+        description:
+          'Producto digital pensado para móvil: acceso rápido, exploración libre y registro cuando toque.',
+        previewAria: 'Vista previa móvil de Scopo',
+      },
     },
   },
   footer: {

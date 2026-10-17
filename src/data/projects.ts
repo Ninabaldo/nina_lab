@@ -1,10 +1,13 @@
 export type ProjectStatus = 'coming-soon' | 'available'
 
+export type ProjectPreviewLayout = 'wide' | 'mobile'
+
 export interface Project {
   id: string
   status: ProjectStatus
   featured?: boolean
   previewUrl?: string
+  previewLayout?: ProjectPreviewLayout
   appPath?: string
 }
 
@@ -14,6 +17,13 @@ export const projects: Project[] = [
     status: 'coming-soon',
     featured: true,
     previewUrl: 'https://nook-ochre-eight.vercel.app/',
+    previewLayout: 'wide',
+  },
+  {
+    id: 'scopo',
+    status: 'available',
+    previewUrl: 'https://scopo-omega.vercel.app/',
+    previewLayout: 'mobile',
   },
 ]
 

@@ -1,4 +1,5 @@
 import { ExternalSitePreview } from '../components/FeaturedProject/ExternalSitePreview'
+import { MobileSitePreview } from '../components/FeaturedProject/MobileSitePreview'
 import { projectAppComponents } from '../data/projectApps'
 import { getProjectById, getProjectEmbedSource } from '../data/projects'
 import { useSiteLanguage } from '../hooks/useSiteLanguage'
@@ -44,6 +45,10 @@ export function ProjectEmbedPage({ projectId }: ProjectEmbedPageProps) {
       {ProjectApp ? (
         <div className="project-embed__app">
           <ProjectApp embedded />
+        </div>
+      ) : project?.previewLayout === 'mobile' ? (
+        <div className="project-embed__mobile-stage">
+          <MobileSitePreview url={embedSource} title={copy.previewAria} />
         </div>
       ) : (
         <ExternalSitePreview url={embedSource} title={copy.previewAria} />

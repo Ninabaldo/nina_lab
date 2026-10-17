@@ -1,0 +1,27 @@
+.mobile-site-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: inherit;
+  padding: 0.5rem;
+}
+
+.mobile-site-preview__phone {
+  width: min(100%, 280px);
+}
+
+.mobile-site-preview__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  border: none;
+  background: var(--color-bg-alt);
+}
+
+.mobile-site-preview--static .mobile-site-preview__frame {
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+}
