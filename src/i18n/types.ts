@@ -197,6 +197,15 @@ export interface SiteTranslations {
       typeValue: string
     }
   }
+  techStack: {
+    eyebrow: string
+    title: string
+    lead: string
+    items: Record<
+      'react' | 'typescript' | 'vite' | 'pwa' | 'vercel' | 'github' | 'cursor',
+      string
+    >
+  }
   services: {
     eyebrow: string
     title: string

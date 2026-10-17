@@ -5,6 +5,7 @@ import { SiteLanguageProvider } from './context/SiteLanguageProvider'
 import { SiteThemeProvider } from './context/SiteThemeProvider'
 import { Hero } from './components/Hero/Hero'
 import { HowICanHelp } from './components/HowICanHelp/HowICanHelp'
+import { TechStack } from './components/TechStack/TechStack'
 import { WorkExamples } from './components/WorkExamples/WorkExamples'
 import { ProjectsShowcase } from './components/ProjectsShowcase/ProjectsShowcase'
 import { ContactModal } from './components/Contact/ContactModal'
@@ -22,6 +23,7 @@ function Portfolio() {
   return (
     <>
       <Hero />
+      <TechStack />
       <HowICanHelp />
       <WorkExamples />
       <DesignYourLabSection />

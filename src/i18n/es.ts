@@ -26,6 +26,20 @@ const es: SiteTranslations = {
       typeValue: 'Experimentos digitales',
     },
   },
+  techStack: {
+    eyebrow: 'Tecnología',
+    title: 'Con lo que construimos estos proyectos',
+    lead: 'El mismo stack en el lab, en las microapps y en los proyectos para clientes.',
+    items: {
+      react: 'React',
+      typescript: 'TypeScript',
+      vite: 'Vite',
+      pwa: 'PWA',
+      vercel: 'Vercel',
+      github: 'GitHub',
+      cursor: 'IA (Cursor)',
+    },
+  },
   services: {
     eyebrow: 'Servicios',
     title: 'Esto es con lo que puedo ayudarte',
