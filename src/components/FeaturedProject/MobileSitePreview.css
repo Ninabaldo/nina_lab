@@ -4,11 +4,32 @@
   justify-content: center;
   width: 100%;
   min-height: inherit;
-  padding: 0.5rem;
+  padding: 0.35rem;
 }
 
-.mobile-site-preview__phone {
-  width: min(100%, 280px);
+.mobile-site-preview__phone.phone-frame {
+  width: min(100%, 200px);
+}
+
+.mobile-site-preview__phone .phone-frame__bezel {
+  padding: 7px;
+  border-radius: 28px;
+  box-shadow: 0 16px 32px -12px var(--color-shadow);
+}
+
+.mobile-site-preview__phone .phone-frame__notch {
+  width: 56px;
+  height: 15px;
+  margin-bottom: 5px;
+  border-radius: 0 0 10px 10px;
+}
+
+.mobile-site-preview__phone .phone-frame__screen {
+  border-radius: 22px;
+  width: 100%;
+  height: auto;
+  max-height: min(42svh, 320px);
+  aspect-ratio: 9 / 19;
 }
 
 .mobile-site-preview__frame {

@@ -80,16 +80,17 @@
   align-items: center;
   justify-content: center;
   min-height: 0;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(0.75rem, 2vw, 1.25rem);
   background: var(--color-bg-warm);
+  overflow: auto;
 }
 
-.project-embed__mobile-stage .mobile-site-preview {
-  min-height: min(100%, calc(100svh - 8rem));
+.project-embed__mobile-stage .mobile-site-preview__phone.phone-frame {
+  width: min(100%, 220px);
 }
 
-.project-embed__mobile-stage .mobile-site-preview__phone {
-  width: min(100%, 390px);
+.project-embed__mobile-stage .mobile-site-preview__phone .phone-frame__screen {
+  max-height: min(calc(100svh - 9rem), 360px);
 }
 
 @media (prefers-reduced-motion: reduce) {

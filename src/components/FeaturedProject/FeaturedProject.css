@@ -102,9 +102,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: clamp(420px, 52vw, 520px);
-  max-height: none;
-  padding: clamp(1.25rem, 3vw, 2rem);
+  min-height: auto;
+  max-height: min(48svh, 380px);
+  padding: clamp(0.65rem, 2vw, 1rem);
   background: var(--color-bg-warm);
 }
 
