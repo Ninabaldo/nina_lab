@@ -85,12 +85,8 @@
   overflow: auto;
 }
 
-.project-embed__mobile-stage .mobile-site-preview__phone.phone-frame {
-  width: min(100%, 220px);
-}
-
-.project-embed__mobile-stage .mobile-site-preview__phone .phone-frame__screen {
-  max-height: min(calc(100svh - 9rem), 360px);
+.project-embed__mobile-stage .mobile-site-preview {
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {

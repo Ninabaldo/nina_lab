@@ -100,12 +100,13 @@
 
 .featured-project__frame--mobile {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  min-height: auto;
-  max-height: min(48svh, 380px);
+  min-height: calc(921px * 0.46 + 2rem);
+  max-height: none;
   padding: clamp(0.65rem, 2vw, 1rem);
   background: var(--color-bg-warm);
+  overflow: hidden;
 }
 
 .featured-project__frame .breathe-app {

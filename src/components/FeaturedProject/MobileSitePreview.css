@@ -1,42 +1,29 @@
 .mobile-site-preview {
+  --device-width: 390px;
+  --device-height: 921px;
+  --preview-scale: 0.46;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 100%;
-  min-height: inherit;
-  padding: 0.35rem;
+  padding: 0.25rem;
 }
 
-.mobile-site-preview__phone.phone-frame {
-  width: min(100%, 200px);
+.mobile-site-preview__viewport {
+  width: calc(var(--device-width) * var(--preview-scale));
+  height: calc(var(--device-height) * var(--preview-scale));
+  overflow: hidden;
 }
 
-.mobile-site-preview__phone .phone-frame__bezel {
-  padding: 7px;
-  border-radius: 28px;
-  box-shadow: 0 16px 32px -12px var(--color-shadow);
-}
-
-.mobile-site-preview__phone .phone-frame__notch {
-  width: 56px;
-  height: 15px;
-  margin-bottom: 5px;
-  border-radius: 0 0 10px 10px;
-}
-
-.mobile-site-preview__phone .phone-frame__screen {
-  border-radius: 22px;
-  width: 100%;
-  height: auto;
-  max-height: min(42svh, 320px);
-  aspect-ratio: 9 / 19;
+.mobile-site-preview__device {
+  width: var(--device-width);
+  transform: scale(var(--preview-scale));
+  transform-origin: top left;
 }
 
 .mobile-site-preview__frame {
   display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
+  width: var(--device-width);
+  height: var(--device-height);
   border: none;
   background: var(--color-bg-alt);
 }
@@ -47,10 +34,28 @@
   user-select: none;
 }
 
-.mobile-site-preview--compact .mobile-site-preview__phone.phone-frame {
-  width: min(100%, 168px);
+.mobile-site-preview--compact {
+  --preview-scale: 0.42;
 }
 
-.mobile-site-preview--compact .mobile-site-preview__phone .phone-frame__screen {
-  max-height: min(36svh, 280px);
+.mobile-site-preview--embed {
+  --preview-scale: clamp(0.48, calc((100svh - 11rem) / var(--device-height)), 0.58);
+}
+
+@media (max-width: 767px) {
+  .mobile-site-preview--compact {
+    --preview-scale: 0.46;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-site-preview--compact {
+    --preview-scale: 0.38;
+  }
+}
+
+@media (min-width: 1100px) {
+  .mobile-site-preview--compact {
+    --preview-scale: 0.42;
+  }
 }
