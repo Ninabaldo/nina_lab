@@ -34,16 +34,13 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
       aria-labelledby={`featured-project-heading-${project.id}`}
     >
       <header className="featured-project__header">
-        {project.featured ? (
-          <p className="featured-project__eyebrow">{t.projects.featured}</p>
-        ) : null}
         {project.status === 'coming-soon' ? (
           <span className="featured-project__badge">{t.projects.comingSoon}</span>
         ) : null}
         <span className="featured-project__category">{copy.category}</span>
-        <h2 id={`featured-project-heading-${project.id}`} className="featured-project__title">
+        <h3 id={`featured-project-heading-${project.id}`} className="featured-project__title">
           {copy.name}
-        </h2>
+        </h3>
         <p className="featured-project__text">{copy.description}</p>
 
         {previewSource ? (

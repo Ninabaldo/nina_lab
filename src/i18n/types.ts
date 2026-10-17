@@ -207,7 +207,6 @@ export interface SiteTranslations {
     homeEyebrow: string
     title: string
     subtitle: string
-    featured: string
     comingSoon: string
     viewProjects: string
     back: string

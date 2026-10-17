@@ -9,11 +9,13 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(2.5rem, 6vw, 3.5rem);
+  gap: clamp(2rem, 5vw, 2.75rem);
 }
 
 .projects-showcase__header {
-  max-width: 40ch;
+  max-width: 46ch;
+  padding-bottom: clamp(1.5rem, 4vw, 2.25rem);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 14%, var(--color-border));
 }
 
 .projects-showcase__eyebrow {
@@ -28,10 +30,10 @@
 .projects-showcase__title {
   margin: 0 0 0.75rem;
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 5.5vw, 3.25rem);
+  font-size: clamp(2.75rem, 7vw, 4rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
   color: var(--color-text);
 }
 
@@ -45,7 +47,8 @@
 .projects-showcase__list {
   display: flex;
   flex-direction: column;
-  gap: clamp(3rem, 7vw, 4.5rem);
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+  padding-top: clamp(0.5rem, 2vw, 1rem);
 }
 
 .projects-showcase__footer {

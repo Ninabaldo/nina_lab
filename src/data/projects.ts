@@ -5,7 +5,6 @@ export type ProjectPreviewLayout = 'wide' | 'mobile'
 export interface Project {
   id: string
   status: ProjectStatus
-  featured?: boolean
   previewUrl?: string
   previewLayout?: ProjectPreviewLayout
   appPath?: string
@@ -15,7 +14,6 @@ export const projects: Project[] = [
   {
     id: 'nook',
     status: 'coming-soon',
-    featured: true,
     previewUrl: 'https://nook-ochre-eight.vercel.app/',
     previewLayout: 'wide',
   },
@@ -59,10 +57,6 @@ export function groupProjectsForDisplay(list: Project[]): ProjectListBlock[] {
 
   flushMobile()
   return blocks
-}
-
-export function getFeaturedProject(): Project | undefined {
-  return projects.find((project) => project.featured)
 }
 
 export function getProjectById(id: string): Project | undefined {

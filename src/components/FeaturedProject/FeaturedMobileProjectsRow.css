@@ -9,6 +9,11 @@
   flex-direction: column;
   gap: 1.25rem;
   min-width: 0;
+  padding: clamp(1.25rem, 3vw, 1.65rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-text) 6%, transparent);
 }
 
 .mobile-project-card__header {
@@ -40,10 +45,10 @@
 .mobile-project-card__title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.5vw, 1.85rem);
+  font-size: clamp(1.25rem, 2.8vw, 1.5rem);
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: var(--color-text);
 }
 

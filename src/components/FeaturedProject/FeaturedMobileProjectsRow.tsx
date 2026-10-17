@@ -36,9 +36,9 @@ export function FeaturedMobileProjectsRow({ projects }: FeaturedMobileProjectsRo
                 <span className="mobile-project-card__badge">{t.projects.comingSoon}</span>
               ) : null}
               <span className="mobile-project-card__category">{copy.category}</span>
-              <h2 id={`mobile-project-heading-${project.id}`} className="mobile-project-card__title">
+              <h3 id={`mobile-project-heading-${project.id}`} className="mobile-project-card__title">
                 {copy.name}
-              </h2>
+              </h3>
               <p className="mobile-project-card__text">{copy.description}</p>
               {previewSource ? (
                 <a href={`/projects/${project.id}`} className="mobile-project-card__open">
