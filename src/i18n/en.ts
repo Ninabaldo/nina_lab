@@ -65,6 +65,56 @@ const en: SiteTranslations = {
       },
     },
   },
+  workExamples: {
+    eyebrow: 'In practice',
+    title: 'Lab examples',
+    lead:
+      'Real projects that show what the services look like — many you can try right here.',
+    serviceTags: {
+      smallWebApps: 'Web app',
+      interactiveExperiences: 'Interactive',
+      websitesMicrosites: 'Web / microsite',
+      businessTools: 'Business tool',
+      educationalProducts: 'Educational',
+    },
+    items: {
+      breathe: {
+        name: 'Breathe',
+        description: 'Minimal breathing experience to slow down and return to the present.',
+        cta: 'Try it',
+      },
+      'life-algorithm': {
+        name: 'Life Algorithm',
+        description: 'Quiz that builds a personalized profile from your answers.',
+        cta: 'In the lab',
+      },
+      'focus-timer': {
+        name: 'Focus Timer',
+        description: 'Light pomodoro timer to focus from the browser.',
+        cta: 'In the lab',
+      },
+      scopo: {
+        name: 'Scopo',
+        description: 'Mobile digital product with its own identity and phone-first flow.',
+        cta: 'View project',
+      },
+      picked: {
+        name: 'Picked',
+        description: 'App to discover places through real recommendations.',
+        cta: 'View project',
+      },
+      'incident-brief': {
+        name: 'Incident Brief',
+        description: 'Tool that turns incident text into an actionable summary for teams.',
+        cta: 'Try it',
+      },
+      'nina-lab': {
+        name: "Nina's Lab",
+        description: 'This site: portfolio, services and experiments in one place.',
+        cta: 'Explore',
+      },
+    },
+  },
   experiments: {
     title: 'Experiments',
     projects: 'projects',

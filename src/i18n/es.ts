@@ -65,6 +65,56 @@ const es: SiteTranslations = {
       },
     },
   },
+  workExamples: {
+    eyebrow: 'En la práctica',
+    title: 'Ejemplos del lab',
+    lead:
+      'Proyectos reales para ver cómo se traducen los servicios — muchos puedes probarlos aquí.',
+    serviceTags: {
+      smallWebApps: 'App web',
+      interactiveExperiences: 'Interactiva',
+      websitesMicrosites: 'Web / microsite',
+      businessTools: 'Herramienta negocio',
+      educationalProducts: 'Educativo',
+    },
+    items: {
+      breathe: {
+        name: 'Breathe',
+        description: 'Experiencia de respiración minimalista para calmarte y volver al presente.',
+        cta: 'Probar',
+      },
+      'life-algorithm': {
+        name: 'Life Algorithm',
+        description: 'Cuestionario que genera un perfil personalizado según tus respuestas.',
+        cta: 'En el lab',
+      },
+      'focus-timer': {
+        name: 'Focus Timer',
+        description: 'Temporizador pomodoro ligero para concentrarte desde el navegador.',
+        cta: 'En el lab',
+      },
+      scopo: {
+        name: 'Scopo',
+        description: 'Producto digital móvil con identidad propia y flujo pensado para el móvil.',
+        cta: 'Ver proyecto',
+      },
+      picked: {
+        name: 'Picked',
+        description: 'App para descubrir lugares a través de recomendaciones reales.',
+        cta: 'Ver proyecto',
+      },
+      'incident-brief': {
+        name: 'Incident Brief',
+        description: 'Herramienta que convierte texto de incidencia en resumen accionable.',
+        cta: 'Probar',
+      },
+      'nina-lab': {
+        name: "Nina's Lab",
+        description: 'Esta misma web: portfolio, servicios y experimentos en un solo sitio.',
+        cta: 'Explorar',
+      },
+    },
+  },
   experiments: {
     title: 'Experimentos',
     projects: 'proyectos',

@@ -213,6 +213,23 @@ export interface SiteTranslations {
       ServiceOfferingCopy
     >
   }
+  workExamples: {
+    eyebrow: string
+    title: string
+    lead: string
+    serviceTags: Record<
+      | 'smallWebApps'
+      | 'interactiveExperiences'
+      | 'websitesMicrosites'
+      | 'businessTools'
+      | 'educationalProducts',
+      string
+    >
+    items: Record<
+      import('../data/workExamples').WorkExampleId,
+      { name: string; description: string; cta: string }
+    >
+  }
   experiments: {
     title: string
     projects: string
