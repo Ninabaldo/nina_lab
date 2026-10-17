@@ -2,6 +2,7 @@ import { ExternalSitePreview } from '../components/FeaturedProject/ExternalSiteP
 import { projectAppComponents } from '../data/projectApps'
 import { getProjectById, getProjectEmbedSource } from '../data/projects'
 import { useSiteLanguage } from '../hooks/useSiteLanguage'
+import { withNookLanguage } from '../lib/nookPreview'
 import './ProjectEmbedPage.css'
 
 interface ProjectEmbedPageProps {
@@ -9,10 +10,13 @@ interface ProjectEmbedPageProps {
 }
 
 export function ProjectEmbedPage({ projectId }: ProjectEmbedPageProps) {
-  const { t } = useSiteLanguage()
+  const { language, t } = useSiteLanguage()
   const project = getProjectById(projectId)
   const copy = project ? t.projects.items[project.id] : undefined
-  const embedSource = project ? getProjectEmbedSource(project) : undefined
+  const rawEmbedSource = project ? getProjectEmbedSource(project) : undefined
+  const embedSource = rawEmbedSource
+    ? withNookLanguage(rawEmbedSource, language)
+    : undefined
   const ProjectApp = projectAppComponents[projectId]
 
   if (!embedSource || !copy) {

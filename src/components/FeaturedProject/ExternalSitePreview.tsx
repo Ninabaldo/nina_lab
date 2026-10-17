@@ -16,6 +16,7 @@ export function ExternalSitePreview({ url, title, static: isStatic = false }: Ex
       aria-hidden={isStatic ? true : undefined}
     >
       <iframe
+        key={url}
         className="external-site-preview__frame"
         src={url}
         title={title}

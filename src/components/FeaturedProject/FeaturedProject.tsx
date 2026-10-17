@@ -2,6 +2,7 @@ import { BreatheStaticPreview } from '../../apps/breathe/BreatheApp'
 import { getProjectEmbedSource, type Project } from '../../data/projects'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { withNookLanguage } from '../../lib/nookPreview'
 import { ExternalSitePreview } from './ExternalSitePreview'
 import './FeaturedProject.css'
 
@@ -11,10 +12,13 @@ interface FeaturedProjectProps {
 
 export function FeaturedProject({ project }: FeaturedProjectProps) {
   const ref = useScrollReveal<HTMLElement>()
-  const { t } = useSiteLanguage()
+  const { language, t } = useSiteLanguage()
   const copy = t.projects.items[project.id]
   const embedPath = `/projects/${project.id}`
-  const previewSource = getProjectEmbedSource(project)
+  const rawPreviewSource = getProjectEmbedSource(project)
+  const previewSource = rawPreviewSource
+    ? withNookLanguage(rawPreviewSource, language)
+    : undefined
 
   if (!copy) return null
 
