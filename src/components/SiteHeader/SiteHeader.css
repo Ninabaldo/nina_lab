@@ -22,17 +22,17 @@
 .site-header__tagline {
   margin: 0;
   justify-self: center;
-  max-width: 22ch;
-  font-family: var(--font-mono);
-  font-size: clamp(0.52rem, 1.35vw, 0.62rem);
-  line-height: 1.35;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: clamp(0.62rem, 1.15vw, 0.78rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   text-align: center;
+  white-space: nowrap;
   color: var(--color-text-muted);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .site-header__tagline {
     display: none;
   }
