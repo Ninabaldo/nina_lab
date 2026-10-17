@@ -1,5 +1,3 @@
-const CONTACT_EMAIL = 'holaninabaldo@gmail.com'
-
 interface ApiRequest {
   method?: string
   body?: string | Record<string, unknown>
@@ -48,33 +46,11 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     return res.status(400).json({ error: 'Invalid email.' })
   }
 
-  if (message.length < 10 || message.length > 4000) {
+  if (message.length < 5 || message.length > 4000) {
     return res.status(400).json({ error: 'Invalid message.' })
   }
 
-  try {
-    const upstream = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-        _subject: `Nina's Lab — ${name}`,
-        _replyto: email,
-        _template: 'table',
-      }),
-    })
-
-    if (!upstream.ok) {
-      return res.status(502).json({ error: 'Delivery failed.' })
-    }
-
-    return res.status(200).json({ ok: true })
-  } catch {
-    return res.status(502).json({ error: 'Delivery failed.' })
-  }
+  return res.status(410).json({
+    error: 'Use the site contact form. Submissions are sent from the browser via FormSubmit.',
+  })
 }

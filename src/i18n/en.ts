@@ -2,7 +2,6 @@ import type { SiteTranslations } from './types'
 import { companyCalculatorEn } from './companyCalculator/en'
 import { incidentBriefEn } from './incidentBrief/en'
 import { lifeAlgorithmEn } from './lifeAlgorithm/en'
-
 const en: SiteTranslations = {
   hero: {
     subtitle1: 'Small digital experiments',
@@ -179,6 +178,7 @@ const en: SiteTranslations = {
     sending: 'Sending…',
     success: 'Message sent. Thanks — I’ll get back to you soon.',
     error: 'Couldn’t send. Try again or email holaninabaldo@gmail.com.',
+    validationError: 'Check the fields: name, valid email, and a message of at least 5 characters.',
     close: 'Close',
     closeAria: 'Close contact form',
   },

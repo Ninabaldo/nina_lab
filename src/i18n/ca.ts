@@ -2,7 +2,6 @@ import type { SiteTranslations } from './types'
 import { companyCalculatorCa } from './companyCalculator/ca'
 import { incidentBriefCa } from './incidentBrief/ca'
 import { lifeAlgorithmCa } from './lifeAlgorithm/ca'
-
 const ca: SiteTranslations = {
   hero: {
     subtitle1: 'Petits experiments digitals',
@@ -179,6 +178,7 @@ const ca: SiteTranslations = {
     sending: 'Enviant…',
     success: 'Missatge enviat. Gràcies — et respondré aviat.',
     error: 'No s’ha pogut enviar. Torna-ho a provar o escriu a holaninabaldo@gmail.com.',
+    validationError: 'Revisa els camps: nom, email vàlid i un missatge d’almenys 5 caràcters.',
     close: 'Tancar',
     closeAria: 'Tancar formulari de contacte',
   },

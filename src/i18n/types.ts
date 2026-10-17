@@ -1,5 +1,4 @@
 import type { Language } from '../lib/preferences'
-
 export interface ExperimentCopy {
   name: string
   description: string
@@ -277,6 +276,7 @@ export interface SiteTranslations {
     sending: string
     success: string
     error: string
+    validationError: string
     close: string
     closeAria: string
   }

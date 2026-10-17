@@ -2,7 +2,6 @@ import type { SiteTranslations } from './types'
 import { companyCalculatorEs } from './companyCalculator/es'
 import { incidentBriefEs } from './incidentBrief/es'
 import { lifeAlgorithmEs } from './lifeAlgorithm/es'
-
 const es: SiteTranslations = {
   hero: {
     subtitle1: 'Pequeños experimentos digitales',
@@ -42,7 +41,7 @@ const es: SiteTranslations = {
   },
   services: {
     eyebrow: 'Servicios',
-    title: 'Esto es con lo que puedo ayudarte',
+    title: 'Esto es lo que podemos hacer por ti',
     lead: 'Cinco líneas de trabajo para crear productos digitales, desde apps pequeñas hasta experiencias para marcas.',
     modelLabel: 'Modelo',
     cta: 'Hablemos de tu proyecto',
@@ -179,6 +178,7 @@ const es: SiteTranslations = {
     sending: 'Enviando…',
     success: 'Mensaje enviado. Gracias — te responderé pronto.',
     error: 'No se pudo enviar. Prueba de nuevo o escríbeme a holaninabaldo@gmail.com.',
+    validationError: 'Revisa los campos: nombre, email válido y un mensaje de al menos 5 caracteres.',
     close: 'Cerrar',
     closeAria: 'Cerrar formulario de contacto',
   },

@@ -1,5 +1,10 @@
 import { useState, type FormEvent } from 'react'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import {
+  CONTACT_MESSAGE_MIN_LENGTH,
+  submitContactForm,
+  validateContactPayload,
+} from '../../lib/contactSubmit'
 import './ContactForm.css'
 
 interface ContactFormProps {
@@ -8,6 +13,7 @@ interface ContactFormProps {
 }
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
+type FormError = 'generic' | 'validation'
 
 export function ContactForm({ variant = 'default', onSuccess }: ContactFormProps) {
   const { t } = useSiteLanguage()
@@ -16,31 +22,30 @@ export function ContactForm({ variant = 'default', onSuccess }: ContactFormProps
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [status, setStatus] = useState<FormStatus>('idle')
+  const [errorKind, setErrorKind] = useState<FormError>('generic')
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (status === 'sending') return
 
+    if (!validateContactPayload({ name, email, message })) {
+      setErrorKind('validation')
+      setStatus('error')
+      return
+    }
+
     setStatus('sending')
+    setErrorKind('generic')
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      })
-
-      if (!response.ok) {
-        setStatus('error')
-        return
-      }
-
+      await submitContactForm({ name, email, message })
       setStatus('success')
       setName('')
       setEmail('')
       setMessage('')
       onSuccess?.()
-    } catch {
+    } catch (error) {
+      setErrorKind(error instanceof Error && error.message === 'validation' ? 'validation' : 'generic')
       setStatus('error')
     }
   }
@@ -86,7 +91,7 @@ export function ContactForm({ variant = 'default', onSuccess }: ContactFormProps
           <textarea
             name="message"
             required
-            minLength={10}
+            minLength={CONTACT_MESSAGE_MIN_LENGTH}
             maxLength={4000}
             rows={variant === 'footer' ? 4 : 5}
             value={message}
@@ -105,7 +110,7 @@ export function ContactForm({ variant = 'default', onSuccess }: ContactFormProps
 
       {status === 'error' ? (
         <p className="contact-form__feedback contact-form__feedback--error" role="alert">
-          {copy.error}
+          {errorKind === 'validation' ? copy.validationError : copy.error}
         </p>
       ) : null}
 

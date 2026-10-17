@@ -2,7 +2,6 @@ import type { SiteTranslations } from './types'
 import { companyCalculatorFr } from './companyCalculator/fr'
 import { incidentBriefFr } from './incidentBrief/fr'
 import { lifeAlgorithmFr } from './lifeAlgorithm/fr'
-
 const fr: SiteTranslations = {
   hero: {
     subtitle1: 'Petites expériences digitales',
@@ -179,6 +178,7 @@ const fr: SiteTranslations = {
     sending: 'Envoi…',
     success: 'Message envoyé. Merci — je vous répondrai bientôt.',
     error: 'Échec de l’envoi. Réessayez ou écrivez à holaninabaldo@gmail.com.',
+    validationError: 'Vérifiez les champs : nom, email valide et message d’au moins 5 caractères.',
     close: 'Fermer',
     closeAria: 'Fermer le formulaire de contact',
   },
