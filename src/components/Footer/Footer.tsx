@@ -23,6 +23,9 @@ export function Footer() {
         </div>
 
         <nav className="footer__links" aria-label={t.footer.socialAria}>
+          <a href="/#serveis" className="footer__link">
+            {t.footer.services}
+          </a>
           <a href="/projects" className="footer__link">
             {t.footer.projects}
           </a>

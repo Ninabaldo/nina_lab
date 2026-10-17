@@ -26,6 +26,35 @@ const fr: SiteTranslations = {
       typeValue: 'Expériences digitales',
     },
   },
+  services: {
+    eyebrow: 'Services',
+    title: 'Voici comment je peux vous aider',
+    lead: 'Voici les services que je propose en tant que product manager et designer produit digital.',
+    cta: 'Parler de votre projet',
+    ctaHref: 'mailto:holaninabaldo@gmail.com',
+    items: {
+      productManagement: {
+        title: 'Gestion produit',
+        description:
+          'Discovery, roadmap, backlog et priorités — de la clarté, des décisions réfléchies et une équipe alignée.',
+      },
+      uxUi: {
+        title: 'Design UX/UI',
+        description:
+          'Parcours, écrans et interfaces claires — des wireframes au design prêt à développer ou prototyper.',
+      },
+      prototypes: {
+        title: 'Prototypes & MVPs',
+        description:
+          'Valider vite avec des prototypes interactifs ou premières versions fonctionnelles avant de scaler le dev.',
+      },
+      aiProduct: {
+        title: 'Produit avec IA',
+        description:
+          'Micro-apps, automatisations et expériences IA (comme ce lab) pour tester des solutions réelles sans gros projets.',
+      },
+    },
+  },
   experiments: {
     title: 'Expériences',
     projects: 'projets',
@@ -113,6 +142,7 @@ const fr: SiteTranslations = {
     socialAria: 'Liens sociaux',
     support: 'Soutenez-moi',
     projects: 'Projets',
+    services: 'Services',
     copy: '© 2026 Nina Baldó',
   },
   modal: {

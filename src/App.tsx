@@ -4,6 +4,7 @@ import { LabDesignProvider } from './context/LabDesignProvider'
 import { SiteLanguageProvider } from './context/SiteLanguageProvider'
 import { SiteThemeProvider } from './context/SiteThemeProvider'
 import { Hero } from './components/Hero/Hero'
+import { HowICanHelp } from './components/HowICanHelp/HowICanHelp'
 import { Experiments } from './components/Experiments/Experiments'
 import { ProjectsShowcase } from './components/ProjectsShowcase/ProjectsShowcase'
 import { Footer } from './components/Footer/Footer'
@@ -18,6 +19,7 @@ function Portfolio() {
   return (
     <>
       <Hero />
+      <HowICanHelp />
       <DesignYourLabSection />
       <ProjectsShowcase />
       <Experiments tone="secondary" />

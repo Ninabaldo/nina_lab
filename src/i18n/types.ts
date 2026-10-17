@@ -6,6 +6,11 @@ export interface ExperimentCopy {
   category: string
 }
 
+export interface HelpOfferingCopy {
+  title: string
+  description: string
+}
+
 export interface LifeAlgorithmOptionCopy {
   label: string
   detail: string
@@ -191,6 +196,17 @@ export interface SiteTranslations {
       typeValue: string
     }
   }
+  services: {
+    eyebrow: string
+    title: string
+    lead: string
+    cta: string
+    ctaHref: string
+    items: Record<
+      'productManagement' | 'uxUi' | 'prototypes' | 'aiProduct',
+      HelpOfferingCopy
+    >
+  }
   experiments: {
     title: string
     projects: string
@@ -234,6 +250,7 @@ export interface SiteTranslations {
     socialAria: string
     support: string
     projects: string
+    services: string
     copy: string
   }
   modal: {

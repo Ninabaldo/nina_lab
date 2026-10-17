@@ -26,6 +26,35 @@ const ca: SiteTranslations = {
       typeValue: 'Experiments digitals',
     },
   },
+  services: {
+    eyebrow: 'Serveis',
+    title: 'Això és amb el que et puc ajudar',
+    lead: 'Aquests són els serveis que ofereixo com a product manager i dissenyadora de producte digital.',
+    cta: 'Parlem del teu projecte',
+    ctaHref: 'mailto:holaninabaldo@gmail.com',
+    items: {
+      productManagement: {
+        title: 'Gestió de producte',
+        description:
+          'Discovery, roadmap, backlog i prioritats: posar ordre, decidir amb criteri i portar l’equip al mateix lloc.',
+      },
+      uxUi: {
+        title: 'Disseny UX/UI',
+        description:
+          'Fluxos, pantalles i interfícies clares — des del wireframe fins al disseny llest per desenvolupar o prototipar.',
+      },
+      prototypes: {
+        title: 'Prototips i MVPs',
+        description:
+          'Validar idees ràpid amb prototips interactius o primers productes funcionals abans d’escalar el desenvolupament.',
+      },
+      aiProduct: {
+        title: 'Producte amb IA',
+        description:
+          'Micro-apps, automatitzacions i experiments amb IA (com aquest lab) per provar solucions reals sense projectes enormes.',
+      },
+    },
+  },
   experiments: {
     title: 'Experiments',
     projects: 'projectes',
@@ -113,6 +142,7 @@ const ca: SiteTranslations = {
     socialAria: 'Enllaços socials',
     support: 'Dona\'m suport',
     projects: 'Projectes',
+    services: 'Serveis',
     copy: '© 2026 Nina Baldó',
   },
   modal: {
