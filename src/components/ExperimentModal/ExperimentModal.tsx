@@ -15,7 +15,7 @@ interface ExperimentModalProps {
 export function ExperimentModal({ experiment, onClose }: ExperimentModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
-  const { t } = useSiteLanguage()
+  const { t, language } = useSiteLanguage()
 
   useEffect(() => {
     if (!experiment) return
@@ -60,7 +60,10 @@ export function ExperimentModal({ experiment, onClose }: ExperimentModalProps) {
           className={`experiment-modal__preview ${isInteractive ? 'experiment-modal__preview--app' : ''} ${experiment.id === 'breathe' ? 'experiment-modal__preview--breathe' : ''} ${experiment.id === 'life-algorithm' ? 'experiment-modal__preview--life' : ''}`}
         >
           {isInteractive ? (
-            <ExperimentApp type={experiment.previewType} />
+            <ExperimentApp
+              key={`${experiment.id}-${language}`}
+              type={experiment.previewType}
+            />
           ) : (
             <ExperimentPreview type={experiment.previewType} />
           )}

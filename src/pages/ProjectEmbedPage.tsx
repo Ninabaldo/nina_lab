@@ -53,6 +53,7 @@ export function ProjectEmbedPage({ projectId }: ProjectEmbedPageProps) {
       ) : project?.previewLayout === 'mobile' ? (
         <div className="project-embed__mobile-stage">
           <MobileSitePreview
+            key={`${projectId}-${language}`}
             url={embedSource}
             title={copy.previewAria}
             embed
@@ -63,6 +64,7 @@ export function ProjectEmbedPage({ projectId }: ProjectEmbedPageProps) {
         </div>
       ) : (
         <ExternalSitePreview
+          key={`${projectId}-${language}`}
           url={embedSource}
           title={copy.previewAria}
           logoUrl={previewLogo}

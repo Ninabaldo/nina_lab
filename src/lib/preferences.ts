@@ -30,6 +30,13 @@ export function getStoredLanguage(): Language | null {
 
 export function storeLanguage(language: Language) {
   localStorage.setItem(KEYS.language, language)
+  localStorage.setItem('breathe-language', language)
+  try {
+    localStorage.setItem('nook.lang', language)
+    localStorage.setItem('picked.lang', language)
+  } catch {
+    // Ignore when storage is unavailable.
+  }
 }
 
 export function detectBrowserLanguage(): Language {
