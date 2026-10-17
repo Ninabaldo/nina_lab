@@ -5,6 +5,7 @@ import type { ServiceOfferingCopy } from '../../i18n/types'
 import { ServicePreview } from './ServicePreview'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { useContact } from '../../hooks/useContact'
 import { ScrollReveal } from '../ScrollReveal/ScrollReveal'
 import './HowICanHelp.css'
 
@@ -41,6 +42,7 @@ function ServiceCard({ serviceId, index, item, modelLabel }: ServiceCardProps) {
 export function HowICanHelp() {
   const headerRef = useScrollReveal<HTMLElement>()
   const { t } = useSiteLanguage()
+  const { openContact } = useContact()
   const copy = t.services
 
   return (
@@ -77,10 +79,10 @@ export function HowICanHelp() {
         </ul>
 
         <ScrollReveal className="how-i-can-help__footer">
-          <a href={copy.ctaHref} className="how-i-can-help__cta">
+          <button type="button" className="how-i-can-help__cta" onClick={openContact}>
             {copy.cta}
             <span aria-hidden="true">→</span>
-          </a>
+          </button>
         </ScrollReveal>
       </div>
     </section>

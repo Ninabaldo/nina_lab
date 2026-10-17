@@ -7,8 +7,11 @@ import { Hero } from './components/Hero/Hero'
 import { HowICanHelp } from './components/HowICanHelp/HowICanHelp'
 import { Experiments } from './components/Experiments/Experiments'
 import { ProjectsShowcase } from './components/ProjectsShowcase/ProjectsShowcase'
+import { ContactModal } from './components/Contact/ContactModal'
 import { Footer } from './components/Footer/Footer'
+import { SiteHeader } from './components/SiteHeader/SiteHeader'
 import { SiteControls } from './components/SiteControls/SiteControls'
+import { ContactProvider } from './context/ContactProvider'
 import { BreatheApp } from './apps/breathe/BreatheApp'
 import { IncidentBriefApp } from './apps/incident-brief/IncidentBriefApp'
 import { usePathname } from './hooks/usePathname'
@@ -42,11 +45,19 @@ function App() {
   return (
     <SiteThemeProvider>
       <SiteLanguageProvider>
-        <LabDesignProvider>
-          {!isEmbedded && <SiteControls />}
-          {content}
-          {!isEmbedded && <LabDesignPanel />}
-        </LabDesignProvider>
+        <ContactProvider>
+          <LabDesignProvider>
+            {!isEmbedded ? (
+              <>
+                <SiteHeader />
+                <SiteControls />
+                <ContactModal />
+              </>
+            ) : null}
+            <div className={isEmbedded ? undefined : 'site-shell'}>{content}</div>
+            {!isEmbedded && <LabDesignPanel />}
+          </LabDesignProvider>
+        </ContactProvider>
       </SiteLanguageProvider>
     </SiteThemeProvider>
   )

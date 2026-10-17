@@ -248,6 +248,23 @@ export interface SiteTranslations {
       previewAria: string
     }>
   }
+  contact: {
+    modalEyebrow: string
+    modalTitle: string
+    modalLead: string
+    footerTitle: string
+    footerLead: string
+    nameLabel: string
+    emailLabel: string
+    messageLabel: string
+    messagePlaceholder: string
+    send: string
+    sending: string
+    success: string
+    error: string
+    close: string
+    closeAria: string
+  }
   footer: {
     nameFirst: string
     nameLast: string
@@ -257,6 +274,7 @@ export interface SiteTranslations {
     support: string
     projects: string
     services: string
+    contact: string
     copy: string
   }
   modal: {

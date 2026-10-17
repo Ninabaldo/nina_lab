@@ -1,3 +1,4 @@
+import { ContactForm } from '../Contact/ContactForm'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { BUY_ME_A_COFFEE_URL } from '../../lib/links'
@@ -29,6 +30,9 @@ export function Footer() {
           <a href="/projects" className="footer__link">
             {t.footer.projects}
           </a>
+          <a href="/#contacte" className="footer__link">
+            {t.footer.contact}
+          </a>
           <a
             href="https://www.linkedin.com/in/ninabaldorousseau/"
             className="footer__link"
@@ -36,9 +40,6 @@ export function Footer() {
             rel="noopener noreferrer"
           >
             LinkedIn
-          </a>
-          <a href="mailto:holaninabaldo@gmail.com" className="footer__link">
-            Email
           </a>
           <a
             href={BUY_ME_A_COFFEE_URL}
@@ -50,6 +51,14 @@ export function Footer() {
             <span className="footer__heart" aria-hidden="true">♥</span>
           </a>
         </nav>
+
+        <section id="contacte" className="footer__contact" aria-labelledby="footer-contact-heading">
+          <h2 id="footer-contact-heading" className="footer__contact-title">
+            {t.contact.footerTitle}
+          </h2>
+          <p className="footer__contact-lead">{t.contact.footerLead}</p>
+          <ContactForm variant="footer" />
+        </section>
 
         <p className="footer__copy">{t.footer.copy}</p>
       </div>

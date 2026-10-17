@@ -1,0 +1,46 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 85;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, var(--color-border));
+  background: color-mix(in srgb, var(--color-bg-alt) 88%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.site-header__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.65rem clamp(1.25rem, 4vw, 3rem);
+}
+
+.site-header__brand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0;
+  text-decoration: none;
+  color: var(--color-text);
+  line-height: 0.95;
+}
+
+.site-header__brand-line {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  letter-spacing: -0.03em;
+}
+
+.site-header__brand-line--lab {
+  opacity: 0.82;
+}
+
+.site-header__brand:hover .site-header__brand-line {
+  opacity: 1;
+}
+
+.site-header__brand:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 4px;
+  border-radius: 2px;
+}

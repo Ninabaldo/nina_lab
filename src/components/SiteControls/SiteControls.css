@@ -1,6 +1,6 @@
 .site-controls {
   position: fixed;
-  top: 1rem;
+  top: calc(var(--site-header-offset) + 0.35rem);
   right: 1rem;
   z-index: 90;
   display: flex;
@@ -94,7 +94,7 @@
 
 @media (max-width: 480px) {
   .site-controls {
-    top: 0.75rem;
+    top: calc(var(--site-header-offset) + 0.25rem);
     right: 0.75rem;
   }
 }
