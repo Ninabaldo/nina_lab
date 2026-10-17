@@ -1,8 +1,9 @@
 export const serviceIds = [
-  'productManagement',
-  'uxUi',
-  'prototypes',
-  'aiProduct',
+  'smallWebApps',
+  'interactiveExperiences',
+  'websitesMicrosites',
+  'businessTools',
+  'educationalProducts',
 ] as const
 
 export type ServiceId = (typeof serviceIds)[number]

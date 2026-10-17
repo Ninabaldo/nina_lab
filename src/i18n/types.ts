@@ -6,9 +6,11 @@ export interface ExperimentCopy {
   category: string
 }
 
-export interface HelpOfferingCopy {
+export interface ServiceOfferingCopy {
   title: string
   description: string
+  examples: string[]
+  model: string
 }
 
 export interface LifeAlgorithmOptionCopy {
@@ -200,11 +202,16 @@ export interface SiteTranslations {
     eyebrow: string
     title: string
     lead: string
+    modelLabel: string
     cta: string
     ctaHref: string
     items: Record<
-      'productManagement' | 'uxUi' | 'prototypes' | 'aiProduct',
-      HelpOfferingCopy
+      | 'smallWebApps'
+      | 'interactiveExperiences'
+      | 'websitesMicrosites'
+      | 'businessTools'
+      | 'educationalProducts',
+      ServiceOfferingCopy
     >
   }
   experiments: {

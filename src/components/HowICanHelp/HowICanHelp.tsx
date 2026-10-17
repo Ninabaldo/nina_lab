@@ -40,6 +40,15 @@ export function HowICanHelp() {
                   </span>
                   <h3 className="how-i-can-help__card-title">{item.title}</h3>
                   <p className="how-i-can-help__card-text">{item.description}</p>
+                  <ul className="how-i-can-help__examples">
+                    {item.examples.map((example) => (
+                      <li key={example}>{example}</li>
+                    ))}
+                  </ul>
+                  <p className="how-i-can-help__model">
+                    <span className="how-i-can-help__model-label">{copy.modelLabel}</span>
+                    {item.model}
+                  </p>
                 </article>
               </li>
             )

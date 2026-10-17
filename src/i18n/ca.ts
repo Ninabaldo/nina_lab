@@ -29,29 +29,69 @@ const ca: SiteTranslations = {
   services: {
     eyebrow: 'Serveis',
     title: 'Això és amb el que et puc ajudar',
-    lead: 'Aquests són els serveis que ofereixo com a product manager i dissenyadora de producte digital.',
+    lead: 'Cinc línies de treball per crear productes digitals, des d’apps petites fins a experiències per a marques.',
+    modelLabel: 'Model',
     cta: 'Parlem del teu projecte',
     ctaHref: 'mailto:holaninabaldo@gmail.com',
     items: {
-      productManagement: {
-        title: 'Gestió de producte',
+      smallWebApps: {
+        title: 'Aplicacions web petites',
         description:
-          'Discovery, roadmap, backlog i prioritats: posar ordre, decidir amb criteri i portar l’equip al mateix lloc.',
+          'Productes que resolen una necessitat concreta i funcionen des del navegador.',
+        examples: [
+          'Future Me: cartes programades.',
+          'Un creador de moodboards.',
+          'Un generador de plans personalitzats.',
+          'Una eina per organitzar idees o records.',
+        ],
+        model: 'Ús gratuït, funcions premium o pagament únic.',
       },
-      uxUi: {
-        title: 'Disseny UX/UI',
-        description:
-          'Fluxos, pantalles i interfícies clares — des del wireframe fins al disseny llest per desenvolupar o prototipar.',
+      interactiveExperiences: {
+        title: 'Experiències digitals interactives',
+        description: 'Projectes més experimentals, visuals i sorprenents.',
+        examples: [
+          'Jocs o qüestionaris que generen un resultat personalitzat.',
+          'Experiències narratives en què l’usuari decideix què passa.',
+          'Generadors d’art, formes, colors o composicions.',
+          'Experiències interactives per a campanyes o esdeveniments.',
+        ],
+        model: 'Projectes propis per captar audiència o encàrrecs per a marques.',
       },
-      prototypes: {
-        title: 'Prototips i MVPs',
+      websitesMicrosites: {
+        title: 'Webs i microsites per a altres persones',
         description:
-          'Validar idees ràpid amb prototips interactius o primers productes funcionals abans d’escalar el desenvolupament.',
+          'Crear pàgines web amb una identitat visual pròpia i funcions interactives.',
+        examples: [
+          'Webs per a professionals independents.',
+          'Landing pages per a productes o serveis.',
+          'Microsites per a esdeveniments, llançaments o campanyes.',
+          'Portfolios interactius.',
+        ],
+        model: 'Cobrar per projecte i, si cal, pel manteniment.',
       },
-      aiProduct: {
-        title: 'Producte amb IA',
+      businessTools: {
+        title: 'Eines i automatitzacions per a petits negocis',
         description:
-          'Micro-apps, automatitzacions i experiments amb IA (com aquest lab) per provar solucions reals sense projectes enormes.',
+          'Aplicacions que estalvien feina manual a professionals i empreses.',
+        examples: [
+          'Formularis que generen documents automàticament.',
+          'Sistemes de reserves o seguiment de clients.',
+          'Petits dashboards amb dades del negoci.',
+          'Connectar eines perquè treballin conjuntament.',
+        ],
+        model: 'Desenvolupament a mida, configuració i manteniment mensual.',
+      },
+      educationalProducts: {
+        title: 'Productes educatius interactius',
+        description:
+          'Convertir coneixements o continguts en experiències pràctiques.',
+        examples: [
+          'Guies interactives de softwares.',
+          'Tutorials amb exercicis i simulacions.',
+          'Eines per aprendre disseny o programació.',
+          'Recursos digitals que es puguin comprar i utilitzar online.',
+        ],
+        model: 'Venda de guies, cursos o llicències.',
       },
     },
   },

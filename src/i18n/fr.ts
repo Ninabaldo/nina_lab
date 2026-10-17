@@ -29,29 +29,69 @@ const fr: SiteTranslations = {
   services: {
     eyebrow: 'Services',
     title: 'Voici comment je peux vous aider',
-    lead: 'Voici les services que je propose en tant que product manager et designer produit digital.',
+    lead: 'Cinq axes pour créer des produits digitaux — des petites apps aux expériences pour les marques.',
+    modelLabel: 'Modèle',
     cta: 'Parler de votre projet',
     ctaHref: 'mailto:holaninabaldo@gmail.com',
     items: {
-      productManagement: {
-        title: 'Gestion produit',
+      smallWebApps: {
+        title: 'Petites applications web',
         description:
-          'Discovery, roadmap, backlog et priorités — de la clarté, des décisions réfléchies et une équipe alignée.',
+          'Des produits qui répondent à un besoin précis et fonctionnent dans le navigateur.',
+        examples: [
+          'Future Me : lettres programmées.',
+          'Un créateur de moodboards.',
+          'Un générateur de plans personnalisés.',
+          'Un outil pour organiser idées ou souvenirs.',
+        ],
+        model: 'Usage gratuit, fonctions premium ou paiement unique.',
       },
-      uxUi: {
-        title: 'Design UX/UI',
-        description:
-          'Parcours, écrans et interfaces claires — des wireframes au design prêt à développer ou prototyper.',
+      interactiveExperiences: {
+        title: 'Expériences digitales interactives',
+        description: 'Des projets plus expérimentaux, visuels et surprenants.',
+        examples: [
+          'Jeux ou quiz avec un résultat personnalisé.',
+          'Expériences narratives où l’utilisateur décide de la suite.',
+          'Générateurs d’art, formes, couleurs ou compositions.',
+          'Expériences interactives pour campagnes ou événements.',
+        ],
+        model: 'Projets perso pour une audience ou commandes pour des marques.',
       },
-      prototypes: {
-        title: 'Prototypes & MVPs',
+      websitesMicrosites: {
+        title: 'Sites et microsites pour d’autres',
         description:
-          'Valider vite avec des prototypes interactifs ou premières versions fonctionnelles avant de scaler le dev.',
+          'Des pages web avec une identité visuelle forte et des fonctions interactives.',
+        examples: [
+          'Sites pour indépendants.',
+          'Landing pages produits ou services.',
+          'Microsites événements, lancements ou campagnes.',
+          'Portfolios interactifs.',
+        ],
+        model: 'Facturation au projet et, si besoin, maintenance.',
       },
-      aiProduct: {
-        title: 'Produit avec IA',
+      businessTools: {
+        title: 'Outils et automatisations pour petites entreprises',
         description:
-          'Micro-apps, automatisations et expériences IA (comme ce lab) pour tester des solutions réelles sans gros projets.',
+          'Des applications qui réduisent le travail manuel des pros et des PME.',
+        examples: [
+          'Formulaires qui génèrent des documents automatiquement.',
+          'Réservations ou suivi clients.',
+          'Petits tableaux de bord avec les données du business.',
+          'Connecter des outils pour qu’ils travaillent ensemble.',
+        ],
+        model: 'Développement sur mesure, configuration et maintenance mensuelle.',
+      },
+      educationalProducts: {
+        title: 'Produits éducatifs interactifs',
+        description:
+          'Transformer savoirs ou contenus en expériences pratiques.',
+        examples: [
+          'Guides interactifs de logiciels.',
+          'Tutoriels avec exercices et simulations.',
+          'Outils pour apprendre le design ou le code.',
+          'Ressources digitales à acheter et utiliser en ligne.',
+        ],
+        model: 'Vente de guides, cours ou licences.',
       },
     },
   },
