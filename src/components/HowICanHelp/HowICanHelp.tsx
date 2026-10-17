@@ -1,8 +1,41 @@
 import type { CSSProperties } from 'react'
 import { serviceIds } from '../../data/services'
+import type { ServiceOfferingCopy } from '../../i18n/types'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { ScrollReveal } from '../ScrollReveal/ScrollReveal'
 import './HowICanHelp.css'
+
+interface ServiceCardProps {
+  index: number
+  item: ServiceOfferingCopy
+  modelLabel: string
+}
+
+function ServiceCard({ index, item, modelLabel }: ServiceCardProps) {
+  return (
+    <ScrollReveal
+      as="article"
+      className="how-i-can-help__card"
+      style={{ '--reveal-delay': `${index * 0.06}s` } as CSSProperties}
+    >
+      <span className="how-i-can-help__index" aria-hidden="true">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+      <h3 className="how-i-can-help__card-title">{item.title}</h3>
+      <p className="how-i-can-help__card-text">{item.description}</p>
+      <ul className="how-i-can-help__examples">
+        {item.examples.map((example) => (
+          <li key={example}>{example}</li>
+        ))}
+      </ul>
+      <p className="how-i-can-help__model">
+        <span className="how-i-can-help__model-label">{modelLabel}</span>
+        {item.model}
+      </p>
+    </ScrollReveal>
+  )
+}
 
 export function HowICanHelp() {
   const headerRef = useScrollReveal<HTMLElement>()
@@ -31,36 +64,18 @@ export function HowICanHelp() {
 
             return (
               <li key={id}>
-                <article
-                  className="how-i-can-help__card reveal"
-                  style={{ '--reveal-delay': `${index * 0.06}s` } as CSSProperties}
-                >
-                  <span className="how-i-can-help__index" aria-hidden="true">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="how-i-can-help__card-title">{item.title}</h3>
-                  <p className="how-i-can-help__card-text">{item.description}</p>
-                  <ul className="how-i-can-help__examples">
-                    {item.examples.map((example) => (
-                      <li key={example}>{example}</li>
-                    ))}
-                  </ul>
-                  <p className="how-i-can-help__model">
-                    <span className="how-i-can-help__model-label">{copy.modelLabel}</span>
-                    {item.model}
-                  </p>
-                </article>
+                <ServiceCard index={index} item={item} modelLabel={copy.modelLabel} />
               </li>
             )
           })}
         </ul>
 
-        <div className="how-i-can-help__footer reveal">
+        <ScrollReveal className="how-i-can-help__footer">
           <a href={copy.ctaHref} className="how-i-can-help__cta">
             {copy.cta}
             <span aria-hidden="true">→</span>
           </a>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

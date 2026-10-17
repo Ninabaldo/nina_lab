@@ -11,22 +11,35 @@ export function useScrollReveal<T extends HTMLElement>() {
       '(prefers-reduced-motion: reduce)',
     ).matches
 
-    if (prefersReduced) {
+    const reveal = () => {
       element.classList.add('is-visible')
+    }
+
+    if (prefersReduced) {
+      reveal()
       return
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          element.classList.add('is-visible')
+          reveal()
           observer.unobserve(element)
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -4% 0px' },
+      { threshold: 0.08, rootMargin: '0px 0px -2% 0px' },
     )
 
     observer.observe(element)
+
+    requestAnimationFrame(() => {
+      const rect = element.getBoundingClientRect()
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+      if (rect.top < viewportHeight * 0.92 && rect.bottom > 0) {
+        reveal()
+        observer.unobserve(element)
+      }
+    })
     return () => observer.disconnect()
   }, [])
 
