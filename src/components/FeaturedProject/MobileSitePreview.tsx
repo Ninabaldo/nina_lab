@@ -15,6 +15,7 @@ interface MobileSitePreviewProps {
   url: string
   title: string
   static?: boolean
+  /** Same scale as project cards (list + open project). */
   compact?: boolean
 }
 
@@ -22,12 +23,12 @@ export function MobileSitePreview({
   url,
   title,
   static: isStatic = false,
-  compact = false,
+  compact = true,
 }: MobileSitePreviewProps) {
   return (
     <div
       className={`mobile-site-preview${isStatic ? ' mobile-site-preview--static' : ''}${
-        compact ? ' mobile-site-preview--compact' : ' mobile-site-preview--embed'
+        compact ? ' mobile-site-preview--compact' : ''
       }`}
       aria-hidden={isStatic ? true : undefined}
       style={
@@ -45,8 +46,6 @@ export function MobileSitePreview({
             className="mobile-site-preview__frame"
             src={url}
             title={title}
-            width={DEVICE_WIDTH}
-            height={SCREEN_HEIGHT}
             loading="lazy"
             allow={IFRAME_ALLOW}
             tabIndex={isStatic ? -1 : 0}

@@ -10,21 +10,24 @@
 }
 
 .mobile-site-preview__viewport {
-  width: calc(var(--device-width) * var(--preview-scale));
+  width: 100%;
   height: calc(var(--device-height) * var(--preview-scale));
+  display: flex;
+  justify-content: center;
   overflow: hidden;
 }
 
 .mobile-site-preview__device {
   width: var(--device-width);
   transform: scale(var(--preview-scale));
-  transform-origin: top left;
+  transform-origin: top center;
+  flex-shrink: 0;
 }
 
 .mobile-site-preview__frame {
   display: block;
-  width: var(--device-width);
-  height: var(--screen-height);
+  width: 100%;
+  height: 100%;
   border: none;
   background: var(--color-bg-alt);
 }
@@ -35,7 +38,6 @@
   user-select: none;
 }
 
-/* Fit the device to the card width — up to 1:1 simulator size. */
 .mobile-site-preview--compact {
   --preview-scale: min(1, calc((100% - 0.5rem) / var(--device-width)));
 }
@@ -44,12 +46,16 @@
   --preview-scale: min(1, calc((100cqw - 1.5rem) / var(--device-width)));
 }
 
-.mobile-site-preview--embed {
-  --preview-scale: min(1, calc((100svh - 10rem) / var(--device-height)), 0.92);
+.project-embed__mobile-stage .mobile-site-preview--compact {
+  --preview-scale: min(1, calc((100cqw - 1.5rem) / var(--device-width)));
 }
 
 @media (max-width: 767px) {
   .mobile-site-preview--compact {
-    --preview-scale: min(1, calc((100vw - 3.5rem) / var(--device-width)));
+    --preview-scale: min(1, calc((100% - 0.5rem) / var(--device-width)));
+  }
+
+  .project-embed__mobile-stage .mobile-site-preview--compact {
+    --preview-scale: min(1, calc((100cqw - 1.5rem) / var(--device-width)));
   }
 }
