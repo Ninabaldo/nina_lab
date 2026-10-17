@@ -24,6 +24,41 @@
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+
+  --color-primary: var(--color-accent-sage);
+  --lab-button-radius: 100px;
+}
+
+[data-lab-style='editorial'] {
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --lab-button-radius: 100px;
+}
+
+[data-lab-style='minimal'] {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --lab-button-radius: 100px;
+}
+
+[data-lab-style='tech'] {
+  --radius-sm: 0;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --lab-button-radius: 4px;
+}
+
+[data-lab-style='playful'] {
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --lab-button-radius: 100px;
 }
 
 [data-theme='dark'] {

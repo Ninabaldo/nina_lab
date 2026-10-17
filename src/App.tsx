@@ -1,3 +1,6 @@
+import { DesignYourLabSection } from './components/DesignYourLab/DesignYourLabSection'
+import { LabDesignPanel } from './components/DesignYourLab/LabDesignPanel'
+import { LabDesignProvider } from './context/LabDesignProvider'
 import { SiteLanguageProvider } from './context/SiteLanguageProvider'
 import { SiteThemeProvider } from './context/SiteThemeProvider'
 import { Hero } from './components/Hero/Hero'
@@ -15,6 +18,7 @@ function Portfolio() {
   return (
     <>
       <Hero />
+      <DesignYourLabSection />
       <ProjectsShowcase />
       <Experiments tone="secondary" />
       <Footer />
@@ -36,8 +40,11 @@ function App() {
   return (
     <SiteThemeProvider>
       <SiteLanguageProvider>
-        {!isEmbedded && <SiteControls />}
-        {content}
+        <LabDesignProvider>
+          {!isEmbedded && <SiteControls />}
+          {content}
+          {!isEmbedded && <LabDesignPanel />}
+        </LabDesignProvider>
       </SiteLanguageProvider>
     </SiteThemeProvider>
   )

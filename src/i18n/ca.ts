@@ -150,6 +150,38 @@ const ca: SiteTranslations = {
   controls: {
     language: 'Idioma',
   },
+  labDesign: {
+    eyebrow: 'Interactiu',
+    title: 'Design your LAB',
+    lead: 'Prova colors, tipografies i estils diferents. Fes aquest LAB teu.',
+    cta: 'Personalitza Nina Lab',
+    panelEyebrow: 'Previsualització en viu',
+    panelTitle: 'Design your LAB',
+    close: 'Tancar el panell de personalització',
+    colorsTitle: 'Colors',
+    colorsHint: 'Tria una paleta o ajusta cada color. Els canvis s’apliquen a tota la web al moment.',
+    palettesAria: 'Paletes de color',
+    paletteApply: 'Aplicar paleta',
+    primary: 'Primari',
+    background: 'Fons',
+    text: 'Text',
+    surface: 'Superfície / targetes',
+    typographyTitle: 'Tipografia',
+    displayFont: 'Títols',
+    bodyFont: 'Text general',
+    defaultDisplayFont: 'Per defecte del Lab (Syne)',
+    previewTitle: 'Previsualització de títol',
+    previewBody: 'Text de cos per paràgrafs, descripcions i interfície.',
+    previewButton: 'Botó',
+    styleTitle: 'Estil general',
+    styles: {
+      minimal: 'Minimal',
+      editorial: 'Editorial',
+      tech: 'Tech',
+      playful: 'Playful',
+    },
+    reset: 'Restablir',
+  },
 }
 
 export default ca

@@ -150,6 +150,38 @@ const en: SiteTranslations = {
   controls: {
     language: 'Language',
   },
+  labDesign: {
+    eyebrow: 'Interactive',
+    title: 'Design your LAB',
+    lead: 'Explore different colors, typography and styles. Make this LAB yours.',
+    cta: 'Customize Nina Lab',
+    panelEyebrow: 'Live preview',
+    panelTitle: 'Design your LAB',
+    close: 'Close customization panel',
+    colorsTitle: 'Colors',
+    colorsHint: 'Pick a palette or fine-tune each token. Changes apply instantly across the site.',
+    palettesAria: 'Color palettes',
+    paletteApply: 'Apply palette',
+    primary: 'Primary',
+    background: 'Background',
+    text: 'Text',
+    surface: 'Surface / cards',
+    typographyTitle: 'Typography',
+    displayFont: 'Headings',
+    bodyFont: 'Body text',
+    defaultDisplayFont: 'Lab default (Syne)',
+    previewTitle: 'Heading preview',
+    previewBody: 'Body text preview for paragraphs, descriptions and UI copy.',
+    previewButton: 'Button',
+    styleTitle: 'General style',
+    styles: {
+      minimal: 'Minimal',
+      editorial: 'Editorial',
+      tech: 'Tech',
+      playful: 'Playful',
+    },
+    reset: 'Reset',
+  },
 }
 
 export default en

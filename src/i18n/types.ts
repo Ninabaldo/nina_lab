@@ -271,6 +271,38 @@ export interface SiteTranslations {
   controls: {
     language: string
   }
+  labDesign: {
+    eyebrow: string
+    title: string
+    lead: string
+    cta: string
+    panelEyebrow: string
+    panelTitle: string
+    close: string
+    colorsTitle: string
+    colorsHint: string
+    palettesAria: string
+    paletteApply: string
+    primary: string
+    background: string
+    text: string
+    surface: string
+    typographyTitle: string
+    displayFont: string
+    bodyFont: string
+    defaultDisplayFont: string
+    previewTitle: string
+    previewBody: string
+    previewButton: string
+    styleTitle: string
+    styles: {
+      minimal: string
+      editorial: string
+      tech: string
+      playful: string
+    }
+    reset: string
+  }
 }
 
 export type { Language }
