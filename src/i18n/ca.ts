@@ -214,6 +214,9 @@ const ca: SiteTranslations = {
   controls: {
     language: 'Idioma',
   },
+  siteHeader: {
+    tagline: 'Servei de creació de productes digitals',
+  },
   labDesign: {
     eyebrow: 'Interactiu',
     title: "Personalitza Nina's Lab",

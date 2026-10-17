@@ -214,6 +214,9 @@ const fr: SiteTranslations = {
   controls: {
     language: 'Langue',
   },
+  siteHeader: {
+    tagline: 'Service de création de produits digitaux',
+  },
   labDesign: {
     eyebrow: 'Interactif',
     title: "Personnalisez Nina's Lab",

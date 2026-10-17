@@ -317,6 +317,9 @@ export interface SiteTranslations {
   controls: {
     language: string
   }
+  siteHeader: {
+    tagline: string
+  }
   labDesign: {
     eyebrow: string
     title: string
