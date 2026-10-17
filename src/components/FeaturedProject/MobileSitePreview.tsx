@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { useEffect, useState } from 'react'
 import { PhoneFrame } from '../PhoneFrame/PhoneFrame'
 import { useNarrowViewport } from '../../hooks/useNarrowViewport'
 import './MobileSitePreview.css'
@@ -22,6 +23,8 @@ interface MobileSitePreviewProps {
   compact?: boolean
   /** Open project: use full viewport on phones (no simulator chrome). */
   embed?: boolean
+  logoUrl?: string
+  logoVariant?: 'nook' | 'scopo' | 'picked'
 }
 
 export function MobileSitePreview({
@@ -30,9 +33,16 @@ export function MobileSitePreview({
   static: isStatic = false,
   compact = true,
   embed = false,
+  logoUrl,
+  logoVariant,
 }: MobileSitePreviewProps) {
   const narrowViewport = useNarrowViewport()
   const useNativeEmbed = embed && narrowViewport && !isStatic
+  const [iframeLoaded, setIframeLoaded] = useState(false)
+
+  useEffect(() => {
+    setIframeLoaded(false)
+  }, [url])
 
   if (useNativeEmbed) {
     return (
@@ -48,6 +58,8 @@ export function MobileSitePreview({
       </div>
     )
   }
+
+  const showLogo = Boolean(logoUrl)
 
   return (
     <div
@@ -66,17 +78,30 @@ export function MobileSitePreview({
     >
       <div className="mobile-site-preview__viewport">
         <PhoneFrame variant="simulator" className="mobile-site-preview__device">
-          <iframe
-            key={url}
-            className="mobile-site-preview__frame"
-            src={url}
-            title={title}
-            width={SCREEN_WIDTH}
-            height={SCREEN_HEIGHT}
-            loading={isStatic ? 'lazy' : 'eager'}
-            allow={IFRAME_ALLOW}
-            tabIndex={isStatic ? -1 : 0}
-          />
+          <div className="mobile-site-preview__screen">
+            {showLogo ? (
+              <div
+                className={`mobile-site-preview__fallback${
+                  logoVariant ? ` mobile-site-preview__fallback--${logoVariant}` : ''
+                }`}
+                aria-hidden={iframeLoaded ? true : undefined}
+              >
+                <img className="mobile-site-preview__logo" src={logoUrl} alt="" loading="lazy" />
+              </div>
+            ) : null}
+            <iframe
+              key={url}
+              className={`mobile-site-preview__frame${iframeLoaded ? ' is-loaded' : ''}`}
+              src={url}
+              title={title}
+              width={SCREEN_WIDTH}
+              height={SCREEN_HEIGHT}
+              loading={isStatic ? 'lazy' : 'eager'}
+              allow={IFRAME_ALLOW}
+              tabIndex={isStatic ? -1 : 0}
+              onLoad={() => setIframeLoaded(true)}
+            />
+          </div>
         </PhoneFrame>
       </div>
     </div>

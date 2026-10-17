@@ -1,6 +1,7 @@
 import { getProjectEmbedSource, type Project } from '../../data/projects'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { getProjectPreviewLogo, getProjectPreviewLogoVariant } from '../../lib/projectBranding'
 import { resolveProjectPreviewUrl } from '../../lib/projectPreview'
 import { MobileSitePreview } from './MobileSitePreview'
 import './FeaturedMobileProjectsRow.css'
@@ -48,7 +49,14 @@ export function FeaturedMobileProjectsRow({ projects }: FeaturedMobileProjectsRo
 
             {previewSource ? (
               <div className="mobile-project-card__stage" aria-hidden="true">
-                <MobileSitePreview url={previewSource} title={copy.previewAria} static compact />
+                <MobileSitePreview
+                  url={previewSource}
+                  title={copy.previewAria}
+                  static
+                  compact
+                  logoUrl={getProjectPreviewLogo(project.id)}
+                  logoVariant={getProjectPreviewLogoVariant(project.id)}
+                />
               </div>
             ) : null}
           </article>

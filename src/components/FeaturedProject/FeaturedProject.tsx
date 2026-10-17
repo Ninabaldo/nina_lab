@@ -2,6 +2,7 @@ import { BreatheStaticPreview } from '../../apps/breathe/BreatheApp'
 import { getProjectEmbedSource, type Project } from '../../data/projects'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { getProjectPreviewLogo, getProjectPreviewLogoVariant } from '../../lib/projectBranding'
 import { resolveProjectPreviewUrl } from '../../lib/projectPreview'
 import { ExternalSitePreview } from './ExternalSitePreview'
 import { MobileSitePreview } from './MobileSitePreview'
@@ -21,6 +22,8 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
     ? resolveProjectPreviewUrl(project, rawPreviewSource, language)
     : undefined
   const isMobilePreview = project.previewLayout === 'mobile'
+  const previewLogo = getProjectPreviewLogo(project.id)
+  const previewLogoVariant = getProjectPreviewLogoVariant(project.id)
 
   if (!copy) return null
 
@@ -60,9 +63,21 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
             }`}
           >
             {isMobilePreview ? (
-              <MobileSitePreview url={previewSource} title={copy.previewAria} static />
+              <MobileSitePreview
+                url={previewSource}
+                title={copy.previewAria}
+                static
+                logoUrl={previewLogo}
+                logoVariant={previewLogoVariant}
+              />
             ) : (
-              <ExternalSitePreview url={previewSource} title={copy.previewAria} static />
+              <ExternalSitePreview
+                url={previewSource}
+                title={copy.previewAria}
+                static
+                logoUrl={previewLogo}
+                logoVariant={previewLogoVariant}
+              />
             )}
           </div>
         </div>

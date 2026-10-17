@@ -3,6 +3,7 @@ import { MobileSitePreview } from '../components/FeaturedProject/MobileSitePrevi
 import { projectAppComponents } from '../data/projectApps'
 import { getProjectById, getProjectEmbedSource } from '../data/projects'
 import { useSiteLanguage } from '../hooks/useSiteLanguage'
+import { getProjectPreviewLogo, getProjectPreviewLogoVariant } from '../lib/projectBranding'
 import { resolveProjectPreviewUrl } from '../lib/projectPreview'
 import './ProjectEmbedPage.css'
 
@@ -20,6 +21,8 @@ export function ProjectEmbedPage({ projectId }: ProjectEmbedPageProps) {
       ? resolveProjectPreviewUrl(project, rawEmbedSource, language)
       : undefined
   const ProjectApp = projectAppComponents[projectId]
+  const previewLogo = project ? getProjectPreviewLogo(project.id) : undefined
+  const previewLogoVariant = project ? getProjectPreviewLogoVariant(project.id) : undefined
 
   if (!embedSource || !copy) {
     return (
@@ -49,10 +52,22 @@ export function ProjectEmbedPage({ projectId }: ProjectEmbedPageProps) {
         </div>
       ) : project?.previewLayout === 'mobile' ? (
         <div className="project-embed__mobile-stage">
-          <MobileSitePreview url={embedSource} title={copy.previewAria} embed compact={false} />
+          <MobileSitePreview
+            url={embedSource}
+            title={copy.previewAria}
+            embed
+            compact={false}
+            logoUrl={previewLogo}
+            logoVariant={previewLogoVariant}
+          />
         </div>
       ) : (
-        <ExternalSitePreview url={embedSource} title={copy.previewAria} />
+        <ExternalSitePreview
+          url={embedSource}
+          title={copy.previewAria}
+          logoUrl={previewLogo}
+          logoVariant={previewLogoVariant}
+        />
       )}
     </main>
   )

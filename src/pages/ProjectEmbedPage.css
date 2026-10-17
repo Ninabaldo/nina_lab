@@ -76,7 +76,7 @@
 }
 
 .project-embed__mobile-stage {
-  container-type: size;
+  container-type: inline-size;
   container-name: mobile-preview;
   flex: 1;
   display: flex;
