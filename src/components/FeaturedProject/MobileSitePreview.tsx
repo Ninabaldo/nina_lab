@@ -7,10 +7,12 @@ const IFRAME_ALLOW =
   'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen'
 
 /** Logical iPhone viewport — apps lay out as on a real device. */
-const DEVICE_WIDTH = 393
+const SCREEN_WIDTH = 393
 const SCREEN_HEIGHT = 852
+/** Simulator chrome width (393px screen + horizontal bezel padding). */
+const DEVICE_OUTER_WIDTH = 413
 /** Bezel + island + screen (matches .phone-frame--simulator layout). */
-const DEVICE_HEIGHT = 905
+const DEVICE_OUTER_HEIGHT = 905
 
 interface MobileSitePreviewProps {
   url: string
@@ -55,9 +57,10 @@ export function MobileSitePreview({
       aria-hidden={isStatic ? true : undefined}
       style={
         {
-          '--device-width': `${DEVICE_WIDTH}px`,
-          '--device-height': `${DEVICE_HEIGHT}px`,
+          '--screen-width': `${SCREEN_WIDTH}px`,
           '--screen-height': `${SCREEN_HEIGHT}px`,
+          '--device-width': `${DEVICE_OUTER_WIDTH}px`,
+          '--device-height': `${DEVICE_OUTER_HEIGHT}px`,
         } as CSSProperties
       }
     >
@@ -68,6 +71,8 @@ export function MobileSitePreview({
             className="mobile-site-preview__frame"
             src={url}
             title={title}
+            width={SCREEN_WIDTH}
+            height={SCREEN_HEIGHT}
             loading={isStatic ? 'lazy' : 'eager'}
             allow={IFRAME_ALLOW}
             tabIndex={isStatic ? -1 : 0}

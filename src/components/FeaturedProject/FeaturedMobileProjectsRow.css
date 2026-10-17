@@ -75,16 +75,17 @@
 }
 
 .mobile-project-card__stage {
-  container-type: inline-size;
+  container-type: size;
   container-name: mobile-preview;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: clamp(1rem, 2.5vw, 1.35rem);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--color-text) 5%, var(--color-bg-warm));
-  min-height: auto;
+  min-height: min(420px, 52svh);
+  max-height: min(560px, 62svh);
   overflow: hidden;
 }
 

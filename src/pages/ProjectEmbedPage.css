@@ -76,19 +76,20 @@
 }
 
 .project-embed__mobile-stage {
-  container-type: inline-size;
+  container-type: size;
   container-name: mobile-preview;
   flex: 1;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   width: 100%;
   max-width: calc((var(--max-width) - 2rem) / 2 + 3rem);
   margin-inline: auto;
   min-height: 0;
+  max-height: calc(100svh - var(--project-embed-bar-height) - 1.5rem);
   padding: clamp(1rem, 2.5vw, 1.35rem);
   background: color-mix(in srgb, var(--color-text) 5%, var(--color-bg-warm));
-  overflow: auto;
+  overflow: hidden;
 }
 
 .project-embed__mobile-stage .mobile-site-preview {

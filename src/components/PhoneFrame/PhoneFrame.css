@@ -30,8 +30,8 @@
 }
 
 .phone-frame--iphone {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  max-width: 413px;
 }
 
 .phone-frame--iphone .phone-frame__bezel {
@@ -56,10 +56,9 @@
 }
 
 .phone-frame--iphone .phone-frame__screen {
-  width: 393px;
-  max-width: 100%;
-  height: 852px;
-  aspect-ratio: auto;
+  width: 100%;
+  aspect-ratio: 393 / 852;
+  height: auto;
   border-radius: 42px;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, #000 35%, transparent);
 }
