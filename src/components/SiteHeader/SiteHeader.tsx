@@ -1,3 +1,4 @@
+import { SiteControls } from '../SiteControls/SiteControls'
 import './SiteHeader.css'
 
 export function SiteHeader() {
@@ -8,6 +9,7 @@ export function SiteHeader() {
           <span className="site-header__brand-line">NINA&apos;S</span>
           <span className="site-header__brand-line site-header__brand-line--lab">LAB</span>
         </a>
+        <SiteControls />
       </div>
     </header>
   )

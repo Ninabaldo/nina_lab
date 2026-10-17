@@ -1,5 +1,6 @@
 .footer {
-  padding: clamp(4rem, 10vw, 6rem) clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 4vw, 3rem)
+    clamp(1.25rem, 3vw, 1.75rem);
   border-top: 1px solid var(--color-border);
 }
 
@@ -8,7 +9,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: clamp(1.75rem, 4vw, 2.25rem);
 }
 
 .footer__name {
@@ -75,7 +76,9 @@
 }
 
 .footer__copy {
-  margin: 0;
+  margin: 0.15rem 0 0;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--color-border);
   font-size: 0.75rem;
   color: var(--color-text-light);
 }
@@ -110,7 +113,7 @@
     grid-template-columns: 1fr minmax(16rem, 22rem);
     grid-template-rows: auto auto auto;
     align-items: start;
-    gap: 2.5rem 4rem;
+    gap: 2rem 4rem;
   }
 
   .footer__brand {
@@ -134,8 +137,6 @@
   .footer__copy {
     grid-column: 1 / -1;
     grid-row: 3;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
   }
 }
 

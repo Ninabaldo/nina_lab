@@ -10,7 +10,6 @@ import { ProjectsShowcase } from './components/ProjectsShowcase/ProjectsShowcase
 import { ContactModal } from './components/Contact/ContactModal'
 import { Footer } from './components/Footer/Footer'
 import { SiteHeader } from './components/SiteHeader/SiteHeader'
-import { SiteControls } from './components/SiteControls/SiteControls'
 import { ContactProvider } from './context/ContactProvider'
 import { BreatheApp } from './apps/breathe/BreatheApp'
 import { IncidentBriefApp } from './apps/incident-brief/IncidentBriefApp'
@@ -50,7 +49,6 @@ function App() {
             {!isEmbedded ? (
               <>
                 <SiteHeader />
-                <SiteControls />
                 <ContactModal />
               </>
             ) : null}

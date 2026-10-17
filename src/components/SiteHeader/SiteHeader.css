@@ -12,7 +12,11 @@
 .site-header__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0.65rem clamp(1.25rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 4vw, 2rem);
+  padding: 0.75rem clamp(1.25rem, 4vw, 3rem);
 }
 
 .site-header__brand {

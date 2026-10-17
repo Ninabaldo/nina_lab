@@ -1,11 +1,12 @@
 .site-controls {
-  position: fixed;
-  top: calc(var(--site-header-offset) + 0.35rem);
-  right: 1rem;
-  z-index: 90;
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: 0.5rem;
+  margin-left: auto;
+  padding-left: 0.5rem;
 }
 
 .site-controls__group {
@@ -26,8 +27,8 @@
 }
 
 .site-controls__trigger {
-  gap: 0.25rem;
-  padding: 0.35rem 0.55rem;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.08em;
@@ -92,9 +93,3 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-@media (max-width: 480px) {
-  .site-controls {
-    top: calc(var(--site-header-offset) + 0.25rem);
-    right: 0.75rem;
-  }
-}
