@@ -6,7 +6,6 @@ import { SiteThemeProvider } from './context/SiteThemeProvider'
 import { Hero } from './components/Hero/Hero'
 import { HowICanHelp } from './components/HowICanHelp/HowICanHelp'
 import { WorkExamples } from './components/WorkExamples/WorkExamples'
-import { Experiments } from './components/Experiments/Experiments'
 import { ProjectsShowcase } from './components/ProjectsShowcase/ProjectsShowcase'
 import { ContactModal } from './components/Contact/ContactModal'
 import { Footer } from './components/Footer/Footer'
@@ -26,7 +25,6 @@ function Portfolio() {
       <WorkExamples />
       <DesignYourLabSection />
       <ProjectsShowcase />
-      <Experiments tone="secondary" />
       <Footer />
     </>
   )
