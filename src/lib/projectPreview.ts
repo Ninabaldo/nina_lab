@@ -1,0 +1,39 @@
+import type { Project } from '../data/projects'
+import type { Language } from './preferences'
+
+const NOOK_HOST = 'nook-ochre-eight.vercel.app'
+const SCOPO_HOST = 'scopo-omega.vercel.app'
+
+function hostFromUrl(url: string): string | null {
+  try {
+    return new URL(url, window.location.origin).hostname
+  } catch {
+    return null
+  }
+}
+
+export function getNookPreviewSrc(language: Language): string {
+  return `/api/nook-preview?lang=${encodeURIComponent(language)}`
+}
+
+export function getScopoPreviewSrc(language: Language): string {
+  return `/api/scopo-preview?lang=${encodeURIComponent(language)}`
+}
+
+export function resolveProjectPreviewUrl(
+  project: Project,
+  rawUrl: string,
+  language: Language,
+): string {
+  const host = hostFromUrl(rawUrl)
+
+  if (project.id === 'scopo' || host === SCOPO_HOST) {
+    return getScopoPreviewSrc(language)
+  }
+
+  if (project.id === 'nook' || host === NOOK_HOST) {
+    return getNookPreviewSrc(language)
+  }
+
+  return rawUrl
+}

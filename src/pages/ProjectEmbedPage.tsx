@@ -3,7 +3,7 @@ import { MobileSitePreview } from '../components/FeaturedProject/MobileSitePrevi
 import { projectAppComponents } from '../data/projectApps'
 import { getProjectById, getProjectEmbedSource } from '../data/projects'
 import { useSiteLanguage } from '../hooks/useSiteLanguage'
-import { withNookLanguage } from '../lib/nookPreview'
+import { resolveProjectPreviewUrl } from '../lib/projectPreview'
 import './ProjectEmbedPage.css'
 
 interface ProjectEmbedPageProps {
@@ -15,9 +15,10 @@ export function ProjectEmbedPage({ projectId }: ProjectEmbedPageProps) {
   const project = getProjectById(projectId)
   const copy = project ? t.projects.items[project.id] : undefined
   const rawEmbedSource = project ? getProjectEmbedSource(project) : undefined
-  const embedSource = rawEmbedSource
-    ? withNookLanguage(rawEmbedSource, language)
-    : undefined
+  const embedSource =
+    project && rawEmbedSource
+      ? resolveProjectPreviewUrl(project, rawEmbedSource, language)
+      : undefined
   const ProjectApp = projectAppComponents[projectId]
 
   if (!embedSource || !copy) {

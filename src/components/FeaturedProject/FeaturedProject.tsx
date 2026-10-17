@@ -2,7 +2,7 @@ import { BreatheStaticPreview } from '../../apps/breathe/BreatheApp'
 import { getProjectEmbedSource, type Project } from '../../data/projects'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
-import { withNookLanguage } from '../../lib/nookPreview'
+import { resolveProjectPreviewUrl } from '../../lib/projectPreview'
 import { ExternalSitePreview } from './ExternalSitePreview'
 import { MobileSitePreview } from './MobileSitePreview'
 import './FeaturedProject.css'
@@ -18,7 +18,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
   const embedPath = `/projects/${project.id}`
   const rawPreviewSource = getProjectEmbedSource(project)
   const previewSource = rawPreviewSource
-    ? withNookLanguage(rawPreviewSource, language)
+    ? resolveProjectPreviewUrl(project, rawPreviewSource, language)
     : undefined
   const isMobilePreview = project.previewLayout === 'mobile'
 
