@@ -217,6 +217,10 @@ const en: SiteTranslations = {
   siteHeader: {
     tagline: 'Digital product creation service',
   },
+  backToTop: {
+    label: 'On top',
+    ariaLabel: 'Back to top',
+  },
   labDesign: {
     eyebrow: 'Interactive',
     title: "Customize Nina's Lab",

@@ -217,6 +217,10 @@ const ca: SiteTranslations = {
   siteHeader: {
     tagline: 'Servei de creació de productes digitals',
   },
+  backToTop: {
+    label: 'On top',
+    ariaLabel: 'Tornar a dalt',
+  },
   labDesign: {
     eyebrow: 'Interactiu',
     title: "Personalitza Nina's Lab",

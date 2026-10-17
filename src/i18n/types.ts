@@ -320,6 +320,10 @@ export interface SiteTranslations {
   siteHeader: {
     tagline: string
   }
+  backToTop: {
+    label: string
+    ariaLabel: string
+  }
   labDesign: {
     eyebrow: string
     title: string

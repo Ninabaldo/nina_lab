@@ -9,6 +9,7 @@ import { WorkExamples } from './components/WorkExamples/WorkExamples'
 import { ProjectsShowcase } from './components/ProjectsShowcase/ProjectsShowcase'
 import { ContactModal } from './components/Contact/ContactModal'
 import { Footer } from './components/Footer/Footer'
+import { BackToTop } from './components/BackToTop/BackToTop'
 import { SiteHeader } from './components/SiteHeader/SiteHeader'
 import { ContactProvider } from './context/ContactProvider'
 import { BreatheApp } from './apps/breathe/BreatheApp'
@@ -49,6 +50,7 @@ function App() {
             {!isEmbedded ? (
               <>
                 <SiteHeader />
+                <BackToTop />
                 <ContactModal />
               </>
             ) : null}
