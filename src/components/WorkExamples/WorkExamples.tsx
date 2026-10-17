@@ -39,10 +39,20 @@ function LabExampleCard({ experiment, index, onOpen }: LabExampleCardProps) {
     }
   }
 
+  const cardClassName = [
+    'work-examples__card',
+    `work-examples__card--${experiment.size}`,
+    `work-examples__card--${experiment.id}`,
+    'reveal',
+    available ? 'work-examples__card--interactive' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   return (
     <article
       ref={ref}
-      className={`work-examples__card reveal${available ? ' work-examples__card--interactive' : ''}`}
+      className={cardClassName}
       style={{ '--reveal-delay': `${index * 0.05}s` } as CSSProperties}
       role={available ? 'button' : undefined}
       tabIndex={available ? 0 : undefined}
@@ -97,7 +107,10 @@ export function WorkExamples() {
 
         <ul className="work-examples__grid">
           {experiments.map((experiment, index) => (
-            <li key={experiment.id}>
+            <li
+              key={experiment.id}
+              className={`work-examples__item work-examples__item--${experiment.id}`}
+            >
               <LabExampleCard
                 experiment={experiment}
                 index={index}
