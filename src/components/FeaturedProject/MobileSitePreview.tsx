@@ -37,7 +37,7 @@ export function MobileSitePreview({
   logoVariant,
 }: MobileSitePreviewProps) {
   const narrowViewport = useNarrowViewport()
-  const useNativeEmbed = embed && narrowViewport && !isStatic
+  const useNativeEmbed = embed && !isStatic
   const [iframeLoaded, setIframeLoaded] = useState(false)
 
   useEffect(() => {
@@ -46,7 +46,11 @@ export function MobileSitePreview({
 
   if (useNativeEmbed) {
     return (
-      <div className="mobile-site-preview mobile-site-preview--native">
+      <div
+        className={`mobile-site-preview mobile-site-preview--native${
+          narrowViewport ? ' mobile-site-preview--native-phone' : ' mobile-site-preview--native-desktop'
+        }`}
+      >
         <iframe
           key={url}
           className="mobile-site-preview__native-frame"

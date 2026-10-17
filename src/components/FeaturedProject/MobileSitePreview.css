@@ -119,9 +119,7 @@
   --preview-scale: min(1, max(0.32, calc((100% - 0.5rem) / var(--device-width))));
 }
 
-.mobile-project-card__stage .mobile-site-preview--compact,
-.project-embed__mobile-stage .mobile-site-preview--compact,
-.project-embed__mobile-stage .mobile-site-preview--embed {
+.mobile-project-card__stage .mobile-site-preview--compact {
   --preview-scale: min(1, max(0.32, calc((100cqw - 1.5rem) / var(--device-width))));
 }
 
