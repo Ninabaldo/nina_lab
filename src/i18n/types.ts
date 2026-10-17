@@ -217,18 +217,7 @@ export interface SiteTranslations {
     eyebrow: string
     title: string
     lead: string
-    serviceTags: Record<
-      | 'smallWebApps'
-      | 'interactiveExperiences'
-      | 'websitesMicrosites'
-      | 'businessTools'
-      | 'educationalProducts',
-      string
-    >
-    items: Record<
-      import('../data/workExamples').WorkExampleId,
-      { name: string; description: string; cta: string }
-    >
+    openExperiment: string
   }
   experiments: {
     title: string

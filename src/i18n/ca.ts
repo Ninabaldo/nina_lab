@@ -69,51 +69,8 @@ const ca: SiteTranslations = {
     eyebrow: 'En la pràctica',
     title: 'Exemples del lab',
     lead:
-      'Projectes reals per veure com es tradueixen els serveis — molts els pots provar aquí mateix.',
-    serviceTags: {
-      smallWebApps: 'App web',
-      interactiveExperiences: 'Interactiva',
-      websitesMicrosites: 'Web / microsite',
-      businessTools: 'Eina negoci',
-      educationalProducts: 'Educatiu',
-    },
-    items: {
-      breathe: {
-        name: 'Breathe',
-        description: 'Experiència de respiració minimalista per calmar i tornar al present.',
-        cta: 'Provar',
-      },
-      'life-algorithm': {
-        name: 'Life Algorithm',
-        description: 'Qüestionari que genera un perfil personalitzat segons les teves respostes.',
-        cta: 'Al lab',
-      },
-      'focus-timer': {
-        name: 'Focus Timer',
-        description: 'Temporitzador pomodoro lleuger per concentrar-te des del navegador.',
-        cta: 'Al lab',
-      },
-      scopo: {
-        name: 'Scopo',
-        description: 'Producte digital mòbil amb identitat pròpia i flux pensat per al telèfon.',
-        cta: 'Veure projecte',
-      },
-      picked: {
-        name: 'Picked',
-        description: 'App per descobrir llocs a través de recomanacions reals.',
-        cta: 'Veure projecte',
-      },
-      'incident-brief': {
-        name: 'Incident Brief',
-        description: 'Eina que transforma text d’incidència en resum accionable per equips.',
-        cta: 'Provar',
-      },
-      'nina-lab': {
-        name: "Nina's Lab",
-        description: 'Aquesta mateixa web: portfolio, serveis i experiments en un sol lloc.',
-        cta: 'Explorar',
-      },
-    },
+      'Petits experiments del lab — sempre aquí. Prova’ls per veure com treballo; els projectes grans venen després.',
+    openExperiment: 'Provar',
   },
   experiments: {
     title: 'Experiments',
