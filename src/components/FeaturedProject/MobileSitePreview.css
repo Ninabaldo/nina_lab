@@ -1,7 +1,8 @@
 .mobile-site-preview {
-  --device-width: 390px;
-  --device-height: 921px;
-  --preview-scale: 0.46;
+  --device-width: 393px;
+  --device-height: 905px;
+  --screen-height: 852px;
+  --preview-scale: 0.82;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,7 +24,7 @@
 .mobile-site-preview__frame {
   display: block;
   width: var(--device-width);
-  height: var(--device-height);
+  height: var(--screen-height);
   border: none;
   background: var(--color-bg-alt);
 }
@@ -34,28 +35,21 @@
   user-select: none;
 }
 
+/* Fit the device to the card width — up to 1:1 simulator size. */
 .mobile-site-preview--compact {
-  --preview-scale: 0.42;
+  --preview-scale: min(1, calc((100% - 0.5rem) / var(--device-width)));
+}
+
+.mobile-project-card__stage .mobile-site-preview--compact {
+  --preview-scale: min(1, calc((100cqw - 1.5rem) / var(--device-width)));
 }
 
 .mobile-site-preview--embed {
-  --preview-scale: clamp(0.48, calc((100svh - 11rem) / var(--device-height)), 0.58);
+  --preview-scale: min(1, calc((100svh - 10rem) / var(--device-height)), 0.92);
 }
 
 @media (max-width: 767px) {
   .mobile-site-preview--compact {
-    --preview-scale: 0.46;
-  }
-}
-
-@media (min-width: 768px) {
-  .mobile-site-preview--compact {
-    --preview-scale: 0.38;
-  }
-}
-
-@media (min-width: 1100px) {
-  .mobile-site-preview--compact {
-    --preview-scale: 0.42;
+    --preview-scale: min(1, calc((100vw - 3.5rem) / var(--device-width)));
   }
 }

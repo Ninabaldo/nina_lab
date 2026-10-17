@@ -6,10 +6,10 @@ const IFRAME_ALLOW =
   'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen'
 
 /** Logical iPhone viewport — apps lay out as on a real device. */
-const DEVICE_WIDTH = 390
-const SCREEN_HEIGHT = 844
-/** Bezel + island + screen (matches .phone-frame--iphone layout). */
-const DEVICE_HEIGHT = 921
+const DEVICE_WIDTH = 393
+const SCREEN_HEIGHT = 852
+/** Bezel + island + screen (matches .phone-frame--simulator layout). */
+const DEVICE_HEIGHT = 905
 
 interface MobileSitePreviewProps {
   url: string
@@ -34,11 +34,12 @@ export function MobileSitePreview({
         {
           '--device-width': `${DEVICE_WIDTH}px`,
           '--device-height': `${DEVICE_HEIGHT}px`,
+          '--screen-height': `${SCREEN_HEIGHT}px`,
         } as CSSProperties
       }
     >
       <div className="mobile-site-preview__viewport">
-        <PhoneFrame variant="iphone" className="mobile-site-preview__device">
+        <PhoneFrame variant="simulator" className="mobile-site-preview__device">
           <iframe
             key={url}
             className="mobile-site-preview__frame"

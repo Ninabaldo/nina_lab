@@ -75,27 +75,17 @@
 }
 
 .mobile-project-card__stage {
+  container-type: inline-size;
+  container-name: mobile-preview;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(0.85rem, 2vw, 1.15rem);
+  padding: clamp(1rem, 2.5vw, 1.35rem);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  background: var(--color-bg-warm);
-  min-height: calc(921px * 0.38 + 2.5rem);
+  background: color-mix(in srgb, var(--color-text) 5%, var(--color-bg-warm));
+  min-height: auto;
   overflow: hidden;
-}
-
-@media (max-width: 767px) {
-  .mobile-project-card__stage {
-    min-height: calc(921px * 0.46 + 2rem);
-  }
-}
-
-@media (min-width: 1100px) {
-  .mobile-project-card__stage {
-    min-height: calc(921px * 0.42 + 2.5rem);
-  }
 }
 
 @media (min-width: 768px) {

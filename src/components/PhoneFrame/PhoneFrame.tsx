@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import './PhoneFrame.css'
 
-export type PhoneFrameVariant = 'simple' | 'iphone'
+export type PhoneFrameVariant = 'simple' | 'iphone' | 'simulator'
 
 interface PhoneFrameProps {
   children?: ReactNode
@@ -10,15 +10,17 @@ interface PhoneFrameProps {
 }
 
 export function PhoneFrame({ children, className = '', variant = 'simple' }: PhoneFrameProps) {
-  const isIphone = variant === 'iphone'
+  const isDevice = variant === 'iphone' || variant === 'simulator'
 
   return (
     <div
-      className={`phone-frame${isIphone ? ' phone-frame--iphone' : ''} ${className}`.trim()}
+      className={`phone-frame${isDevice ? ' phone-frame--iphone' : ''}${
+        variant === 'simulator' ? ' phone-frame--simulator' : ''
+      } ${className}`.trim()}
       aria-hidden={!children}
     >
       <div className="phone-frame__bezel">
-        {isIphone ? (
+        {isDevice ? (
           <>
             <div className="phone-frame__island" aria-hidden="true" />
             <span className="phone-frame__button phone-frame__button--silent" aria-hidden="true" />
@@ -30,7 +32,7 @@ export function PhoneFrame({ children, className = '', variant = 'simple' }: Pho
         )}
         <div className="phone-frame__screen">
           {children}
-          {isIphone ? <span className="phone-frame__home-indicator" aria-hidden="true" /> : null}
+          {isDevice ? <span className="phone-frame__home-indicator" aria-hidden="true" /> : null}
         </div>
       </div>
     </div>
