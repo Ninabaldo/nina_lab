@@ -4,17 +4,18 @@ const NOOK_HOST = 'nook-ochre-eight.vercel.app'
 
 export function isNookPreviewUrl(url: string): boolean {
   try {
-    return new URL(url).hostname === NOOK_HOST
+    return new URL(url, window.location.origin).hostname === NOOK_HOST
   } catch {
     return false
   }
 }
 
-/** Nook reads `?lang=` on load (en, es, ca, fr). */
-export function withNookLanguage(url: string, language: Language): string {
-  if (!isNookPreviewUrl(url)) return url
+/** Same-origin proxy sets `nook.lang` before the nook bundle runs. */
+export function getNookPreviewSrc(language: Language): string {
+  return `/api/nook-preview?lang=${encodeURIComponent(language)}`
+}
 
-  const parsed = new URL(url)
-  parsed.searchParams.set('lang', language)
-  return parsed.toString()
+export function withNookLanguage(url: string, language: Language): string {
+  if (isNookPreviewUrl(url)) return getNookPreviewSrc(language)
+  return url
 }
