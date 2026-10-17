@@ -10,17 +10,26 @@ function buildPickedBootstrapScript(lang: string, moduleSrc: string): string {
   const langLiteral = JSON.stringify(lang)
   const moduleLiteral = JSON.stringify(moduleSrc)
 
+  const originLiteral = JSON.stringify(PICKED_ORIGIN)
+
   return `<script>
 (function () {
   var lang = ${langLiteral};
   var moduleSrc = ${moduleLiteral};
+  var pickedOrigin = ${originLiteral};
 
   try {
     localStorage.setItem('picked.lang', lang);
   } catch (e) {}
 
   try {
-    history.replaceState(null, '', '/');
+    history.replaceState(null, '', window.location.origin + '/');
+  } catch (e) {}
+
+  try {
+    var base = document.createElement('base');
+    base.href = pickedOrigin + '/';
+    document.head.insertBefore(base, document.head.firstChild);
   } catch (e) {}
 
   var script = document.createElement('script');
@@ -49,7 +58,7 @@ export async function buildPickedPreviewHtml(lang: string): Promise<string> {
     '',
   )
 
-  const inject = `<base href="${PICKED_ORIGIN}/">${buildPickedBootstrapScript(lang, moduleSrc)}`
+  const inject = buildPickedBootstrapScript(lang, moduleSrc)
 
   return withoutModule
     .replace(/<html lang="[^"]*">/, `<html lang="${lang}">`)
