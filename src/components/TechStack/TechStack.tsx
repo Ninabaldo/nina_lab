@@ -1,4 +1,5 @@
-import { techStackEmojis, techStackIds } from '../../data/techStack'
+import { techStackIds } from '../../data/techStack'
+import { TechStackIcon } from './TechStackIcon'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import './TechStack.css'
@@ -28,9 +29,7 @@ export function TechStack() {
           {techStackIds.map((id) => (
             <li key={id}>
               <span className="tech-stack__chip">
-                <span className="tech-stack__emoji" aria-hidden="true">
-                  {techStackEmojis[id]}
-                </span>
+                <TechStackIcon id={id} />
                 {copy.items[id]}
               </span>
             </li>

@@ -65,7 +65,23 @@
   color: var(--color-text);
 }
 
-.tech-stack__emoji {
+.tech-stack__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.tech-stack__icon--react {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.tech-stack__icon--vercel,
+.tech-stack__icon--github {
+  color: var(--color-text);
+}
+
+.tech-stack__glyph {
   font-size: 0.85rem;
   line-height: 1;
 }
