@@ -199,9 +199,12 @@ export interface SiteTranslations {
     openApp: string
     tryInLabAria: string
     comingSoon: string
+    secondaryEyebrow: string
+    secondaryLead: string
     items: Record<string, ExperimentCopy>
   }
   projects: {
+    homeEyebrow: string
     title: string
     subtitle: string
     featured: string

@@ -43,10 +43,10 @@ export function Hero() {
           <LabShellPreview />
         </div>
 
-        <p className="hero__scroll-hint">
+        <a href="#projects" className="hero__scroll-hint">
           {t.hero.scrollHint}
           <span className="hero__scroll-arrow" aria-hidden="true">↓</span>
-        </p>
+        </a>
       </div>
     </section>
   )

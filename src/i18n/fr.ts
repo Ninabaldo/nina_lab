@@ -7,7 +7,7 @@ const fr: SiteTranslations = {
   hero: {
     subtitle1: 'Petites expériences digitales',
     subtitle2: 'faites avec l\'IA par Nina Baldó.',
-    scrollHint: 'Faites défiler pour explorer',
+    scrollHint: 'Voir les projets',
     phoneTitle: "Nina's Lab",
     phoneMeta: 'Explorer avec l\'IA',
   },
@@ -34,6 +34,8 @@ const fr: SiteTranslations = {
     openApp: 'Ouvrir l\'app',
     tryInLabAria: 'Essayer dans le laboratoire interactif',
     comingSoon: 'Bientôt',
+    secondaryEyebrow: 'Lab',
+    secondaryLead: 'Micro-apps pour tester des idées vite — le playground du lab.',
     items: {
       breathe: {
         name: 'Breathe',
@@ -64,6 +66,7 @@ const fr: SiteTranslations = {
     },
   },
   projects: {
+    homeEyebrow: 'Portfolio',
     title: 'Projets',
     subtitle: 'Expériences digitales — produit, design et technologie.',
     featured: 'Expérience à la une',

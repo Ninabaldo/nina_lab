@@ -7,7 +7,7 @@ const es: SiteTranslations = {
   hero: {
     subtitle1: 'Pequeños experimentos digitales',
     subtitle2: 'hechos con IA por Nina Baldó.',
-    scrollHint: 'Desplázate para explorar',
+    scrollHint: 'Desplázate a los proyectos',
     phoneTitle: "Nina's Lab",
     phoneMeta: 'Explorando con la IA',
   },
@@ -34,6 +34,8 @@ const es: SiteTranslations = {
     openApp: 'Abrir app',
     tryInLabAria: 'Probar en el laboratorio interactivo',
     comingSoon: 'Próximamente',
+    secondaryEyebrow: 'Lab',
+    secondaryLead: 'Micro-apps para probar ideas rápido — el playground del lab.',
     items: {
       breathe: {
         name: 'Breathe',
@@ -64,6 +66,7 @@ const es: SiteTranslations = {
     },
   },
   projects: {
+    homeEyebrow: 'Portfolio',
     title: 'Proyectos',
     subtitle: 'Experiencias digitales — producto, diseño y tecnología.',
     featured: 'Experimento destacado',

@@ -76,19 +76,36 @@ function ExperimentItem({ experiment, index, onOpen }: ExperimentItemProps) {
   )
 }
 
-export function Experiments() {
+interface ExperimentsProps {
+  tone?: 'primary' | 'secondary'
+}
+
+export function Experiments({ tone = 'primary' }: ExperimentsProps) {
   const sectionRef = useScrollReveal<HTMLElement>()
   const [activeExperiment, setActiveExperiment] = useState<Experiment | null>(null)
   const { t } = useSiteLanguage()
+  const isSecondary = tone === 'secondary'
 
   return (
-    <section id="experiments" className="experiments" aria-labelledby="experiments-heading">
+    <section
+      id="experiments"
+      className={`experiments${isSecondary ? ' experiments--secondary' : ''}`}
+      aria-labelledby="experiments-heading"
+    >
       <div className="experiments__inner">
         <header className="experiments__header reveal" ref={sectionRef}>
-          <h2 id="experiments-heading" className="experiments__title">{t.experiments.title}</h2>
-          <p className="experiments__count">
-            {experiments.length} {t.experiments.projects}
-          </p>
+          {isSecondary ? (
+            <p className="experiments__eyebrow">{t.experiments.secondaryEyebrow}</p>
+          ) : null}
+          <div className="experiments__heading-row">
+            <h2 id="experiments-heading" className="experiments__title">
+              {t.experiments.title}
+            </h2>
+            <p className="experiments__count">
+              {experiments.length} {t.experiments.projects}
+            </p>
+          </div>
+          {isSecondary ? <p className="experiments__lead">{t.experiments.secondaryLead}</p> : null}
         </header>
 
         <div className="experiments__grid">

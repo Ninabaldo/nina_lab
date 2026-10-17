@@ -2,7 +2,7 @@ import { SiteLanguageProvider } from './context/SiteLanguageProvider'
 import { SiteThemeProvider } from './context/SiteThemeProvider'
 import { Hero } from './components/Hero/Hero'
 import { Experiments } from './components/Experiments/Experiments'
-import { ProjectsTeaser } from './components/ProjectsTeaser/ProjectsTeaser'
+import { ProjectsShowcase } from './components/ProjectsShowcase/ProjectsShowcase'
 import { Footer } from './components/Footer/Footer'
 import { SiteControls } from './components/SiteControls/SiteControls'
 import { BreatheApp } from './apps/breathe/BreatheApp'
@@ -15,8 +15,8 @@ function Portfolio() {
   return (
     <>
       <Hero />
-      <Experiments />
-      <ProjectsTeaser />
+      <ProjectsShowcase />
+      <Experiments tone="secondary" />
       <Footer />
     </>
   )

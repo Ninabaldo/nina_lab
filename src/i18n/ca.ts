@@ -7,7 +7,7 @@ const ca: SiteTranslations = {
   hero: {
     subtitle1: 'Petits experiments digitals',
     subtitle2: 'fets amb IA per Nina Baldó.',
-    scrollHint: 'Desplaça\'t per explorar',
+    scrollHint: 'Desplaça\'t pels projectes',
     phoneTitle: "Nina's Lab",
     phoneMeta: 'Explorant amb la IA',
   },
@@ -34,6 +34,8 @@ const ca: SiteTranslations = {
     openApp: 'Obrir app',
     tryInLabAria: 'Provar al laboratori interactiu',
     comingSoon: 'Pròximament',
+    secondaryEyebrow: 'Lab',
+    secondaryLead: 'Micro-apps per provar idees ràpid — el playground del lab.',
     items: {
       breathe: {
         name: 'Breathe',
@@ -64,6 +66,7 @@ const ca: SiteTranslations = {
     },
   },
   projects: {
+    homeEyebrow: 'Portfolio',
     title: 'Projectes',
     subtitle: 'Experiències digitals — producte, disseny i tecnologia.',
     featured: 'Experiment destacat',
