@@ -38,59 +38,29 @@ const en: SiteTranslations = {
         title: 'Small web applications',
         description:
           'Products that solve a specific need and run in the browser.',
-        examples: [
-          'Future Me: scheduled letters.',
-          'A moodboard creator.',
-          'A personalized plan generator.',
-          'A tool to organize ideas or memories.',
-        ],
         model: 'Free tier, premium features or one-time payment.',
       },
       interactiveExperiences: {
         title: 'Interactive digital experiences',
         description: 'More experimental, visual and surprising projects.',
-        examples: [
-          'Games or quizzes that generate a personalized result.',
-          'Narrative experiences where the user decides what happens.',
-          'Generators for art, shapes, colors or compositions.',
-          'Interactive experiences for campaigns or events.',
-        ],
         model: 'Own projects to grow an audience or commissioned work for brands.',
       },
       websitesMicrosites: {
         title: 'Websites & microsites for others',
         description:
           'Web pages with a distinct visual identity and interactive features.',
-        examples: [
-          'Sites for independent professionals.',
-          'Landing pages for products or services.',
-          'Microsites for events, launches or campaigns.',
-          'Interactive portfolios.',
-        ],
         model: 'Project fee plus optional ongoing maintenance.',
       },
       businessTools: {
         title: 'Tools & automations for small businesses',
         description:
           'Apps that cut manual work for professionals and companies.',
-        examples: [
-          'Forms that generate documents automatically.',
-          'Booking or client tracking systems.',
-          'Small dashboards with business data.',
-          'Connecting tools so they work together.',
-        ],
         model: 'Custom build, setup and monthly maintenance.',
       },
       educationalProducts: {
         title: 'Interactive educational products',
         description:
           'Turn knowledge or content into hands-on experiences.',
-        examples: [
-          'Interactive software guides.',
-          'Tutorials with exercises and simulations.',
-          'Tools to learn design or coding.',
-          'Digital resources you can buy and use online.',
-        ],
         model: 'Sales of guides, courses or licenses.',
       },
     },

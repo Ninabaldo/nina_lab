@@ -1,38 +1,39 @@
 import type { CSSProperties } from 'react'
 import { serviceIds } from '../../data/services'
+import type { ServiceId } from '../../data/services'
 import type { ServiceOfferingCopy } from '../../i18n/types'
+import { ServicePreview } from './ServicePreview'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { ScrollReveal } from '../ScrollReveal/ScrollReveal'
 import './HowICanHelp.css'
 
 interface ServiceCardProps {
+  serviceId: ServiceId
   index: number
   item: ServiceOfferingCopy
   modelLabel: string
 }
 
-function ServiceCard({ index, item, modelLabel }: ServiceCardProps) {
+function ServiceCard({ serviceId, index, item, modelLabel }: ServiceCardProps) {
   return (
     <ScrollReveal
       as="article"
       className="how-i-can-help__card"
       style={{ '--reveal-delay': `${index * 0.06}s` } as CSSProperties}
     >
-      <span className="how-i-can-help__index" aria-hidden="true">
-        {String(index + 1).padStart(2, '0')}
-      </span>
-      <h3 className="how-i-can-help__card-title">{item.title}</h3>
-      <p className="how-i-can-help__card-text">{item.description}</p>
-      <ul className="how-i-can-help__examples">
-        {item.examples.map((example) => (
-          <li key={example}>{example}</li>
-        ))}
-      </ul>
-      <p className="how-i-can-help__model">
+      <ServicePreview serviceId={serviceId} />
+      <div className="how-i-can-help__card-body">
+        <span className="how-i-can-help__index" aria-hidden="true">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <h3 className="how-i-can-help__card-title">{item.title}</h3>
+        <p className="how-i-can-help__card-text">{item.description}</p>
+        <p className="how-i-can-help__model">
         <span className="how-i-can-help__model-label">{modelLabel}</span>
-        {item.model}
-      </p>
+          {item.model}
+        </p>
+      </div>
     </ScrollReveal>
   )
 }
@@ -64,7 +65,12 @@ export function HowICanHelp() {
 
             return (
               <li key={id}>
-                <ServiceCard index={index} item={item} modelLabel={copy.modelLabel} />
+                <ServiceCard
+                  serviceId={id}
+                  index={index}
+                  item={item}
+                  modelLabel={copy.modelLabel}
+                />
               </li>
             )
           })}

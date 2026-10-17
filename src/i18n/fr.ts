@@ -38,59 +38,29 @@ const fr: SiteTranslations = {
         title: 'Petites applications web',
         description:
           'Des produits qui répondent à un besoin précis et fonctionnent dans le navigateur.',
-        examples: [
-          'Future Me : lettres programmées.',
-          'Un créateur de moodboards.',
-          'Un générateur de plans personnalisés.',
-          'Un outil pour organiser idées ou souvenirs.',
-        ],
         model: 'Usage gratuit, fonctions premium ou paiement unique.',
       },
       interactiveExperiences: {
         title: 'Expériences digitales interactives',
         description: 'Des projets plus expérimentaux, visuels et surprenants.',
-        examples: [
-          'Jeux ou quiz avec un résultat personnalisé.',
-          'Expériences narratives où l’utilisateur décide de la suite.',
-          'Générateurs d’art, formes, couleurs ou compositions.',
-          'Expériences interactives pour campagnes ou événements.',
-        ],
         model: 'Projets perso pour une audience ou commandes pour des marques.',
       },
       websitesMicrosites: {
         title: 'Sites et microsites pour d’autres',
         description:
           'Des pages web avec une identité visuelle forte et des fonctions interactives.',
-        examples: [
-          'Sites pour indépendants.',
-          'Landing pages produits ou services.',
-          'Microsites événements, lancements ou campagnes.',
-          'Portfolios interactifs.',
-        ],
         model: 'Facturation au projet et, si besoin, maintenance.',
       },
       businessTools: {
         title: 'Outils et automatisations pour petites entreprises',
         description:
           'Des applications qui réduisent le travail manuel des pros et des PME.',
-        examples: [
-          'Formulaires qui génèrent des documents automatiquement.',
-          'Réservations ou suivi clients.',
-          'Petits tableaux de bord avec les données du business.',
-          'Connecter des outils pour qu’ils travaillent ensemble.',
-        ],
         model: 'Développement sur mesure, configuration et maintenance mensuelle.',
       },
       educationalProducts: {
         title: 'Produits éducatifs interactifs',
         description:
           'Transformer savoirs ou contenus en expériences pratiques.',
-        examples: [
-          'Guides interactifs de logiciels.',
-          'Tutoriels avec exercices et simulations.',
-          'Outils pour apprendre le design ou le code.',
-          'Ressources digitales à acheter et utiliser en ligne.',
-        ],
         model: 'Vente de guides, cours ou licences.',
       },
     },

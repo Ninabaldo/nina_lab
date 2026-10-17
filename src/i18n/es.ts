@@ -38,59 +38,29 @@ const es: SiteTranslations = {
         title: 'Aplicaciones web pequeñas',
         description:
           'Productos que resuelven una necesidad concreta y funcionan desde el navegador.',
-        examples: [
-          'Future Me: cartas programadas.',
-          'Un creador de moodboards.',
-          'Un generador de planes personalizados.',
-          'Una herramienta para organizar ideas o recuerdos.',
-        ],
         model: 'Uso gratuito, funciones premium o pago único.',
       },
       interactiveExperiences: {
         title: 'Experiencias digitales interactivas',
         description: 'Proyectos más experimentales, visuales y sorprendentes.',
-        examples: [
-          'Juegos o cuestionarios que generan un resultado personalizado.',
-          'Experiencias narrativas en las que el usuario decide qué pasa.',
-          'Generadores de arte, formas, colores o composiciones.',
-          'Experiencias interactivas para campañas o eventos.',
-        ],
         model: 'Proyectos propios para captar audiencia o encargos para marcas.',
       },
       websitesMicrosites: {
         title: 'Webs y microsites para otras personas',
         description:
           'Crear páginas web con identidad visual propia y funciones interactivas.',
-        examples: [
-          'Webs para profesionales independientes.',
-          'Landing pages para productos o servicios.',
-          'Microsites para eventos, lanzamientos o campañas.',
-          'Portfolios interactivos.',
-        ],
         model: 'Cobrar por proyecto y, si hace falta, por mantenimiento.',
       },
       businessTools: {
         title: 'Herramientas y automatizaciones para pequeños negocios',
         description:
           'Aplicaciones que ahorran trabajo manual a profesionales y empresas.',
-        examples: [
-          'Formularios que generan documentos automáticamente.',
-          'Sistemas de reservas o seguimiento de clientes.',
-          'Pequeños dashboards con datos del negocio.',
-          'Conectar herramientas para que trabajen juntas.',
-        ],
         model: 'Desarrollo a medida, configuración y mantenimiento mensual.',
       },
       educationalProducts: {
         title: 'Productos educativos interactivos',
         description:
           'Convertir conocimientos o contenidos en experiencias prácticas.',
-        examples: [
-          'Guías interactivas de software.',
-          'Tutoriales con ejercicios y simulaciones.',
-          'Herramientas para aprender diseño o programación.',
-          'Recursos digitales que se puedan comprar y usar online.',
-        ],
         model: 'Venta de guías, cursos o licencias.',
       },
     },

@@ -9,7 +9,6 @@ export interface ExperimentCopy {
 export interface ServiceOfferingCopy {
   title: string
   description: string
-  examples: string[]
   model: string
 }
 

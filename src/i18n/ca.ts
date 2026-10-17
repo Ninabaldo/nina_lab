@@ -38,59 +38,29 @@ const ca: SiteTranslations = {
         title: 'Aplicacions web petites',
         description:
           'Productes que resolen una necessitat concreta i funcionen des del navegador.',
-        examples: [
-          'Future Me: cartes programades.',
-          'Un creador de moodboards.',
-          'Un generador de plans personalitzats.',
-          'Una eina per organitzar idees o records.',
-        ],
         model: 'Ús gratuït, funcions premium o pagament únic.',
       },
       interactiveExperiences: {
         title: 'Experiències digitals interactives',
         description: 'Projectes més experimentals, visuals i sorprenents.',
-        examples: [
-          'Jocs o qüestionaris que generen un resultat personalitzat.',
-          'Experiències narratives en què l’usuari decideix què passa.',
-          'Generadors d’art, formes, colors o composicions.',
-          'Experiències interactives per a campanyes o esdeveniments.',
-        ],
         model: 'Projectes propis per captar audiència o encàrrecs per a marques.',
       },
       websitesMicrosites: {
         title: 'Webs i microsites per a altres persones',
         description:
           'Crear pàgines web amb una identitat visual pròpia i funcions interactives.',
-        examples: [
-          'Webs per a professionals independents.',
-          'Landing pages per a productes o serveis.',
-          'Microsites per a esdeveniments, llançaments o campanyes.',
-          'Portfolios interactius.',
-        ],
         model: 'Cobrar per projecte i, si cal, pel manteniment.',
       },
       businessTools: {
         title: 'Eines i automatitzacions per a petits negocis',
         description:
           'Aplicacions que estalvien feina manual a professionals i empreses.',
-        examples: [
-          'Formularis que generen documents automàticament.',
-          'Sistemes de reserves o seguiment de clients.',
-          'Petits dashboards amb dades del negoci.',
-          'Connectar eines perquè treballin conjuntament.',
-        ],
         model: 'Desenvolupament a mida, configuració i manteniment mensual.',
       },
       educationalProducts: {
         title: 'Productes educatius interactius',
         description:
           'Convertir coneixements o continguts en experiències pràctiques.',
-        examples: [
-          'Guies interactives de softwares.',
-          'Tutorials amb exercicis i simulacions.',
-          'Eines per aprendre disseny o programació.',
-          'Recursos digitals que es puguin comprar i utilitzar online.',
-        ],
         model: 'Venda de guies, cursos o llicències.',
       },
     },
