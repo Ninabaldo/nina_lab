@@ -1,4 +1,5 @@
-import { projects } from '../data/projects'
+import { groupProjectsForDisplay, projects } from '../data/projects'
+import { FeaturedMobileProjectsRow } from '../components/FeaturedProject/FeaturedMobileProjectsRow'
 import { FeaturedProject } from '../components/FeaturedProject/FeaturedProject'
 import { Footer } from '../components/Footer/Footer'
 import { useScrollReveal } from '../hooks/useScrollReveal'
@@ -38,9 +39,16 @@ export function ProjectsPage() {
                 <p className="projects-page__subtitle">{t.projects.subtitle}</p>
               </header>
               <div className="projects-page__list">
-                {projects.map((project) => (
-                  <FeaturedProject key={project.id} project={project} />
-                ))}
+                {groupProjectsForDisplay(projects).map((block) =>
+                  block.kind === 'wide' ? (
+                    <FeaturedProject key={block.project.id} project={block.project} />
+                  ) : (
+                    <FeaturedMobileProjectsRow
+                      key={block.projects.map((project) => project.id).join('-')}
+                      projects={block.projects}
+                    />
+                  ),
+                )}
               </div>
             </>
           ) : (

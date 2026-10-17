@@ -215,6 +215,7 @@ export interface SiteTranslations {
     comingSoonHeadline: string
     comingSoonText: string
     openProject: string
+    mobileRowAria: string
     backToProjects: string
     items: Record<string, {
       name: string

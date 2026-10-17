@@ -8,16 +8,20 @@ interface MobileSitePreviewProps {
   url: string
   title: string
   static?: boolean
+  compact?: boolean
 }
 
 export function MobileSitePreview({
   url,
   title,
   static: isStatic = false,
+  compact = false,
 }: MobileSitePreviewProps) {
   return (
     <div
-      className={`mobile-site-preview${isStatic ? ' mobile-site-preview--static' : ''}`}
+      className={`mobile-site-preview${isStatic ? ' mobile-site-preview--static' : ''}${
+        compact ? ' mobile-site-preview--compact' : ''
+      }`}
       aria-hidden={isStatic ? true : undefined}
     >
       <PhoneFrame className="mobile-site-preview__phone">

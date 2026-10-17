@@ -78,6 +78,7 @@ const en: SiteTranslations = {
     comingSoonText:
       'Bigger ideas, built without rush. In the meantime, explore the experiments on the home page.',
     openProject: 'Open project',
+    mobileRowAria: 'Mobile projects',
     backToProjects: 'Back to projects',
     items: {
       nook: {
@@ -92,6 +93,13 @@ const en: SiteTranslations = {
         description:
           'A mobile-first digital product: quick access, browse freely, and sign up when you are ready.',
         previewAria: 'Mobile preview of Scopo',
+      },
+      picked: {
+        name: 'Picked',
+        category: 'Mobile app',
+        description:
+          'Discover places through people—real recommendations in a mobile-first flow.',
+        previewAria: 'Mobile preview of Picked',
       },
     },
   },

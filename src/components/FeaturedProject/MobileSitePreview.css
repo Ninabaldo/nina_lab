@@ -46,3 +46,11 @@
   touch-action: none;
   user-select: none;
 }
+
+.mobile-site-preview--compact .mobile-site-preview__phone.phone-frame {
+  width: min(100%, 168px);
+}
+
+.mobile-site-preview--compact .mobile-site-preview__phone .phone-frame__screen {
+  max-height: min(36svh, 280px);
+}

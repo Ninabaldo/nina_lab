@@ -1,0 +1,100 @@
+.mobile-projects-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 2.75rem);
+}
+
+.mobile-project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.mobile-project-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.mobile-project-card__badge {
+  align-self: flex-start;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.mobile-project-card__category {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+.mobile-project-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+}
+
+.mobile-project-card__text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.mobile-project-card__open {
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--color-text);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-project-card__open:hover {
+  background: var(--color-text);
+  color: var(--color-bg-alt);
+}
+
+.mobile-project-card__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-warm);
+  min-height: clamp(300px, 42vw, 360px);
+}
+
+@media (min-width: 768px) {
+  .mobile-projects-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-project-card__open {
+    transition: none;
+  }
+}

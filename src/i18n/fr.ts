@@ -78,6 +78,7 @@ const fr: SiteTranslations = {
     comingSoonText:
       'Des idées plus grandes, construites sans précipitation. En attendant, explorez les expériences du lab.',
     openProject: 'Ouvrir le projet',
+    mobileRowAria: 'Projets mobile',
     backToProjects: 'Retour aux projets',
     items: {
       nook: {
@@ -92,6 +93,13 @@ const fr: SiteTranslations = {
         description:
           'Produit digital mobile-first : accès rapide, exploration libre et inscription au bon moment.',
         previewAria: 'Aperçu mobile de Scopo',
+      },
+      picked: {
+        name: 'Picked',
+        category: 'App mobile',
+        description:
+          'Découvrez des lieux à travers des personnes — de vraies recommandations, pensées pour le mobile.',
+        previewAria: 'Aperçu mobile de Picked',
       },
     },
   },
