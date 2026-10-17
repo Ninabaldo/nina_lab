@@ -1,10 +1,9 @@
+import { resolveLabPreviewLang } from './previewLang.js'
+
 const NOOK_ORIGIN = 'https://nook-ochre-eight.vercel.app'
 
-const ALLOWED_LANGS = new Set(['ca', 'es', 'en', 'fr', 'it'])
-
 export function resolveNookLang(input: string | undefined): string {
-  if (input && ALLOWED_LANGS.has(input)) return input
-  return 'ca'
+  return resolveLabPreviewLang(input, ['it'])
 }
 
 export async function buildNookPreviewHtml(lang: string): Promise<string> {

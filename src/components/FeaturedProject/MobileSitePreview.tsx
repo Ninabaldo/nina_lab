@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react'
 import { PhoneFrame } from '../PhoneFrame/PhoneFrame'
+import { useNarrowViewport } from '../../hooks/useNarrowViewport'
 import './MobileSitePreview.css'
 
 const IFRAME_ALLOW =
@@ -17,6 +18,8 @@ interface MobileSitePreviewProps {
   static?: boolean
   /** Same scale as project cards (list + open project). */
   compact?: boolean
+  /** Open project: use full viewport on phones (no simulator chrome). */
+  embed?: boolean
 }
 
 export function MobileSitePreview({
@@ -24,12 +27,31 @@ export function MobileSitePreview({
   title,
   static: isStatic = false,
   compact = true,
+  embed = false,
 }: MobileSitePreviewProps) {
+  const narrowViewport = useNarrowViewport()
+  const useNativeEmbed = embed && narrowViewport && !isStatic
+
+  if (useNativeEmbed) {
+    return (
+      <div className="mobile-site-preview mobile-site-preview--native">
+        <iframe
+          key={url}
+          className="mobile-site-preview__native-frame"
+          src={url}
+          title={title}
+          loading="eager"
+          allow={IFRAME_ALLOW}
+        />
+      </div>
+    )
+  }
+
   return (
     <div
       className={`mobile-site-preview${isStatic ? ' mobile-site-preview--static' : ''}${
         compact ? ' mobile-site-preview--compact' : ''
-      }`}
+      }${embed ? ' mobile-site-preview--embed' : ''}`}
       aria-hidden={isStatic ? true : undefined}
       style={
         {
@@ -46,7 +68,7 @@ export function MobileSitePreview({
             className="mobile-site-preview__frame"
             src={url}
             title={title}
-            loading="lazy"
+            loading={isStatic ? 'lazy' : 'eager'}
             allow={IFRAME_ALLOW}
             tabIndex={isStatic ? -1 : 0}
           />

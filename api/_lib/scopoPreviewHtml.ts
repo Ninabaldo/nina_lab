@@ -1,10 +1,9 @@
+import { resolveLabPreviewLang } from './previewLang.js'
+
 const SCOPO_ORIGIN = 'https://scopo-omega.vercel.app'
 
-const ALLOWED_LANGS = new Set(['ca', 'es', 'en', 'fr', 'it'])
-
 export function resolveScopoLang(input: string | undefined): string {
-  if (input && ALLOWED_LANGS.has(input)) return input
-  return 'ca'
+  return resolveLabPreviewLang(input, ['it'])
 }
 
 function buildScopoLocaleScript(lang: string, moduleSrc: string): string {

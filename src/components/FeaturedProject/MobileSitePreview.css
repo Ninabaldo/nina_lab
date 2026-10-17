@@ -38,6 +38,24 @@
   user-select: none;
 }
 
+.mobile-site-preview--native {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-site-preview__native-frame {
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: none;
+  background: var(--color-bg-alt);
+}
+
 .mobile-site-preview--compact {
   --preview-scale: min(1, calc((100% - 0.5rem) / var(--device-width)));
 }
