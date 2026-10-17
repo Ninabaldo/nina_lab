@@ -5,15 +5,13 @@
   z-index: 84;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 0.95rem;
+  justify-content: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  padding: 0;
   border: 1px solid var(--color-text);
   border-radius: 100px;
   background: var(--color-bg-alt);
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--color-text);
   cursor: pointer;
   opacity: 0;
@@ -45,7 +43,7 @@
 }
 
 .back-to-top__arrow {
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1;
 }
 

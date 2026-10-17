@@ -218,7 +218,6 @@ const en: SiteTranslations = {
     tagline: 'Digital product creation service',
   },
   backToTop: {
-    label: 'On top',
     ariaLabel: 'Back to top',
   },
   labDesign: {

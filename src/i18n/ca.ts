@@ -218,7 +218,6 @@ const ca: SiteTranslations = {
     tagline: 'Servei de creació de productes digitals',
   },
   backToTop: {
-    label: 'On top',
     ariaLabel: 'Tornar a dalt',
   },
   labDesign: {

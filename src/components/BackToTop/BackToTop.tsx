@@ -30,7 +30,6 @@ export function BackToTop() {
       onClick={scrollToTop}
       aria-label={t.backToTop.ariaLabel}
     >
-      {t.backToTop.label}
       <span className="back-to-top__arrow" aria-hidden="true">
         ↑
       </span>

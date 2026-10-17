@@ -321,7 +321,6 @@ export interface SiteTranslations {
     tagline: string
   }
   backToTop: {
-    label: string
     ariaLabel: string
   }
   labDesign: {
