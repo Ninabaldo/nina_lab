@@ -9,7 +9,7 @@ interface ExternalSitePreviewProps {
   title: string
   static?: boolean
   logoUrl?: string
-  logoVariant?: 'nook' | 'scopo' | 'picked'
+  logoVariant?: 'nook' | 'scopo' | 'picked' | 'sync'
 }
 
 export function ExternalSitePreview({
@@ -41,16 +41,18 @@ export function ExternalSitePreview({
           <img className="external-site-preview__logo" src={logoUrl} alt="" loading="lazy" />
         </div>
       ) : null}
-      <iframe
-        key={url}
-        className={`external-site-preview__frame${iframeLoaded ? ' is-loaded' : ''}`}
-        src={url}
-        title={title}
-        loading="lazy"
-        allow={IFRAME_ALLOW}
-        tabIndex={isStatic ? -1 : 0}
-        onLoad={() => setIframeLoaded(true)}
-      />
+      <div className="external-site-preview__clip">
+        <iframe
+          key={url}
+          className={`external-site-preview__frame${iframeLoaded ? ' is-loaded' : ''}`}
+          src={url}
+          title={title}
+          loading="lazy"
+          allow={IFRAME_ALLOW}
+          tabIndex={isStatic ? -1 : 0}
+          onLoad={() => setIframeLoaded(true)}
+        />
+      </div>
     </div>
   )
 }

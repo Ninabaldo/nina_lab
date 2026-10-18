@@ -13,7 +13,7 @@ interface ContactFormProps {
 }
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
-type FormError = 'generic' | 'validation'
+type FormError = 'generic' | 'validation' | 'activation'
 
 export function ContactForm({ variant = 'default', onSuccess }: ContactFormProps) {
   const { t } = useSiteLanguage()
@@ -45,7 +45,10 @@ export function ContactForm({ variant = 'default', onSuccess }: ContactFormProps
       setMessage('')
       onSuccess?.()
     } catch (error) {
-      setErrorKind(error instanceof Error && error.message === 'validation' ? 'validation' : 'generic')
+      const code = error instanceof Error ? error.message : 'delivery'
+      if (code === 'validation') setErrorKind('validation')
+      else if (code === 'activation') setErrorKind('activation')
+      else setErrorKind('generic')
       setStatus('error')
     }
   }
@@ -110,7 +113,11 @@ export function ContactForm({ variant = 'default', onSuccess }: ContactFormProps
 
       {status === 'error' ? (
         <p className="contact-form__feedback contact-form__feedback--error" role="alert">
-          {errorKind === 'validation' ? copy.validationError : copy.error}
+          {errorKind === 'validation'
+            ? copy.validationError
+            : errorKind === 'activation'
+              ? copy.activationError
+              : copy.error}
         </p>
       ) : null}
 

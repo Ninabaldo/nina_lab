@@ -3,8 +3,16 @@
   width: 100%;
   height: 100%;
   min-height: inherit;
+  max-width: 100%;
+  overflow: hidden;
   overscroll-behavior: contain;
+  overscroll-behavior-x: none;
   isolation: isolate;
+  contain: layout paint;
+}
+
+.external-site-preview--static {
+  touch-action: pan-y;
 }
 
 .external-site-preview__fallback {
@@ -30,6 +38,15 @@
   background: #faf8f5;
 }
 
+.external-site-preview__fallback--nook .external-site-preview__logo {
+  max-width: min(160px, 36vw);
+  max-height: 32%;
+}
+
+.external-site-preview__fallback--sync {
+  background: #fff8fa;
+}
+
 .external-site-preview__logo {
   display: block;
   width: auto;
@@ -39,11 +56,23 @@
   object-fit: contain;
 }
 
+.external-site-preview__clip {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-x: clip;
+}
+
 .external-site-preview__frame {
   position: relative;
   z-index: 1;
   display: block;
   width: 100%;
+  max-width: 100%;
   height: 100%;
   min-height: clamp(420px, 55vw, 560px);
   border: none;
@@ -61,6 +90,16 @@
   pointer-events: none;
   touch-action: none;
   user-select: none;
+}
+
+@media (max-width: 767px) {
+  .external-site-preview:not(.external-site-preview--static) {
+    touch-action: auto;
+  }
+
+  .external-site-preview--static .external-site-preview__frame {
+    min-height: clamp(300px, 72vw, 440px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -5,9 +5,12 @@
   --device-height: 905px;
   --preview-scale: 0.82;
   width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   padding: 0.25rem;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
 }
 
 .mobile-site-preview__viewport {
@@ -55,12 +58,20 @@
   background: #954443;
 }
 
+.mobile-site-preview__fallback--sync {
+  background: #fff8fa;
+}
+
 .mobile-site-preview__fallback--scopo {
   background: #f5f5f4;
 }
 
 .mobile-site-preview__fallback--nook {
   background: #faf8f5;
+}
+
+.mobile-site-preview__fallback--nook .mobile-site-preview__logo {
+  max-width: min(120px, 42cqw);
 }
 
 .mobile-site-preview__logo {
@@ -94,6 +105,10 @@
   pointer-events: none;
   touch-action: none;
   user-select: none;
+}
+
+.mobile-site-preview--static {
+  touch-action: pan-y;
 }
 
 .mobile-site-preview--native {

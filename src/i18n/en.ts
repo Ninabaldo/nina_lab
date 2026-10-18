@@ -162,6 +162,13 @@ const en: SiteTranslations = {
           'Discover places through people—real recommendations in a mobile-first flow.',
         previewAria: 'Mobile preview of Picked',
       },
+      sync: {
+        name: 'Sync',
+        category: 'Mobile app',
+        description:
+          'Play, discover, and connect — a couples app with questions, memories, and shared moments.',
+        previewAria: 'Mobile preview of Sync',
+      },
     },
   },
   contact: {
@@ -179,6 +186,8 @@ const en: SiteTranslations = {
     success: 'Message sent. Thanks — I’ll get back to you soon.',
     error: 'Couldn’t send. Try again or email holaninabaldo@gmail.com.',
     validationError: 'Check the fields: name, valid email, and a message of at least 5 characters.',
+    activationError:
+      'FormSubmit is not activated yet. Check holaninabaldo@gmail.com (and spam), open the “Activate Form” link, then try again.',
     close: 'Close',
     closeAria: 'Close contact form',
   },

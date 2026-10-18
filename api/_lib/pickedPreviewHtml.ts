@@ -2,6 +2,9 @@ import { resolveLabPreviewLang } from './previewLang.js'
 
 const PICKED_ORIGIN = 'https://picked-beta.vercel.app'
 
+/** Must match Picked app `LANGUAGE_STORAGE_KEY` in src/lib/i18n/languages.js */
+const PICKED_LANGUAGE_STORAGE_KEY = 'picked-language'
+
 export function resolvePickedLang(input: string | undefined): string {
   return resolveLabPreviewLang(input)
 }
@@ -19,6 +22,7 @@ function buildPickedBootstrapScript(lang: string, moduleSrc: string): string {
   var pickedOrigin = ${originLiteral};
 
   try {
+    localStorage.setItem(${JSON.stringify(PICKED_LANGUAGE_STORAGE_KEY)}, lang);
     localStorage.setItem('picked.lang', lang);
   } catch (e) {}
 

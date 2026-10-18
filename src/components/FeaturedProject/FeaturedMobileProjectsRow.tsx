@@ -50,6 +50,7 @@ export function FeaturedMobileProjectsRow({ projects }: FeaturedMobileProjectsRo
             {previewSource ? (
               <div className="mobile-project-card__stage" aria-hidden="true">
                 <MobileSitePreview
+                  key={`${project.id}-${language}`}
                   url={previewSource}
                   title={copy.previewAria}
                   static

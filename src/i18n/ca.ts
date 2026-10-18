@@ -162,6 +162,13 @@ const ca: SiteTranslations = {
           'Descobreix llocs a través de persones: recomanacions reals en un flux pensat per al mòbil.',
         previewAria: 'Previsualització mòbil de Picked',
       },
+      sync: {
+        name: 'Sync',
+        category: 'App mòbil',
+        description:
+          'Juga, descobreix i connecta — una app per a parells amb preguntes, records i moments compartits.',
+        previewAria: 'Previsualització mòbil de Sync',
+      },
     },
   },
   contact: {
@@ -179,6 +186,8 @@ const ca: SiteTranslations = {
     success: 'Missatge enviat. Gràcies — et respondré aviat.',
     error: 'No s’ha pogut enviar. Torna-ho a provar o escriu a holaninabaldo@gmail.com.',
     validationError: 'Revisa els camps: nom, email vàlid i un missatge d’almenys 5 caràcters.',
+    activationError:
+      'FormSubmit encara no està activat. Revisa holaninabaldo@gmail.com (i spam), obre l’enllaç «Activate Form» i torna a enviar.',
     close: 'Tancar',
     closeAria: 'Tancar formulari de contacte',
   },

@@ -162,6 +162,13 @@ const fr: SiteTranslations = {
           'Découvrez des lieux à travers des personnes — de vraies recommandations, pensées pour le mobile.',
         previewAria: 'Aperçu mobile de Picked',
       },
+      sync: {
+        name: 'Sync',
+        category: 'App mobile',
+        description:
+          'Jouer, découvrir et connecter — une app pour les couples : questions, souvenirs et moments partagés.',
+        previewAria: 'Aperçu mobile de Sync',
+      },
     },
   },
   contact: {
@@ -179,6 +186,8 @@ const fr: SiteTranslations = {
     success: 'Message envoyé. Merci — je vous répondrai bientôt.',
     error: 'Échec de l’envoi. Réessayez ou écrivez à holaninabaldo@gmail.com.',
     validationError: 'Vérifiez les champs : nom, email valide et message d’au moins 5 caractères.',
+    activationError:
+      'FormSubmit n’est pas encore activé. Vérifiez holaninabaldo@gmail.com (et les spams), ouvrez le lien « Activate Form », puis réessayez.',
     close: 'Fermer',
     closeAria: 'Fermer le formulaire de contact',
   },

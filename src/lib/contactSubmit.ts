@@ -8,6 +8,8 @@ export interface ContactPayload {
   message: string
 }
 
+export type ContactSubmitError = 'validation' | 'activation' | 'delivery'
+
 export function validateContactPayload(payload: ContactPayload): boolean {
   const name = payload.name.trim()
   const email = payload.email.trim()
@@ -20,17 +22,35 @@ export function validateContactPayload(payload: ContactPayload): boolean {
   return true
 }
 
+function parseFormSubmitError(data: unknown): ContactSubmitError {
+  if (!data || typeof data !== 'object') return 'delivery'
+  const message = String((data as { message?: string }).message ?? '').toLowerCase()
+  if (message.includes('activation') || message.includes('activate')) {
+    return 'activation'
+  }
+  return 'delivery'
+}
+
 function isFormSubmitSuccess(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false
   const success = (data as { success?: boolean | string }).success
   return success === true || success === 'true'
 }
 
-export async function submitContactForm(payload: ContactPayload): Promise<void> {
-  if (!validateContactPayload(payload)) {
-    throw new Error('validation')
-  }
+async function submitViaServer(payload: ContactPayload): Promise<boolean> {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(payload),
+  })
 
+  if (response.ok) return true
+  if (response.status === 503) return false
+  if (response.status === 400) throw new Error('validation')
+  throw new Error('delivery')
+}
+
+async function submitViaFormSubmit(payload: ContactPayload): Promise<void> {
   const name = payload.name.trim()
   const email = payload.email.trim()
   const message = payload.message.trim()
@@ -63,6 +83,17 @@ export async function submitContactForm(payload: ContactPayload): Promise<void> 
   }
 
   if (!response.ok || !isFormSubmitSuccess(data)) {
-    throw new Error('delivery')
+    throw new Error(parseFormSubmitError(data))
   }
+}
+
+export async function submitContactForm(payload: ContactPayload): Promise<void> {
+  if (!validateContactPayload(payload)) {
+    throw new Error('validation')
+  }
+
+  const sentViaServer = await submitViaServer(payload).catch(() => false)
+  if (sentViaServer) return
+
+  await submitViaFormSubmit(payload)
 }

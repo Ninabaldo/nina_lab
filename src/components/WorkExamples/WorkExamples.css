@@ -1,5 +1,7 @@
 .work-examples {
-  padding: clamp(3rem, 8vw, 5.5rem) clamp(1.25rem, 4vw, 3rem);
+  position: relative;
+  z-index: 1;
+  padding: clamp(3.5rem, 9vw, 6rem) clamp(1.25rem, 4vw, 3rem);
   background: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
 }

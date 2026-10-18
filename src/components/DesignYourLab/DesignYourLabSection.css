@@ -1,5 +1,7 @@
 .design-your-lab {
   position: relative;
+  z-index: 1;
+  margin-bottom: clamp(0.5rem, 2vw, 1.25rem);
 }
 
 .design-your-lab__band {

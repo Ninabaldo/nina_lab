@@ -23,7 +23,6 @@ export function ProjectEmbedPage({ projectId }: ProjectEmbedPageProps) {
   const ProjectApp = projectAppComponents[projectId]
   const previewLogo = project ? getProjectPreviewLogo(project.id) : undefined
   const previewLogoVariant = project ? getProjectPreviewLogoVariant(project.id) : undefined
-
   if (!embedSource || !copy) {
     return (
       <main className="project-embed project-embed--missing">

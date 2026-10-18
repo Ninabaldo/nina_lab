@@ -277,6 +277,7 @@ export interface SiteTranslations {
     success: string
     error: string
     validationError: string
+    activationError: string
     close: string
     closeAria: string
   }

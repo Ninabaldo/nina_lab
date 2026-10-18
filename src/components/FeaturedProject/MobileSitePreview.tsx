@@ -24,7 +24,7 @@ interface MobileSitePreviewProps {
   /** Open project: use full viewport on phones (no simulator chrome). */
   embed?: boolean
   logoUrl?: string
-  logoVariant?: 'nook' | 'scopo' | 'picked'
+  logoVariant?: 'nook' | 'scopo' | 'picked' | 'sync'
 }
 
 export function MobileSitePreview({
