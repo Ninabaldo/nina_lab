@@ -162,13 +162,6 @@ const en: SiteTranslations = {
           'Discover places through people—real recommendations in a mobile-first flow.',
         previewAria: 'Mobile preview of Picked',
       },
-      sync: {
-        name: 'Sync',
-        category: 'Mobile app',
-        description:
-          'Play, discover, and connect — a couples app with questions, memories, and shared moments.',
-        previewAria: 'Mobile preview of Sync',
-      },
     },
   },
   contact: {

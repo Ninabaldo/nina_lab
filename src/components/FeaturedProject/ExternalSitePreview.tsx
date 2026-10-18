@@ -9,7 +9,7 @@ interface ExternalSitePreviewProps {
   title: string
   static?: boolean
   logoUrl?: string
-  logoVariant?: 'nook' | 'scopo' | 'picked' | 'sync'
+  logoVariant?: 'nook' | 'scopo' | 'picked'
 }
 
 export function ExternalSitePreview({

@@ -162,13 +162,6 @@ const ca: SiteTranslations = {
           'Descobreix llocs a través de persones: recomanacions reals en un flux pensat per al mòbil.',
         previewAria: 'Previsualització mòbil de Picked',
       },
-      sync: {
-        name: 'Sync',
-        category: 'App mòbil',
-        description:
-          'Juga, descobreix i connecta — una app per a parells amb preguntes, records i moments compartits.',
-        previewAria: 'Previsualització mòbil de Sync',
-      },
     },
   },
   contact: {

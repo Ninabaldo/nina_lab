@@ -43,10 +43,6 @@
   max-height: 32%;
 }
 
-.external-site-preview__fallback--sync {
-  background: #fff8fa;
-}
-
 .external-site-preview__logo {
   display: block;
   width: auto;

@@ -35,7 +35,6 @@ export function storeLanguage(language: Language) {
     localStorage.setItem('nook.lang', language)
     localStorage.setItem('picked-language', language)
     localStorage.setItem('picked.lang', language)
-    localStorage.setItem('sync.language', language)
   } catch {
     // Ignore when storage is unavailable.
   }

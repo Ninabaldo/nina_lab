@@ -29,12 +29,6 @@ export const projects: Project[] = [
     previewUrl: 'https://picked-beta.vercel.app/',
     previewLayout: 'mobile',
   },
-  {
-    id: 'sync',
-    status: 'available',
-    previewUrl: 'https://sync-ebon-zeta.vercel.app/',
-    previewLayout: 'mobile',
-  },
 ]
 
 export type ProjectListBlock =

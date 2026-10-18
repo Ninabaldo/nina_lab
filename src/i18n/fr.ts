@@ -162,13 +162,6 @@ const fr: SiteTranslations = {
           'Découvrez des lieux à travers des personnes — de vraies recommandations, pensées pour le mobile.',
         previewAria: 'Aperçu mobile de Picked',
       },
-      sync: {
-        name: 'Sync',
-        category: 'App mobile',
-        description:
-          'Jouer, découvrir et connecter — une app pour les couples : questions, souvenirs et moments partagés.',
-        previewAria: 'Aperçu mobile de Sync',
-      },
     },
   },
   contact: {

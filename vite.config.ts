@@ -4,7 +4,6 @@ import { incidentBriefDevApi } from './vite/incidentBriefDevApi.js'
 import { nookPreviewDevApi } from './vite/nookPreviewDevApi.js'
 import { pickedPreviewDevApi } from './vite/pickedPreviewDevApi.js'
 import { scopoPreviewDevApi } from './vite/scopoPreviewDevApi.js'
-import { syncPreviewDevApi } from './vite/syncPreviewDevApi.js'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -17,7 +16,6 @@ export default defineConfig(({ mode }) => {
       nookPreviewDevApi(),
       scopoPreviewDevApi(),
       pickedPreviewDevApi(),
-      syncPreviewDevApi(),
     ],
     server: {
       proxy: {
