@@ -206,6 +206,8 @@ const ca: CentreProposalCopy = {
       },
       horaris: {
         title: 'Horaris',
+        viewWeek: 'Setmana',
+        viewMonth: 'Mes',
         classes: [
           { id: 'yoga', name: 'Yoga suau', meta: 'Dilluns · 10:00 · Sala A · Laura' },
           { id: 'pilates', name: 'Pilates', meta: 'Dilluns · 18:30 · Sala B · Marc' },
@@ -251,7 +253,9 @@ const ca: CentreProposalCopy = {
       },
       calendari: {
         title: 'Calendari',
-        lead: 'Vista setmanal de les activitats programades.',
+        lead: 'Canvia entre vista setmanal i mensual de les activitats programades.',
+        viewWeek: 'Setmana',
+        viewMonth: 'Mes',
         days: [
           { label: 'Dilluns', meta: '10:00 Yoga · 18:30 Pilates' },
           { label: 'Dimarts', meta: '09:00 Stretching · 19:00 HIIT' },

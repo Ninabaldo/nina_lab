@@ -1,4 +1,4 @@
-export type Language = 'en' | 'es' | 'ca' | 'fr'
+export type Language = 'en' | 'es' | 'ca' | 'fr' | 'it'
 
 export interface Translations {
   appName: string
@@ -45,6 +45,7 @@ export const LANGUAGE_LABELS: Record<Language, string> = {
   es: 'ES',
   ca: 'CA',
   fr: 'FR',
+  it: 'IT',
 }
 
-export const SUPPORTED_LANGUAGES: Language[] = ['en', 'es', 'ca', 'fr']
+export const SUPPORTED_LANGUAGES: Language[] = ['en', 'es', 'ca', 'fr', 'it']

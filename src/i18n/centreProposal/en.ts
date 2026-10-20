@@ -194,6 +194,8 @@ const en: CentreProposalCopy = {
       },
       horaris: {
         title: 'Schedule',
+        viewWeek: 'Week',
+        viewMonth: 'Month',
         classes: [
           { id: 'yoga', name: 'Gentle yoga', meta: 'Mon · 10:00 · Room A · Laura' },
           { id: 'pilates', name: 'Pilates', meta: 'Mon · 18:30 · Room B · Marc' },
@@ -239,7 +241,9 @@ const en: CentreProposalCopy = {
       },
       calendari: {
         title: 'Calendar',
-        lead: 'Weekly view of scheduled activities.',
+        lead: 'Switch between week and month to see scheduled activities.',
+        viewWeek: 'Week',
+        viewMonth: 'Month',
         days: [
           { label: 'Monday', meta: '10:00 Yoga · 18:30 Pilates' },
           { label: 'Tuesday', meta: '09:00 Stretching · 19:00 HIIT' },

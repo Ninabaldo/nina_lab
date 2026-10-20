@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { CentreProposalCopy, CentreProposalStudentTab } from '../../i18n/centreProposal/types'
+import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { CentreDemoCalendar } from './CentreDemoCalendar'
 import { useCentreDemo, type DemoClassId } from './centreDemoContext'
 import './CentreProposalApp.css'
 
@@ -16,12 +18,9 @@ interface StudentAppMockupProps {
   compact?: boolean
 }
 
-function formatSpots(template: string, n: number) {
-  return template.replace('{n}', String(n))
-}
-
 export function StudentAppMockup({ copy, compact = false }: StudentAppMockupProps) {
   const [tab, setTab] = useState<CentreProposalStudentTab>('horaris')
+  const { language } = useSiteLanguage()
   const demo = copy.demo
   const labels = demo.student.labels
   const {
@@ -44,12 +43,6 @@ export function StudentAppMockup({ copy, compact = false }: StudentAppMockupProp
 
   const selectedClass = demo.student.horaris.classes.find((c) => c.id === selectedClassId)
   const canConfirm = selectedClassId === 'yoga' && !studentBookedYoga && yogaSpotsLeft > 0
-
-  const spotsForClass = (id: DemoClassId) => {
-    if (id === 'pilates') return labels.full
-    if (id === 'yoga') return formatSpots(labels.spots, yogaSpotsLeft)
-    return formatSpots(labels.spots, 5)
-  }
 
   const startBooking = (id: DemoClassId) => {
     if (isClassFull(id)) return
@@ -83,39 +76,16 @@ export function StudentAppMockup({ copy, compact = false }: StudentAppMockupProp
           {tab === 'horaris' ? (
             <>
               <h2 className="centre-demo__screen-title">{demo.student.horaris.title}</h2>
-              <ul className="centre-demo__card-list">
-                {demo.student.horaris.classes.map((item) => {
-                  const full = isClassFull(item.id)
-                  const active = selectedClassId === item.id
-                  return (
-                    <li key={item.id}>
-                      <button
-                        type="button"
-                        className={`centre-demo__card centre-demo__card--action${
-                          active ? ' centre-demo__card--active' : ''
-                        }${full ? ' centre-demo__card--disabled' : ''}`}
-                        disabled={full}
-                        onClick={() => startBooking(item.id)}
-                      >
-                        <div className="centre-demo__card-head">
-                          <span>{item.name}</span>
-                          <span
-                            className={`centre-demo__pill${
-                              full ? ' centre-demo__pill--warn' : ''
-                            }`}
-                          >
-                            {spotsForClass(item.id)}
-                          </span>
-                        </div>
-                        <p className="centre-demo__card-meta">{item.meta}</p>
-                        {!full ? (
-                          <span className="centre-demo__card-cta">{labels.book} →</span>
-                        ) : null}
-                      </button>
-                    </li>
-                  )
-                })}
-              </ul>
+              <CentreDemoCalendar
+                copy={copy}
+                language={language}
+                viewWeekLabel={demo.student.horaris.viewWeek}
+                viewMonthLabel={demo.student.horaris.viewMonth}
+                compact={compact}
+                onBookClass={(id) => startBooking(id)}
+                isClassFull={isClassFull}
+                liveClassId={studentBookedYoga ? 'yoga' : selectedClassId}
+              />
             </>
           ) : null}
 

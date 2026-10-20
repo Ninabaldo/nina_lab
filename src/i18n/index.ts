@@ -2,6 +2,7 @@ import ca from './ca'
 import en from './en'
 import es from './es'
 import fr from './fr'
+import it from './it'
 import type { Language, SiteTranslations } from './types'
 
 export type { Language, SiteTranslations, ExperimentCopy } from './types'
@@ -11,6 +12,7 @@ export const translations: Record<Language, SiteTranslations> = {
   es,
   ca,
   fr,
+  it,
 }
 
 export function getExperimentCopy(

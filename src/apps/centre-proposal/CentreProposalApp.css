@@ -1,6 +1,8 @@
 .centre-proposal {
   --cp-max: 52rem;
   --cp-wide: 72rem;
+  --proposal-amount-col: 6.5rem;
+  --proposal-control-col: 1.15rem;
   min-height: 100vh;
   background: var(--color-bg);
   color: var(--color-text);
@@ -394,11 +396,38 @@
 }
 
 .centre-proposal__base-head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: var(--proposal-amount-col) 1fr;
+  gap: 1rem 1.25rem;
+  align-items: start;
   margin-bottom: 1rem;
+}
+
+.centre-proposal__base-copy {
+  min-width: 0;
+}
+
+.centre-proposal__amount {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.centre-proposal__amount--text {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__amount--muted {
+  color: var(--color-text-light);
+  font-weight: 500;
 }
 
 .centre-proposal__card-title {
@@ -419,7 +448,8 @@
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
-  text-align: right;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
 }
 
 .centre-proposal__price-tag-note {
@@ -472,8 +502,10 @@
 }
 
 .centre-proposal__addon {
-  display: flex;
-  gap: 0.85rem;
+  display: grid;
+  grid-template-columns: var(--proposal-control-col) var(--proposal-amount-col) 1fr;
+  gap: 0.85rem 1rem;
+  align-items: start;
   padding: 1.1rem 1.15rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
@@ -509,46 +541,37 @@
   min-width: 0;
 }
 
-.centre-proposal__addon-head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
 .centre-proposal__addon-title {
   font-weight: 600;
   font-size: 0.98rem;
 }
 
-.centre-proposal__addon-price {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--color-text);
-  background: var(--color-bg-warm);
-  border: 1px solid var(--color-border);
-  white-space: nowrap;
+.centre-proposal__addon-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  padding-top: 0.05rem;
 }
 
-.centre-proposal__addon-price--on {
-  border-color: var(--color-accent-sage);
-  background: color-mix(in srgb, var(--color-accent-sage) 14%, transparent);
+.centre-proposal__addon-amount--on .centre-proposal__amount {
+  color: var(--color-accent-sage);
 }
 
-.centre-proposal__addon-price-value {
+.centre-proposal__addon-included {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-sage);
 }
 
 .centre-proposal__addons-running {
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--proposal-control-col) var(--proposal-amount-col) 1fr;
+  gap: 0.85rem 1rem;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
   margin: 1.25rem 0 0;
   padding: 0.85rem 1rem;
   border-radius: var(--radius-md);
@@ -559,20 +582,22 @@
 }
 
 .centre-proposal__addons-running-value {
+  grid-column: 2;
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--color-text);
+  font-size: 1.05rem;
+}
+
+.centre-proposal__addons-running > span:last-child {
+  grid-column: 3;
 }
 
 .centre-proposal__summary-row--detail dt {
   font-size: 0.84rem;
-  padding-left: 0.65rem;
   color: var(--color-text-light);
 }
 
-.centre-proposal__summary-row--detail dd {
+.centre-proposal__summary-row--detail .centre-proposal__amount {
   font-size: 0.88rem;
-  font-weight: 600;
 }
 
 .centre-proposal__addon-desc,
@@ -588,8 +613,10 @@
 }
 
 .centre-proposal__maintenance {
-  display: flex;
-  gap: 0.85rem;
+  display: grid;
+  grid-template-columns: var(--proposal-control-col) var(--proposal-amount-col) 1fr;
+  gap: 0.85rem 1rem;
+  align-items: start;
   padding: 1.1rem 1.15rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
@@ -613,21 +640,12 @@
   gap: 0.45rem;
 }
 
-.centre-proposal__maintenance-head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.5rem;
+.centre-proposal__maintenance-amount {
+  padding-top: 0.05rem;
 }
 
 .centre-proposal__maintenance-title {
   font-weight: 600;
-}
-
-.centre-proposal__maintenance-price {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
 }
 
 .centre-proposal__maintenance-desc,
@@ -658,22 +676,22 @@
 }
 
 .centre-proposal__summary-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: var(--proposal-amount-col) 1fr;
+  gap: 0.75rem 1.25rem;
+  align-items: baseline;
   padding: 0.55rem 0;
   border-bottom: 1px solid var(--color-border);
   font-size: 0.92rem;
 }
 
 .centre-proposal__summary-row dt {
+  margin: 0;
   color: var(--color-text-muted);
 }
 
 .centre-proposal__summary-row dd {
   margin: 0;
-  font-weight: 600;
-  text-align: right;
 }
 
 .centre-proposal__summary-row--total {
@@ -682,10 +700,15 @@
   font-size: 1.05rem;
 }
 
-.centre-proposal__summary-row--total dt,
-.centre-proposal__summary-row--total dd {
+.centre-proposal__summary-row--total dt {
   color: var(--color-text);
   font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.centre-proposal__summary-row--total .centre-proposal__amount {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 700;
 }
 
@@ -1156,6 +1179,210 @@
 
 .centre-demo__card--live .centre-demo__pill--live {
   transform: scale(1.05);
+}
+
+.centre-demo__cal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.centre-demo__cal-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.centre-demo__cal-toggle {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+
+.centre-demo__cal-toggle button {
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+}
+
+.centre-demo__cal-toggle button.is-active {
+  background: var(--color-surface, #fff);
+  color: var(--color-text);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+.centre-demo__cal-range {
+  margin: 0;
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+.centre-demo__cal-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.centre-demo__cal-week-col-head {
+  margin: 0 0 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+
+.centre-demo__cal-week-events {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.centre-demo__cal-week-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.centre-demo__cal-week-day-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.centre-demo__cal-event {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.4rem 0.45rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+  background: color-mix(in srgb, var(--color-text) 4%, transparent);
+  font: inherit;
+  color: inherit;
+  cursor: default;
+}
+
+.centre-demo__cal-event--compact {
+  padding: 0.3rem 0.35rem;
+}
+
+button.centre-demo__cal-event {
+  cursor: pointer;
+}
+
+button.centre-demo__cal-event:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--color-primary, #111) 35%, transparent);
+}
+
+.centre-demo__cal-event--live {
+  border-color: color-mix(in srgb, var(--color-primary, #111) 45%, transparent);
+  background: color-mix(in srgb, var(--color-primary, #111) 8%, transparent);
+}
+
+.centre-demo__cal-event--full {
+  opacity: 0.55;
+}
+
+.centre-demo__cal-event-time {
+  font-size: 0.65rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.centre-demo__cal-event-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.centre-demo__cal-event-detail {
+  font-size: 0.62rem;
+  opacity: 0.65;
+  line-height: 1.25;
+}
+
+.centre-demo__cal-month-head {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 0.25rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0.55;
+}
+
+.centre-demo__cal-month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.centre-demo__cal-month-cell {
+  min-height: 3.5rem;
+  padding: 0.2rem;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--color-text) 6%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.centre-demo__cal--compact .centre-demo__cal-month-cell {
+  min-height: 2.75rem;
+}
+
+.centre-demo__cal-month-cell--muted {
+  opacity: 0.35;
+}
+
+.centre-demo__cal-month-cell--today {
+  border-color: color-mix(in srgb, var(--color-primary, #111) 40%, transparent);
+}
+
+.centre-demo__cal-month-day {
+  font-size: 0.62rem;
+  font-weight: 600;
+  align-self: flex-end;
+}
+
+.centre-demo__cal-month-events {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  flex: 1;
+}
+
+.centre-demo__cal-month-more {
+  font-size: 0.58rem;
+  opacity: 0.6;
+}
+
+.centre-demo__dash--compact .centre-demo__cal-week-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 720px) {
+  .centre-demo__cal-week-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

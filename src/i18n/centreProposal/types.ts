@@ -109,6 +109,8 @@ export interface CentreProposalCopy {
       }
       horaris: {
         title: string
+        viewWeek: string
+        viewMonth: string
         classes: { id: 'yoga' | 'pilates' | 'stretching'; name: string; meta: string }[]
       }
       reserves: {
@@ -140,7 +142,13 @@ export interface CentreProposalCopy {
         leadTemplate: string
         rows: { id: 'yoga' | 'pilates'; time: string; meta: string }[]
       }
-      calendari: { title: string; lead: string; days: { label: string; meta: string }[] }
+      calendari: {
+        title: string
+        lead: string
+        viewWeek: string
+        viewMonth: string
+        days: { label: string; meta: string }[]
+      }
       classes: { title: string; lead: string; rows: { name: string; capacity: string; meta: string }[] }
       alumnes: { title: string; lead: string; rows: { name: string; plan: string; meta: string }[] }
       abonaments: { title: string; lead: string; rows: { name: string; price: string; meta: string }[] }

@@ -2,6 +2,7 @@ import ca from './ca'
 import en from './en'
 import es from './es'
 import fr from './fr'
+import it from './it'
 import type { Language, Translations } from './types'
 
 export type { Language, Translations }
@@ -12,6 +13,7 @@ export const translations: Record<Language, Translations> = {
   es,
   ca,
   fr,
+  it,
 }
 
 export function detectBrowserLanguage(): Language {
@@ -25,6 +27,7 @@ export function detectBrowserLanguage(): Language {
     if (normalized === 'es') return 'es'
     if (normalized === 'fr') return 'fr'
     if (normalized === 'en') return 'en'
+    if (normalized === 'it') return 'it'
   }
 
   return 'en'

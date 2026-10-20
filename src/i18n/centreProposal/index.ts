@@ -3,6 +3,7 @@ import ca from './ca'
 import en from './en'
 import es from './es'
 import fr from './fr'
+import it from './it'
 import type { CentreProposalCopy } from './types'
 
 export type {
@@ -11,7 +12,7 @@ export type {
   CentreProposalStudentTab,
 } from './types'
 
-const copies: Record<Language, CentreProposalCopy> = { ca, en, es, fr }
+const copies: Record<Language, CentreProposalCopy> = { ca, en, es, fr, it }
 
 export function getCentreProposalCopy(language: Language): CentreProposalCopy {
   return copies[language] ?? ca

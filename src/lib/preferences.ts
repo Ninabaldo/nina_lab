@@ -1,5 +1,5 @@
 export type Theme = 'light' | 'dark'
-export type Language = 'en' | 'es' | 'ca' | 'fr'
+export type Language = 'en' | 'es' | 'ca' | 'fr' | 'it'
 
 const KEYS = {
   theme: 'nina-lab-theme',
@@ -24,7 +24,8 @@ export function storeTheme(theme: Theme) {
 export function getStoredLanguage(): Language | null {
   const value =
     localStorage.getItem(KEYS.language) ?? localStorage.getItem('breathe-language')
-  if (value === 'en' || value === 'es' || value === 'ca' || value === 'fr') return value
+  if (value === 'en' || value === 'es' || value === 'ca' || value === 'fr' || value === 'it')
+    return value
   return null
 }
 
@@ -51,6 +52,7 @@ export function detectBrowserLanguage(): Language {
     if (normalized === 'es') return 'es'
     if (normalized === 'fr') return 'fr'
     if (normalized === 'en') return 'en'
+    if (normalized === 'it') return 'it'
   }
 
   return 'en'
@@ -61,6 +63,7 @@ export const LANGUAGE_LABELS: Record<Language, string> = {
   es: 'ES',
   ca: 'CA',
   fr: 'FR',
+  it: 'IT',
 }
 
-export const SUPPORTED_LANGUAGES: Language[] = ['en', 'es', 'ca', 'fr']
+export const SUPPORTED_LANGUAGES: Language[] = ['en', 'es', 'ca', 'fr', 'it']

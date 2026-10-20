@@ -28,6 +28,7 @@ const PER_MONTH: Record<string, string> = {
   es: '/mes',
   en: '/mo',
   fr: '/mois',
+  it: '/mese',
 }
 
 const initialAddons = (): Record<AddonId, boolean> =>
@@ -186,16 +187,16 @@ export function CentreProposalApp() {
 
           <article className="centre-proposal__base-card">
             <div className="centre-proposal__base-head">
-              <div>
-                <h3 className="centre-proposal__card-title">{copy.section02.base.title}</h3>
-                <p className="centre-proposal__card-subtitle">{copy.section02.base.subtitle}</p>
-              </div>
               <p className="centre-proposal__price-tag">
                 {formatEuro(BASE_IMPLEMENTATION_EUR, language)}
                 <span className="centre-proposal__price-tag-note">
                   {copy.section02.base.priceNote}
                 </span>
               </p>
+              <div className="centre-proposal__base-copy">
+                <h3 className="centre-proposal__card-title">{copy.section02.base.title}</h3>
+                <p className="centre-proposal__card-subtitle">{copy.section02.base.subtitle}</p>
+              </div>
             </div>
             <p className="centre-proposal__includes-label">{copy.section02.base.includesLabel}</p>
             <ul className="centre-proposal__includes">
@@ -224,20 +225,22 @@ export function CentreProposalApp() {
                       checked={checked}
                       onChange={() => toggleAddon(id)}
                     />
-                    <span className="centre-proposal__addon-body">
-                      <span className="centre-proposal__addon-head">
-                        <span className="centre-proposal__addon-title">{addon.title}</span>
-                        <span
-                          className={`centre-proposal__addon-price${
-                            checked ? ' centre-proposal__addon-price--on' : ''
-                          }`}
-                        >
-                          {checked ? copy.section02.addonIncluded : null}
-                          <span className="centre-proposal__addon-price-value">
-                            {formatEuro(ADDON_PRICES_EUR[id], language)}
-                          </span>
+                    <span
+                      className={`centre-proposal__addon-amount${
+                        checked ? ' centre-proposal__addon-amount--on' : ''
+                      }`}
+                    >
+                      {checked ? (
+                        <span className="centre-proposal__addon-included">
+                          {copy.section02.addonIncluded}
                         </span>
+                      ) : null}
+                      <span className="centre-proposal__amount">
+                        {formatEuro(ADDON_PRICES_EUR[id], language)}
                       </span>
+                    </span>
+                    <span className="centre-proposal__addon-body">
+                      <span className="centre-proposal__addon-title">{addon.title}</span>
                       <span className="centre-proposal__addon-desc">{addon.description}</span>
                       {addon.detail ? (
                         <span className="centre-proposal__addon-detail">{addon.detail}</span>
@@ -250,10 +253,10 @@ export function CentreProposalApp() {
           </ul>
 
           <p className="centre-proposal__addons-running" aria-live="polite" aria-atomic="true">
-            <span>{copy.section02.addonsRunningTotal}</span>
-            <strong key={pricePulse} className="centre-proposal__addons-running-value">
+            <strong key={pricePulse} className="centre-proposal__amount centre-proposal__addons-running-value">
               {formatEuro(addonsTotal, language)}
             </strong>
+            <span>{copy.section02.addonsRunningTotal}</span>
           </p>
         </section>
 
@@ -288,16 +291,18 @@ export function CentreProposalApp() {
                     checked={selected}
                     onChange={() => setMaintenanceId(id)}
                   />
+                  <span className="centre-proposal__maintenance-amount">
+                    {monthly > 0 ? (
+                      <span className="centre-proposal__amount">
+                        {formatEuro(monthly, language)}
+                        {perMonth}
+                      </span>
+                    ) : (
+                      <span className="centre-proposal__amount centre-proposal__amount--muted">—</span>
+                    )}
+                  </span>
                   <span className="centre-proposal__maintenance-body">
-                    <span className="centre-proposal__maintenance-head">
-                      <span className="centre-proposal__maintenance-title">{option.title}</span>
-                      {monthly > 0 ? (
-                        <span className="centre-proposal__maintenance-price">
-                          {formatEuro(monthly, language)}
-                          {perMonth}
-                        </span>
-                      ) : null}
-                    </span>
+                    <span className="centre-proposal__maintenance-title">{option.title}</span>
                     <span className="centre-proposal__maintenance-desc">{option.description}</span>
                     {option.includes ? (
                       <ul className="centre-proposal__maintenance-includes">
@@ -330,43 +335,56 @@ export function CentreProposalApp() {
           <div className="centre-proposal__summary">
             <dl className="centre-proposal__summary-lines">
               <div className="centre-proposal__summary-row">
+                <dd className="centre-proposal__amount">
+                  {formatEuro(BASE_IMPLEMENTATION_EUR, language)}
+                </dd>
                 <dt>{copy.section04.rows.base}</dt>
-                <dd>{formatEuro(BASE_IMPLEMENTATION_EUR, language)}</dd>
               </div>
               {ADDON_IDS.filter((id) => selectedAddons[id]).map((id) => (
                 <div
                   key={id}
                   className="centre-proposal__summary-row centre-proposal__summary-row--detail"
                 >
+                  <dd className="centre-proposal__amount">
+                    {formatEuro(ADDON_PRICES_EUR[id], language)}
+                  </dd>
                   <dt>{copy.section02.addons[id].title}</dt>
-                  <dd>{formatEuro(ADDON_PRICES_EUR[id], language)}</dd>
                 </div>
               ))}
               <div className="centre-proposal__summary-row">
-                <dt>{copy.section04.rows.addons}</dt>
                 <AnimatedTotal
                   pulseKey={pricePulse}
+                  className={`centre-proposal__amount${
+                    addonsTotal > 0 ? '' : ' centre-proposal__amount--text'
+                  }`}
                   value={
                     addonsTotal > 0
                       ? formatEuro(addonsTotal, language)
                       : copy.section04.rows.addonsNone
                   }
                 />
+                <dt>{copy.section04.rows.addons}</dt>
               </div>
               <div className="centre-proposal__summary-row centre-proposal__summary-row--total">
-                <dt>{copy.section04.rows.implementation}</dt>
                 <AnimatedTotal
                   pulseKey={pricePulse}
+                  className="centre-proposal__amount"
                   value={formatEuro(implementationTotal, language)}
                 />
+                <dt>{copy.section04.rows.implementation}</dt>
               </div>
               <div className="centre-proposal__summary-row">
-                <dt>{copy.section04.rows.maintenance}</dt>
-                <dd>
+                <dd className="centre-proposal__amount centre-proposal__amount--text">
                   {maintenanceCopy && MAINTENANCE_PRICES_EUR[maintenanceId] > 0
-                    ? `${maintenanceCopy.title} · ${formatEuro(MAINTENANCE_PRICES_EUR[maintenanceId], language)}${perMonth}`
-                    : copy.section04.rows.maintenanceOptional}
+                    ? `${formatEuro(MAINTENANCE_PRICES_EUR[maintenanceId], language)}${perMonth}`
+                    : '—'}
                 </dd>
+                <dt>
+                  {copy.section04.rows.maintenance}
+                  {maintenanceCopy && MAINTENANCE_PRICES_EUR[maintenanceId] > 0
+                    ? ` · ${maintenanceCopy.title}`
+                    : ` · ${copy.section04.rows.maintenanceOptional}`}
+                </dt>
               </div>
             </dl>
 

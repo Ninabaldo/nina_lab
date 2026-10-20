@@ -1,5 +1,5 @@
 /** Languages supported by Nina Lab site UI. */
-const LAB_LANGS = new Set(['ca', 'es', 'en', 'fr'])
+const LAB_LANGS = new Set(['ca', 'es', 'en', 'fr', 'it'])
 
 /**
  * Map lab language to embedded app preview locale.

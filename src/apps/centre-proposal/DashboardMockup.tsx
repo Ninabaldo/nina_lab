@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import type { CentreProposalCopy, CentreProposalDashTab } from '../../i18n/centreProposal/types'
+import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { CentreDemoCalendar } from './CentreDemoCalendar'
 import { useCentreDemo } from './centreDemoContext'
 import './CentreProposalApp.css'
 
@@ -17,10 +19,12 @@ interface DashboardMockupProps {
 }
 
 export function DashboardMockup({ copy, compact = false }: DashboardMockupProps) {
+  const { language } = useSiteLanguage()
   const [tab, setTab] = useState<CentreProposalDashTab>('resum')
   const [activeRow, setActiveRow] = useState<string | null>(null)
   const demo = copy.demo
-  const { yogaOccupancy, yogaCapacity, confirmedBookings, studentBookedYoga } = useCentreDemo()
+  const { yogaOccupancy, yogaCapacity, confirmedBookings, studentBookedYoga, isClassFull } =
+    useCentreDemo()
 
   const resumLead = demo.dashboard.resum.leadTemplate
     .replace('{bookings}', String(confirmedBookings))
@@ -99,16 +103,15 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
             <>
               <h1>{demo.dashboard.calendari.title}</h1>
               <p className="centre-demo__panel-lead">{demo.dashboard.calendari.lead}</p>
-              <ul className="centre-demo__card-list">
-                {demo.dashboard.calendari.days.map((day) => (
-                  <li key={day.label} className="centre-demo__card">
-                    <div className="centre-demo__card-head">
-                      <span>{day.label}</span>
-                    </div>
-                    <p className="centre-demo__card-meta">{day.meta}</p>
-                  </li>
-                ))}
-              </ul>
+              <CentreDemoCalendar
+                copy={copy}
+                language={language}
+                viewWeekLabel={demo.dashboard.calendari.viewWeek}
+                viewMonthLabel={demo.dashboard.calendari.viewMonth}
+                compact={compact}
+                isClassFull={isClassFull}
+                liveClassId={studentBookedYoga ? 'yoga' : null}
+              />
             </>
           ) : null}
 

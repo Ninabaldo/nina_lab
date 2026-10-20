@@ -196,6 +196,8 @@ const fr: CentreProposalCopy = {
       },
       horaris: {
         title: 'Horaires',
+        viewWeek: 'Semaine',
+        viewMonth: 'Mois',
         classes: [
           { id: 'yoga', name: 'Yoga doux', meta: 'Lun · 10:00 · Salle A · Laura' },
           { id: 'pilates', name: 'Pilates', meta: 'Lun · 18:30 · Salle B · Marc' },
@@ -241,7 +243,9 @@ const fr: CentreProposalCopy = {
       },
       calendari: {
         title: 'Calendrier',
-        lead: 'Vue hebdomadaire des activités programmées.',
+        lead: 'Basculez entre vue hebdomadaire et mensuelle des activités programmées.',
+        viewWeek: 'Semaine',
+        viewMonth: 'Mois',
         days: [
           { label: 'Lundi', meta: '10:00 Yoga · 18:30 Pilates' },
           { label: 'Mardi', meta: '09:00 Stretching · 19:00 HIIT' },
