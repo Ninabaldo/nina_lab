@@ -79,7 +79,7 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                           <span>{row.time}</span>
                           <span
                             key={occupancy}
-                            className={`centre-demo__pill centre-proposal__price--pulse${
+                            className={`centre-demo__pill centre-demo__pill--live${
                               warn ? ' centre-demo__pill--warn' : ''
                             }`}
                           >

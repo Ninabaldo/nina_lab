@@ -68,6 +68,8 @@ const ca: CentreProposalCopy = {
     },
     addonsTitle: 'Funcionalitats addicionals',
     addonsLead: 'Selecciona els complements que vols incorporar:',
+    addonsRunningTotal: 'Total complements seleccionats',
+    addonIncluded: 'Inclòs',
     addons: {
       subscriptions: {
         title: 'Abonaments i packs',

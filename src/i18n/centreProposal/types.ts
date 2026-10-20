@@ -54,6 +54,8 @@ export interface CentreProposalCopy {
     }
     addonsTitle: string
     addonsLead: string
+    addonsRunningTotal: string
+    addonIncluded: string
     addons: Record<AddonId, { title: string; description: string; detail: string }>
   }
   section03: {

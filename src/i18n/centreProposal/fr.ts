@@ -67,6 +67,8 @@ const fr: CentreProposalCopy = {
     },
     addonsTitle: 'Fonctionnalités additionnelles',
     addonsLead: 'Sélectionnez les compléments à intégrer :',
+    addonsRunningTotal: 'Total des compléments sélectionnés',
+    addonIncluded: 'Inclus',
     addons: {
       subscriptions: {
         title: 'Forfaits et adhésions',

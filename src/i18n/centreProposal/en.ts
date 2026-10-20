@@ -65,6 +65,8 @@ const en: CentreProposalCopy = {
     },
     addonsTitle: 'Add-on features',
     addonsLead: 'Select the extras you want to include:',
+    addonsRunningTotal: 'Selected add-ons total',
+    addonIncluded: 'Included',
     addons: {
       subscriptions: {
         title: 'Passes and memberships',

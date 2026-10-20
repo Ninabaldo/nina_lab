@@ -227,8 +227,15 @@ export function CentreProposalApp() {
                     <span className="centre-proposal__addon-body">
                       <span className="centre-proposal__addon-head">
                         <span className="centre-proposal__addon-title">{addon.title}</span>
-                        <span className="centre-proposal__addon-price">
-                          {formatEuro(ADDON_PRICES_EUR[id], language)}
+                        <span
+                          className={`centre-proposal__addon-price${
+                            checked ? ' centre-proposal__addon-price--on' : ''
+                          }`}
+                        >
+                          {checked ? copy.section02.addonIncluded : null}
+                          <span className="centre-proposal__addon-price-value">
+                            {formatEuro(ADDON_PRICES_EUR[id], language)}
+                          </span>
                         </span>
                       </span>
                       <span className="centre-proposal__addon-desc">{addon.description}</span>
@@ -241,6 +248,13 @@ export function CentreProposalApp() {
               )
             })}
           </ul>
+
+          <p className="centre-proposal__addons-running" aria-live="polite" aria-atomic="true">
+            <span>{copy.section02.addonsRunningTotal}</span>
+            <strong key={pricePulse} className="centre-proposal__addons-running-value">
+              {formatEuro(addonsTotal, language)}
+            </strong>
+          </p>
         </section>
 
         <section
@@ -319,6 +333,15 @@ export function CentreProposalApp() {
                 <dt>{copy.section04.rows.base}</dt>
                 <dd>{formatEuro(BASE_IMPLEMENTATION_EUR, language)}</dd>
               </div>
+              {ADDON_IDS.filter((id) => selectedAddons[id]).map((id) => (
+                <div
+                  key={id}
+                  className="centre-proposal__summary-row centre-proposal__summary-row--detail"
+                >
+                  <dt>{copy.section02.addons[id].title}</dt>
+                  <dd>{formatEuro(ADDON_PRICES_EUR[id], language)}</dd>
+                </div>
+              ))}
               <div className="centre-proposal__summary-row">
                 <dt>{copy.section04.rows.addons}</dt>
                 <AnimatedTotal

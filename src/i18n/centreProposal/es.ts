@@ -67,6 +67,8 @@ const es: CentreProposalCopy = {
     },
     addonsTitle: 'Funcionalidades adicionales',
     addonsLead: 'Selecciona los complementos que quieres incorporar:',
+    addonsRunningTotal: 'Total complementos seleccionados',
+    addonIncluded: 'Incluido',
     addons: {
       subscriptions: {
         title: 'Abonos y packs',

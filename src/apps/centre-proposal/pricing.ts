@@ -37,19 +37,31 @@ export const MAINTENANCE_PRICES_EUR: Record<MaintenanceId, number> = {
   extended: 100,
 }
 
-const EURO_LOCALES: Record<Language, string> = {
-  ca: 'ca-ES',
-  es: 'es-ES',
-  en: 'en-GB',
-  fr: 'fr-FR',
-}
-
+/** Proposal copy uses European amounts like 1.200 € (ca/es), not bare 1200 € from es-ES Intl. */
 export function formatEuro(amount: number, language: Language): string {
-  return new Intl.NumberFormat(EURO_LOCALES[language] ?? 'ca-ES', {
-    style: 'currency',
-    currency: 'EUR',
+  if (language === 'en') {
+    return new Intl.NumberFormat('en-GB', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 0,
+    }).format(amount)
+  }
+
+  if (language === 'fr') {
+    return new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 0,
+    })
+      .format(amount)
+      .replace(/\u202f/g, ' ')
+  }
+
+  const grouped = new Intl.NumberFormat('de-DE', {
     maximumFractionDigits: 0,
   }).format(amount)
+
+  return `${grouped} €`
 }
 
 export function sumSelectedAddons(selected: Record<AddonId, boolean>): number {

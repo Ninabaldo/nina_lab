@@ -522,9 +522,57 @@
 }
 
 .centre-proposal__addon-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--color-text);
+  background: var(--color-bg-warm);
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.centre-proposal__addon-price--on {
+  border-color: var(--color-accent-sage);
+  background: color-mix(in srgb, var(--color-accent-sage) 14%, transparent);
+}
+
+.centre-proposal__addon-price-value {
+  font-weight: 600;
+}
+
+.centre-proposal__addons-running {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-warm);
+  font-size: 0.92rem;
   color: var(--color-text-muted);
+}
+
+.centre-proposal__addons-running-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-text);
+}
+
+.centre-proposal__summary-row--detail dt {
+  font-size: 0.84rem;
+  padding-left: 0.65rem;
+  color: var(--color-text-light);
+}
+
+.centre-proposal__summary-row--detail dd {
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 .centre-proposal__addon-desc,
@@ -1100,6 +1148,14 @@
 
 .centre-demo__dash--synced .centre-demo__panel-lead--live {
   color: var(--color-text);
+}
+
+.centre-demo__pill--live {
+  transition: transform 0.25s ease;
+}
+
+.centre-demo__card--live .centre-demo__pill--live {
+  transform: scale(1.05);
 }
 
 @media (prefers-reduced-motion: reduce) {
