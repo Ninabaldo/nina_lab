@@ -3,6 +3,10 @@
   --cp-wide: 72rem;
   --proposal-amount-col: 6.5rem;
   --proposal-control-col: 1.15rem;
+  --proposal-option-cols: var(--proposal-control-col) minmax(4.75rem, var(--proposal-amount-col)) minmax(
+      0,
+      1fr
+    );
   min-height: 100vh;
   background: var(--color-bg);
   color: var(--color-text);
@@ -293,6 +297,19 @@
   z-index: 20;
 }
 
+.centre-proposal-shell .centre-demo__bar {
+  padding-right: 5.25rem;
+  min-height: 3.25rem;
+  align-items: center;
+}
+
+.centre-proposal-shell .centre-demo__badge {
+  flex-shrink: 1;
+  text-align: right;
+  line-height: 1.35;
+  max-width: min(12rem, 42vw);
+}
+
 .centre-proposal__profiles {
   display: grid;
   gap: 2rem;
@@ -322,6 +339,10 @@
 .centre-proposal__profile-mock {
   justify-self: center;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
 }
 
 .centre-proposal__profile-links {
@@ -471,14 +492,6 @@
   color: var(--color-text-light);
 }
 
-.centre-proposal__includes {
-  margin: 0 0 1rem;
-  padding-left: 1.1rem;
-  line-height: 1.55;
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-}
-
 .centre-proposal__base-note {
   margin: 0;
   font-size: 0.88rem;
@@ -493,7 +506,7 @@
   font-weight: 600;
 }
 
-.centre-proposal__addon-list {
+.centre-proposal__option-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -501,52 +514,58 @@
   gap: 0.75rem;
 }
 
-.centre-proposal__addon {
+.centre-proposal__priced-option {
   display: grid;
-  grid-template-columns: var(--proposal-control-col) var(--proposal-amount-col) 1fr;
-  gap: 0.85rem 1rem;
+  grid-template-columns: var(--proposal-option-cols);
+  grid-template-areas: 'control amount body';
+  gap: 0.65rem 1rem;
   align-items: start;
-  padding: 1.1rem 1.15rem;
+  padding: 1rem 1.05rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   background: var(--color-bg-alt);
+  min-width: 0;
+}
+
+.centre-proposal__priced-option--check,
+.centre-proposal__priced-option--radio {
   cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.centre-proposal__addon--on {
-  border-color: var(--color-accent-sage);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent-sage) 35%, transparent);
-  transform: translateY(-1px);
-}
-
-.centre-proposal__addon {
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;
 }
 
-.centre-proposal__addon-input {
-  margin-top: 0.25rem;
+.centre-proposal__priced-option--on {
+  border-color: var(--color-accent-sage);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent-sage) 35%, transparent);
+}
+
+.centre-proposal__priced-option--check.centre-proposal__priced-option--on {
+  transform: translateY(-1px);
+}
+
+.centre-proposal__option-control {
+  grid-area: control;
+  margin-top: 0.2rem;
   accent-color: var(--color-accent-sage);
 }
 
-.centre-proposal__addon-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  min-width: 0;
+.centre-proposal__option-marker {
+  grid-area: control;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.05rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-sage);
 }
 
-.centre-proposal__addon-title {
-  font-weight: 600;
-  font-size: 0.98rem;
-}
-
-.centre-proposal__addon-amount {
+.centre-proposal__option-amount {
+  grid-area: amount;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -554,11 +573,11 @@
   padding-top: 0.05rem;
 }
 
-.centre-proposal__addon-amount--on .centre-proposal__amount {
+.centre-proposal__option-amount--on .centre-proposal__amount {
   color: var(--color-accent-sage);
 }
 
-.centre-proposal__addon-included {
+.centre-proposal__option-badge {
   font-family: var(--font-body);
   font-size: 0.65rem;
   font-weight: 600;
@@ -567,10 +586,41 @@
   color: var(--color-accent-sage);
 }
 
+.centre-proposal__option-body {
+  grid-area: body;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.centre-proposal__option-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.centre-proposal__option-desc,
+.centre-proposal__option-detail {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__option-sublist {
+  margin: 0.15rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__option-total,
 .centre-proposal__addons-running {
   display: grid;
-  grid-template-columns: var(--proposal-control-col) var(--proposal-amount-col) 1fr;
-  gap: 0.85rem 1rem;
+  grid-template-columns: var(--proposal-option-cols);
+  grid-template-areas: '. amount body';
+  gap: 0.65rem 1rem;
   align-items: baseline;
   margin: 1.25rem 0 0;
   padding: 0.85rem 1rem;
@@ -582,13 +632,14 @@
 }
 
 .centre-proposal__addons-running-value {
-  grid-column: 2;
+  grid-area: amount;
   font-family: var(--font-display);
   font-size: 1.05rem;
 }
 
 .centre-proposal__addons-running > span:last-child {
-  grid-column: 3;
+  grid-area: body;
+  min-width: 0;
 }
 
 .centre-proposal__summary-row--detail dt {
@@ -598,69 +649,6 @@
 
 .centre-proposal__summary-row--detail .centre-proposal__amount {
   font-size: 0.88rem;
-}
-
-.centre-proposal__addon-desc,
-.centre-proposal__addon-detail {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--color-text-muted);
-}
-
-.centre-proposal__maintenance-list {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.centre-proposal__maintenance {
-  display: grid;
-  grid-template-columns: var(--proposal-control-col) var(--proposal-amount-col) 1fr;
-  gap: 0.85rem 1rem;
-  align-items: start;
-  padding: 1.1rem 1.15rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-bg-alt);
-  cursor: pointer;
-}
-
-.centre-proposal__maintenance--on {
-  border-color: var(--color-accent-sage);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent-sage) 35%, transparent);
-}
-
-.centre-proposal__maintenance-input {
-  margin-top: 0.25rem;
-  accent-color: var(--color-accent-sage);
-}
-
-.centre-proposal__maintenance-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.centre-proposal__maintenance-amount {
-  padding-top: 0.05rem;
-}
-
-.centre-proposal__maintenance-title {
-  font-weight: 600;
-}
-
-.centre-proposal__maintenance-desc,
-.centre-proposal__maintenance-extra {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--color-text-muted);
-}
-
-.centre-proposal__maintenance-includes {
-  margin: 0;
-  padding-left: 1.1rem;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: var(--color-text-muted);
 }
 
 .centre-proposal__summary {
@@ -1048,6 +1036,8 @@
 .centre-demo__dash--compact .centre-demo__panel {
   min-height: 14rem;
   padding: 1rem;
+  min-width: 0;
+  overflow-x: auto;
 }
 
 .centre-demo__dash--compact .centre-demo__panel h1 {
@@ -1195,6 +1185,16 @@
   gap: 0.5rem 1rem;
 }
 
+.centre-demo__cal--phone .centre-demo__cal-toolbar {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.45rem;
+}
+
+.centre-demo__cal--phone .centre-demo__cal-range {
+  text-align: left;
+}
+
 .centre-demo__cal-toggle {
   display: inline-flex;
   padding: 3px;
@@ -1264,19 +1264,39 @@
 }
 
 .centre-demo__cal-event {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    'time title'
+    'time detail';
+  column-gap: 0.45rem;
+  row-gap: 0.12rem;
+  align-items: start;
   width: 100%;
   text-align: left;
-  padding: 0.4rem 0.45rem;
+  padding: 0.45rem 0.5rem;
   border-radius: 8px;
   border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
   background: color-mix(in srgb, var(--color-text) 4%, transparent);
   font: inherit;
   color: inherit;
   cursor: default;
+}
+
+.centre-demo__cal-week-list .centre-demo__cal-event {
+  grid-template-columns: 2.85rem 1fr;
+}
+
+.centre-demo__cal-event-time {
+  grid-area: time;
+}
+
+.centre-demo__cal-event-title {
+  grid-area: title;
+}
+
+.centre-demo__cal-event-detail {
+  grid-area: detail;
 }
 
 .centre-demo__cal-event--compact {
@@ -1301,21 +1321,52 @@ button.centre-demo__cal-event:hover:not(:disabled) {
 }
 
 .centre-demo__cal-event-time {
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  opacity: 0.75;
+  opacity: 0.85;
+  white-space: nowrap;
 }
 
 .centre-demo__cal-event-title {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
+  min-width: 0;
 }
 
 .centre-demo__cal-event-detail {
+  font-size: 0.68rem;
+  opacity: 0.7;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.centre-demo__cal--phone .centre-demo__cal-month-grid {
   font-size: 0.62rem;
-  opacity: 0.65;
-  line-height: 1.25;
+}
+
+.centre-demo__cal--phone .centre-demo__cal-month-cell {
+  min-height: 2.35rem;
+  padding: 0.15rem;
+}
+
+.centre-demo__cal--phone .centre-demo__cal-month-events .centre-demo__cal-event {
+  display: block;
+  padding: 0.15rem 0.2rem;
+  border: none;
+  background: color-mix(in srgb, var(--color-text) 6%, transparent);
+}
+
+.centre-demo__cal--phone .centre-demo__cal-month-events .centre-demo__cal-event-title {
+  font-size: 0.58rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.centre-demo__cal--phone .centre-demo__cal-month-events .centre-demo__cal-event-time,
+.centre-demo__cal--phone .centre-demo__cal-month-events .centre-demo__cal-event-detail {
+  display: none;
 }
 
 .centre-demo__cal-month-head {
@@ -1385,6 +1436,115 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   }
 }
 
+@media (max-width: 640px) {
+  .centre-proposal {
+    --proposal-amount-col: 5.25rem;
+  }
+
+  .centre-proposal__base-head {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .centre-proposal__base-card {
+    padding: 1.15rem;
+  }
+
+  .centre-proposal__priced-option,
+  .centre-proposal__option-total,
+  .centre-proposal__addons-running {
+    grid-template-columns: var(--proposal-control-col) minmax(0, 1fr);
+    grid-template-areas:
+      'control body'
+      'amount body';
+    gap: 0.45rem 0.85rem;
+    padding: 0.9rem 0.85rem;
+  }
+
+  .centre-proposal__profile {
+    padding: 1.15rem;
+  }
+
+  .centre-proposal__sync-banner {
+    align-items: flex-start;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .centre-proposal__main {
+    padding: 0 1rem calc(4.75rem + env(safe-area-inset-bottom));
+  }
+
+  .centre-proposal-shell__lang {
+    top: 0.5rem;
+    right: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+
+  .centre-proposal__hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .centre-proposal__hero-actions .centre-proposal__button {
+    flex: 1 1 100%;
+  }
+
+  .centre-proposal__sticky-inner {
+    flex-wrap: wrap;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .centre-proposal__sticky-label {
+    flex: 1 1 100%;
+  }
+
+  .centre-proposal__sticky-cta {
+    flex: 1 1 auto;
+    white-space: nowrap;
+  }
+
+  .centre-proposal__summary {
+    max-width: none;
+    padding: 1.15rem;
+  }
+
+  .centre-proposal__summary-row {
+    grid-template-columns: minmax(4.25rem, 5rem) minmax(0, 1fr);
+    gap: 0.5rem 0.75rem;
+  }
+
+  .centre-proposal__option-title {
+    font-size: 0.92rem;
+  }
+
+  .centre-demo__phone--compact {
+    width: 100%;
+    max-width: none;
+    border-radius: var(--radius-lg);
+    min-height: 20rem;
+  }
+
+  .centre-demo__phone-nav button {
+    font-size: 0.52rem;
+    padding: 0.3rem 0.1rem;
+  }
+
+  .centre-proposal-shell .centre-demo__bar {
+    flex-wrap: wrap;
+    padding-top: 2.85rem;
+    padding-right: 1rem;
+    align-items: flex-start;
+  }
+
+  .centre-proposal-shell .centre-demo__badge {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .centre-proposal__hero--animated::before,
   .centre-proposal__sync-dot,
@@ -1393,7 +1553,7 @@ button.centre-demo__cal-event:hover:not(:disabled) {
     animation: none !important;
   }
 
-  .centre-proposal__addon--on,
+  .centre-proposal__priced-option--check.centre-proposal__priced-option--on,
   .centre-demo__card--action:hover:not(:disabled) {
     transform: none;
   }

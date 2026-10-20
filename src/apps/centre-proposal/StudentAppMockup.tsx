@@ -82,6 +82,7 @@ export function StudentAppMockup({ copy, compact = false }: StudentAppMockupProp
                 viewWeekLabel={demo.student.horaris.viewWeek}
                 viewMonthLabel={demo.student.horaris.viewMonth}
                 compact={compact}
+                surface="phone"
                 onBookClass={(id) => startBooking(id)}
                 isClassFull={isClassFull}
                 liveClassId={studentBookedYoga ? 'yoga' : selectedClassId}

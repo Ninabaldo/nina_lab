@@ -41,7 +41,13 @@ export function buildDemoCalendarEvents(copy: CentreProposalCopy): DemoCalendarE
   const pilates = classes.find((c) => c.id === 'pilates')
   const stretching = classes.find((c) => c.id === 'stretching')
 
-  const detailFromMeta = (meta: string) => meta.split('·').slice(1).join('·').trim()
+  /** Meta shape: «Weekday · HH:MM · room · instructor» — drop day + time for calendar chips. */
+  const detailFromMeta = (meta: string) =>
+    meta
+      .split('·')
+      .map((part) => part.trim())
+      .slice(2)
+      .join(' · ')
 
   return [
     {

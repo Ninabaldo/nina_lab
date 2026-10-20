@@ -22,6 +22,8 @@ type CentreDemoCalendarProps = {
   viewWeekLabel: string
   viewMonthLabel: string
   compact?: boolean
+  /** Week as day list inside the phone mockup; grid on centre dashboard. */
+  surface?: 'phone' | 'dashboard'
   onBookClass?: (id: DemoClassId) => void
   isClassFull?: (id: DemoClassId) => boolean
   liveClassId?: DemoClassId | null
@@ -48,12 +50,14 @@ function weekdayHeaders(language: Language): string[] {
 function EventChip({
   event,
   compact,
+  showDetail,
   full,
   live,
   onBook,
 }: {
   event: { classId: DemoClassId | null; timeLabel: string; title: string; detail: string }
   compact?: boolean
+  showDetail?: boolean
   full?: boolean
   live?: boolean
   onBook?: () => void
@@ -71,7 +75,7 @@ function EventChip({
     >
       <span className="centre-demo__cal-event-time">{event.timeLabel}</span>
       <span className="centre-demo__cal-event-title">{event.title}</span>
-      {!compact && event.detail ? (
+      {showDetail && event.detail ? (
         <span className="centre-demo__cal-event-detail">{event.detail}</span>
       ) : null}
     </Tag>
@@ -84,25 +88,33 @@ export function CentreDemoCalendar({
   viewWeekLabel,
   viewMonthLabel,
   compact = false,
+  surface = 'dashboard',
   onBookClass,
   isClassFull,
   liveClassId,
 }: CentreDemoCalendarProps) {
   const [view, setView] = useState<CalendarViewMode>('week')
+  const weekAsList = surface === 'phone'
+  const monthCompact = surface === 'phone' || compact
   const templates = useMemo(() => buildDemoCalendarEvents(copy), [copy])
   const weekDays = useMemo(() => demoWeekDays(language), [language])
   const weekRange = useMemo(() => formatDemoWeekRange(language), [language])
   const monthTitle = useMemo(() => formatMonthTitle(language), [language])
   const headers = useMemo(() => weekdayHeaders(language), [language])
 
-  const renderEvent = (event: DemoCalendarEventTemplate & { timeLabel: string; date: Date }) => {
+  const renderEvent = (
+    event: DemoCalendarEventTemplate & { timeLabel: string; date: Date },
+    opts?: { showDetail?: boolean },
+  ) => {
     const full = event.classId ? isClassFull?.(event.classId) : false
     const live = event.classId != null && event.classId === liveClassId
+    const showDetail = opts?.showDetail ?? (!compact || weekAsList)
     return (
       <EventChip
         key={`${event.date.toISOString()}-${event.title}-${event.timeLabel}`}
         event={event}
-        compact={compact}
+        compact={monthCompact && view === 'month'}
+        showDetail={showDetail}
         full={full}
         live={live}
         onBook={
@@ -114,7 +126,9 @@ export function CentreDemoCalendar({
 
   return (
     <div
-      className={`centre-demo__cal${compact ? ' centre-demo__cal--compact' : ''}`}
+      className={`centre-demo__cal${monthCompact ? ' centre-demo__cal--compact' : ''}${
+        surface === 'phone' ? ' centre-demo__cal--phone' : ''
+      }`}
       data-view={view}
     >
       <div className="centre-demo__cal-toolbar">
@@ -142,7 +156,7 @@ export function CentreDemoCalendar({
       </div>
 
       {view === 'week' ? (
-        compact ? (
+        weekAsList ? (
           <ul className="centre-demo__cal-week-list">
             {weekDays.map(({ date, label }) => {
               const dayEvents = eventsForDate(date, templates, language)
@@ -151,7 +165,7 @@ export function CentreDemoCalendar({
                 <li key={label} className="centre-demo__cal-week-day">
                   <p className="centre-demo__cal-week-day-label">{label}</p>
                   <div className="centre-demo__cal-week-events">
-                    {dayEvents.map((ev) => renderEvent(ev))}
+                    {dayEvents.map((ev) => renderEvent(ev, { showDetail: true }))}
                   </div>
                 </li>
               )
@@ -191,9 +205,11 @@ export function CentreDemoCalendar({
                   <span className="centre-demo__cal-month-day">{date.getDate()}</span>
                   {dayEvents.length > 0 ? (
                     <div className="centre-demo__cal-month-events">
-                      {dayEvents.slice(0, compact ? 2 : 3).map((ev) => renderEvent(ev))}
-                      {dayEvents.length > (compact ? 2 : 3) ? (
-                        <span className="centre-demo__cal-month-more">+{dayEvents.length - (compact ? 2 : 3)}</span>
+                      {dayEvents.slice(0, monthCompact ? 2 : 3).map((ev) => renderEvent(ev))}
+                      {dayEvents.length > (monthCompact ? 2 : 3) ? (
+                        <span className="centre-demo__cal-month-more">
+                          +{dayEvents.length - (monthCompact ? 2 : 3)}
+                        </span>
                       ) : null}
                     </div>
                   ) : null}

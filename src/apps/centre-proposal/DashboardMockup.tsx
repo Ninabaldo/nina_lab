@@ -109,6 +109,7 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                 viewWeekLabel={demo.dashboard.calendari.viewWeek}
                 viewMonthLabel={demo.dashboard.calendari.viewMonth}
                 compact={compact}
+                surface="dashboard"
                 isClassFull={isClassFull}
                 liveClassId={studentBookedYoga ? 'yoga' : null}
               />

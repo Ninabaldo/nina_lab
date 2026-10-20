@@ -199,9 +199,22 @@ export function CentreProposalApp() {
               </div>
             </div>
             <p className="centre-proposal__includes-label">{copy.section02.base.includesLabel}</p>
-            <ul className="centre-proposal__includes">
+            <ul className="centre-proposal__option-list">
               {copy.section02.base.includes.map((line) => (
-                <li key={line}>{line}</li>
+                <li
+                  key={line}
+                  className="centre-proposal__priced-option centre-proposal__priced-option--static"
+                >
+                  <span className="centre-proposal__option-marker" aria-hidden="true">
+                    ✓
+                  </span>
+                  <span className="centre-proposal__option-amount" aria-hidden="true">
+                    <span className="centre-proposal__amount centre-proposal__amount--muted">—</span>
+                  </span>
+                  <span className="centre-proposal__option-body">
+                    <span className="centre-proposal__option-title">{line}</span>
+                  </span>
+                </li>
               ))}
             </ul>
             <p className="centre-proposal__base-note">{copy.section02.base.footnote}</p>
@@ -210,28 +223,30 @@ export function CentreProposalApp() {
           <h3 className="centre-proposal__subsection-title">{copy.section02.addonsTitle}</h3>
           <p className="centre-proposal__subsection-lead">{copy.section02.addonsLead}</p>
 
-          <ul className="centre-proposal__addon-list">
+          <ul className="centre-proposal__option-list">
             {ADDON_IDS.map((id) => {
               const addon = copy.section02.addons[id]
               const checked = selectedAddons[id]
               return (
                 <li key={id}>
                   <label
-                    className={`centre-proposal__addon${checked ? ' centre-proposal__addon--on' : ''}`}
+                    className={`centre-proposal__priced-option centre-proposal__priced-option--check${
+                      checked ? ' centre-proposal__priced-option--on' : ''
+                    }`}
                   >
                     <input
                       type="checkbox"
-                      className="centre-proposal__addon-input"
+                      className="centre-proposal__option-control"
                       checked={checked}
                       onChange={() => toggleAddon(id)}
                     />
                     <span
-                      className={`centre-proposal__addon-amount${
-                        checked ? ' centre-proposal__addon-amount--on' : ''
+                      className={`centre-proposal__option-amount${
+                        checked ? ' centre-proposal__option-amount--on' : ''
                       }`}
                     >
                       {checked ? (
-                        <span className="centre-proposal__addon-included">
+                        <span className="centre-proposal__option-badge">
                           {copy.section02.addonIncluded}
                         </span>
                       ) : null}
@@ -239,11 +254,11 @@ export function CentreProposalApp() {
                         {formatEuro(ADDON_PRICES_EUR[id], language)}
                       </span>
                     </span>
-                    <span className="centre-proposal__addon-body">
-                      <span className="centre-proposal__addon-title">{addon.title}</span>
-                      <span className="centre-proposal__addon-desc">{addon.description}</span>
+                    <span className="centre-proposal__option-body">
+                      <span className="centre-proposal__option-title">{addon.title}</span>
+                      <span className="centre-proposal__option-desc">{addon.description}</span>
                       {addon.detail ? (
-                        <span className="centre-proposal__addon-detail">{addon.detail}</span>
+                        <span className="centre-proposal__option-detail">{addon.detail}</span>
                       ) : null}
                     </span>
                   </label>
@@ -252,7 +267,11 @@ export function CentreProposalApp() {
             })}
           </ul>
 
-          <p className="centre-proposal__addons-running" aria-live="polite" aria-atomic="true">
+          <p
+            className="centre-proposal__option-total centre-proposal__addons-running"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             <strong key={pricePulse} className="centre-proposal__amount centre-proposal__addons-running-value">
               {formatEuro(addonsTotal, language)}
             </strong>
@@ -270,8 +289,8 @@ export function CentreProposalApp() {
           </h2>
           <p className="centre-proposal__section-lead">{copy.section03.lead}</p>
 
-          <div
-            className="centre-proposal__maintenance-list"
+          <ul
+            className="centre-proposal__option-list"
             role="radiogroup"
             aria-label={copy.section03.maintenanceGroupLabel}
           >
@@ -280,45 +299,48 @@ export function CentreProposalApp() {
               const selected = maintenanceId === id
               const monthly = MAINTENANCE_PRICES_EUR[id]
               return (
-                <label
-                  key={id}
-                  className={`centre-proposal__maintenance${selected ? ' centre-proposal__maintenance--on' : ''}`}
-                >
-                  <input
-                    type="radio"
-                    name="maintenance"
-                    className="centre-proposal__maintenance-input"
-                    checked={selected}
-                    onChange={() => setMaintenanceId(id)}
-                  />
-                  <span className="centre-proposal__maintenance-amount">
-                    {monthly > 0 ? (
-                      <span className="centre-proposal__amount">
-                        {formatEuro(monthly, language)}
-                        {perMonth}
-                      </span>
-                    ) : (
-                      <span className="centre-proposal__amount centre-proposal__amount--muted">—</span>
-                    )}
-                  </span>
-                  <span className="centre-proposal__maintenance-body">
-                    <span className="centre-proposal__maintenance-title">{option.title}</span>
-                    <span className="centre-proposal__maintenance-desc">{option.description}</span>
-                    {option.includes ? (
-                      <ul className="centre-proposal__maintenance-includes">
-                        {option.includes.map((line) => (
-                          <li key={line}>{line}</li>
-                        ))}
-                      </ul>
-                    ) : null}
-                    {option.extra ? (
-                      <span className="centre-proposal__maintenance-extra">{option.extra}</span>
-                    ) : null}
-                  </span>
-                </label>
+                <li key={id}>
+                  <label
+                    className={`centre-proposal__priced-option centre-proposal__priced-option--radio${
+                      selected ? ' centre-proposal__priced-option--on' : ''
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="maintenance"
+                      className="centre-proposal__option-control"
+                      checked={selected}
+                      onChange={() => setMaintenanceId(id)}
+                    />
+                    <span className="centre-proposal__option-amount">
+                      {monthly > 0 ? (
+                        <span className="centre-proposal__amount">
+                          {formatEuro(monthly, language)}
+                          {perMonth}
+                        </span>
+                      ) : (
+                        <span className="centre-proposal__amount centre-proposal__amount--muted">—</span>
+                      )}
+                    </span>
+                    <span className="centre-proposal__option-body">
+                      <span className="centre-proposal__option-title">{option.title}</span>
+                      <span className="centre-proposal__option-desc">{option.description}</span>
+                      {option.includes ? (
+                        <ul className="centre-proposal__option-sublist">
+                          {option.includes.map((line) => (
+                            <li key={line}>{line}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                      {option.extra ? (
+                        <span className="centre-proposal__option-detail">{option.extra}</span>
+                      ) : null}
+                    </span>
+                  </label>
+                </li>
               )
             })}
-          </div>
+          </ul>
         </section>
 
         <section
