@@ -236,6 +236,54 @@ const fr: CentreProposalCopy = {
       resum: {
         title: 'Résumé du jour',
         leadTemplate: 'Lun · {bookings} réservations confirmées · {full} cours complets',
+        kpis: [
+          {
+            id: 'revenue',
+            label: 'Encaissements (oct.)',
+            value: '4 280 €',
+            hint: '+12 % vs mois dernier',
+          },
+          {
+            id: 'activeStudents',
+            label: 'Élèves actifs',
+            value: '186',
+            hint: '28 en abonnement',
+          },
+          {
+            id: 'bookingsToday',
+            label: 'Réservations aujourd’hui',
+            value: '{n}',
+            hint: 'Confirmées au calendrier',
+          },
+          {
+            id: 'occupancy',
+            label: 'Occupation moyenne',
+            value: '78 %',
+            hint: 'Semaine en cours',
+          },
+        ],
+        paymentsTitle: 'Paiements récents',
+        payments: [
+          {
+            label: 'Abonnement mensuel',
+            amount: '65 €',
+            meta: 'Maria Soler · Payé aujourd’hui',
+            tone: 'ok',
+          },
+          {
+            label: 'Pack 8 cours',
+            amount: '120 €',
+            meta: 'Jordi Puig · Payé hier',
+            tone: 'ok',
+          },
+          {
+            label: 'Pilates (séance)',
+            amount: '18 €',
+            meta: 'En attente · Lien envoyé',
+            tone: 'pending',
+          },
+        ],
+        scheduleTitle: 'Cours du jour',
         rows: [
           { id: 'yoga', time: '10:00 · Yoga doux', meta: 'Laura · Salle A' },
           { id: 'pilates', time: '18:30 · Pilates', meta: 'Marc · Salle B · Liste d’attente : 2' },
@@ -253,10 +301,21 @@ const fr: CentreProposalCopy = {
       },
       classes: {
         title: 'Cours',
-        lead: 'Créer des activités, assigner les instructeurs, définir la capacité.',
+        lead: 'Occupation par activité et indicateurs par cours.',
+        studentsLabel: 'élèves',
         rows: [
-          { name: 'Yoga doux', capacity: 'Capacité 10', meta: 'Laura · Lun 10:00' },
-          { name: 'Pilates', capacity: 'Capacité 10', meta: 'Marc · Lun 18:30' },
+          {
+            id: 'yoga',
+            name: 'Yoga doux',
+            capacity: '10',
+            meta: 'Laura · Lun 10:00 · Moyenne hebdo 82 %',
+          },
+          {
+            id: 'pilates',
+            name: 'Pilates',
+            capacity: '10',
+            meta: 'Marc · Lun 18:30 · Liste d’attente active',
+          },
         ],
       },
       alumnes: {

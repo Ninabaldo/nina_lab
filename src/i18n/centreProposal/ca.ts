@@ -36,9 +36,9 @@ const ca: CentreProposalCopy = {
         'Un espai de gestió per tenir les classes, els alumnes i les reserves organitzades en un mateix lloc.',
       demoLabel: 'Funcionalitats bàsiques del mockup:',
       features: [
-        { label: 'Resum', text: 'consulta les reserves i les classes del dia.' },
+        { label: 'Resum', text: 'cobraments, indicadors clau, ocupació i classes del dia.' },
         { label: 'Calendari', text: 'organitza les activitats per dies i hores.' },
-        { label: 'Classes', text: 'crea activitats, assigna instructors i defineix aforaments.' },
+        { label: 'Classes', text: 'alumnes per classe, aforament i horaris per activitat.' },
         { label: 'Alumnes', text: 'consulta els perfils i les seves reserves.' },
         { label: 'Abonaments', text: 'gestiona els packs i les membresies del centre.' },
       ],
@@ -246,6 +246,54 @@ const ca: CentreProposalCopy = {
       resum: {
         title: 'Resum del dia',
         leadTemplate: 'Dilluns · {bookings} reserves confirmades · {full} classes plenes',
+        kpis: [
+          {
+            id: 'revenue',
+            label: 'Cobraments (oct.)',
+            value: '4.280 €',
+            hint: '+12 % vs. mes anterior',
+          },
+          {
+            id: 'activeStudents',
+            label: 'Alumnes actius',
+            value: '186',
+            hint: '28 amb membresia',
+          },
+          {
+            id: 'bookingsToday',
+            label: 'Reserves avui',
+            value: '{n}',
+            hint: 'Confirmades al calendari',
+          },
+          {
+            id: 'occupancy',
+            label: 'Ocupació mitjana',
+            value: '78 %',
+            hint: 'Setmana en curs',
+          },
+        ],
+        paymentsTitle: 'Cobraments recents',
+        payments: [
+          {
+            label: 'Membresia mensual',
+            amount: '65 €',
+            meta: 'Maria Soler · Pagat avui',
+            tone: 'ok',
+          },
+          {
+            label: 'Pack 8 classes',
+            amount: '120 €',
+            meta: 'Jordi Puig · Pagat ahir',
+            tone: 'ok',
+          },
+          {
+            label: 'Pilates (sessió)',
+            amount: '18 €',
+            meta: 'Pendent · Enllaç enviat',
+            tone: 'pending',
+          },
+        ],
+        scheduleTitle: 'Classes d’avui',
         rows: [
           { id: 'yoga', time: '10:00 · Yoga suau', meta: 'Laura · Sala A' },
           { id: 'pilates', time: '18:30 · Pilates', meta: 'Marc · Sala B · Llista d’espera: 2' },
@@ -263,10 +311,21 @@ const ca: CentreProposalCopy = {
       },
       classes: {
         title: 'Classes',
-        lead: 'Crea activitats, assigna instructors i defineix aforament.',
+        lead: 'Ocupació per activitat i dades clau de cada classe.',
+        studentsLabel: 'alumnes',
         rows: [
-          { name: 'Yoga suau', capacity: 'Aforament 10', meta: 'Instructora: Laura · Dilluns 10:00' },
-          { name: 'Pilates', capacity: 'Aforament 10', meta: 'Instructor: Marc · Dilluns 18:30' },
+          {
+            id: 'yoga',
+            name: 'Yoga suau',
+            capacity: '10',
+            meta: 'Laura · Dilluns 10:00 · Mitjana setmanal 82 %',
+          },
+          {
+            id: 'pilates',
+            name: 'Pilates',
+            capacity: '10',
+            meta: 'Marc · Dilluns 18:30 · Llista d’espera activa',
+          },
         ],
       },
       alumnes: {

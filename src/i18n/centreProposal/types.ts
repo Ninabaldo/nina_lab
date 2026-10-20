@@ -140,6 +140,15 @@ export interface CentreProposalCopy {
       resum: {
         title: string
         leadTemplate: string
+        kpis: {
+          id: 'revenue' | 'activeStudents' | 'bookingsToday' | 'occupancy'
+          label: string
+          value: string
+          hint: string
+        }[]
+        paymentsTitle: string
+        payments: { label: string; amount: string; meta: string; tone: 'ok' | 'pending' }[]
+        scheduleTitle: string
         rows: { id: 'yoga' | 'pilates'; time: string; meta: string }[]
       }
       calendari: {
@@ -149,7 +158,12 @@ export interface CentreProposalCopy {
         viewMonth: string
         days: { label: string; meta: string }[]
       }
-      classes: { title: string; lead: string; rows: { name: string; capacity: string; meta: string }[] }
+      classes: {
+        title: string
+        lead: string
+        studentsLabel: string
+        rows: { id?: 'yoga' | 'pilates'; name: string; capacity: string; meta: string }[]
+      }
       alumnes: { title: string; lead: string; rows: { name: string; plan: string; meta: string }[] }
       abonaments: { title: string; lead: string; rows: { name: string; price: string; meta: string }[] }
     }

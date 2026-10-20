@@ -35,6 +35,17 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
     return '10/10'
   }
 
+  const kpiValue = (id: string, value: string) => {
+    if (id === 'bookingsToday') return value.replace('{n}', String(confirmedBookings))
+    return value
+  }
+
+  const classEnrollment = (row: (typeof demo.dashboard.classes.rows)[number]) => {
+    if (row.id === 'yoga') return `${yogaOccupancy}/${row.capacity}`
+    if (row.id === 'pilates') return `10/${row.capacity}`
+    return row.capacity
+  }
+
   return (
     <div
       className={`centre-demo__dash centre-demo__dash--mock${compact ? ' centre-demo__dash--compact' : ''}${
@@ -65,6 +76,40 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
             <>
               <h1>{demo.dashboard.resum.title}</h1>
               <p className="centre-demo__panel-lead centre-demo__panel-lead--live">{resumLead}</p>
+              <div className="centre-demo__kpi-grid" role="list">
+                {demo.dashboard.resum.kpis.map((kpi) => {
+                  const live = kpi.id === 'bookingsToday' && studentBookedYoga
+                  return (
+                    <div
+                      key={kpi.id}
+                      role="listitem"
+                      className={`centre-demo__kpi${live ? ' centre-demo__kpi--live' : ''}`}
+                    >
+                      <p className="centre-demo__kpi-label">{kpi.label}</p>
+                      <p className="centre-demo__kpi-value">{kpiValue(kpi.id, kpi.value)}</p>
+                      <p className="centre-demo__kpi-hint">{kpi.hint}</p>
+                    </div>
+                  )
+                })}
+              </div>
+              <h2 className="centre-demo__panel-subtitle">{demo.dashboard.resum.paymentsTitle}</h2>
+              <ul className="centre-demo__payment-list">
+                {demo.dashboard.resum.payments.map((payment) => (
+                  <li key={`${payment.label}-${payment.meta}`} className="centre-demo__payment">
+                    <div className="centre-demo__payment-head">
+                      <span className="centre-demo__payment-label">{payment.label}</span>
+                      <span className="centre-demo__payment-amount">{payment.amount}</span>
+                    </div>
+                    <p className="centre-demo__payment-meta">
+                      <span
+                        className={`centre-demo__payment-tone centre-demo__payment-tone--${payment.tone}`}
+                      />
+                      {payment.meta}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <h2 className="centre-demo__panel-subtitle">{demo.dashboard.resum.scheduleTitle}</h2>
               <ul className="centre-demo__card-list">
                 {demo.dashboard.resum.rows.map((row) => {
                   const occupancy = occupancyForRow(row.id)
@@ -121,18 +166,31 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
               <h1>{demo.dashboard.classes.title}</h1>
               <p className="centre-demo__panel-lead">{demo.dashboard.classes.lead}</p>
               <ul className="centre-demo__card-list">
-                {demo.dashboard.classes.rows.map((row, index) => (
-                  <li
-                    key={row.name}
-                    className={`centre-demo__card${index === 0 && studentBookedYoga ? ' centre-demo__card--live' : ''}`}
-                  >
-                    <div className="centre-demo__card-head">
-                      <span>{row.name}</span>
-                      <span>{index === 0 ? `${yogaOccupancy}/${yogaCapacity}` : row.capacity}</span>
-                    </div>
-                    <p className="centre-demo__card-meta">{row.meta}</p>
-                  </li>
-                ))}
+                {demo.dashboard.classes.rows.map((row) => {
+                  const enrolled = classEnrollment(row)
+                  const full =
+                    row.id === 'pilates' ||
+                    (row.id === 'yoga' && yogaOccupancy >= yogaCapacity)
+                  const live = row.id === 'yoga' && studentBookedYoga
+                  return (
+                    <li
+                      key={row.name}
+                      className={`centre-demo__card${live ? ' centre-demo__card--live' : ''}`}
+                    >
+                      <div className="centre-demo__card-head">
+                        <span>{row.name}</span>
+                        <span
+                          className={`centre-demo__pill${full ? ' centre-demo__pill--warn' : ''}${
+                            live ? ' centre-demo__pill--live' : ''
+                          }`}
+                        >
+                          {enrolled} {demo.dashboard.classes.studentsLabel}
+                        </span>
+                      </div>
+                      <p className="centre-demo__card-meta">{row.meta}</p>
+                    </li>
+                  )
+                })}
               </ul>
             </>
           ) : null}

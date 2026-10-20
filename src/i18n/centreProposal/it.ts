@@ -236,8 +236,56 @@ const it: CentreProposalCopy = {
     },
     dashboard: {
       resum: {
-        title: 'Riepilogo del día',
+        title: 'Riepilogo del giorno',
         leadTemplate: 'Lunedì · {bookings} prenotazioni confermate · {full} corsi al completo',
+        kpis: [
+          {
+            id: 'revenue',
+            label: 'Incassi (ott.)',
+            value: '4.280 €',
+            hint: '+12 % vs mese scorso',
+          },
+          {
+            id: 'activeStudents',
+            label: 'Allievi attivi',
+            value: '186',
+            hint: '28 con membership',
+          },
+          {
+            id: 'bookingsToday',
+            label: 'Prenotazioni oggi',
+            value: '{n}',
+            hint: 'Confermate in calendario',
+          },
+          {
+            id: 'occupancy',
+            label: 'Occupazione media',
+            value: '78 %',
+            hint: 'Settimana in corso',
+          },
+        ],
+        paymentsTitle: 'Pagamenti recenti',
+        payments: [
+          {
+            label: 'Membership mensile',
+            amount: '65 €',
+            meta: 'Maria Soler · Pagato oggi',
+            tone: 'ok',
+          },
+          {
+            label: 'Pacchetto 8 lezioni',
+            amount: '120 €',
+            meta: 'Jordi Puig · Pagato ieri',
+            tone: 'ok',
+          },
+          {
+            label: 'Pilates (singola)',
+            amount: '18 €',
+            meta: 'In attesa · Link inviato',
+            tone: 'pending',
+          },
+        ],
+        scheduleTitle: 'Lezioni di oggi',
         rows: [
           { id: 'yoga', time: '10:00 · Yoga suave', meta: 'Laura · Sala A' },
           { id: 'pilates', time: '18:30 · Pilates', meta: "Marc · Sala B · Lista d'attesa: 2" },
@@ -255,10 +303,21 @@ const it: CentreProposalCopy = {
       },
       classes: {
         title: 'Corsi',
-        lead: 'Crea attività, assegna istruttori e definisci capienza.',
+        lead: 'Occupazione per attività e dati chiave di ogni lezione.',
+        studentsLabel: 'allievi',
         rows: [
-          { name: 'Yoga suave', capacity: 'Capienza 10', meta: 'Istruttrice: Laura · Lunedì 10:00' },
-          { name: 'Pilates', capacity: 'Capienza 10', meta: 'Istruttore: Marc · Lunedì 18:30' },
+          {
+            id: 'yoga',
+            name: 'Yoga suave',
+            capacity: '10',
+            meta: 'Laura · Lunedì 10:00 · Media settimanale 82 %',
+          },
+          {
+            id: 'pilates',
+            name: 'Pilates',
+            capacity: '10',
+            meta: 'Istruttore: Marc · Lunedì 18:30 · Lista d’attesa attiva',
+          },
         ],
       },
       alumnes: {

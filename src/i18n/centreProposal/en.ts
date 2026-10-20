@@ -234,6 +234,54 @@ const en: CentreProposalCopy = {
       resum: {
         title: 'Today’s overview',
         leadTemplate: 'Mon · {bookings} confirmed bookings · {full} full classes',
+        kpis: [
+          {
+            id: 'revenue',
+            label: 'Collections (Oct)',
+            value: '€4,280',
+            hint: '+12% vs last month',
+          },
+          {
+            id: 'activeStudents',
+            label: 'Active students',
+            value: '186',
+            hint: '28 on membership',
+          },
+          {
+            id: 'bookingsToday',
+            label: 'Bookings today',
+            value: '{n}',
+            hint: 'Confirmed on calendar',
+          },
+          {
+            id: 'occupancy',
+            label: 'Avg. occupancy',
+            value: '78%',
+            hint: 'This week',
+          },
+        ],
+        paymentsTitle: 'Recent payments',
+        payments: [
+          {
+            label: 'Monthly membership',
+            amount: '€65',
+            meta: 'Maria Soler · Paid today',
+            tone: 'ok',
+          },
+          {
+            label: '8-class pack',
+            amount: '€120',
+            meta: 'Jordi Puig · Paid yesterday',
+            tone: 'ok',
+          },
+          {
+            label: 'Pilates (drop-in)',
+            amount: '€18',
+            meta: 'Pending · Link sent',
+            tone: 'pending',
+          },
+        ],
+        scheduleTitle: 'Today’s classes',
         rows: [
           { id: 'yoga', time: '10:00 · Gentle yoga', meta: 'Laura · Room A' },
           { id: 'pilates', time: '18:30 · Pilates', meta: 'Marc · Room B · Waitlist: 2' },
@@ -251,10 +299,21 @@ const en: CentreProposalCopy = {
       },
       classes: {
         title: 'Classes',
-        lead: 'Create sessions, assign instructors, set capacity.',
+        lead: 'Occupancy per session and key stats for each class.',
+        studentsLabel: 'students',
         rows: [
-          { name: 'Gentle yoga', capacity: 'Capacity 10', meta: 'Laura · Mon 10:00' },
-          { name: 'Pilates', capacity: 'Capacity 10', meta: 'Marc · Mon 18:30' },
+          {
+            id: 'yoga',
+            name: 'Gentle yoga',
+            capacity: '10',
+            meta: 'Laura · Mon 10:00 · Weekly avg. 82%',
+          },
+          {
+            id: 'pilates',
+            name: 'Pilates',
+            capacity: '10',
+            meta: 'Marc · Mon 18:30 · Waitlist active',
+          },
         ],
       },
       alumnes: {

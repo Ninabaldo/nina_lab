@@ -238,6 +238,54 @@ const es: CentreProposalCopy = {
       resum: {
         title: 'Resumen del día',
         leadTemplate: 'Lunes · {bookings} reservas confirmadas · {full} clases llenas',
+        kpis: [
+          {
+            id: 'revenue',
+            label: 'Cobros (oct.)',
+            value: '4.280 €',
+            hint: '+12 % vs. mes anterior',
+          },
+          {
+            id: 'activeStudents',
+            label: 'Alumnos activos',
+            value: '186',
+            hint: '28 con membresía',
+          },
+          {
+            id: 'bookingsToday',
+            label: 'Reservas hoy',
+            value: '{n}',
+            hint: 'Confirmadas en calendario',
+          },
+          {
+            id: 'occupancy',
+            label: 'Ocupación media',
+            value: '78 %',
+            hint: 'Semana en curso',
+          },
+        ],
+        paymentsTitle: 'Cobros recientes',
+        payments: [
+          {
+            label: 'Membresía mensual',
+            amount: '65 €',
+            meta: 'Maria Soler · Pagado hoy',
+            tone: 'ok',
+          },
+          {
+            label: 'Pack 8 clases',
+            amount: '120 €',
+            meta: 'Jordi Puig · Pagado ayer',
+            tone: 'ok',
+          },
+          {
+            label: 'Pilates (sesión)',
+            amount: '18 €',
+            meta: 'Pendiente · Enlace enviado',
+            tone: 'pending',
+          },
+        ],
+        scheduleTitle: 'Clases de hoy',
         rows: [
           { id: 'yoga', time: '10:00 · Yoga suave', meta: 'Laura · Sala A' },
           { id: 'pilates', time: '18:30 · Pilates', meta: 'Marc · Sala B · Lista de espera: 2' },
@@ -255,10 +303,21 @@ const es: CentreProposalCopy = {
       },
       classes: {
         title: 'Clases',
-        lead: 'Crea actividades, asigna instructores y define aforo.',
+        lead: 'Ocupación por actividad y datos clave de cada clase.',
+        studentsLabel: 'alumnos',
         rows: [
-          { name: 'Yoga suave', capacity: 'Aforo 10', meta: 'Instructora: Laura · Lunes 10:00' },
-          { name: 'Pilates', capacity: 'Aforo 10', meta: 'Instructor: Marc · Lunes 18:30' },
+          {
+            id: 'yoga',
+            name: 'Yoga suave',
+            capacity: '10',
+            meta: 'Laura · Lunes 10:00 · Media semanal 82 %',
+          },
+          {
+            id: 'pilates',
+            name: 'Pilates',
+            capacity: '10',
+            meta: 'Marc · Lunes 18:30 · Lista de espera activa',
+          },
         ],
       },
       alumnes: {
