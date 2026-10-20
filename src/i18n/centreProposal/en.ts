@@ -181,17 +181,25 @@ const en: CentreProposalCopy = {
       abonaments: 'Passes',
     },
     student: {
+      labels: {
+        spots: '{n} spots',
+        full: 'Full',
+        book: 'Book',
+        toastBooked: 'Booking confirmed',
+        toastCancelled: 'Booking cancelled',
+        tapHint: 'Try booking a class',
+        syncHint: 'Live: the student app and centre dashboard stay in sync.',
+      },
       horaris: {
         title: 'Schedule',
         classes: [
-          { name: 'Gentle yoga', meta: 'Mon · 10:00 · Room A · Laura', spots: '3 spots' },
-          { name: 'Pilates', meta: 'Mon · 18:30 · Room B · Marc', spots: 'Full' },
-          { name: 'Stretching', meta: 'Tue · 09:00 · Room A · Anna', spots: '5 spots' },
+          { id: 'yoga', name: 'Gentle yoga', meta: 'Mon · 10:00 · Room A · Laura' },
+          { id: 'pilates', name: 'Pilates', meta: 'Mon · 18:30 · Room B · Marc' },
+          { id: 'stretching', name: 'Stretching', meta: 'Tue · 09:00 · Room A · Anna' },
         ],
       },
       reserves: {
         title: 'Booking',
-        subtitle: 'Gentle yoga · Mon 10:00',
         confirm: 'Confirm booking',
         cancel: 'Cancel spot',
       },
@@ -221,10 +229,10 @@ const en: CentreProposalCopy = {
     dashboard: {
       resum: {
         title: 'Today’s overview',
-        lead: 'Mon · 6 confirmed bookings · 2 full classes',
+        leadTemplate: 'Mon · {bookings} confirmed bookings · {full} full classes',
         rows: [
-          { time: '10:00 · Gentle yoga', meta: 'Laura · Room A', occupancy: '8/10' },
-          { time: '18:30 · Pilates', meta: 'Marc · Room B · Waitlist: 2', occupancy: '10/10' },
+          { id: 'yoga', time: '10:00 · Gentle yoga', meta: 'Laura · Room A' },
+          { id: 'pilates', time: '18:30 · Pilates', meta: 'Marc · Room B · Waitlist: 2' },
         ],
       },
       calendari: {

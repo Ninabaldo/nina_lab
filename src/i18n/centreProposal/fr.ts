@@ -183,17 +183,25 @@ const fr: CentreProposalCopy = {
       abonaments: 'Abonnements',
     },
     student: {
+      labels: {
+        spots: '{n} places',
+        full: 'Complet',
+        book: 'Réserver',
+        toastBooked: 'Réservation confirmée',
+        toastCancelled: 'Réservation annulée',
+        tapHint: 'Essayez de réserver un cours',
+        syncHint: 'En direct : l’app élèves et le dashboard centre restent synchronisés.',
+      },
       horaris: {
         title: 'Horaires',
         classes: [
-          { name: 'Yoga doux', meta: 'Lun · 10:00 · Salle A · Laura', spots: '3 places' },
-          { name: 'Pilates', meta: 'Lun · 18:30 · Salle B · Marc', spots: 'Complet' },
-          { name: 'Stretching', meta: 'Mar · 09:00 · Salle A · Anna', spots: '5 places' },
+          { id: 'yoga', name: 'Yoga doux', meta: 'Lun · 10:00 · Salle A · Laura' },
+          { id: 'pilates', name: 'Pilates', meta: 'Lun · 18:30 · Salle B · Marc' },
+          { id: 'stretching', name: 'Stretching', meta: 'Mar · 09:00 · Salle A · Anna' },
         ],
       },
       reserves: {
         title: 'Réservation',
-        subtitle: 'Yoga doux · Lun 10:00',
         confirm: 'Confirmer la réservation',
         cancel: 'Annuler la place',
       },
@@ -223,10 +231,10 @@ const fr: CentreProposalCopy = {
     dashboard: {
       resum: {
         title: 'Résumé du jour',
-        lead: 'Lun · 6 réservations confirmées · 2 cours complets',
+        leadTemplate: 'Lun · {bookings} réservations confirmées · {full} cours complets',
         rows: [
-          { time: '10:00 · Yoga doux', meta: 'Laura · Salle A', occupancy: '8/10' },
-          { time: '18:30 · Pilates', meta: 'Marc · Salle B · Liste d’attente : 2', occupancy: '10/10' },
+          { id: 'yoga', time: '10:00 · Yoga doux', meta: 'Laura · Salle A' },
+          { id: 'pilates', time: '18:30 · Pilates', meta: 'Marc · Salle B · Liste d’attente : 2' },
         ],
       },
       calendari: {

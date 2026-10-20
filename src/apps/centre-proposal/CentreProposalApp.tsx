@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   ADDON_IDS,
   ADDON_PRICES_EUR,
@@ -10,9 +10,14 @@ import {
   formatEuro,
   sumSelectedAddons,
 } from './pricing'
+import { AnimatedTotal } from './AnimatedTotal'
+import { CentreDemoSyncBanner } from './CentreDemoSyncBanner'
+import { CentreDemoProvider } from './centreDemoContext'
+import { CentreProposalStickyBudget } from './CentreProposalStickyBudget'
 import { DashboardMockup } from './DashboardMockup'
 import { StudentAppMockup } from './StudentAppMockup'
 import { useCentreProposalCopy } from './useCentreProposalCopy'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import './CentreProposalApp.css'
 
@@ -37,11 +42,18 @@ export function CentreProposalApp() {
   const { language } = useSiteLanguage()
   const [selectedAddons, setSelectedAddons] = useState(initialAddons)
   const [maintenanceId, setMaintenanceId] = useState<MaintenanceId>('none')
+  const [pricePulse, setPricePulse] = useState(0)
+  const experiencesRef = useScrollReveal<HTMLElement>()
+  const configRef = useScrollReveal<HTMLElement>()
 
   const addonsTotal = useMemo(() => sumSelectedAddons(selectedAddons), [selectedAddons])
   const implementationTotal = BASE_IMPLEMENTATION_EUR + addonsTotal
   const maintenanceCopy = copy.section03.maintenance[maintenanceId]
   const perMonth = PER_MONTH[language] ?? '/mes'
+
+  useEffect(() => {
+    setPricePulse((value) => value + 1)
+  }, [implementationTotal])
 
   const toggleAddon = (id: AddonId) => {
     setSelectedAddons((prev) => ({ ...prev, [id]: !prev[id] }))
@@ -57,7 +69,11 @@ export function CentreProposalApp() {
 
   return (
     <div className="centre-proposal">
-      <header className="centre-proposal__hero">
+      <CentreProposalStickyBudget
+        implementationTotal={implementationTotal}
+        pulseKey={pricePulse}
+      />
+      <header className="centre-proposal__hero centre-proposal__hero--animated">
         <div className="centre-proposal__hero-inner">
           <p className="centre-proposal__eyebrow">{copy.hero.eyebrow}</p>
           <h1 className="centre-proposal__title">{copy.hero.title}</h1>
@@ -85,7 +101,8 @@ export function CentreProposalApp() {
       <main className="centre-proposal__main">
         <section
           id="experiencies"
-          className="centre-proposal__section"
+          ref={experiencesRef}
+          className="centre-proposal__section reveal"
           aria-labelledby="centre-proposal-exp-heading"
         >
           <p className="centre-proposal__section-index">{copy.section01.index}</p>
@@ -93,7 +110,9 @@ export function CentreProposalApp() {
             {copy.section01.title}
           </h2>
 
-          <div className="centre-proposal__profiles">
+          <CentreDemoProvider>
+            <CentreDemoSyncBanner />
+            <div className="centre-proposal__profiles">
             <article className="centre-proposal__profile">
               <div className="centre-proposal__profile-copy">
                 <h3 className="centre-proposal__profile-title">{copy.section01.student.title}</h3>
@@ -149,12 +168,14 @@ export function CentreProposalApp() {
                 <DashboardMockup copy={copy} compact />
               </div>
             </article>
-          </div>
+            </div>
+          </CentreDemoProvider>
         </section>
 
         <section
           id="configura"
-          className="centre-proposal__section"
+          ref={configRef}
+          className="centre-proposal__section reveal"
           aria-labelledby="centre-proposal-config-heading"
         >
           <p className="centre-proposal__section-index">{copy.section02.index}</p>
@@ -300,15 +321,21 @@ export function CentreProposalApp() {
               </div>
               <div className="centre-proposal__summary-row">
                 <dt>{copy.section04.rows.addons}</dt>
-                <dd>
-                  {addonsTotal > 0
-                    ? formatEuro(addonsTotal, language)
-                    : copy.section04.rows.addonsNone}
-                </dd>
+                <AnimatedTotal
+                  pulseKey={pricePulse}
+                  value={
+                    addonsTotal > 0
+                      ? formatEuro(addonsTotal, language)
+                      : copy.section04.rows.addonsNone
+                  }
+                />
               </div>
               <div className="centre-proposal__summary-row centre-proposal__summary-row--total">
                 <dt>{copy.section04.rows.implementation}</dt>
-                <dd>{formatEuro(implementationTotal, language)}</dd>
+                <AnimatedTotal
+                  pulseKey={pricePulse}
+                  value={formatEuro(implementationTotal, language)}
+                />
               </div>
               <div className="centre-proposal__summary-row">
                 <dt>{copy.section04.rows.maintenance}</dt>

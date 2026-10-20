@@ -96,10 +96,21 @@ export interface CentreProposalCopy {
     studentTabs: Record<CentreProposalStudentTab, string>
     dashTabs: Record<CentreProposalDashTab, string>
     student: {
-      horaris: { title: string; classes: { name: string; meta: string; spots: string }[] }
+      labels: {
+        spots: string
+        full: string
+        book: string
+        toastBooked: string
+        toastCancelled: string
+        tapHint: string
+        syncHint: string
+      }
+      horaris: {
+        title: string
+        classes: { id: 'yoga' | 'pilates' | 'stretching'; name: string; meta: string }[]
+      }
       reserves: {
         title: string
-        subtitle: string
         confirm: string
         cancel: string
       }
@@ -122,7 +133,11 @@ export interface CentreProposalCopy {
       }
     }
     dashboard: {
-      resum: { title: string; lead: string; rows: { time: string; meta: string; occupancy: string }[] }
+      resum: {
+        title: string
+        leadTemplate: string
+        rows: { id: 'yoga' | 'pilates'; time: string; meta: string }[]
+      }
       calendari: { title: string; lead: string; days: { label: string; meta: string }[] }
       classes: { title: string; lead: string; rows: { name: string; capacity: string; meta: string }[] }
       alumnes: { title: string; lead: string; rows: { name: string; plan: string; meta: string }[] }
