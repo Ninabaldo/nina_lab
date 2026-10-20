@@ -1,3 +1,4 @@
+import { configuratorFr } from './configuratorCopy'
 import type { CentreProposalCopy } from './types'
 
 const fr: CentreProposalCopy = {
@@ -45,10 +46,11 @@ const fr: CentreProposalCopy = {
       openFull: 'Ouvrir la démo plein écran',
     },
   },
+  configurator: configuratorFr,
   section02: {
     index: '02',
-    title: 'Configurez votre logiciel',
-    lead: 'Sélectionnez les fonctionnalités adaptées à votre centre.',
+    title: 'Configurez votre budget',
+    lead: 'Trois étapes : logiciel, fonctionnalités et maintenance.',
     base: {
       title: 'Logiciel de base',
       subtitle: 'Plateforme de réservation et gestion',
@@ -122,6 +124,11 @@ const fr: CentreProposalCopy = {
           'Mises à jour techniques mineures.',
           'Support pour les incidents liés à la plateforme.',
         ],
+      },
+      webApps: {
+        title: 'Maintenance web + apps',
+        description: 'Maintenance web, backend et apps.',
+        includes: ['Correction d’incidents techniques.'],
       },
       extended: {
         title: 'Maintenance étendue',

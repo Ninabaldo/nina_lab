@@ -48,7 +48,7 @@ export function CentreProposalStickyBudget({
       aria-hidden={!visible}
     >
       <div className="centre-proposal__sticky-inner">
-        <p className="centre-proposal__sticky-label">{copy.section04.rows.implementation}</p>
+        <p className="centre-proposal__sticky-label">{copy.configurator.summary.implementation}</p>
         <p key={pulseKey} className="centre-proposal__sticky-total centre-proposal__price--pulse">
           {formatEuro(implementationTotal, language)}
         </p>
@@ -59,7 +59,7 @@ export function CentreProposalStickyBudget({
             document.getElementById('proposta')?.scrollIntoView({ behavior: 'smooth' })
           }
         >
-          {copy.section04.cta}
+          {copy.configurator.summary.mobileCta}
         </button>
       </div>
     </div>

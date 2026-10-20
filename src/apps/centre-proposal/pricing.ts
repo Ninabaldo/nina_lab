@@ -1,7 +1,7 @@
 import type { CentreProposalCopy } from '../../i18n/centreProposal/types'
 import type { Language } from '../../lib/preferences'
 
-export const BASE_IMPLEMENTATION_EUR = 1200
+export type SoftwareId = 'web' | 'webApp' | 'full'
 
 export type AddonId =
   | 'subscriptions'
@@ -11,7 +11,21 @@ export type AddonId =
   | 'instructors'
   | 'analytics'
 
-export type MaintenanceId = 'none' | 'basic' | 'extended'
+export type AddonGroupId = 'students' | 'management' | 'automation'
+
+export type MaintenanceId = 'none' | 'basic' | 'webApps' | 'extended'
+
+export type ConfiguratorStep = 1 | 2 | 3
+
+export const SOFTWARE_IDS: SoftwareId[] = ['web', 'webApp', 'full']
+
+export const SOFTWARE_PRICES_EUR: Record<SoftwareId, number> = {
+  web: 2400,
+  webApp: 4500,
+  full: 6200,
+}
+
+export const STORE_PUBLISHING_EUR = 450
 
 export const ADDON_IDS: AddonId[] = [
   'subscriptions',
@@ -20,6 +34,12 @@ export const ADDON_IDS: AddonId[] = [
   'reminders',
   'instructors',
   'analytics',
+]
+
+export const ADDON_GROUPS: { id: AddonGroupId; addonIds: AddonId[] }[] = [
+  { id: 'students', addonIds: ['subscriptions', 'payments', 'waitlist'] },
+  { id: 'management', addonIds: ['instructors', 'analytics'] },
+  { id: 'automation', addonIds: ['reminders'] },
 ]
 
 export const ADDON_PRICES_EUR: Record<AddonId, number> = {
@@ -31,10 +51,69 @@ export const ADDON_PRICES_EUR: Record<AddonId, number> = {
   analytics: 200,
 }
 
+/** Add-ons bundled with each software tier (not charged again). */
+export const INCLUDED_ADDONS: Record<SoftwareId, readonly AddonId[]> = {
+  web: [],
+  webApp: [],
+  full: ['subscriptions', 'waitlist', 'payments', 'reminders', 'instructors'],
+}
+
 export const MAINTENANCE_PRICES_EUR: Record<MaintenanceId, number> = {
   none: 0,
-  basic: 50,
-  extended: 100,
+  basic: 60,
+  webApps: 120,
+  extended: 180,
+}
+
+export const MAINTENANCE_IDS: MaintenanceId[] = ['none', 'basic', 'webApps', 'extended']
+
+/** @deprecated Use SOFTWARE_PRICES_EUR */
+export const BASE_IMPLEMENTATION_EUR = SOFTWARE_PRICES_EUR.web
+
+export function softwareHasApps(id: SoftwareId): boolean {
+  return id === 'webApp' || id === 'full'
+}
+
+export function isAddonIncluded(softwareId: SoftwareId, addonId: AddonId): boolean {
+  return INCLUDED_ADDONS[softwareId].includes(addonId)
+}
+
+export function sumSelectedAddons(
+  softwareId: SoftwareId,
+  selected: Record<AddonId, boolean>,
+): number {
+  return ADDON_IDS.reduce((total, id) => {
+    if (isAddonIncluded(softwareId, id)) return total
+    return selected[id] ? total + ADDON_PRICES_EUR[id] : total
+  }, 0)
+}
+
+export function computeImplementationTotal(
+  softwareId: SoftwareId,
+  selectedAddons: Record<AddonId, boolean>,
+  storePublishing: boolean,
+): number {
+  let total = SOFTWARE_PRICES_EUR[softwareId]
+  total += sumSelectedAddons(softwareId, selectedAddons)
+  if (storePublishing && softwareHasApps(softwareId)) {
+    total += STORE_PUBLISHING_EUR
+  }
+  return total
+}
+
+export function sanitizeAddonsForSoftware(
+  softwareId: SoftwareId,
+  selected: Record<AddonId, boolean>,
+): Record<AddonId, boolean> {
+  const next = { ...selected }
+  for (const id of ADDON_IDS) {
+    if (isAddonIncluded(softwareId, id)) next[id] = false
+  }
+  return next
+}
+
+export function initialAddons(): Record<AddonId, boolean> {
+  return Object.fromEntries(ADDON_IDS.map((id) => [id, false])) as Record<AddonId, boolean>
 }
 
 /** Proposal copy uses European amounts like 1.200 € (ca/es), not bare 1200 € from es-ES Intl. */
@@ -64,47 +143,46 @@ export function formatEuro(amount: number, language: Language): string {
   return `${grouped} €`
 }
 
-export function sumSelectedAddons(selected: Record<AddonId, boolean>): number {
-  return ADDON_IDS.reduce(
-    (total, id) => (selected[id] ? total + ADDON_PRICES_EUR[id] : total),
-    0,
-  )
-}
-
-export function buildProposalMailBody(
+export function buildProposalText(
+  softwareId: SoftwareId,
   selectedAddons: Record<AddonId, boolean>,
+  storePublishing: boolean,
   maintenanceId: MaintenanceId,
   copy: CentreProposalCopy,
   language: Language,
 ): string {
-  const lines: string[] = [copy.mail.greeting, '', copy.mail.intro, '']
+  const cfg = copy.configurator
+  const lines: string[] = [copy.mail.greeting, '', cfg.proposal.readyLead, '']
 
-  lines.push(`${copy.mail.baseLabel}: ${formatEuro(BASE_IMPLEMENTATION_EUR, language)}`)
+  const software = cfg.software[softwareId]
+  lines.push(`${cfg.summary.software}: ${software.title}`)
+  lines.push(`${cfg.summary.implementation}: ${formatEuro(SOFTWARE_PRICES_EUR[softwareId], language)}`)
 
-  const addons = ADDON_IDS.filter((id) => selectedAddons[id])
-  if (addons.length > 0) {
+  const paidAddons = ADDON_IDS.filter(
+    (id) => !isAddonIncluded(softwareId, id) && selectedAddons[id],
+  )
+  if (paidAddons.length > 0) {
     lines.push('', `${copy.mail.addonsHeading}:`)
-    for (const id of addons) {
+    for (const id of paidAddons) {
       const addon = copy.section02.addons[id]
       lines.push(`- ${addon.title}: ${formatEuro(ADDON_PRICES_EUR[id], language)}`)
     }
-  } else {
-    lines.push('', `${copy.mail.addonsHeading}: ${copy.mail.addonsNone}`)
   }
 
-  const implementation = BASE_IMPLEMENTATION_EUR + sumSelectedAddons(selectedAddons)
-  lines.push(
-    '',
-    `${copy.mail.implementationLabel}: ${formatEuro(implementation, language)}`,
-  )
+  if (storePublishing && softwareHasApps(softwareId)) {
+    lines.push(
+      `- ${cfg.step2.storePublishing.title}: ${formatEuro(STORE_PUBLISHING_EUR, language)}`,
+    )
+  }
+
+  const implementation = computeImplementationTotal(softwareId, selectedAddons, storePublishing)
+  lines.push('', `${copy.mail.implementationLabel}: ${formatEuro(implementation, language)}`)
 
   if (maintenanceId !== 'none') {
-    const maintenance = copy.section03.maintenance[maintenanceId]
+    const maintenance = cfg.maintenance[maintenanceId]
     const price = formatEuro(MAINTENANCE_PRICES_EUR[maintenanceId], language)
     lines.push(
-      copy.mail.maintenanceLine
-        .replace('{title}', maintenance.title)
-        .replace('{price}', price),
+      copy.mail.maintenanceLine.replace('{title}', maintenance.title).replace('{price}', price),
     )
   } else {
     lines.push(copy.mail.maintenanceNone)
@@ -112,4 +190,22 @@ export function buildProposalMailBody(
 
   lines.push('', copy.mail.thanks)
   return lines.join('\n')
+}
+
+/** @deprecated */
+export function sumSelectedAddonsLegacy(selected: Record<AddonId, boolean>): number {
+  return ADDON_IDS.reduce(
+    (total, id) => (selected[id] ? total + ADDON_PRICES_EUR[id] : total),
+    0,
+  )
+}
+
+/** @deprecated */
+export function buildProposalMailBody(
+  selectedAddons: Record<AddonId, boolean>,
+  maintenanceId: MaintenanceId,
+  copy: CentreProposalCopy,
+  language: Language,
+): string {
+  return buildProposalText('web', selectedAddons, false, maintenanceId, copy, language)
 }

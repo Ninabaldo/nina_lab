@@ -1,3 +1,4 @@
+import { configuratorEn } from './configuratorCopy'
 import type { CentreProposalCopy } from './types'
 
 const en: CentreProposalCopy = {
@@ -43,10 +44,11 @@ const en: CentreProposalCopy = {
       openFull: 'Open full-screen demo',
     },
   },
+  configurator: configuratorEn,
   section02: {
     index: '02',
-    title: 'Configure your software',
-    lead: 'Pick the features that best match your centre’s needs.',
+    title: 'Configure your budget',
+    lead: 'Three steps to define software, features, and maintenance.',
     base: {
       title: 'Base software',
       subtitle: 'Booking and management platform',
@@ -120,6 +122,11 @@ const en: CentreProposalCopy = {
           'Minor technical updates.',
           'Support for platform incidents.',
         ],
+      },
+      webApps: {
+        title: 'Web + apps maintenance',
+        description: 'Web, backend and apps maintenance.',
+        includes: ['Technical incident fixes.'],
       },
       extended: {
         title: 'Extended maintenance',

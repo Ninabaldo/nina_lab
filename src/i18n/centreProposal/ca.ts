@@ -1,3 +1,4 @@
+import { configuratorCa } from './configuratorCopy'
 import type { CentreProposalCopy } from './types'
 
 const ca: CentreProposalCopy = {
@@ -46,10 +47,11 @@ const ca: CentreProposalCopy = {
       openFull: 'Obrir demo a pantalla completa',
     },
   },
+  configurator: configuratorCa,
   section02: {
     index: '02',
-    title: 'Configura el teu software',
-    lead: 'Selecciona les funcionalitats que millor s’adapten a les necessitats del centre.',
+    title: 'Configura el teu pressupost',
+    lead: 'Tres passos per definir software, funcionalitats i manteniment.',
     base: {
       title: 'Software base',
       subtitle: 'Plataforma de reserves i gestió',
@@ -132,6 +134,11 @@ const ca: CentreProposalCopy = {
           'Actualitzacions tècniques menors.',
           'Suport per incidències relacionades amb la plataforma.',
         ],
+      },
+      webApps: {
+        title: 'Manteniment web + apps',
+        description: 'Manteniment de web, backend i apps.',
+        includes: ['Correcció d’incidències tècniques.'],
       },
       extended: {
         title: 'Manteniment ampliat',

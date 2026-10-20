@@ -1,4 +1,78 @@
-import type { AddonId, MaintenanceId } from '../../apps/centre-proposal/pricing'
+import type {
+  AddonGroupId,
+  AddonId,
+  MaintenanceId,
+  SoftwareId,
+} from '../../apps/centre-proposal/pricing'
+
+export interface CentreProposalConfiguratorCopy {
+  progress: { software: string; customize: string; maintenance: string }
+  nav: { back: string; continue: string }
+  step1: {
+    title: string
+    lead: string
+    priceNote: string
+    seeIncludes: string
+    closeIncludes: string
+    storeExcludedNote: string
+  }
+  software: Record<
+    SoftwareId,
+    {
+      title: string
+      tagline: string
+      highlights: string[]
+      includes: string[]
+    }
+  >
+  step2: {
+    title: string
+    lead: string
+    groups: Record<AddonGroupId, string>
+    includedBadge: string
+    addLabel: string
+    removeLabel: string
+    storePublishing: {
+      title: string
+      description: string
+      offNote: string
+    }
+  }
+  step3: {
+    title: string
+    lead: string
+  }
+  maintenance: Record<
+    MaintenanceId,
+    { title: string; description: string; includes?: string[] }
+  >
+  summary: {
+    title: string
+    software: string
+    addons: string
+    addonsNone: string
+    storePublishing: string
+    storePublishingOff: string
+    implementation: string
+    maintenance: string
+    maintenanceNone: string
+    breakdownToggle: string
+    storeFeesTitle: string
+    storeFeesApple: string
+    storeFeesGoogle: string
+    storeFeesNote: string
+    mobileCta: string
+  }
+  proposal: {
+    title: string
+    readyLead: string
+    prepareCta: string
+    copyCta: string
+    copied: string
+    editCta: string
+    copyError: string
+  }
+}
 
 export type CentreProposalStudentTab = 'horaris' | 'reserves' | 'meves' | 'abonaments' | 'perfil'
 export type CentreProposalDashTab = 'resum' | 'calendari' | 'classes' | 'alumnes' | 'abonaments'
@@ -20,6 +94,7 @@ export interface CentreProposalCopy {
     ctaExplore: string
     ctaBudget: string
   }
+  configurator: CentreProposalConfiguratorCopy
   section01: {
     index: string
     title: string
