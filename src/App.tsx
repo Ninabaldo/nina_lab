@@ -14,6 +14,9 @@ import { BackToTop } from './components/BackToTop/BackToTop'
 import { SiteHeader } from './components/SiteHeader/SiteHeader'
 import { ContactProvider } from './context/ContactProvider'
 import { BreatheApp } from './apps/breathe/BreatheApp'
+import { CentreProposalApp } from './apps/centre-proposal/CentreProposalApp'
+import { DashboardDemo } from './apps/centre-proposal/DashboardDemo'
+import { StudentAppDemo } from './apps/centre-proposal/StudentAppDemo'
 import { IncidentBriefApp } from './apps/incident-brief/IncidentBriefApp'
 import { usePathname } from './hooks/usePathname'
 import { ProjectEmbedPage } from './pages/ProjectEmbedPage'
@@ -36,10 +39,14 @@ function Portfolio() {
 function App() {
   const path = usePathname()
   const isEmbedded = window.self !== window.top
+  const isCentreProposal = path.startsWith('/proposta-centre')
   const projectMatch = path.match(/^\/projects\/([^/]+)\/?$/)
 
   let content = <Portfolio />
-  if (path.startsWith('/breathe')) content = <BreatheApp />
+  if (path.startsWith('/proposta-centre/alumnes')) content = <StudentAppDemo />
+  else if (path.startsWith('/proposta-centre/dashboard')) content = <DashboardDemo />
+  else if (isCentreProposal) content = <CentreProposalApp />
+  else if (path.startsWith('/breathe')) content = <BreatheApp />
   else if (path.startsWith('/incident-brief')) content = <IncidentBriefApp />
   else if (projectMatch) content = <ProjectEmbedPage projectId={projectMatch[1]} />
   else if (path.startsWith('/projects')) content = <ProjectsPage />
@@ -49,15 +56,21 @@ function App() {
       <SiteLanguageProvider>
         <ContactProvider>
           <LabDesignProvider>
-            {!isEmbedded ? (
+            {!isEmbedded && !isCentreProposal ? (
               <>
                 <SiteHeader />
                 <BackToTop />
                 <ContactModal />
               </>
             ) : null}
-            <div className={isEmbedded ? undefined : 'site-shell'}>{content}</div>
-            {!isEmbedded && <LabDesignPanel />}
+            <div
+              className={
+                isEmbedded || isCentreProposal ? undefined : 'site-shell'
+              }
+            >
+              {content}
+            </div>
+            {!isEmbedded && !isCentreProposal && <LabDesignPanel />}
           </LabDesignProvider>
         </ContactProvider>
       </SiteLanguageProvider>
