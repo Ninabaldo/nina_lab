@@ -204,12 +204,26 @@ export function CentreDemoCalendar({
                 >
                   <span className="centre-demo__cal-month-day">{date.getDate()}</span>
                   {dayEvents.length > 0 ? (
-                    <div className="centre-demo__cal-month-events">
-                      {dayEvents.slice(0, monthCompact ? 2 : 3).map((ev) => renderEvent(ev))}
-                      {dayEvents.length > (monthCompact ? 2 : 3) ? (
-                        <span className="centre-demo__cal-month-more">
-                          +{dayEvents.length - (monthCompact ? 2 : 3)}
-                        </span>
+                    <div
+                      className="centre-demo__cal-month-dots"
+                      role="list"
+                      aria-label={dayEvents.map((ev) => `${ev.timeLabel} ${ev.title}`).join(', ')}
+                    >
+                      {dayEvents.slice(0, 4).map((ev) => {
+                        const live = ev.classId != null && ev.classId === liveClassId
+                        return (
+                          <span
+                            key={`${ev.timeLabel}-${ev.title}`}
+                            role="listitem"
+                            className={`centre-demo__cal-month-dot${
+                              ev.classId ? ` centre-demo__cal-month-dot--${ev.classId}` : ''
+                            }${live ? ' centre-demo__cal-month-dot--live' : ''}`}
+                            title={`${ev.timeLabel} · ${ev.title}`}
+                          />
+                        )
+                      })}
+                      {dayEvents.length > 4 ? (
+                        <span className="centre-demo__cal-month-more">+{dayEvents.length - 4}</span>
                       ) : null}
                     </div>
                   ) : null}

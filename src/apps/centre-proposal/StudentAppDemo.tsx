@@ -19,6 +19,8 @@ export function StudentAppDemo() {
       <div className="centre-demo__layout">
         <StudentAppMockup copy={copy} />
       </div>
+
+      <p className="centre-demo__disclaimer">{copy.demo.disclaimer}</p>
     </div>
     </CentreDemoProvider>
   )

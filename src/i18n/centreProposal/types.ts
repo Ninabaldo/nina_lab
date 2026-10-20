@@ -95,6 +95,7 @@ export interface CentreProposalCopy {
     studentBadge: string
     dashboardBadge: string
     interactiveLabel: string
+    disclaimer: string
     studentTabs: Record<CentreProposalStudentTab, string>
     dashTabs: Record<CentreProposalDashTab, string>
     student: {
@@ -169,7 +170,7 @@ export interface CentreProposalCopy {
         title: string
         lead: string
         studentsLabel: string
-        rows: { id?: 'yoga' | 'pilates'; name: string; capacity: string; meta: string }[]
+        rows: { id?: string; name: string; capacity: string; meta: string }[]
       }
       alumnes: {
         title: string

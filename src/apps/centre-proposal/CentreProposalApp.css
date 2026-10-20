@@ -1668,32 +1668,9 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   min-width: 0;
 }
 
-.centre-demo__cal--phone .centre-demo__cal-month-grid {
-  font-size: 0.62rem;
-}
-
 .centre-demo__cal--phone .centre-demo__cal-month-cell {
   min-height: 2.35rem;
   padding: 0.15rem;
-}
-
-.centre-demo__cal--phone .centre-demo__cal-month-events .centre-demo__cal-event {
-  display: block;
-  padding: 0.15rem 0.2rem;
-  border: none;
-  background: color-mix(in srgb, var(--color-text) 6%, transparent);
-}
-
-.centre-demo__cal--phone .centre-demo__cal-month-events .centre-demo__cal-event-title {
-  font-size: 0.58rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.centre-demo__cal--phone .centre-demo__cal-month-events .centre-demo__cal-event-time,
-.centre-demo__cal--phone .centre-demo__cal-month-events .centre-demo__cal-event-detail {
-  display: none;
 }
 
 .centre-demo__cal-month-head {
@@ -1721,6 +1698,8 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .centre-demo__cal--compact .centre-demo__cal-month-cell {
@@ -1741,16 +1720,55 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   align-self: flex-end;
 }
 
-.centre-demo__cal-month-events {
+.centre-demo__cal-month-dots {
   display: flex;
-  flex-direction: column;
-  gap: 0.12rem;
-  flex: 1;
+  flex-wrap: wrap;
+  gap: 3px;
+  align-items: center;
+  align-content: flex-start;
+  margin-top: auto;
+  max-width: 100%;
+}
+
+.centre-demo__cal-month-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--color-text) 35%, transparent);
+}
+
+.centre-demo__cal-month-dot--yoga {
+  background: color-mix(in srgb, #5b8a72 70%, var(--color-text));
+}
+
+.centre-demo__cal-month-dot--pilates {
+  background: color-mix(in srgb, #6b7aa1 70%, var(--color-text));
+}
+
+.centre-demo__cal-month-dot--stretching {
+  background: color-mix(in srgb, #a18b6b 70%, var(--color-text));
+}
+
+.centre-demo__cal-month-dot--live {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary, #111) 55%, transparent);
+  transform: scale(1.15);
 }
 
 .centre-demo__cal-month-more {
   font-size: 0.58rem;
   opacity: 0.6;
+  line-height: 1;
+}
+
+.centre-demo__disclaimer {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem 2rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  text-align: center;
 }
 
 .centre-demo__dash--compact .centre-demo__cal-week-grid {

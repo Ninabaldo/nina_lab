@@ -42,10 +42,20 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
     return value
   }
 
+  const staticEnrollment: Record<string, string> = {
+    stretching: '6',
+    hiit: '14',
+    spin: '11',
+    barre: '8',
+    meditation: '5',
+    familia: '9',
+  }
+
   const classEnrollment = (row: (typeof demo.dashboard.classes.rows)[number]) => {
     if (row.id === 'yoga') return `${yogaOccupancy}/${row.capacity}`
     if (row.id === 'pilates') return `10/${row.capacity}`
-    return row.capacity
+    const n = row.id ? staticEnrollment[row.id] : undefined
+    return n ? `${n}/${row.capacity}` : `0/${row.capacity}`
   }
 
   return (
@@ -216,7 +226,7 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                 copy={copy}
                 highlightStudentId={studentBookedYoga ? 'maria' : null}
                 registeredCount={
-                  demo.dashboard.resum.kpis.find((k) => k.id === 'activeStudents')?.value ?? '186'
+                  demo.dashboard.resum.kpis.find((k) => k.id === 'activeStudents')?.value ?? '212'
                 }
               />
             </>

@@ -49,6 +49,13 @@ export function buildDemoCalendarEvents(copy: CentreProposalCopy): DemoCalendarE
       .slice(2)
       .join(' · ')
 
+  const dashClass = (id: string) =>
+    copy.demo.dashboard.classes.rows.find((r) => r.id === id)?.name
+
+  const hiitTitle = dashClass('hiit') ?? 'HIIT'
+  const spinTitle = dashClass('spin') ?? 'Spin'
+  const familiaTitle = dashClass('familia') ?? 'Ioga familiar'
+
   return [
     {
       classId: 'yoga',
@@ -79,8 +86,56 @@ export function buildDemoCalendarEvents(copy: CentreProposalCopy): DemoCalendarE
       dayOfWeek: 1,
       hour: 19,
       minute: 0,
-      title: 'HIIT',
+      title: hiitTitle,
       detail: copy.demo.dashboard.calendari.days[1]?.meta.split('·').pop()?.trim() ?? '',
+    },
+    {
+      classId: null,
+      dayOfWeek: 2,
+      hour: 10,
+      minute: 0,
+      title: spinTitle,
+      detail: '',
+    },
+    {
+      classId: 'yoga',
+      dayOfWeek: 2,
+      hour: 17,
+      minute: 0,
+      title: yoga?.name ?? 'Yoga',
+      detail: yoga ? detailFromMeta(yoga.meta) : '',
+    },
+    {
+      classId: 'stretching',
+      dayOfWeek: 3,
+      hour: 9,
+      minute: 0,
+      title: stretching?.name ?? 'Stretching',
+      detail: stretching ? detailFromMeta(stretching.meta) : '',
+    },
+    {
+      classId: null,
+      dayOfWeek: 3,
+      hour: 19,
+      minute: 0,
+      title: hiitTitle,
+      detail: '',
+    },
+    {
+      classId: 'pilates',
+      dayOfWeek: 4,
+      hour: 8,
+      minute: 30,
+      title: pilates?.name ?? 'Pilates',
+      detail: pilates ? detailFromMeta(pilates.meta) : '',
+    },
+    {
+      classId: null,
+      dayOfWeek: 5,
+      hour: 11,
+      minute: 0,
+      title: familiaTitle,
+      detail: '',
     },
   ]
 }

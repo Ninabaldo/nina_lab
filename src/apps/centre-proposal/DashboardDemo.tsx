@@ -19,6 +19,8 @@ export function DashboardDemo() {
       <div className="centre-demo__layout centre-demo__layout--wide">
         <DashboardMockup copy={copy} />
       </div>
+
+      <p className="centre-demo__disclaimer">{copy.demo.disclaimer}</p>
     </div>
     </CentreDemoProvider>
   )
