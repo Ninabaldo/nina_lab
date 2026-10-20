@@ -15,6 +15,7 @@ import { SiteHeader } from './components/SiteHeader/SiteHeader'
 import { ContactProvider } from './context/ContactProvider'
 import { BreatheApp } from './apps/breathe/BreatheApp'
 import { CentreProposalApp } from './apps/centre-proposal/CentreProposalApp'
+import { CentreProposalShell } from './apps/centre-proposal/CentreProposalShell'
 import { DashboardDemo } from './apps/centre-proposal/DashboardDemo'
 import { StudentAppDemo } from './apps/centre-proposal/StudentAppDemo'
 import { IncidentBriefApp } from './apps/incident-brief/IncidentBriefApp'
@@ -43,9 +44,24 @@ function App() {
   const projectMatch = path.match(/^\/projects\/([^/]+)\/?$/)
 
   let content = <Portfolio />
-  if (path.startsWith('/proposta-centre/alumnes')) content = <StudentAppDemo />
-  else if (path.startsWith('/proposta-centre/dashboard')) content = <DashboardDemo />
-  else if (isCentreProposal) content = <CentreProposalApp />
+  if (path.startsWith('/proposta-centre/alumnes'))
+    content = (
+      <CentreProposalShell>
+        <StudentAppDemo />
+      </CentreProposalShell>
+    )
+  else if (path.startsWith('/proposta-centre/dashboard'))
+    content = (
+      <CentreProposalShell>
+        <DashboardDemo />
+      </CentreProposalShell>
+    )
+  else if (isCentreProposal)
+    content = (
+      <CentreProposalShell>
+        <CentreProposalApp />
+      </CentreProposalShell>
+    )
   else if (path.startsWith('/breathe')) content = <BreatheApp />
   else if (path.startsWith('/incident-brief')) content = <IncidentBriefApp />
   else if (projectMatch) content = <ProjectEmbedPage projectId={projectMatch[1]} />
