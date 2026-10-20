@@ -810,8 +810,10 @@
 
 .centre-demo__phone-screen {
   flex: 1;
+  min-height: 0;
   padding: 1rem 1rem 0.5rem;
   overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .centre-demo__phone-nav {
@@ -1281,6 +1283,23 @@
 .centre-demo__phone-status--compact {
   font-size: 0.65rem;
   padding-bottom: 0.25rem;
+}
+
+.centre-demo__phone--mock {
+  min-height: 0;
+}
+
+/* Full demo page: same vertical footprint as the centre dashboard panel */
+.centre-demo__phone--mock:not(.centre-demo__phone--compact) {
+  height: min(72vh, 44rem);
+  max-height: min(72vh, 44rem);
+}
+
+/* Inline preview on the proposal page */
+.centre-demo__phone--mock.centre-demo__phone--compact {
+  min-height: 14rem;
+  height: 28rem;
+  max-height: 28rem;
 }
 
 .centre-demo__phone--mock .centre-demo__phone-nav button {
@@ -1908,7 +1927,17 @@ button.centre-demo__cal-event:hover:not(:disabled) {
     width: 100%;
     max-width: none;
     border-radius: var(--radius-lg);
-    min-height: 20rem;
+    min-height: 14rem;
+  }
+
+  .centre-demo__phone--mock.centre-demo__phone--compact {
+    height: min(52vh, 28rem);
+    max-height: min(52vh, 28rem);
+  }
+
+  .centre-demo__phone--mock:not(.centre-demo__phone--compact) {
+    height: min(68vh, 40rem);
+    max-height: min(68vh, 40rem);
   }
 
   .centre-demo__phone-nav button {
