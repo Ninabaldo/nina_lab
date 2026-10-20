@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import type { CentreProposalCopy, CentreProposalDashTab } from '../../i18n/centreProposal/types'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { CentreDashboardBarChart } from './CentreDashboardBarChart'
+import { CentreDashboardStudentTable } from './CentreDashboardStudentTable'
 import { CentreDemoCalendar } from './CentreDemoCalendar'
 import { useCentreDemo } from './centreDemoContext'
 import './CentreProposalApp.css'
@@ -91,6 +93,17 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                     </div>
                   )
                 })}
+              </div>
+              <h2 className="centre-demo__panel-subtitle">{demo.dashboard.resum.chartsTitle}</h2>
+              <div className="centre-demo__chart-row">
+                <CentreDashboardBarChart
+                  title={demo.dashboard.resum.charts.monthlyTitle}
+                  bars={demo.dashboard.resum.charts.monthly}
+                />
+                <CentreDashboardBarChart
+                  title={demo.dashboard.resum.charts.annualTitle}
+                  bars={demo.dashboard.resum.charts.annual}
+                />
               </div>
               <h2 className="centre-demo__panel-subtitle">{demo.dashboard.resum.paymentsTitle}</h2>
               <ul className="centre-demo__payment-list">
@@ -199,20 +212,13 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
             <>
               <h1>{demo.dashboard.alumnes.title}</h1>
               <p className="centre-demo__panel-lead">{demo.dashboard.alumnes.lead}</p>
-              <ul className="centre-demo__card-list">
-                {demo.dashboard.alumnes.rows.map((row, index) => (
-                  <li
-                    key={row.name}
-                    className={`centre-demo__card${index === 0 && studentBookedYoga ? ' centre-demo__card--live' : ''}`}
-                  >
-                    <div className="centre-demo__card-head">
-                      <span>{row.name}</span>
-                      <span>{row.plan}</span>
-                    </div>
-                    <p className="centre-demo__card-meta">{row.meta}</p>
-                  </li>
-                ))}
-              </ul>
+              <CentreDashboardStudentTable
+                copy={copy}
+                highlightStudentId={studentBookedYoga ? 'maria' : null}
+                registeredCount={
+                  demo.dashboard.resum.kpis.find((k) => k.id === 'activeStudents')?.value ?? '186'
+                }
+              />
             </>
           ) : null}
 

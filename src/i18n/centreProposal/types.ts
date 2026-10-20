@@ -148,6 +148,13 @@ export interface CentreProposalCopy {
         }[]
         paymentsTitle: string
         payments: { label: string; amount: string; meta: string; tone: 'ok' | 'pending' }[]
+        chartsTitle: string
+        charts: {
+          monthlyTitle: string
+          annualTitle: string
+          monthly: { label: string; valueLabel: string; amount: number; highlight?: boolean }[]
+          annual: { label: string; valueLabel: string; amount: number; highlight?: boolean }[]
+        }
         scheduleTitle: string
         rows: { id: 'yoga' | 'pilates'; time: string; meta: string }[]
       }
@@ -164,7 +171,22 @@ export interface CentreProposalCopy {
         studentsLabel: string
         rows: { id?: 'yoga' | 'pilates'; name: string; capacity: string; meta: string }[]
       }
-      alumnes: { title: string; lead: string; rows: { name: string; plan: string; meta: string }[] }
+      alumnes: {
+        title: string
+        lead: string
+        searchPlaceholder: string
+        countTemplate: string
+        columns: { name: string; email: string; plan: string; status: string; activity: string }
+        rows: {
+          id: string
+          name: string
+          email: string
+          plan: string
+          status: 'active' | 'pending'
+          statusLabel: string
+          activity: string
+        }[]
+      }
       abonaments: { title: string; lead: string; rows: { name: string; price: string; meta: string }[] }
     }
   }
