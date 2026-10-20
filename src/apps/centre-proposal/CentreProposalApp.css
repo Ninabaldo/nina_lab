@@ -44,6 +44,94 @@
   }
 }
 
+@keyframes centre-proposal-hero-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.85rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes centre-proposal-hero-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.centre-proposal__hero-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.centre-proposal__hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.55;
+  animation: centre-proposal-hero-float 7s ease-in-out infinite;
+}
+
+.centre-proposal__hero-orb--1 {
+  width: 2.75rem;
+  height: 2.75rem;
+  top: 12%;
+  right: 8%;
+  border: 1px solid color-mix(in srgb, var(--color-accent-sage) 45%, transparent);
+  animation-duration: 9s;
+}
+
+.centre-proposal__hero-orb--2 {
+  width: 0.65rem;
+  height: 0.65rem;
+  top: 22%;
+  left: 6%;
+  background: color-mix(in srgb, var(--color-accent-coral) 70%, transparent);
+  animation-duration: 6s;
+  animation-delay: 0.4s;
+}
+
+.centre-proposal__hero-orb--3 {
+  width: 1.25rem;
+  height: 1.25rem;
+  bottom: 18%;
+  right: 14%;
+  background: color-mix(in srgb, var(--color-accent-sage) 35%, transparent);
+  animation-duration: 8s;
+  animation-delay: 1s;
+}
+
+.centre-proposal__hero--animated .centre-proposal__hero-inner > * {
+  animation: centre-proposal-hero-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.centre-proposal__hero--animated .centre-proposal__hero-inner > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.centre-proposal__hero--animated .centre-proposal__hero-inner > *:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.centre-proposal__hero--animated .centre-proposal__hero-inner > *:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.centre-proposal__hero--animated .centre-proposal__hero-inner > *:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.centre-proposal__hero--animated .centre-proposal__hero-inner > *:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
 .centre-proposal__hero-inner {
   position: relative;
   z-index: 1;
@@ -1960,6 +2048,8 @@ button.centre-demo__cal-event:hover:not(:disabled) {
 
 @media (prefers-reduced-motion: reduce) {
   .centre-proposal__hero--animated::before,
+  .centre-proposal__hero-orb,
+  .centre-proposal__hero--animated .centre-proposal__hero-inner > *,
   .centre-proposal__sync-dot,
   .centre-proposal__price--pulse,
   .centre-demo__screen-pane {

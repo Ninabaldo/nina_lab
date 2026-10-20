@@ -75,6 +75,11 @@ export function CentreProposalApp() {
         pulseKey={pricePulse}
       />
       <header className="centre-proposal__hero centre-proposal__hero--animated">
+        <div className="centre-proposal__hero-decor" aria-hidden="true">
+          <span className="centre-proposal__hero-orb centre-proposal__hero-orb--1" />
+          <span className="centre-proposal__hero-orb centre-proposal__hero-orb--2" />
+          <span className="centre-proposal__hero-orb centre-proposal__hero-orb--3" />
+        </div>
         <div className="centre-proposal__hero-inner">
           <p className="centre-proposal__eyebrow">{copy.hero.eyebrow}</p>
           <h1 className="centre-proposal__title">{copy.hero.title}</h1>
