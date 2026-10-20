@@ -70,6 +70,7 @@ function EventChip({
       className={`centre-demo__cal-event${compact ? ' centre-demo__cal-event--compact' : ''}${
         live ? ' centre-demo__cal-event--live' : ''
       }${full ? ' centre-demo__cal-event--full' : ''}`}
+      title={`${event.timeLabel} · ${event.title}${event.detail ? ` · ${event.detail}` : ''}`}
       disabled={bookable ? false : undefined}
       onClick={bookable ? onBook : undefined}
     >
@@ -177,7 +178,9 @@ export function CentreDemoCalendar({
               <div key={label} className="centre-demo__cal-week-col">
                 <p className="centre-demo__cal-week-col-head">{label}</p>
                 <div className="centre-demo__cal-week-events">
-                  {eventsForDate(date, templates, language).map((ev) => renderEvent(ev))}
+                  {eventsForDate(date, templates, language).map((ev) =>
+                    renderEvent(ev, { showDetail: false }),
+                  )}
                 </div>
               </div>
             ))}

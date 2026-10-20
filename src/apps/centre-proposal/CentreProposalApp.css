@@ -1557,7 +1557,13 @@
 .centre-demo__cal-week-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 0.5rem;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.centre-demo__cal-week-col {
+  min-width: 0;
+  overflow: hidden;
 }
 
 .centre-demo__cal-week-col-head {
@@ -1572,6 +1578,39 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  min-width: 0;
+}
+
+/* Week grid: stack time + title vertically so long names stay inside the day column */
+.centre-demo__cal-week-grid .centre-demo__cal-event {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.1rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0.35rem 0.4rem;
+  box-sizing: border-box;
+}
+
+.centre-demo__cal-week-grid .centre-demo__cal-event-title {
+  font-size: 0.68rem;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+}
+
+.centre-demo__cal-week-grid .centre-demo__cal-event-time {
+  font-size: 0.62rem;
+}
+
+.centre-demo__cal-week-grid .centre-demo__cal-event-detail {
+  display: none;
 }
 
 .centre-demo__cal-week-list {
