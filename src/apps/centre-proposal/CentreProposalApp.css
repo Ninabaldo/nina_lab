@@ -2486,8 +2486,19 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   position: fixed;
   inset: 0;
   z-index: 10049;
-  background: color-mix(in srgb, var(--color-bg) 35%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 28%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   pointer-events: all;
+}
+
+body.cp-pdf-lock .centre-proposal__sticky {
+  padding-right: var(--cp-pdf-scrollbar, 0);
+}
+
+body.cp-pdf-lock .cp-config__mobile-bar {
+  margin-right: 0;
+  padding-right: calc(0.85rem + var(--cp-pdf-scrollbar, 0));
 }
 
 .cp-pdf-status {

@@ -6,6 +6,7 @@ import { CentreProposalStickyBudget } from './CentreProposalStickyBudget'
 import { CpPdfBusyLabel } from './CpPdfBusyLabel'
 import { CpPdfCenterStatus } from './CpPdfCenterStatus'
 import { downloadConfiguratorProposalPdf } from './downloadConfiguratorProposalPdf'
+import { usePdfScrollLock } from './usePdfScrollLock'
 import {
   ADDON_GROUPS,
   ADDON_PRICES_EUR,
@@ -184,6 +185,7 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
   }
 
   const pdfBusy = pdfState === 'busy'
+  usePdfScrollLock(pdfBusy)
 
   return (
     <div
