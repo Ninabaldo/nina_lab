@@ -12,15 +12,18 @@ export interface CentreProposalConfiguratorCopy {
     title: string
     lead: string
     priceNote: string
+    timelineLabel: string
     seeIncludes: string
     closeIncludes: string
     storeExcludedNote: string
+    timelineDisclaimer: string[]
   }
   software: Record<
     SoftwareId,
     {
       title: string
       tagline: string
+      timeline: string
       highlights: string[]
       includes: string[]
     }
@@ -160,9 +163,9 @@ export interface CentreProposalCopy {
   section05: {
     index: string
     title: string
-    paragraphs: string[]
-    notesTitle: string
-    notes: string[]
+    intro: string
+    steps: string[]
+    closing: string[]
   }
   footer: string
   demo: {

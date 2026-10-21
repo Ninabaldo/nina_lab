@@ -162,15 +162,17 @@ const es: CentreProposalCopy = {
   section05: {
     index: '05',
     title: '¿Cómo seguimos?',
-    paragraphs: [
-      'Una vez definidas las funcionalidades, concretaremos el alcance y prepararemos el presupuesto definitivo.',
-      'El siguiente paso será validar pantallas, procesos de reserva y necesidades específicas del centro antes del desarrollo.',
+    intro:
+      'Antes de empezar el desarrollo, haremos una sesión de definición para concretar las necesidades del centro y validar el alcance del proyecto.',
+    steps: [
+      'Revisaremos las funcionalidades seleccionadas y las prioridades del centro.',
+      'Definiremos los procesos de reserva, cancelación y gestión de clases.',
+      'Validaremos las pantallas y la experiencia de alumnos y equipo del centro.',
+      'Concretaremos las integraciones necesarias, los plazos y las condiciones de pago.',
     ],
-    notesTitle: 'Notas',
-    notes: [
-      'Este presupuesto es orientativo y está sujeto a la definición final de funcionalidades y alcance.',
-      'Los importes no incluyen IVA ni comisiones de servicios externos (pagos, email, alojamiento).',
-      'Implementación, plazos y condiciones de pago se concretarán en la propuesta definitiva.',
+    closing: [
+      'Una vez validada esta información, prepararemos el presupuesto definitivo y el calendario de desarrollo.',
+      'El proyecto comenzará cuando se apruebe la propuesta definitiva y se acuerden las condiciones de inicio.',
     ],
   },
   footer: 'Propuesta preparada por Nina Baldó',

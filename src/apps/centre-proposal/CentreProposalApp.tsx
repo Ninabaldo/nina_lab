@@ -149,22 +149,17 @@ export function CentreProposalApp() {
           <h2 id="centre-proposal-next-heading" className="centre-proposal__section-title">
             {copy.section05.title}
           </h2>
-          {copy.section05.paragraphs.map((paragraph) => (
+          <p className="centre-proposal__closing-text">{copy.section05.intro}</p>
+          <ul className="centre-proposal__closing-steps">
+            {copy.section05.steps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ul>
+          {copy.section05.closing.map((paragraph) => (
             <p key={paragraph} className="centre-proposal__closing-text">
               {paragraph}
             </p>
           ))}
-
-          <aside className="centre-proposal__notes" aria-labelledby="centre-proposal-notes-heading">
-            <h3 id="centre-proposal-notes-heading" className="centre-proposal__notes-title">
-              {copy.section05.notesTitle}
-            </h3>
-            <ul>
-              {copy.section05.notes.map((note) => (
-                <li key={note}>{note}</li>
-              ))}
-            </ul>
-          </aside>
         </section>
       </main>
 

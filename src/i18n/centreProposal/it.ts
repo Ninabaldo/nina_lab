@@ -162,15 +162,17 @@ const it: CentreProposalCopy = {
   section05: {
     index: '05',
     title: 'Come procediamo?',
-    paragraphs: [
-      'Una volta definite le funzionalità, concretizziamo ambito e budget definitivo.',
-      'Il passo successivo è validare schermate, flussi di prenotazione ed esigenze specifiche del centro prima dello sviluppo.',
+    intro:
+      'Prima di iniziare lo sviluppo, faremo una sessione di definizione per chiarire le esigenze del centro e validare l’ambito del progetto.',
+    steps: [
+      'Rivedremo le funzionalità selezionate e le priorità del centro.',
+      'Definiremo i processi di prenotazione, cancellazione e gestione dei corsi.',
+      'Valideremo le schermate e l’esperienza di allievi e team del centro.',
+      'Concretizzeremo integrazioni, tempi e condizioni di pagamento.',
     ],
-    notesTitle: 'Note',
-    notes: [
-      'Questo budget è indicativo e soggetto alla definizione finale di funzionalità e ambito.',
-      'Gli importi non includono IVA né commissioni di servizi esterni (pagamenti, email, hosting).',
-      'Implementazione, tempi e condizioni di pagamento saranno definiti nella proposta finale.',
+    closing: [
+      'Una volta validate queste informazioni, prepareremo il budget definitivo e il calendario di sviluppo.',
+      'Il progetto inizierà dopo l’approvazione della proposta definitiva e l’accordo sulle condizioni di avvio.',
     ],
   },
   footer: 'Proposta preparata da Nina Baldó',

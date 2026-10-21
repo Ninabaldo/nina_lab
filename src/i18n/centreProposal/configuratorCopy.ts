@@ -33,15 +33,21 @@ export const configuratorCa: CentreProposalConfiguratorCopy = {
     title: 'Escull el teu software',
     lead: 'Tria el punt de partida que millor encaixi amb el teu centre. Pots personalitzar funcionalitats al pas següent.',
     priceNote: 'implementació',
+    timelineLabel: 'Termini estimat:',
     seeIncludes: 'Veure què inclou',
     closeIncludes: 'Tancar',
     storeExcludedNote:
       'La publicació a App Store i Google Play no està inclosa en aquests preus de desenvolupament.',
+    timelineDisclaimer: [
+      'Els terminis són estimacions de desenvolupament a partir de la validació de l’abast i l’inici del projecte. Poden variar segons les funcionalitats seleccionades, la complexitat de les integracions i el temps necessari per validar les diferents fases del projecte.',
+      'En les opcions amb app, el temps de revisió i aprovació per part d’Apple i Google és extern al desenvolupament i pot ampliar el termini de publicació.',
+    ],
   },
   software: {
     web: {
       title: 'Web de reserves',
       tagline: 'Plataforma al navegador, sense instal·lar cap app.',
+      timeline: '3–5 setmanes',
       highlights: [
         'Calendari i reserves en línia',
         'Dashboard bàsic de gestió',
@@ -59,6 +65,7 @@ export const configuratorCa: CentreProposalConfiguratorCopy = {
     webApp: {
       title: 'Web + app',
       tagline: 'La web de reserves més una app instal·lable per als alumnes.',
+      timeline: '6–9 setmanes',
       highlights: [
         'Tot el software web',
         'App iOS i Android per alumnes',
@@ -74,6 +81,7 @@ export const configuratorCa: CentreProposalConfiguratorCopy = {
     full: {
       title: 'Plataforma completa',
       tagline: 'Solució ampliada per centres amb més necessitats de gestió.',
+      timeline: '9–14 setmanes',
       highlights: [
         'Web, app i dashboard ampliat',
         'Abonaments, pagaments i llista d’espera',
@@ -150,15 +158,21 @@ export const configuratorEn: CentreProposalConfiguratorCopy = {
     title: 'Choose your software',
     lead: 'Pick the starting point that fits your centre. You can customize features in the next step.',
     priceNote: 'implementation',
+    timelineLabel: 'Estimated timeline:',
     seeIncludes: 'See what’s included',
     closeIncludes: 'Close',
     storeExcludedNote:
       'App Store and Google Play publishing is not included in these development prices.',
+    timelineDisclaimer: [
+      'Timelines are development estimates from scope validation and project kick-off. They may vary with selected features, integration complexity, and time needed to validate each project phase.',
+      'For app options, Apple and Google review and approval times are outside development and may extend the publication timeline.',
+    ],
   },
   software: {
     web: {
       title: 'Booking website',
       tagline: 'Browser-based platform—no app install required.',
+      timeline: '3–5 weeks',
       highlights: ['Online calendar and bookings', 'Basic management dashboard', 'Students, classes, capacity'],
       includes: [
         'Responsive booking website.',
@@ -172,6 +186,7 @@ export const configuratorEn: CentreProposalConfiguratorCopy = {
     webApp: {
       title: 'Web + app',
       tagline: 'The booking website plus an installable student app.',
+      timeline: '6–9 weeks',
       highlights: ['Full web software', 'iOS & Android student app', 'Mobile-first daily use'],
       includes: [
         'Everything in the booking website option.',
@@ -183,6 +198,7 @@ export const configuratorEn: CentreProposalConfiguratorCopy = {
     full: {
       title: 'Full platform',
       tagline: 'Expanded solution for centres with broader management needs.',
+      timeline: '9–14 weeks',
       highlights: ['Web, app & extended dashboard', 'Passes, payments & waitlist', 'Automations & instructors'],
       includes: [
         'Booking website and student app.',
@@ -272,27 +288,35 @@ export const configuratorEs: CentreProposalConfiguratorCopy = {
     ...configuratorCa.step1,
     title: 'Elige tu software',
     lead: 'Elige el punto de partida que mejor encaje con tu centro. Personaliza en el siguiente paso.',
+    timelineLabel: 'Plazo estimado:',
     seeIncludes: 'Ver qué incluye',
     closeIncludes: 'Cerrar',
     storeExcludedNote:
       'La publicación en App Store y Google Play no está incluida en estos precios de desarrollo.',
+    timelineDisclaimer: [
+      'Los plazos son estimaciones de desarrollo a partir de la validación del alcance y el inicio del proyecto. Pueden variar según las funcionalidades seleccionadas, la complejidad de las integraciones y el tiempo necesario para validar las distintas fases.',
+      'En las opciones con app, el tiempo de revisión y aprobación de Apple y Google es externo al desarrollo y puede ampliar el plazo de publicación.',
+    ],
   },
   software: {
     web: {
       title: 'Web de reservas',
       tagline: 'Plataforma en el navegador, sin instalar app.',
+      timeline: '3–5 semanas',
       highlights: ['Calendario y reservas online', 'Dashboard básico', 'Alumnos, clases y aforo'],
       includes: configuratorCa.software.web.includes,
     },
     webApp: {
       title: 'Web + app',
       tagline: 'La web de reservas más una app instalable para alumnos.',
+      timeline: '6–9 semanas',
       highlights: ['Todo el software web', 'App iOS y Android', 'Experiencia móvil diaria'],
       includes: configuratorCa.software.webApp.includes,
     },
     full: {
       title: 'Plataforma completa',
       tagline: 'Solución ampliada para centros con más necesidades.',
+      timeline: '9–14 semanas',
       highlights: ['Web, app y dashboard ampliado', 'Abonos, pagos y lista de espera', 'Automatizaciones'],
       includes: configuratorCa.software.full.includes,
     },
@@ -367,27 +391,35 @@ export const configuratorFr: CentreProposalConfiguratorCopy = {
     ...configuratorEn.step1,
     title: 'Choisissez votre logiciel',
     lead: 'Choisissez le point de départ adapté à votre centre. Personnalisez à l’étape suivante.',
+    timelineLabel: 'Délai estimé :',
     seeIncludes: 'Voir le détail',
     closeIncludes: 'Fermer',
     storeExcludedNote:
       'La publication App Store et Google Play n’est pas incluse dans ces prix de développement.',
+    timelineDisclaimer: [
+      'Les délais sont des estimations de développement à partir de la validation du périmètre et du démarrage du projet. Ils peuvent varier selon les fonctionnalités, la complexité des intégrations et le temps de validation des phases.',
+      'Pour les options avec app, les délais de revue Apple et Google sont externes au développement et peuvent prolonger la publication.',
+    ],
   },
   software: {
     web: {
       title: 'Site de réservation',
       tagline: 'Plateforme navigateur, sans installation.',
+      timeline: '3–5 semaines',
       highlights: ['Calendrier et réservations', 'Dashboard de base', 'Élèves, cours, capacité'],
       includes: configuratorEn.software.web.includes,
     },
     webApp: {
       title: 'Web + app',
       tagline: 'Le site plus une app installable pour les élèves.',
+      timeline: '6–9 semaines',
       highlights: ['Logiciel web complet', 'App iOS et Android', 'Usage mobile quotidien'],
       includes: configuratorEn.software.webApp.includes,
     },
     full: {
       title: 'Plateforme complète',
       tagline: 'Solution étendue pour les centres exigeants.',
+      timeline: '9–14 semaines',
       highlights: ['Web, app et dashboard étendu', 'Abonnements, paiements, liste d’attente', 'Automatisations'],
       includes: configuratorEn.software.full.includes,
     },
@@ -462,27 +494,35 @@ export const configuratorIt: CentreProposalConfiguratorCopy = {
     ...configuratorEn.step1,
     title: 'Scegli il software',
     lead: 'Scegli il punto di partenza per il tuo centro. Personalizza al passo successivo.',
+    timelineLabel: 'Tempo stimato:',
     seeIncludes: 'Cosa include',
     closeIncludes: 'Chiudi',
     storeExcludedNote:
       'La pubblicazione su App Store e Google Play non è inclusa in questi prezzi di sviluppo.',
+    timelineDisclaimer: [
+      'I tempi sono stime di sviluppo dalla validazione del perimetro e dall’avvio del progetto. Possono variare in base alle funzionalità, alle integrazioni e al tempo per validare le fasi.',
+      'Per le opzioni con app, i tempi di revisione Apple e Google sono esterni allo sviluppo e possono allungare la pubblicazione.',
+    ],
   },
   software: {
     web: {
       title: 'Sito prenotazioni',
       tagline: 'Piattaforma browser, senza installare app.',
+      timeline: '3–5 settimane',
       highlights: ['Calendario e prenotazioni', 'Dashboard base', 'Allievi, corsi, capienza'],
       includes: configuratorEn.software.web.includes,
     },
     webApp: {
       title: 'Web + app',
       tagline: 'Il sito più un’app installabile per gli allievi.',
+      timeline: '6–9 settimane',
       highlights: ['Software web completo', 'App iOS e Android', 'Uso mobile quotidiano'],
       includes: configuratorEn.software.webApp.includes,
     },
     full: {
       title: 'Piattaforma completa',
       tagline: 'Soluzione ampliata per centri con più esigenze.',
+      timeline: '9–14 settimane',
       highlights: ['Web, app e dashboard esteso', 'Abbonamenti, pagamenti, lista d’attesa', 'Automazioni'],
       includes: configuratorEn.software.full.includes,
     },

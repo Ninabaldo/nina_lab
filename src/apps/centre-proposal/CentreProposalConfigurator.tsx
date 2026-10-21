@@ -155,6 +155,9 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
                           <span className="cp-soft-card__price-note">{cfg.step1.priceNote}</span>
                         </span>
                         <span className="cp-soft-card__title">{pack.title}</span>
+                        <span className="cp-soft-card__timeline">
+                          {cfg.step1.timelineLabel} {pack.timeline}
+                        </span>
                         <span className="cp-soft-card__tagline">{pack.tagline}</span>
                         <ul className="cp-soft-card__highlights">
                           {pack.highlights.map((h) => (
@@ -184,6 +187,11 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
                   )
                 })}
               </ul>
+              <div className="cp-config__timeline-disclaimer">
+                {cfg.step1.timelineDisclaimer.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </div>
           ) : null}
 

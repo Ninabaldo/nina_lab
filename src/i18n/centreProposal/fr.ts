@@ -160,15 +160,17 @@ const fr: CentreProposalCopy = {
   section05: {
     index: '05',
     title: 'Et ensuite ?',
-    paragraphs: [
-      'Une fois les fonctionnalités définies, nous préciserons le périmètre et le devis final.',
-      'Prochaine étape : valider les écrans, les parcours de réservation et les besoins spécifiques du centre.',
+    intro:
+      'Avant de commencer le développement, nous organiserons une session de cadrage pour préciser les besoins du centre et valider le périmètre du projet.',
+    steps: [
+      'Revoir les fonctionnalités sélectionnées et les priorités du centre.',
+      'Définir les processus de réservation, d’annulation et de gestion des cours.',
+      'Valider les écrans et l’expérience des élèves et de l’équipe du centre.',
+      'Préciser les intégrations, les délais et les conditions de paiement.',
     ],
-    notesTitle: 'Notes',
-    notes: [
-      'Ce budget est indicatif et soumis à la définition finale des fonctionnalités et du périmètre.',
-      'Les montants n’incluent pas la TVA ni les frais de services externes (paiement, email, hébergement).',
-      'Implémentation, délais et conditions de paiement seront fixés dans la proposition finale.',
+    closing: [
+      'Une fois ces éléments validés, nous préparerons le devis définitif et le calendrier de développement.',
+      'Le projet démarrera une fois la proposition définitive approuvée et les conditions de lancement accordées.',
     ],
   },
   footer: 'Proposition par Nina Baldó',

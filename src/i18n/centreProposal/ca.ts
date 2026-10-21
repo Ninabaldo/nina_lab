@@ -170,15 +170,17 @@ const ca: CentreProposalCopy = {
   section05: {
     index: '05',
     title: 'Com continuem?',
-    paragraphs: [
-      'Una vegada definides les funcionalitats, concretarem l’abast del projecte i prepararem el pressupost definitiu.',
-      'El següent pas serà validar les pantalles, els processos de reserva i les necessitats específiques del centre abans de començar el desenvolupament.',
+    intro:
+      'Abans de començar el desenvolupament, farem una sessió de definició per concretar les necessitats del centre i validar l’abast del projecte.',
+    steps: [
+      'Revisarem les funcionalitats seleccionades i les prioritats del centre.',
+      'Definirem els processos de reserva, cancel·lació i gestió de classes.',
+      'Validarem les pantalles i l’experiència dels alumnes i de l’equip del centre.',
+      'Concretarem les integracions necessàries, els terminis i les condicions de pagament.',
     ],
-    notesTitle: 'Notes',
-    notes: [
-      'Aquest pressupost és orientatiu i està subjecte a la definició final de les funcionalitats i de l’abast del projecte.',
-      'Els imports no inclouen IVA, si correspon, ni les comissions de serveis externs, com ara plataformes de pagament, email o allotjament.',
-      'La implementació, els terminis i les condicions de pagament es concretaran en la proposta definitiva.',
+    closing: [
+      'Una vegada validada aquesta informació, prepararem el pressupost definitiu i el calendari de desenvolupament.',
+      'El projecte començarà un cop aprovada la proposta definitiva i acordades les condicions d’inici.',
     ],
   },
   footer: 'Proposta preparada per Nina Baldó',

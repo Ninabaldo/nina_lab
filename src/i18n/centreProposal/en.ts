@@ -158,15 +158,17 @@ const en: CentreProposalCopy = {
   section05: {
     index: '05',
     title: 'What happens next?',
-    paragraphs: [
-      'Once features are defined, we’ll scope the project and prepare the final quote.',
-      'Next we validate screens, booking flows, and centre-specific needs before development.',
+    intro:
+      'Before development starts, we’ll run a definition session to clarify the centre’s needs and validate project scope.',
+    steps: [
+      'Review selected features and the centre’s priorities.',
+      'Define booking, cancellation, and class management flows.',
+      'Validate screens and the experience for students and centre staff.',
+      'Confirm required integrations, timelines, and payment terms.',
     ],
-    notesTitle: 'Notes',
-    notes: [
-      'This budget is indicative and subject to final scope and feature definition.',
-      'Amounts exclude VAT where applicable and third-party fees (payments, email, hosting).',
-      'Implementation, timeline, and payment terms will be set in the final proposal.',
+    closing: [
+      'Once this is validated, we’ll prepare the final quote and development schedule.',
+      'The project begins after the final proposal is approved and start conditions are agreed.',
     ],
   },
   footer: 'Proposal by Nina Baldó',

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <title>El teu centre, amb el seu propi sistema. — Proposta centre</title>
+  <style>
+    @page { margin: 18mm 16mm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: #1a1a1a;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+    h1 { font-size: 22pt; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.1; }
+    h2 { font-size: 14pt; margin: 28px 0 8px; page-break-after: avoid; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+    h3 { font-size: 11pt; margin: 14px 0 6px; page-break-after: avoid; }
+    h4 { font-size: 9.5pt; margin: 10px 0 4px; text-transform: uppercase; letter-spacing: 0.06em; color: #666; }
+    p { margin: 0 0 8px; }
+    .eyebrow { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-bottom: 12px; }
+    .lead { font-size: 11pt; color: #444; }
+    .muted { color: #666; font-size: 9pt; }
+    .index { font-size: 8pt; color: #999; font-weight: 600; letter-spacing: 0.08em; }
+    .section-lead { color: #444; margin-bottom: 12px; }
+    .note { font-size: 9pt; color: #666; background: #f6f6f4; padding: 10px 12px; border-radius: 6px; margin: 12px 0; }
+    ul { margin: 0 0 10px; padding-left: 18px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px 14px;
+      page-break-inside: avoid;
+    }
+    .card--compact { margin-bottom: 8px; }
+    .price { font-size: 14pt; font-weight: 700; margin: 0 0 4px; }
+    .price-note { font-size: 8pt; font-weight: 500; color: #888; }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 9.5pt; }
+    th, td { border: 1px solid #e5e5e5; padding: 8px; vertical-align: top; text-align: left; }
+    th { background: #f8f8f8; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.04em; }
+    .footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid #ddd; font-size: 9pt; color: #666; text-align: center; }
+    .page-break { page-break-before: always; }
+    @media print {
+      body { max-width: none; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Proposta de software</p>
+    <h1>El teu centre, amb el seu propi sistema.</h1>
+    <p class="lead">Una plataforma de gestió de classes dissenyada per adaptar-se al funcionament del teu centre.</p>
+    <p>Consulta la proposta, explora les dues experiències de software i configura les funcionalitats que necessites.</p>
+    <p class="note">Versió PDF de la proposta web <strong>/proposta-centre</strong>. Les demos interactives (app alumnes i dashboard) estan disponibles en línia a la mateixa URL.</p>
+  </header>
+
+  <section>
+    <p class="index">01</p>
+    <h2>Una experiència per a cada perfil</h2>
+    <h3>App per als alumnes</h3>
+    <p>Una manera senzilla de consultar les classes i gestionar les reserves des del mòbil.</p>
+    <p class="muted">Funcionalitats bàsiques del mockup:</p>
+    <ul><li><strong>Horaris:</strong> consulta les activitats programades i les places disponibles.</li><li><strong>Reserves:</strong> reserva una classe o cancel·la una plaça.</li><li><strong>Les meves classes:</strong> consulta les pròximes reserves i l'historial.</li><li><strong>Abonaments:</strong> visualitza el teu pack o membresia i les classes disponibles.</li><li><strong>Perfil:</strong> consulta les teves dades i preferències.</li></ul>
+    <h3>Dashboard per al centre</h3>
+    <p>Un espai de gestió per tenir les classes, els alumnes i les reserves organitzades en un mateix lloc.</p>
+    <p class="muted">Funcionalitats bàsiques del mockup:</p>
+    <ul><li><strong>Resum:</strong> cobraments, indicadors clau, ocupació i classes del dia.</li><li><strong>Calendari:</strong> organitza les activitats per dies i hores.</li><li><strong>Classes:</strong> alumnes per classe, aforament i horaris per activitat.</li><li><strong>Alumnes:</strong> base de dades amb cerca, plans i activitat recent.</li><li><strong>Abonaments:</strong> gestiona els packs i les membresies del centre.</li></ul>
+    <p class="note">Això és només un exemple interactiu. La plataforma es pot configurar segons les necessitats del centre i activant només els components que es vulguin.</p>
+  </section>
+
+  <section class="page-break">
+    <p class="index">02</p>
+    <h2>Configura el teu pressupost</h2>
+    <p class="section-lead">Tres passos per definir software, funcionalitats i manteniment.</p>
+    <h3>Escull el teu software</h3>
+    <p>Tria el punt de partida que millor encaixi amb el teu centre. Pots personalitzar funcionalitats al pas següent.</p>
+    <p class="muted">La publicació a App Store i Google Play no està inclosa en aquests preus de desenvolupament.</p>
+    <div class="grid-3">
+      <article class="card">
+        <p class="price">2.400 € <span class="price-note">implementació</span></p>
+        <h3>Web de reserves</h3>
+        <p class="muted">Termini estimat: 3–5 setmanes</p>
+        <p class="lead">Plataforma al navegador, sense instal·lar cap app.</p>
+        <ul><li>Calendari i reserves en línia</li><li>Dashboard bàsic de gestió</li><li>Alumnes, classes i aforaments</li></ul>
+        <h4>Veure què inclou</h4>
+        <ul class="includes"><li>Web responsive de reserves.</li><li>Calendari de classes.</li><li>Reserves i cancel·lacions.</li><li>Dashboard bàsic de gestió.</li><li>Gestió d’alumnes i instructors.</li><li>Configuració de classes i aforaments.</li></ul>
+      </article>
+      <article class="card">
+        <p class="price">4.500 € <span class="price-note">implementació</span></p>
+        <h3>Web + app</h3>
+        <p class="muted">Termini estimat: 6–9 setmanes</p>
+        <p class="lead">La web de reserves més una app instal·lable per als alumnes.</p>
+        <ul><li>Tot el software web</li><li>App iOS i Android per alumnes</li><li>Experiència mòbil per a l’ús diari</li></ul>
+        <h4>Veure què inclou</h4>
+        <ul class="includes"><li>Tot el software de l’opció Web de reserves.</li><li>App per als alumnes (iOS i Android).</li><li>Experiència mòbil adaptada a l’ús recurrent.</li><li>Publicació a stores disponible com a servei addicional (pas 2).</li></ul>
+      </article>
+      <article class="card">
+        <p class="price">6.200 € <span class="price-note">implementació</span></p>
+        <h3>Plataforma completa</h3>
+        <p class="muted">Termini estimat: 9–14 setmanes</p>
+        <p class="lead">Solució ampliada per centres amb més necessitats de gestió.</p>
+        <ul><li>Web, app i dashboard ampliat</li><li>Abonaments, pagaments i llista d’espera</li><li>Automatitzacions i instructors</li></ul>
+        <h4>Veure què inclou</h4>
+        <ul class="includes"><li>Web de reserves i app per als alumnes.</li><li>Dashboard de gestió ampliat.</li><li>Abonaments i packs.</li><li>Llista d’espera.</li><li>Pagaments online.</li><li>Recordatoris automàtics.</li><li>Gestió avançada d’instructors.</li></ul>
+      </article></div>
+    <p class="note">Els terminis són estimacions de desenvolupament a partir de la validació de l’abast i l’inici del projecte. Poden variar segons les funcionalitats seleccionades, la complexitat de les integracions i el temps necessari per validar les diferents fases del projecte.</p><p class="note">En les opcions amb app, el temps de revisió i aprovació per part d’Apple i Google és extern al desenvolupament i pot ampliar el termini de publicació.</p>
+  </section>
+
+  <section>
+    <h3>Personalitza la proposta</h3>
+    <p>Activa només les funcionalitats addicionals que encara no inclou l’opció escollida.</p>
+    <h3>Experiència dels alumnes</h3><table><thead><tr><th>Funcionalitat</th><th>Preu</th><th>Notes</th></tr></thead><tbody><tr>
+          <td><strong>Abonaments i packs</strong><br/><span class="muted">Gestió de packs de classes i membresies.</span></td>
+          <td>250 €</td>
+          <td>Inclòs (Plataforma completa)</td>
+        </tr><tr>
+          <td><strong>Pagaments online</strong><br/><span class="muted">Integració d'un sistema de pagament perquè els alumnes puguin comprar abonaments o pagar activitats des de la plataforma.</span></td>
+          <td>350 €</td>
+          <td>Inclòs (Plataforma completa)</td>
+        </tr><tr>
+          <td><strong>Llista d'espera</strong><br/><span class="muted">Quan una classe estigui completa, els alumnes podran apuntar-se a una llista d'espera.</span></td>
+          <td>150 €</td>
+          <td>Inclòs (Plataforma completa)</td>
+        </tr></tbody></table><h3>Gestió del centre</h3><table><thead><tr><th>Funcionalitat</th><th>Preu</th><th>Notes</th></tr></thead><tbody><tr>
+          <td><strong>Gestió avançada d'instructors</strong><br/><span class="muted">Permet gestionar diferents instructors, les seves classes assignades i els horaris de cada professional.</span></td>
+          <td>200 €</td>
+          <td>Inclòs (Plataforma completa)</td>
+        </tr><tr>
+          <td><strong>Estadístiques i informes</strong><br/><span class="muted">Consulta dades sobre l'ocupació de les classes, les reserves i l'activitat del centre.</span></td>
+          <td>200 €</td>
+          <td>—</td>
+        </tr></tbody></table><h3>Automatitzacions</h3><table><thead><tr><th>Funcionalitat</th><th>Preu</th><th>Notes</th></tr></thead><tbody><tr>
+          <td><strong>Recordatoris automàtics</strong><br/><span class="muted">Enviament de recordatoris per email abans de les classes reservades.</span></td>
+          <td>150 €</td>
+          <td>Inclòs (Plataforma completa)</td>
+        </tr></tbody></table>
+    <h3>Publicació a App Store i Google Play</h3>
+    <p>Preparació de recursos, fitxes de les apps i enviament a revisió de les stores.</p>
+    <p><strong>450 €</strong> — Només opcions Web + app i Plataforma completa.</p>
+    <p class="muted">El desenvolupament de l’app continua inclòs; sense aquest servei no es prepara ni es publica a les stores.</p>
+  </section>
+
+  <section>
+    <h3>Manteniment</h3>
+    <p>Quota mensual separada de la implementació. Tria la modalitat que prefereixis.</p>
+    <article class="card card--compact">
+      <p class="price">0 €</p>
+      <h3>Sense manteniment</h3>
+      <p>Les intervencions posteriors es pressuposten a part.</p>
+      
+    </article><article class="card card--compact">
+      <p class="price">60 €/mes</p>
+      <h3>Manteniment bàsic</h3>
+      <p>60 €/mes per a la web.</p>
+      <ul><li>Actualitzacions tècniques.</li><li>Còpies de seguretat.</li><li>Incidències menors.</li></ul>
+    </article><article class="card card--compact">
+      <p class="price">120 €/mes</p>
+      <h3>Manteniment web + apps</h3>
+      <p>120 €/mes.</p>
+      <ul><li>Manteniment de web, backend i apps.</li><li>Correcció d’incidències tècniques.</li></ul>
+    </article><article class="card card--compact">
+      <p class="price">180 €/mes</p>
+      <h3>Manteniment ampliat</h3>
+      <p>180 €/mes.</p>
+      <ul><li>Tot el manteniment web + apps.</li><li>Petites millores de funcionalitat.</li><li>Prioritat d’atenció.</li></ul>
+    </article>
+  </section>
+
+  <section>
+    <h3>Tarifes externes de les stores</h3>
+    <ul>
+      <li>Apple Developer: 99 USD/any</li>
+      <li>Google Play: 25 USD (pagament únic)</li>
+    </ul>
+    <p class="muted">Imports dels comptes de desenvolupador; no formen part del servei de Nina Lab. Poden variar segons moneda, impostos i condicions dels proveïdors.</p>
+  </section>
+
+  <section class="page-break">
+    <p class="index">05</p>
+    <h2>Com continuem?</h2>
+    <p>Abans de començar el desenvolupament, farem una sessió de definició per concretar les necessitats del centre i validar l’abast del projecte.</p>
+    <ul><li>Revisarem les funcionalitats seleccionades i les prioritats del centre.</li><li>Definirem els processos de reserva, cancel·lació i gestió de classes.</li><li>Validarem les pantalles i l’experiència dels alumnes i de l’equip del centre.</li><li>Concretarem les integracions necessàries, els terminis i les condicions de pagament.</li></ul>
+    <p>Una vegada validada aquesta informació, prepararem el pressupost definitiu i el calendari de desenvolupament.</p><p>El projecte començarà un cop aprovada la proposta definitiva i acordades les condicions d’inici.</p>
+  </section>
+
+  <footer class="footer">
+    <p>Proposta preparada per Nina Baldó</p>
+    <p>Document generat el 21 d’octubre del 2026</p>
+  </footer>
+</body>
+</html>
