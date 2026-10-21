@@ -58,6 +58,41 @@ function PlanTimelineBadge({
   )
 }
 
+function ConfiguratorStepNav({
+  backLabel,
+  changePlanLabel,
+  onBack,
+  onChangePlan,
+  showChangePlan,
+}: {
+  backLabel: string
+  changePlanLabel: string
+  onBack: () => void
+  onChangePlan: () => void
+  showChangePlan: boolean
+}) {
+  return (
+    <div className="cp-config__step-nav" role="navigation" aria-label={backLabel}>
+      <button
+        type="button"
+        className="centre-proposal__button centre-proposal__button--ghost cp-config__nav-btn"
+        onClick={onBack}
+      >
+        ← {backLabel}
+      </button>
+      {showChangePlan ? (
+        <button
+          type="button"
+          className="centre-proposal__button centre-proposal__button--ghost cp-config__nav-btn cp-config__nav-btn--accent"
+          onClick={onChangePlan}
+        >
+          {changePlanLabel}
+        </button>
+      ) : null}
+    </div>
+  )
+}
+
 export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy }) {
   const { language } = useSiteLanguage()
   const cfg = copy.configurator
@@ -216,9 +251,17 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
           {step === 2 ? (
             <div className="cp-config__step" key="step-2">
               <div className="cp-config__step-head">
-                <button type="button" className="cp-config__back" onClick={() => setStep(1)}>
-                  ← {cfg.nav.back}
-                </button>
+                <ConfiguratorStepNav
+                  backLabel={cfg.nav.back}
+                  changePlanLabel={cfg.step1.changePlan}
+                  onBack={() => setStep(1)}
+                  onChangePlan={() => setStep(1)}
+                  showChangePlan
+                />
+                <p className="cp-config__current-plan">
+                  <span className="cp-config__current-plan-label">{cfg.summary.software}</span>
+                  <span className="cp-config__current-plan-name">{cfg.software[softwareId].title}</span>
+                </p>
                 <h3 className="cp-config__step-title">{cfg.step2.title}</h3>
                 <p className="cp-config__step-lead">{cfg.step2.lead}</p>
                 <p className="cp-config__plan-timeline">
@@ -226,9 +269,6 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
                     label={cfg.step1.timelineLabel}
                     timeline={cfg.software[softwareId].timeline}
                   />
-                  <button type="button" className="cp-config__change-plan" onClick={() => setStep(1)}>
-                    {cfg.step1.changePlan}
-                  </button>
                 </p>
               </div>
 
@@ -310,9 +350,17 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
           {step === 3 ? (
             <div className="cp-config__step" key="step-3">
               <div className="cp-config__step-head">
-                <button type="button" className="cp-config__back" onClick={() => setStep(2)}>
-                  ← {cfg.nav.back}
-                </button>
+                <ConfiguratorStepNav
+                  backLabel={cfg.nav.back}
+                  changePlanLabel={cfg.step1.changePlan}
+                  onBack={() => setStep(2)}
+                  onChangePlan={() => setStep(1)}
+                  showChangePlan
+                />
+                <p className="cp-config__current-plan">
+                  <span className="cp-config__current-plan-label">{cfg.summary.software}</span>
+                  <span className="cp-config__current-plan-name">{cfg.software[softwareId].title}</span>
+                </p>
                 <h3 className="cp-config__step-title">{cfg.step3.title}</h3>
                 <p className="cp-config__step-lead">{cfg.step3.lead}</p>
                 <p className="cp-config__plan-timeline">
@@ -320,9 +368,6 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
                     label={cfg.step1.timelineLabel}
                     timeline={cfg.software[softwareId].timeline}
                   />
-                  <button type="button" className="cp-config__change-plan" onClick={() => setStep(1)}>
-                    {cfg.step1.changePlan}
-                  </button>
                 </p>
               </div>
 
