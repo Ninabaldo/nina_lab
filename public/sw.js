@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nina-lab-v76'
+const CACHE_NAME = 'nina-lab-v77'
 const PRECACHE_URLS = ['/', '/breathe', '/manifest.webmanifest', '/favicon.png', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png']
 
 self.addEventListener('install', (event) => {
@@ -21,12 +21,16 @@ function isProjectPreviewRequest(url) {
   return url.pathname.startsWith('/api/') && url.pathname.endsWith('-preview')
 }
 
+function isBirthdayInviteRequest(url) {
+  return url.pathname === '/ninas-31' || url.pathname.startsWith('/ninas-31/')
+}
+
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return
 
   const requestUrl = new URL(event.request.url)
 
-  if (isProjectPreviewRequest(requestUrl)) {
+  if (isProjectPreviewRequest(requestUrl) || isBirthdayInviteRequest(requestUrl)) {
     event.respondWith(fetch(event.request))
     return
   }
