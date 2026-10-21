@@ -9,7 +9,7 @@
   },
   "rewrites": [
     {
-      "source": "/((?!api/).*)",
+      "source": "/((?!api/|ninas-31).*)",
       "destination": "/index.html"
     }
   ]

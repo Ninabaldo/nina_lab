@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nina-lab-v70'
+const CACHE_NAME = 'nina-lab-v71'
 const PRECACHE_URLS = ['/', '/breathe', '/manifest.webmanifest', '/favicon.png', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png']
 
 self.addEventListener('install', (event) => {
