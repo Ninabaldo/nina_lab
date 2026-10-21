@@ -254,7 +254,10 @@
               Dissabte, si t'apuntes, tindrem en compte el <strong class="text-ink font-medium">dinar o el sopar</strong> sobre
               la marxa.
             </p>
-            <p class="mt-4 text-sm text-ink-muted/90 max-w-md mx-auto lg:mx-0">Masia a l'Empordà</p>
+            <p class="mt-4 text-sm text-ink-muted/90 max-w-md mx-auto lg:mx-0 leading-relaxed">
+              Masia a l'Empordà · <strong class="text-ink font-medium">10 places</strong> per dormir i algun sofà extra si
+              cal.
+            </p>
           </header>
 
           <!-- POSAR AQUÍ FOTOS REALS DE LA MASIA: edita MASIA_PHOTOS al final del fitxer -->
@@ -413,7 +416,30 @@
                 </div>
 
                 <fieldset>
+                  <legend class="block text-sm font-medium text-ink mb-1">+1</legend>
+                  <p class="text-xs text-ink-muted mb-2.5">Pots portar algú</p>
+                  <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
+                    <input type="checkbox" id="porto-plus-one" name="porto_plus_one" value="si" />
+                    <span class="text-sm">Vindré amb algú</span>
+                  </label>
+                  <div id="plus-one-wrap" class="mt-2 hidden">
+                    <label for="plus_one_nom" class="block text-sm font-medium text-ink mb-1.5">Nom de la teva companyia</label>
+                    <input
+                      type="text"
+                      id="plus_one_nom"
+                      name="plus_one_nom"
+                      autocomplete="off"
+                      placeholder="Nom i cognom"
+                      class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-ink-muted text-base"
+                    />
+                  </div>
+                </fieldset>
+
+                <fieldset>
                   <legend class="block text-sm font-medium text-ink mb-2">Quins dies et quedes a dormir?</legend>
+                  <p class="text-xs text-ink-muted mb-2.5 -mt-1">
+                    A la masia hi ha 10 places per dormir i algun sofà disponible.
+                  </p>
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="checkbox" name="dormir" value="divendres" />
@@ -617,6 +643,9 @@
         var closeBtn = document.getElementById('close-modal')
         var submitBtn = document.getElementById('submit-btn')
         var dormirNo = document.getElementById('dormir-no')
+        var portoPlusOne = document.getElementById('porto-plus-one')
+        var plusOneWrap = document.getElementById('plus-one-wrap')
+        var plusOneNom = document.getElementById('plus_one_nom')
 
         if ('IntersectionObserver' in window) {
           var io = new IntersectionObserver(
@@ -679,6 +708,17 @@
           document.body.style.overflow = ''
         }
 
+        portoPlusOne.addEventListener('change', function () {
+          if (portoPlusOne.checked) {
+            plusOneWrap.classList.remove('hidden')
+            plusOneNom.focus()
+          } else {
+            plusOneWrap.classList.add('hidden')
+            plusOneNom.value = ''
+            plusOneNom.classList.remove('ring-1', 'ring-ink-muted')
+          }
+        })
+
         dormirNo.addEventListener('change', function () {
           if (dormirNo.checked) {
             form.querySelectorAll('input[name="dormir"]').forEach(function (input) {
@@ -704,8 +744,21 @@
           }
           form.nom.classList.remove('ring-1', 'ring-ink-muted')
 
+          if (portoPlusOne.checked) {
+            var companyia = plusOneNom.value.trim()
+            if (!companyia) {
+              plusOneNom.focus()
+              plusOneNom.classList.add('ring-1', 'ring-ink-muted')
+              return
+            }
+            plusOneNom.classList.remove('ring-1', 'ring-ink-muted')
+          }
+
           console.log("[RSVP Nina's 31]", {
             nom: nom,
+            plusOne: portoPlusOne.checked
+              ? { si: true, nom: plusOneNom.value.trim() }
+              : { si: false, nom: '—' },
             dormir: labelDormir(getChecked('dormir')),
             activitats: labelActivitats(getChecked('activitats')),
             intolerancies: form.intolerancies.value.trim() || '—',
@@ -720,6 +773,7 @@
             submitBtn.textContent = 'Enviar confirmació'
             openModal(nom.split(' ')[0])
             form.reset()
+            plusOneWrap.classList.add('hidden')
           }, 550)
         })
 
