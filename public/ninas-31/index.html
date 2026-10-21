@@ -398,10 +398,11 @@
             <div class="surface-solid rounded-md shadow-soft p-5 sm:p-7 border-linen-line">
               <h2 id="rsvp-heading" class="text-xl sm:text-2xl font-semibold text-ink">Confirma assistència</h2>
               <p class="text-sm text-ink-muted mt-2 mb-6">
-                Omple el formulari. Rebré la teva resposta i et confirmaré per email.
+                Omple el formulari per confirmar. Uns dies abans obriré un grup de WhatsApp per acabar de quadrar tot.
               </p>
 
               <form id="rsvp-form" class="space-y-5 sm:space-y-6" novalidate>
+                <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
                 <div>
                   <label for="nom" class="block text-sm font-medium text-ink mb-1.5">Nom</label>
                   <input
@@ -505,7 +506,7 @@
                   Enviar confirmació
                 </button>
                 <p class="text-xs text-center text-ink-muted/70">
-                  Confirmació per email ·
+                  Problemes amb l'enviament?
                   <a href="mailto:holaninabaldo@gmail.com" class="text-ink underline underline-offset-2"
                     >holaninabaldo@gmail.com</a
                   >
@@ -532,7 +533,10 @@
         class="modal-panel w-full sm:max-w-sm surface-solid p-6 sm:p-7 shadow-soft border-linen-line pb-[calc(1.5rem+var(--safe-bottom))] sm:pb-7 text-center"
       >
         <h2 id="thanks-title" class="text-xl sm:text-2xl font-semibold text-ink">Gràcies per confirmar</h2>
-        <p id="thanks-message" class="mt-3 text-sm text-ink-muted leading-relaxed"></p>
+        <p id="thanks-message" class="mt-3 text-sm text-ink-muted leading-relaxed">
+          Gràcies per la info. Parlem aviat: faré un grup de WhatsApp uns dies abans per acabar de quadrar tot. Fins
+          l'EMPORDÀ.
+        </p>
         <button
           type="button"
           id="close-modal"
@@ -698,7 +702,7 @@
           document.body.style.overflow = 'hidden'
           thanksMessage.textContent =
             (nom ? nom + ', ' : '') +
-            "gràcies! He rebut la teva resposta i et confirmaré aviat per email. Fins l'Empordà."
+            "gràcies per la info, parlem aviat: faré un grup de WhatsApp uns dies abans per acabar de quadrar tot. Fins l'EMPORDÀ."
           closeBtn.focus()
         }
 
@@ -754,27 +758,36 @@
             plusOneNom.classList.remove('ring-1', 'ring-ink-muted')
           }
 
-          console.log("[RSVP Nina's 31]", {
-            nom: nom,
-            plusOne: portoPlusOne.checked
-              ? { si: true, nom: plusOneNom.value.trim() }
-              : { si: false, nom: '—' },
-            dormir: labelDormir(getChecked('dormir')),
-            activitats: labelActivitats(getChecked('activitats')),
-            intolerancies: form.intolerancies.value.trim() || '—',
-            alcohol: form.alcohol.value.trim() || '—',
-            enviat: new Date().toISOString(),
-          })
+          var dormirLabels = labelDormir(getChecked('dormir'))
+          var activitatsLabels = labelActivitats(getChecked('activitats'))
+          var payload = {
+            _subject: "RSVP Nina's 31 — " + nom,
+            _template: 'table',
+            _captcha: 'false',
+            Nom: nom,
+            '+1': portoPlusOne.checked ? plusOneNom.value.trim() : 'No',
+            Dormir: dormirLabels.length ? dormirLabels.join(', ') : '—',
+            Activitats: activitatsLabels.length ? activitatsLabels.join(', ') : '—',
+            'Intoleràncies / al·lèrgies': form.intolerancies.value.trim() || '—',
+            'Preferències alcohol': form.alcohol.value.trim() || '—',
+          }
 
           submitBtn.disabled = true
           submitBtn.textContent = 'Enviant…'
-          setTimeout(function () {
-            submitBtn.disabled = false
-            submitBtn.textContent = 'Enviar confirmació'
-            openModal(nom.split(' ')[0])
-            form.reset()
-            plusOneWrap.classList.add('hidden')
-          }, 550)
+
+          openModal(nom.split(' ')[0])
+          form.reset()
+          plusOneWrap.classList.add('hidden')
+          submitBtn.disabled = false
+          submitBtn.textContent = 'Enviar confirmació'
+
+          fetch('https://formsubmit.co/ajax/holaninabaldo@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(payload),
+          }).catch(function () {
+            console.warn("[RSVP Nina's 31] No s'ha pogut enviar per email; resposta guardada a consola.", payload)
+          })
         })
 
         closeBtn.addEventListener('click', closeModal)
