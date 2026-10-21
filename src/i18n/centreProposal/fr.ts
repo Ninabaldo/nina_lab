@@ -39,6 +39,10 @@ const fr: CentreProposalCopy = {
         { label: 'Résumé', text: 'réservations et cours du jour.' },
         { label: 'Calendrier', text: 'activités par jour et heure.' },
         { label: 'Cours', text: 'créer des activités, assigner les instructeurs, définir la capacité.' },
+        {
+          label: 'Personnel (coaches)',
+          text: 'gérer l’équipe, les affectations aux cours et la disponibilité des coaches.',
+        },
         { label: 'Élèves', text: 'profils et leurs réservations.' },
         { label: 'Abonnements', text: 'forfaits et adhésions du centre.' },
       ],

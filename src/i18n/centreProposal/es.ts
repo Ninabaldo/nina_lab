@@ -39,6 +39,10 @@ const es: CentreProposalCopy = {
         { label: 'Resumen', text: 'consulta reservas y clases del día.' },
         { label: 'Calendario', text: 'organiza actividades por días y horas.' },
         { label: 'Clases', text: 'crea actividades, asigna instructores y define aforos.' },
+        {
+          label: 'Personal (coaches)',
+          text: 'gestiona el equipo, asignaciones a clases y disponibilidad de los coaches.',
+        },
         { label: 'Alumnos', text: 'consulta perfiles y sus reservas.' },
         { label: 'Abonos', text: 'gestiona packs y membresías del centro.' },
       ],

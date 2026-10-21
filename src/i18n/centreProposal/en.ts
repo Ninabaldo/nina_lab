@@ -37,6 +37,10 @@ const en: CentreProposalCopy = {
         { label: 'Overview', text: "today's bookings and classes." },
         { label: 'Calendar', text: 'activities by day and time.' },
         { label: 'Classes', text: 'create sessions, assign instructors, set capacity.' },
+        {
+          label: 'Staff (coaches)',
+          text: 'manage the team, class assignments, and coach availability.',
+        },
         { label: 'Students', text: 'profiles and their bookings.' },
         { label: 'Passes', text: 'manage packs and memberships.' },
       ],

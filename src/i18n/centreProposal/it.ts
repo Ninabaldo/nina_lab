@@ -39,6 +39,10 @@ const it: CentreProposalCopy = {
         { label: 'Riepilogo', text: 'consulta prenotazioni e corsi del giorno.' },
         { label: 'Calendario', text: 'organizza attività per giorni e ore.' },
         { label: 'Corsi', text: 'crea attività, assegna istruttori e definisci capienze.' },
+        {
+          label: 'Personale (coaches)',
+          text: 'gestisce il team, le assegnazioni ai corsi e la disponibilità dei coach.',
+        },
         { label: 'Allievi', text: 'consulta profili e prenotazioni.' },
         { label: 'Abbonamenti', text: 'gestisci pacchetti e membership del centro.' },
       ],

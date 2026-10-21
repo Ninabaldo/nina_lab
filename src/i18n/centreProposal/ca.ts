@@ -40,6 +40,10 @@ const ca: CentreProposalCopy = {
         { label: 'Resum', text: 'cobraments, indicadors clau, ocupació i classes del dia.' },
         { label: 'Calendari', text: 'organitza les activitats per dies i hores.' },
         { label: 'Classes', text: 'alumnes per classe, aforament i horaris per activitat.' },
+        {
+          label: 'Personal (coaches)',
+          text: 'gestiona l’equip, assignacions a classes i disponibilitat dels coaches.',
+        },
         { label: 'Alumnes', text: 'base de dades amb cerca, plans i activitat recent.' },
         { label: 'Abonaments', text: 'gestiona els packs i les membresies del centre.' },
       ],
