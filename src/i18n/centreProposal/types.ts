@@ -76,6 +76,9 @@ export interface CentreProposalConfiguratorCopy {
     copied: string
     editCta: string
     copyError: string
+    downloadPdfCta: string
+    downloadPdfBusy: string
+    downloadPdfError: string
   }
 }
 

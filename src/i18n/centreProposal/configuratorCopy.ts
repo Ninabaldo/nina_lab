@@ -140,7 +140,7 @@ export const configuratorCa: CentreProposalConfiguratorCopy = {
     storeFeesGoogle: 'Google Play: 25 USD (pagament únic)',
     storeFeesNote:
       'Imports dels comptes de desenvolupador; no formen part del servei de Nina Lab. Poden variar segons moneda, impostos i condicions dels proveïdors.',
-    mobileCta: 'Veure proposta',
+    mobileCta: 'Descarregar PDF',
   },
   proposal: {
     title: 'El teu software, configurat per al teu centre.',
@@ -150,6 +150,9 @@ export const configuratorCa: CentreProposalConfiguratorCopy = {
     copied: 'Copiat',
     editCta: 'Modificar configuració',
     copyError: 'No s’ha pogut copiar. Selecciona el text manualment.',
+    downloadPdfCta: 'Descarregar PDF',
+    downloadPdfBusy: 'Generant PDF…',
+    downloadPdfError: 'No s’ha pogut generar el PDF. Torna-ho a provar.',
   },
 }
 
@@ -271,7 +274,7 @@ export const configuratorEn: CentreProposalConfiguratorCopy = {
     storeFeesGoogle: 'Google Play: USD 25 one-time',
     storeFeesNote:
       'Developer account fees; not part of Nina Lab’s service. May vary by currency, tax, and provider terms.',
-    mobileCta: 'View proposal',
+    mobileCta: 'Download PDF',
   },
   proposal: {
     title: 'Your software, configured for your centre.',
@@ -281,6 +284,9 @@ export const configuratorEn: CentreProposalConfiguratorCopy = {
     copied: 'Copied',
     editCta: 'Edit configuration',
     copyError: 'Could not copy. Please select the text manually.',
+    downloadPdfCta: 'Download PDF',
+    downloadPdfBusy: 'Generating PDF…',
+    downloadPdfError: 'Could not generate the PDF. Please try again.',
   },
 }
 
@@ -374,7 +380,7 @@ export const configuratorEs: CentreProposalConfiguratorCopy = {
     storeFeesTitle: 'Tarifas externas de las stores',
     storeFeesNote:
       'Cuentas de desarrollador; no forman parte del servicio. Pueden variar según moneda e impuestos.',
-    mobileCta: 'Ver propuesta',
+    mobileCta: 'Descargar PDF',
   },
   proposal: {
     title: 'Tu software, configurado para tu centro.',
@@ -384,6 +390,9 @@ export const configuratorEs: CentreProposalConfiguratorCopy = {
     copied: 'Copiado',
     editCta: 'Modificar configuración',
     copyError: 'No se pudo copiar. Selecciona el texto manualmente.',
+    downloadPdfCta: 'Descargar PDF',
+    downloadPdfBusy: 'Generando PDF…',
+    downloadPdfError: 'No se pudo generar el PDF. Inténtalo de nuevo.',
   },
 }
 
@@ -477,7 +486,7 @@ export const configuratorFr: CentreProposalConfiguratorCopy = {
     storeFeesTitle: 'Frais externes des stores',
     storeFeesNote:
       'Comptes développeur ; hors prestation Nina Lab. Variables selon devise et taxes.',
-    mobileCta: 'Voir la proposition',
+    mobileCta: 'Télécharger le PDF',
   },
   proposal: {
     title: 'Votre logiciel, configuré pour votre centre.',
@@ -487,6 +496,9 @@ export const configuratorFr: CentreProposalConfiguratorCopy = {
     copied: 'Copié',
     editCta: 'Modifier la configuration',
     copyError: 'Copie impossible. Sélectionnez le texte manuellement.',
+    downloadPdfCta: 'Télécharger le PDF',
+    downloadPdfBusy: 'Génération du PDF…',
+    downloadPdfError: 'Impossible de générer le PDF. Réessayez.',
   },
 }
 
@@ -580,7 +592,7 @@ export const configuratorIt: CentreProposalConfiguratorCopy = {
     storeFeesTitle: 'Tariffe esterne store',
     storeFeesNote:
       'Account sviluppatore; non parte del servizio Nina Lab. Possono variare per valuta e tasse.',
-    mobileCta: 'Vedi proposta',
+    mobileCta: 'Scarica PDF',
   },
   proposal: {
     title: 'Il tuo software, configurato per il tuo centro.',
@@ -590,5 +602,8 @@ export const configuratorIt: CentreProposalConfiguratorCopy = {
     copied: 'Copiato',
     editCta: 'Modifica configurazione',
     copyError: 'Impossibile copiare. Seleziona il testo manualmente.',
+    downloadPdfCta: 'Scarica PDF',
+    downloadPdfBusy: 'Generazione PDF…',
+    downloadPdfError: 'Impossibile generare il PDF. Riprova.',
   },
 }

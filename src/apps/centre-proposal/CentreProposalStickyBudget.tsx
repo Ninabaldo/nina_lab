@@ -7,11 +7,17 @@ import './CentreProposalApp.css'
 interface CentreProposalStickyBudgetProps {
   implementationTotal: number
   pulseKey: number
+  onDownloadPdf: () => void
+  downloadLabel: string
+  downloadBusy?: boolean
 }
 
 export function CentreProposalStickyBudget({
   implementationTotal,
   pulseKey,
+  onDownloadPdf,
+  downloadLabel,
+  downloadBusy = false,
 }: CentreProposalStickyBudgetProps) {
   const copy = useCentreProposalCopy()
   const { language } = useSiteLanguage()
@@ -55,11 +61,10 @@ export function CentreProposalStickyBudget({
         <button
           type="button"
           className="centre-proposal__sticky-cta"
-          onClick={() =>
-            document.getElementById('proposta')?.scrollIntoView({ behavior: 'smooth' })
-          }
+          disabled={downloadBusy}
+          onClick={onDownloadPdf}
         >
-          {copy.configurator.summary.mobileCta}
+          {downloadLabel}
         </button>
       </div>
     </div>

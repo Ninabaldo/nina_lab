@@ -3,6 +3,7 @@ import type { CentreProposalCopy } from '../../i18n/centreProposal/types'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { CentreProposalBudgetSummary } from './CentreProposalBudgetSummary'
 import { CentreProposalStickyBudget } from './CentreProposalStickyBudget'
+import { downloadConfiguratorProposalPdf } from './downloadConfiguratorProposalPdf'
 import {
   ADDON_GROUPS,
   ADDON_PRICES_EUR,
@@ -106,6 +107,7 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
   const [includesModal, setIncludesModal] = useState<SoftwareId | null>(null)
   const [proposalOpen, setProposalOpen] = useState(false)
   const [copyState, setCopyState] = useState<'idle' | 'ok' | 'err'>('idle')
+  const [pdfState, setPdfState] = useState<'idle' | 'busy' | 'err'>('idle')
   const [pulseKey, setPulseKey] = useState(0)
 
   const implementationTotal = useMemo(
@@ -158,9 +160,38 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
     document.getElementById('proposta')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  const downloadPdf = async () => {
+    if (pdfState === 'busy') return
+    setPdfState('busy')
+    try {
+      await downloadConfiguratorProposalPdf({
+        copy,
+        language,
+        softwareId,
+        selectedAddons,
+        storePublishing,
+        maintenanceId,
+      })
+      setPdfState('idle')
+    } catch {
+      setPdfState('err')
+    }
+  }
+
+  const pdfButtonLabel =
+    pdfState === 'busy'
+      ? cfg.proposal.downloadPdfBusy
+      : cfg.summary.mobileCta
+
   return (
     <div className="cp-config">
-      <CentreProposalStickyBudget implementationTotal={implementationTotal} pulseKey={pulseKey} />
+      <CentreProposalStickyBudget
+        implementationTotal={implementationTotal}
+        pulseKey={pulseKey}
+        onDownloadPdf={() => void downloadPdf()}
+        downloadLabel={pdfButtonLabel}
+        downloadBusy={pdfState === 'busy'}
+      />
       <ol className="cp-config__progress" aria-label={copy.section02.title}>
         {(
           [
@@ -445,9 +476,10 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
         <button
           type="button"
           className="centre-proposal__sticky-cta"
-          onClick={openProposal}
+          disabled={pdfState === 'busy'}
+          onClick={() => void downloadPdf()}
         >
-          {cfg.summary.mobileCta}
+          {pdfButtonLabel}
         </button>
       </div>
 
@@ -511,6 +543,14 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
           <button
             type="button"
             className="centre-proposal__button centre-proposal__button--primary"
+            disabled={pdfState === 'busy'}
+            onClick={() => void downloadPdf()}
+          >
+            {pdfState === 'busy' ? cfg.proposal.downloadPdfBusy : cfg.proposal.downloadPdfCta}
+          </button>
+          <button
+            type="button"
+            className="centre-proposal__button centre-proposal__button--ghost"
             onClick={() => void copyProposal()}
           >
             {copyState === 'ok' ? cfg.proposal.copied : cfg.proposal.copyCta}
@@ -530,6 +570,11 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
         {copyState === 'err' ? (
           <p className="cp-proposal__error" role="alert">
             {cfg.proposal.copyError}
+          </p>
+        ) : null}
+        {pdfState === 'err' ? (
+          <p className="cp-proposal__error" role="alert">
+            {cfg.proposal.downloadPdfError}
           </p>
         ) : null}
       </section>
