@@ -1,6 +1,7 @@
 import { CentreDemoSyncBanner } from './CentreDemoSyncBanner'
 import { CentreDemoProvider } from './centreDemoContext'
 import { CentreProposalConfigurator } from './CentreProposalConfigurator'
+import { CentreProposalTimelinesOverview } from './CentreProposalTimelinesOverview'
 import { DashboardMockup } from './DashboardMockup'
 import { StudentAppMockup } from './StudentAppMockup'
 import { useCentreProposalCopy } from './useCentreProposalCopy'
@@ -138,6 +139,7 @@ export function CentreProposalApp() {
           </h2>
           <p className="centre-proposal__section-lead">{copy.section02.lead}</p>
 
+          <CentreProposalTimelinesOverview copy={copy} />
           <CentreProposalConfigurator copy={copy} />
         </section>
 

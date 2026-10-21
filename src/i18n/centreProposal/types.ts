@@ -13,6 +13,8 @@ export interface CentreProposalConfiguratorCopy {
     lead: string
     priceNote: string
     timelineLabel: string
+    timelinesHeading: string
+    changePlan: string
     seeIncludes: string
     closeIncludes: string
     storeExcludedNote: string

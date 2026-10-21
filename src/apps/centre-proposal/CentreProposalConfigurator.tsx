@@ -42,6 +42,22 @@ const PER_MONTH: Record<string, string> = {
   it: '/mese',
 }
 
+function PlanTimelineBadge({
+  label,
+  timeline,
+  className,
+}: {
+  label: string
+  timeline: string
+  className?: string
+}) {
+  return (
+    <span className={`cp-timeline-badge${className ? ` ${className}` : ''}`}>
+      {label} {timeline}
+    </span>
+  )
+}
+
 export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy }) {
   const { language } = useSiteLanguage()
   const cfg = copy.configurator
@@ -155,9 +171,11 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
                           <span className="cp-soft-card__price-note">{cfg.step1.priceNote}</span>
                         </span>
                         <span className="cp-soft-card__title">{pack.title}</span>
-                        <span className="cp-soft-card__timeline">
-                          {cfg.step1.timelineLabel} {pack.timeline}
-                        </span>
+                        <PlanTimelineBadge
+                          className="cp-soft-card__timeline"
+                          label={cfg.step1.timelineLabel}
+                          timeline={pack.timeline}
+                        />
                         <span className="cp-soft-card__tagline">{pack.tagline}</span>
                         <ul className="cp-soft-card__highlights">
                           {pack.highlights.map((h) => (
@@ -203,6 +221,15 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
                 </button>
                 <h3 className="cp-config__step-title">{cfg.step2.title}</h3>
                 <p className="cp-config__step-lead">{cfg.step2.lead}</p>
+                <p className="cp-config__plan-timeline">
+                  <PlanTimelineBadge
+                    label={cfg.step1.timelineLabel}
+                    timeline={cfg.software[softwareId].timeline}
+                  />
+                  <button type="button" className="cp-config__change-plan" onClick={() => setStep(1)}>
+                    {cfg.step1.changePlan}
+                  </button>
+                </p>
               </div>
 
               {ADDON_GROUPS.map((group) => (
@@ -288,6 +315,15 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
                 </button>
                 <h3 className="cp-config__step-title">{cfg.step3.title}</h3>
                 <p className="cp-config__step-lead">{cfg.step3.lead}</p>
+                <p className="cp-config__plan-timeline">
+                  <PlanTimelineBadge
+                    label={cfg.step1.timelineLabel}
+                    timeline={cfg.software[softwareId].timeline}
+                  />
+                  <button type="button" className="cp-config__change-plan" onClick={() => setStep(1)}>
+                    {cfg.step1.changePlan}
+                  </button>
+                </p>
               </div>
 
               <ul className="cp-maint-grid" role="radiogroup" aria-label={copy.section03.maintenanceGroupLabel}>
@@ -352,10 +388,15 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
       </div>
 
       <div className="cp-config__mobile-bar" aria-hidden={false}>
-        <p className="cp-config__mobile-total">
-          <span>{cfg.summary.implementation}</span>
-          <strong key={pulseKey}>{formatEuro(implementationTotal, language)}</strong>
-        </p>
+        <div className="cp-config__mobile-bar-main">
+          <p className="cp-config__mobile-total">
+            <span>{cfg.summary.implementation}</span>
+            <strong key={pulseKey}>{formatEuro(implementationTotal, language)}</strong>
+          </p>
+          <p className="cp-config__mobile-timeline">
+            {cfg.step1.timelineLabel} {cfg.software[softwareId].timeline}
+          </p>
+        </div>
         <button
           type="button"
           className="centre-proposal__sticky-cta"

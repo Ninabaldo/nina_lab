@@ -23,6 +23,12 @@
     .eyebrow { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-bottom: 12px; }
     .lead { font-size: 11pt; color: #444; }
     .muted { color: #666; font-size: 9pt; }
+    .timeline-badge { display: inline-block; font-size: 9.5pt; font-weight: 700; color: #1a3d2e; background: #e8f0eb; border: 1px solid #b8d4c4; border-radius: 999px; padding: 3px 10px; margin: 4px 0 8px; }
+    .timeline-overview { background: #f0f6f2; border: 1px solid #b8d4c4; border-radius: 8px; padding: 12px 14px; margin: 0 0 16px; page-break-inside: avoid; }
+    .timeline-overview ul { list-style: none; padding: 0; margin: 0; }
+    .timeline-overview li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 6px 0; border-bottom: 1px solid #d8e8de; }
+    .timeline-overview li:last-child { border-bottom: none; }
+    .timeline-overview li strong { font-size: 10pt; }
     .index { font-size: 8pt; color: #999; font-weight: 600; letter-spacing: 0.08em; }
     .section-lead { color: #444; margin-bottom: 12px; }
     .note { font-size: 9pt; color: #666; background: #f6f6f4; padding: 10px 12px; border-radius: 6px; margin: 12px 0; }
@@ -75,6 +81,12 @@
     <p class="index">02</p>
     <h2>Configura el teu pressupost</h2>
     <p class="section-lead">Tres passos per definir software, funcionalitats i manteniment.</p>
+    <div class="timeline-overview">
+      <h3>Terminis estimats de desenvolupament</h3>
+      <ul>
+        <li><strong>Web de reserves</strong><span class="timeline-badge">3–5 setmanes</span></li><li><strong>Web + app</strong><span class="timeline-badge">6–9 setmanes</span></li><li><strong>Plataforma completa</strong><span class="timeline-badge">9–14 setmanes</span></li>
+      </ul>
+    </div>
     <h3>Escull el teu software</h3>
     <p>Tria el punt de partida que millor encaixi amb el teu centre. Pots personalitzar funcionalitats al pas següent.</p>
     <p class="muted">La publicació a App Store i Google Play no està inclosa en aquests preus de desenvolupament.</p>
@@ -82,7 +94,7 @@
       <article class="card">
         <p class="price">2.400 € <span class="price-note">implementació</span></p>
         <h3>Web de reserves</h3>
-        <p class="muted">Termini estimat: 3–5 setmanes</p>
+        <p class="timeline-badge">Termini estimat: 3–5 setmanes</p>
         <p class="lead">Plataforma al navegador, sense instal·lar cap app.</p>
         <ul><li>Calendari i reserves en línia</li><li>Dashboard bàsic de gestió</li><li>Alumnes, classes i aforaments</li></ul>
         <h4>Veure què inclou</h4>
@@ -91,7 +103,7 @@
       <article class="card">
         <p class="price">4.500 € <span class="price-note">implementació</span></p>
         <h3>Web + app</h3>
-        <p class="muted">Termini estimat: 6–9 setmanes</p>
+        <p class="timeline-badge">Termini estimat: 6–9 setmanes</p>
         <p class="lead">La web de reserves més una app instal·lable per als alumnes.</p>
         <ul><li>Tot el software web</li><li>App iOS i Android per alumnes</li><li>Experiència mòbil per a l’ús diari</li></ul>
         <h4>Veure què inclou</h4>
@@ -100,7 +112,7 @@
       <article class="card">
         <p class="price">6.200 € <span class="price-note">implementació</span></p>
         <h3>Plataforma completa</h3>
-        <p class="muted">Termini estimat: 9–14 setmanes</p>
+        <p class="timeline-badge">Termini estimat: 9–14 setmanes</p>
         <p class="lead">Solució ampliada per centres amb més necessitats de gestió.</p>
         <ul><li>Web, app i dashboard ampliat</li><li>Abonaments, pagaments i llista d’espera</li><li>Automatitzacions i instructors</li></ul>
         <h4>Veure què inclou</h4>

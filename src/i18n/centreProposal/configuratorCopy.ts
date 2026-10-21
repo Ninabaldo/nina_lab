@@ -34,6 +34,8 @@ export const configuratorCa: CentreProposalConfiguratorCopy = {
     lead: 'Tria el punt de partida que millor encaixi amb el teu centre. Pots personalitzar funcionalitats al pas següent.',
     priceNote: 'implementació',
     timelineLabel: 'Termini estimat:',
+    timelinesHeading: 'Terminis estimats de desenvolupament',
+    changePlan: 'Canviar pla',
     seeIncludes: 'Veure què inclou',
     closeIncludes: 'Tancar',
     storeExcludedNote:
@@ -159,6 +161,8 @@ export const configuratorEn: CentreProposalConfiguratorCopy = {
     lead: 'Pick the starting point that fits your centre. You can customize features in the next step.',
     priceNote: 'implementation',
     timelineLabel: 'Estimated timeline:',
+    timelinesHeading: 'Estimated development timelines',
+    changePlan: 'Change plan',
     seeIncludes: 'See what’s included',
     closeIncludes: 'Close',
     storeExcludedNote:

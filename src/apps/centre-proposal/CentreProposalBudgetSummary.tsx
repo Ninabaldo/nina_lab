@@ -78,6 +78,12 @@ export function CentreProposalBudgetSummary({
           <dt>{cfg.summary.software}</dt>
           <dd>{software.title}</dd>
         </div>
+        <div className="cp-budget__line cp-budget__line--timeline">
+          <dt>{cfg.step1.timelineLabel.replace(/:$/, '')}</dt>
+          <dd>
+            <span className="cp-timeline-badge cp-timeline-badge--compact">{software.timeline}</span>
+          </dd>
+        </div>
         <div className="cp-budget__line">
           <dt>{cfg.summary.addons}</dt>
           <dd>

@@ -48,7 +48,7 @@ function buildHtml(): string {
       <article class="card">
         <p class="price">${eur(SOFTWARE_PRICES_EUR[id])} <span class="price-note">${esc(cfg.step1.priceNote)}</span></p>
         <h3>${esc(s.title)}</h3>
-        <p class="muted">${esc(cfg.step1.timelineLabel)} ${esc(s.timeline)}</p>
+        <p class="timeline-badge">${esc(cfg.step1.timelineLabel)} ${esc(s.timeline)}</p>
         <p class="lead">${esc(s.tagline)}</p>
         <ul>${s.highlights.map((h) => `<li>${esc(h)}</li>`).join('')}</ul>
         <h4>${esc(cfg.step1.seeIncludes)}</h4>
@@ -118,6 +118,12 @@ function buildHtml(): string {
     .eyebrow { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-bottom: 12px; }
     .lead { font-size: 11pt; color: #444; }
     .muted { color: #666; font-size: 9pt; }
+    .timeline-badge { display: inline-block; font-size: 9.5pt; font-weight: 700; color: #1a3d2e; background: #e8f0eb; border: 1px solid #b8d4c4; border-radius: 999px; padding: 3px 10px; margin: 4px 0 8px; }
+    .timeline-overview { background: #f0f6f2; border: 1px solid #b8d4c4; border-radius: 8px; padding: 12px 14px; margin: 0 0 16px; page-break-inside: avoid; }
+    .timeline-overview ul { list-style: none; padding: 0; margin: 0; }
+    .timeline-overview li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 6px 0; border-bottom: 1px solid #d8e8de; }
+    .timeline-overview li:last-child { border-bottom: none; }
+    .timeline-overview li strong { font-size: 10pt; }
     .index { font-size: 8pt; color: #999; font-weight: 600; letter-spacing: 0.08em; }
     .section-lead { color: #444; margin-bottom: 12px; }
     .note { font-size: 9pt; color: #666; background: #f6f6f4; padding: 10px 12px; border-radius: 6px; margin: 12px 0; }
@@ -170,6 +176,15 @@ function buildHtml(): string {
     <p class="index">${esc(copy.section02.index)}</p>
     <h2>${esc(copy.section02.title)}</h2>
     <p class="section-lead">${esc(copy.section02.lead)}</p>
+    <div class="timeline-overview">
+      <h3>${esc(cfg.step1.timelinesHeading)}</h3>
+      <ul>
+        ${SOFTWARE_IDS.map((id) => {
+          const s = cfg.software[id]
+          return `<li><strong>${esc(s.title)}</strong><span class="timeline-badge">${esc(s.timeline)}</span></li>`
+        }).join('')}
+      </ul>
+    </div>
     <h3>${esc(cfg.step1.title)}</h3>
     <p>${esc(cfg.step1.lead)}</p>
     <p class="muted">${esc(cfg.step1.storeExcludedNote)}</p>
