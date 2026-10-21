@@ -4,6 +4,7 @@ import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { CentreProposalBudgetSummary } from './CentreProposalBudgetSummary'
 import { CentreProposalStickyBudget } from './CentreProposalStickyBudget'
 import { CpPdfBusyLabel } from './CpPdfBusyLabel'
+import { CpPdfCenterStatus } from './CpPdfCenterStatus'
 import { downloadConfiguratorProposalPdf } from './downloadConfiguratorProposalPdf'
 import {
   ADDON_GROUPS,
@@ -189,6 +190,7 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
       className={`cp-config${pdfBusy ? ' cp-config--pdf-busy' : ''}`}
       aria-busy={pdfBusy}
     >
+      {pdfBusy ? <CpPdfCenterStatus message={cfg.proposal.downloadPdfBusy} /> : null}
       <CentreProposalStickyBudget
         implementationTotal={implementationTotal}
         pulseKey={pulseKey}

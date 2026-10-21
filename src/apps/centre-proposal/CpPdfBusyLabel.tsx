@@ -4,12 +4,7 @@ interface CpPdfBusyLabelProps {
   busyText: string
 }
 
+/** Button label only; spinner is shown centered via CpPdfCenterStatus. */
 export function CpPdfBusyLabel({ busy, idleText, busyText }: CpPdfBusyLabelProps) {
-  if (!busy) return <>{idleText}</>
-  return (
-    <>
-      <span className="cp-pdf-spinner" aria-hidden />
-      {busyText}
-    </>
-  )
+  return <>{busy ? busyText : idleText}</>
 }
