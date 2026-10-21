@@ -34,6 +34,7 @@ export function CentreDashboardStudentTable({
               <th scope="col">{alumnes.columns.name}</th>
               <th scope="col">{alumnes.columns.email}</th>
               <th scope="col">{alumnes.columns.plan}</th>
+              <th scope="col">{alumnes.columns.payments}</th>
               <th scope="col">{alumnes.columns.status}</th>
               <th scope="col">{alumnes.columns.activity}</th>
             </tr>
@@ -49,6 +50,13 @@ export function CentreDashboardStudentTable({
                   <td data-label={alumnes.columns.name}>{row.name}</td>
                   <td data-label={alumnes.columns.email}>{row.email}</td>
                   <td data-label={alumnes.columns.plan}>{row.plan}</td>
+                  <td data-label={alumnes.columns.payments}>
+                    <span
+                      className={`centre-demo__db-payment centre-demo__db-payment--${row.paymentTone}`}
+                    >
+                      {row.payments}
+                    </span>
+                  </td>
                   <td data-label={alumnes.columns.status}>
                     <span
                       className={`centre-demo__db-status centre-demo__db-status--${row.status}`}

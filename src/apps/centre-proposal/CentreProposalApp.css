@@ -1272,10 +1272,50 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  white-space: nowrap;
+  max-width: 11rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
 }
 
-.centre-demo__db-status--active {
+.centre-demo__db-status--active,
+.centre-demo__db-status--ok {
   background: color-mix(in srgb, var(--color-accent-sage) 20%, transparent);
+  color: var(--color-text);
+}
+
+.centre-demo__db-status--overdue {
+  background: color-mix(in srgb, var(--color-accent-coral) 28%, transparent);
+  color: var(--color-text);
+}
+
+.centre-demo__db-payment {
+  display: inline-block;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.3;
+  max-width: 12rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.centre-demo__db-payment--ok {
+  background: color-mix(in srgb, var(--color-accent-sage) 20%, transparent);
+  color: var(--color-text);
+}
+
+.centre-demo__db-payment--pending {
+  background: color-mix(in srgb, var(--color-accent-yellow) 35%, transparent);
+  color: var(--color-text);
+}
+
+.centre-demo__db-payment--overdue {
+  background: color-mix(in srgb, var(--color-accent-coral) 28%, transparent);
   color: var(--color-text);
 }
 

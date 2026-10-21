@@ -314,12 +314,21 @@ export interface CentreProposalCopy {
         lead: string
         searchPlaceholder: string
         countTemplate: string
-        columns: { name: string; email: string; plan: string; status: string; activity: string }
+        columns: {
+          name: string
+          email: string
+          plan: string
+          payments: string
+          status: string
+          activity: string
+        }
         rows: {
           id: string
           name: string
           email: string
           plan: string
+          payments: string
+          paymentTone: 'ok' | 'pending' | 'overdue'
           status: 'active' | 'pending'
           statusLabel: string
           activity: string
