@@ -1279,6 +1279,11 @@
   color: var(--color-text);
 }
 
+.centre-demo__db-status--off {
+  background: color-mix(in srgb, var(--color-text) 10%, transparent);
+  color: var(--color-text-muted);
+}
+
 .centre-demo__db-status--pending {
   background: color-mix(in srgb, var(--color-accent-yellow) 35%, transparent);
   color: var(--color-text);

@@ -80,7 +80,13 @@ export interface CentreProposalConfiguratorCopy {
 }
 
 export type CentreProposalStudentTab = 'horaris' | 'reserves' | 'meves' | 'abonaments' | 'perfil'
-export type CentreProposalDashTab = 'resum' | 'calendari' | 'classes' | 'alumnes' | 'abonaments'
+export type CentreProposalDashTab =
+  | 'resum'
+  | 'calendari'
+  | 'classes'
+  | 'personal'
+  | 'alumnes'
+  | 'abonaments'
 
 export interface CentreProposalFeatureLine {
   label: string
@@ -280,6 +286,28 @@ export interface CentreProposalCopy {
         lead: string
         studentsLabel: string
         rows: { id?: string; name: string; capacity: string; meta: string }[]
+      }
+      personal: {
+        title: string
+        lead: string
+        searchPlaceholder: string
+        countTemplate: string
+        columns: {
+          name: string
+          role: string
+          classes: string
+          availability: string
+          status: string
+        }
+        rows: {
+          id: string
+          name: string
+          role: string
+          classes: string
+          availability: string
+          status: 'active' | 'off'
+          statusLabel: string
+        }[]
       }
       alumnes: {
         title: string
