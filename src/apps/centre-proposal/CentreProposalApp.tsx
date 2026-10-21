@@ -17,6 +17,7 @@ export function CentreProposalApp() {
   const experiencesRef = useScrollReveal<HTMLElement>()
   const configRef = useScrollReveal<HTMLElement>()
   const handoverRef = useScrollReveal<HTMLElement>()
+  const externalCostsRef = useScrollReveal<HTMLElement>()
 
   return (
     <div className="centre-proposal">
@@ -139,6 +140,12 @@ export function CentreProposalApp() {
             {copy.section02.title}
           </h2>
           <p className="centre-proposal__section-lead">{copy.section02.lead}</p>
+          <p className="centre-proposal__external-costs-teaser">
+            {copy.section02.externalCostsTeaser}{' '}
+            <a href="#costos-externs" className="centre-proposal__inline-link">
+              {copy.section02.externalCostsLink}
+            </a>
+          </p>
 
           <CentreProposalTimelinesOverview copy={copy} />
           <CentreProposalConfigurator copy={copy} />
@@ -215,6 +222,42 @@ export function CentreProposalApp() {
 
           <p className="centre-proposal__closing-text centre-proposal__handover-closing">
             {copy.section06.closing}
+          </p>
+        </section>
+
+        <section
+          id="costos-externs"
+          ref={externalCostsRef}
+          className="centre-proposal__section centre-proposal__section--external-costs reveal"
+          aria-labelledby="centre-proposal-external-costs-heading"
+        >
+          <p className="centre-proposal__section-index">{copy.section07.index}</p>
+          <h2
+            id="centre-proposal-external-costs-heading"
+            className="centre-proposal__section-title"
+          >
+            {copy.section07.title}
+          </h2>
+          <p className="centre-proposal__closing-text">{copy.section07.intro}</p>
+          <p className="centre-proposal__handover-note">{copy.section07.disclaimer}</p>
+
+          {copy.section07.groups.map((group) => (
+            <div key={group.title} className="centre-proposal__handover-block">
+              <h3 className="centre-proposal__handover-subtitle">{group.title}</h3>
+              <ul className="centre-proposal__external-costs-list">
+                {group.items.map((item) => (
+                  <li key={item.name}>
+                    <strong>{item.name}</strong>
+                    <span>{item.note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <p className="centre-proposal__external-costs-maintenance">{copy.section07.maintenanceNote}</p>
+          <p className="centre-proposal__closing-text centre-proposal__handover-closing">
+            {copy.section07.closing}
           </p>
         </section>
       </main>

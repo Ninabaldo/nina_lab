@@ -124,6 +124,8 @@ export interface CentreProposalCopy {
     index: string
     title: string
     lead: string
+    externalCostsTeaser: string
+    externalCostsLink: string
     base: {
       title: string
       subtitle: string
@@ -181,6 +183,15 @@ export interface CentreProposalCopy {
     stackItems: { name: string; detail: string }[]
     handoverTitle: string
     handoverSteps: string[]
+    closing: string
+  }
+  section07: {
+    index: string
+    title: string
+    intro: string
+    disclaimer: string
+    groups: { title: string; items: { name: string; note: string }[] }[]
+    maintenanceNote: string
     closing: string
   }
   footer: string

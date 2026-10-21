@@ -2476,6 +2476,68 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   color: var(--color-text);
 }
 
+.centre-proposal__external-costs-teaser {
+  margin: -0.35rem 0 1.25rem;
+  max-width: 40rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  background: color-mix(in srgb, var(--color-bg-warm) 70%, var(--color-bg-alt));
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__inline-link {
+  color: var(--color-text);
+  font-weight: 600;
+  text-underline-offset: 0.15em;
+}
+
+.centre-proposal__inline-link:hover {
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__external-costs-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.centre-proposal__external-costs-list li {
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  line-height: 1.5;
+}
+
+.centre-proposal__external-costs-list strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.centre-proposal__external-costs-list span {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__external-costs-maintenance {
+  margin: 1.5rem 0 0;
+  max-width: 40rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-text) 4%, transparent);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
 .cp-soft-card__tagline {
   margin-top: 0.25rem;
   font-size: 0.82rem;

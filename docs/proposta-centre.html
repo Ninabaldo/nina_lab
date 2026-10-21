@@ -59,7 +59,7 @@
     <p class="eyebrow">Proposta de software</p>
     <h1>El teu centre, amb el seu propi sistema.</h1>
     <p class="lead">Una plataforma de gestió de classes dissenyada per adaptar-se al funcionament del teu centre.</p>
-    <p>Consulta la proposta, explora les dues experiències de software i configura les funcionalitats que necessites.</p>
+    <p>Consulta la proposta, explora les dues experiències de software i configura les funcionalitats que necessites. Els imports de Nina Lab no inclouen subscripcions ni comissions de tercers (domini, hosting, pagaments…).</p>
     <p class="note">Versió PDF de la proposta web <strong>/proposta-centre</strong>. Les demos interactives (app alumnes i dashboard) estan disponibles en línia a la mateixa URL.</p>
   </header>
 
@@ -216,6 +216,28 @@
     <h3>Com seria la transferència</h3>
     <ol><li>Sessió de lliurament amb el centre (i el nou equip, si ja el teniu).</li><li>Transferència del repositori GitHub i revisió de permisos d’administració.</li><li>Revisió conjunta de desplegament, còpies de seguretat i restauració de la base de dades.</li><li>Període breu de suport per dubtes tècnics del lliurament (durada acordada al contracte).</li></ol>
     <p><strong>L’objectiu és que el centre no quedi “atrapat”: el producte és vostre i ha de poder evolucionar amb l’equip que trieu.</strong></p>
+  </section>
+
+  <section class="page-break">
+    <p class="index">07</p>
+    <h2>Costos externs (a càrrec del centre)</h2>
+    <p>A banda del pressupost de desenvolupament i, si s’escull, del manteniment mensual amb Nina Lab, el centre haurà de mantenir els comptes i subscripcions dels serveis que fan funcionar la plataforma en producció. Aquests imports es paguen directament als proveïdors, no a Nina Lab.</p>
+    <p class="muted">Les xifres següents són ordres de magnitud orientatius; poden variar segons el proveïdor, el país, l’IVA, el volum d’ús i el pla contractat.</p>
+    
+      <h3>Domini i hosting</h3>
+      <ul><li><strong>Domini web</strong> — Pagament periòdic al registrador (p. ex. anual). Cal per a la URL pública del centre.</li><li><strong>Hosting web i API</strong> — Quota mensual segons trànsit i recursos (p. ex. Vercel o equivalent). Sovint hi ha un pla gratuït limitat; en producció real acostuma a haver-hi cost.</li><li><strong>HTTPS</strong> — Normalment inclòs al hosting en enllaçar el domini.</li></ul>
+      <h3>Base de dades</h3>
+      <ul><li><strong>PostgreSQL gestionat (Supabase, Neon, etc.)</strong> — Compte al nom del centre. Pla gratuit inicial possible; cost mensual en augmentar dades, connexions o còpies.</li></ul>
+      <h3>Pagaments online</h3>
+      <ul><li><strong>Stripe (compte del centre)</strong> — Comissió per transacció reeixa (percentatge + import fix). Les descompta Stripe; no les gestiona Nina Lab. Liquidació al compte bancari del centre.</li></ul>
+      <h3>Email i notificacions</h3>
+      <ul><li><strong>Email transaccional</strong> — Servei tipus Resend, Postmark o SendGrid: quota segons volum (confirmacions, recordatoris). Cal configurar DNS del domini.</li><li><strong>SMS (opcional)</strong> — Cost per missatge si el centre vol recordatoris per SMS.</li></ul>
+      <h3>Apps a stores (si s’inclouen)</h3>
+      <ul><li><strong>Apple Developer Program</strong> — Aprox. 99 USD/any — compte de desenvolupador al nom del centre.</li><li><strong>Google Play Console</strong> — Aprox. 25 USD (pagament únic) — compte al nom del centre.</li></ul>
+      <h3>Opcional</h3>
+      <ul><li><strong>Intel·ligència artificial (API)</strong> — Cost per ús si s’integren funcions d’IA; compte i facturació del proveïdor.</li><li><strong>Altres integracions</strong> — Calendaris, analytics, eines de marketing, etc., segons el que s’acordi al projecte.</li></ul>
+    <p class="note">El manteniment mensual amb Nina Lab (si es contracta) cobreix el software desenvolupat per nosaltres: incidències, actualitzacions tècniques acordades, etc. No substitueix les factures de domini, hosting, base de dades, Stripe, email, stores ni altres serveis de tercers.</p>
+    <p>Recomanem obrir aquests comptes al nom del centre des del principi i deixar-ne constància al contracte, per evitar sorpreses i facilitar un possible canvi de proveïdor.</p>
   </section>
 
   <footer class="footer">

@@ -9,7 +9,7 @@ const ca: CentreProposalCopy = {
     lead:
       'Una plataforma de gestió de classes dissenyada per adaptar-se al funcionament del teu centre.',
     intro:
-      'Consulta la proposta, explora les dues experiències de software i configura les funcionalitats que necessites.',
+      'Consulta la proposta, explora les dues experiències de software i configura les funcionalitats que necessites. Els imports de Nina Lab no inclouen subscripcions ni comissions de tercers (domini, hosting, pagaments…).',
     ctaExplore: 'Explorar el software',
     ctaBudget: 'Configurar pressupost',
   },
@@ -52,6 +52,9 @@ const ca: CentreProposalCopy = {
     index: '02',
     title: 'Configura el teu pressupost',
     lead: 'Tres passos per definir software, funcionalitats i manteniment.',
+    externalCostsTeaser:
+      'Els preus d’implementació i el manteniment opcional de Nina Lab no inclouen factures de tercers.',
+    externalCostsLink: 'Veure costos externs (a càrrec del centre)',
     base: {
       title: 'Software base',
       subtitle: 'Plataforma de reserves i gestió',
@@ -239,6 +242,94 @@ const ca: CentreProposalCopy = {
     ],
     closing:
       'L’objectiu és que el centre no quedi “atrapat”: el producte és vostre i ha de poder evolucionar amb l’equip que trieu.',
+  },
+  section07: {
+    index: '07',
+    title: 'Costos externs (a càrrec del centre)',
+    intro:
+      'A banda del pressupost de desenvolupament i, si s’escull, del manteniment mensual amb Nina Lab, el centre haurà de mantenir els comptes i subscripcions dels serveis que fan funcionar la plataforma en producció. Aquests imports es paguen directament als proveïdors, no a Nina Lab.',
+    disclaimer:
+      'Les xifres següents són ordres de magnitud orientatius; poden variar segons el proveïdor, el país, l’IVA, el volum d’ús i el pla contractat.',
+    groups: [
+      {
+        title: 'Domini i hosting',
+        items: [
+          {
+            name: 'Domini web',
+            note: 'Pagament periòdic al registrador (p. ex. anual). Cal per a la URL pública del centre.',
+          },
+          {
+            name: 'Hosting web i API',
+            note: 'Quota mensual segons trànsit i recursos (p. ex. Vercel o equivalent). Sovint hi ha un pla gratuït limitat; en producció real acostuma a haver-hi cost.',
+          },
+          {
+            name: 'HTTPS',
+            note: 'Normalment inclòs al hosting en enllaçar el domini.',
+          },
+        ],
+      },
+      {
+        title: 'Base de dades',
+        items: [
+          {
+            name: 'PostgreSQL gestionat (Supabase, Neon, etc.)',
+            note: 'Compte al nom del centre. Pla gratuit inicial possible; cost mensual en augmentar dades, connexions o còpies.',
+          },
+        ],
+      },
+      {
+        title: 'Pagaments online',
+        items: [
+          {
+            name: 'Stripe (compte del centre)',
+            note: 'Comissió per transacció reeixa (percentatge + import fix). Les descompta Stripe; no les gestiona Nina Lab. Liquidació al compte bancari del centre.',
+          },
+        ],
+      },
+      {
+        title: 'Email i notificacions',
+        items: [
+          {
+            name: 'Email transaccional',
+            note: 'Servei tipus Resend, Postmark o SendGrid: quota segons volum (confirmacions, recordatoris). Cal configurar DNS del domini.',
+          },
+          {
+            name: 'SMS (opcional)',
+            note: 'Cost per missatge si el centre vol recordatoris per SMS.',
+          },
+        ],
+      },
+      {
+        title: 'Apps a stores (si s’inclouen)',
+        items: [
+          {
+            name: 'Apple Developer Program',
+            note: 'Aprox. 99 USD/any — compte de desenvolupador al nom del centre.',
+          },
+          {
+            name: 'Google Play Console',
+            note: 'Aprox. 25 USD (pagament únic) — compte al nom del centre.',
+          },
+        ],
+      },
+      {
+        title: 'Opcional',
+        items: [
+          {
+            name: 'Intel·ligència artificial (API)',
+            note: 'Cost per ús si s’integren funcions d’IA; compte i facturació del proveïdor.',
+          },
+          {
+            name: 'Altres integracions',
+            note: 'Calendaris, analytics, eines de marketing, etc., segons el que s’acordi al projecte.',
+          },
+        ],
+      },
+    ],
+    maintenanceNote:
+      'El manteniment mensual amb Nina Lab (si es contracta) cobreix el software desenvolupat per nosaltres: incidències, actualitzacions tècniques acordades, etc. No substitueix les factures de domini, hosting, base de dades, Stripe, email, stores ni altres serveis de tercers.',
+    closing:
+      'Recomanem obrir aquests comptes al nom del centre des del principi i deixar-ne constància al contracte, per evitar sorpreses i facilitar un possible canvi de proveïdor.',
   },
   footer: 'Proposta preparada per Nina Baldó',
   demo: {

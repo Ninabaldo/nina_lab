@@ -9,7 +9,7 @@ const it: CentreProposalCopy = {
     lead:
       'Una piattaforma per gestire i corsi, pensata per adattarsi al modo in cui lavora il tuo centro.',
     intro:
-      'Consulta la proposta, esplora le due esperienze software e configura le funzionalità di cui hai bisogno.',
+      'Consulta la proposta, esplora le due esperienze software e configura le funzionalità di cui hai bisogno. I prezzi Nina Lab non includono abbonamenti né commissioni di terzi (dominio, hosting, pagamenti…).',
     ctaExplore: 'Esplora il software',
     ctaBudget: 'Configura il budget',
   },
@@ -51,6 +51,9 @@ const it: CentreProposalCopy = {
     index: '02',
     title: 'Configura il budget',
     lead: 'Tre passi per software, funzionalità e manutenzione.',
+    externalCostsTeaser:
+      'Implementazione e manutenzione Nina Lab opzionale non includono fatture di terzi.',
+    externalCostsLink: 'Vedi costi esterni (a carico del centro)',
     base: {
       title: 'Software base',
       subtitle: 'Piattaforma prenotazioni e gestione',
@@ -231,6 +234,67 @@ const it: CentreProposalCopy = {
     ],
     closing:
       'L’obiettivo è che il centro non resti « bloccato »: il prodotto è vostro e deve poter evolvere con il team che scegliete.',
+  },
+  section07: {
+    index: '07',
+    title: 'Costi esterni (a carico del centro)',
+    intro:
+      'Oltre allo sviluppo e, se scelto, alla manutenzione mensile Nina Lab, il centro paga direttamente i fornitori che tengono la piattaforma in produzione. Questi importi non si pagano a Nina Lab.',
+    disclaimer:
+      'Importi indicativi; variano per fornitore, paese, IVA, volume e piano.',
+    groups: [
+      {
+        title: 'Dominio e hosting',
+        items: [
+          { name: 'Dominio web', note: 'Canone periodico al registrar (es. annuale).' },
+          { name: 'Hosting web e API', note: 'Canone mensile in base al traffico (es. Vercel).' },
+          { name: 'HTTPS', note: 'Di solito incluso collegando il dominio.' },
+        ],
+      },
+      {
+        title: 'Database',
+        items: [
+          {
+            name: 'PostgreSQL gestito (Supabase, Neon, ecc.)',
+            note: 'Account intestato al centro; tier gratuito possibile, poi costo mensile.',
+          },
+        ],
+      },
+      {
+        title: 'Pagamenti online',
+        items: [
+          {
+            name: 'Stripe (account del centro)',
+            note: 'Commissione per transazione riuscita, addebitata da Stripe, non Nina Lab.',
+          },
+        ],
+      },
+      {
+        title: 'Email e notifiche',
+        items: [
+          { name: 'Email transazionale', note: 'In base al volume (Resend, Postmark, ecc.).' },
+          { name: 'SMS (opzionale)', note: 'Costo per messaggio se si usano SMS.' },
+        ],
+      },
+      {
+        title: 'Store (se c’è app)',
+        items: [
+          { name: 'Apple Developer Program', note: 'Circa 99 USD/anno.' },
+          { name: 'Google Play Console', note: 'Circa 25 USD (una tantum).' },
+        ],
+      },
+      {
+        title: 'Opzionale',
+        items: [
+          { name: 'IA (API)', note: 'Costo a consumo se integrata.' },
+          { name: 'Altre integrazioni', note: 'Calendari, analytics, secondo scope.' },
+        ],
+      },
+    ],
+    maintenanceNote:
+      'La manutenzione Nina Lab copre il software che sviluppiamo, non fatture di dominio, hosting, database, Stripe, email o store.',
+    closing:
+      'Consigliamo di aprire questi account a nome del centro fin dall’inizio e indicarli in contratto.',
   },
   footer: 'Proposta preparata da Nina Baldó',
   demo: {

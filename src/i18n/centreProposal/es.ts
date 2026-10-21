@@ -9,7 +9,7 @@ const es: CentreProposalCopy = {
     lead:
       'Una plataforma de gestión de clases diseñada para adaptarse al funcionamiento de tu centro.',
     intro:
-      'Consulta la propuesta, explora las dos experiencias de software y configura las funcionalidades que necesitas.',
+      'Consulta la propuesta, explora las dos experiencias de software y configura las funcionalidades que necesitas. Los importes de Nina Lab no incluyen suscripciones ni comisiones de terceros (dominio, hosting, pagos…).',
     ctaExplore: 'Explorar el software',
     ctaBudget: 'Configurar presupuesto',
   },
@@ -51,6 +51,9 @@ const es: CentreProposalCopy = {
     index: '02',
     title: 'Configura tu presupuesto',
     lead: 'Tres pasos para definir software, funcionalidades y mantenimiento.',
+    externalCostsTeaser:
+      'Los precios de implementación y el mantenimiento opcional de Nina Lab no incluyen facturas de terceros.',
+    externalCostsLink: 'Ver costes externos (a cargo del centro)',
     base: {
       title: 'Software base',
       subtitle: 'Plataforma de reservas y gestión',
@@ -231,6 +234,73 @@ const es: CentreProposalCopy = {
     ],
     closing:
       'El objetivo es que el centro no quede “atrapado”: el producto es vuestro y debe poder evolucionar con el equipo que elijáis.',
+  },
+  section07: {
+    index: '07',
+    title: 'Costes externos (a cargo del centro)',
+    intro:
+      'Además del presupuesto de desarrollo y, si se elige, del mantenimiento mensual con Nina Lab, el centro paga directamente a los proveedores los servicios que mantienen la plataforma en producción. Estos importes no se pagan a Nina Lab.',
+    disclaimer:
+      'Las cifras son orientativas; varían según proveedor, país, IVA, volumen y plan contratado.',
+    groups: [
+      {
+        title: 'Dominio y hosting',
+        items: [
+          { name: 'Dominio web', note: 'Pago periódico al registrador (p. ej. anual).' },
+          {
+            name: 'Hosting web y API',
+            note: 'Cuota mensual según tráfico (p. ej. Vercel). Suele haber plan gratuito limitado.',
+          },
+          { name: 'HTTPS', note: 'Normalmente incluido al enlazar el dominio.' },
+        ],
+      },
+      {
+        title: 'Base de datos',
+        items: [
+          {
+            name: 'PostgreSQL gestionado (Supabase, Neon, etc.)',
+            note: 'Cuenta a nombre del centro. Plan gratuito inicial posible; coste mensual al crecer.',
+          },
+        ],
+      },
+      {
+        title: 'Pagos online',
+        items: [
+          {
+            name: 'Stripe (cuenta del centro)',
+            note: 'Comisión por transacción exitosa. La cobra Stripe, no Nina Lab. Liquidación al banco del centro.',
+          },
+        ],
+      },
+      {
+        title: 'Email y notificaciones',
+        items: [
+          {
+            name: 'Email transaccional',
+            note: 'Resend, Postmark, SendGrid, etc.: según volumen. Requiere DNS del dominio.',
+          },
+          { name: 'SMS (opcional)', note: 'Coste por mensaje si se usan recordatorios SMS.' },
+        ],
+      },
+      {
+        title: 'Stores (si hay app)',
+        items: [
+          { name: 'Apple Developer Program', note: 'Aprox. 99 USD/año — cuenta del centro.' },
+          { name: 'Google Play Console', note: 'Aprox. 25 USD (pago único) — cuenta del centro.' },
+        ],
+      },
+      {
+        title: 'Opcional',
+        items: [
+          { name: 'IA (API)', note: 'Coste por uso si se integran funciones de IA.' },
+          { name: 'Otras integraciones', note: 'Calendarios, analytics, etc., según alcance.' },
+        ],
+      },
+    ],
+    maintenanceNote:
+      'El mantenimiento mensual con Nina Lab (si se contrata) cubre el software que desarrollamos; no sustituye facturas de dominio, hosting, base de datos, Stripe, email, stores ni otros terceros.',
+    closing:
+      'Recomendamos abrir estas cuentas a nombre del centro desde el inicio y reflejarlas en el contrato.',
   },
   footer: 'Propuesta preparada por Nina Baldó',
   demo: {

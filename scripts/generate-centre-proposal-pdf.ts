@@ -247,6 +247,22 @@ function buildHtml(): string {
     <p><strong>${esc(copy.section06.closing)}</strong></p>
   </section>
 
+  <section class="page-break">
+    <p class="index">${esc(copy.section07.index)}</p>
+    <h2>${esc(copy.section07.title)}</h2>
+    <p>${esc(copy.section07.intro)}</p>
+    <p class="muted">${esc(copy.section07.disclaimer)}</p>
+    ${copy.section07.groups
+      .map(
+        (group) => `
+      <h3>${esc(group.title)}</h3>
+      <ul>${group.items.map((item) => `<li><strong>${esc(item.name)}</strong> — ${esc(item.note)}</li>`).join('')}</ul>`,
+      )
+      .join('')}
+    <p class="note">${esc(copy.section07.maintenanceNote)}</p>
+    <p>${esc(copy.section07.closing)}</p>
+  </section>
+
   <footer class="footer">
     <p>${esc(copy.footer)}</p>
     <p>Document generat el ${esc(new Date().toLocaleDateString('ca-ES', { dateStyle: 'long' }))}</p>

@@ -8,7 +8,7 @@ const en: CentreProposalCopy = {
     title: 'Your studio, with its own system.',
     lead: 'A class management platform designed to fit how your centre actually runs.',
     intro:
-      'Review the proposal, explore both software experiences, and configure the features you need.',
+      'Review the proposal, explore both software experiences, and configure the features you need. Nina Lab quotes do not include third-party subscriptions or payment processing fees (domain, hosting, Stripe, etc.).',
     ctaExplore: 'Explore the software',
     ctaBudget: 'Configure budget',
   },
@@ -49,6 +49,9 @@ const en: CentreProposalCopy = {
     index: '02',
     title: 'Configure your budget',
     lead: 'Three steps to define software, features, and maintenance.',
+    externalCostsTeaser:
+      'Implementation and optional Nina Lab maintenance do not include third-party invoices.',
+    externalCostsLink: 'External costs (paid by the centre)',
     base: {
       title: 'Base software',
       subtitle: 'Booking and management platform',
@@ -227,6 +230,76 @@ const en: CentreProposalCopy = {
     ],
     closing:
       'The goal is that the centre is never “locked in”: the product is yours and should evolve with whichever team you choose.',
+  },
+  section07: {
+    index: '07',
+    title: 'External costs (paid by the centre)',
+    intro:
+      'Beyond development and any optional monthly maintenance with Nina Lab, the centre pays providers directly for the services that keep the platform running in production. These charges are not paid to Nina Lab.',
+    disclaimer:
+      'Figures below are rough guides only; they vary by provider, country, tax, usage, and plan.',
+    groups: [
+      {
+        title: 'Domain and hosting',
+        items: [
+          {
+            name: 'Web domain',
+            note: 'Periodic fee to the registrar (e.g. yearly). Required for the public URL.',
+          },
+          {
+            name: 'Web and API hosting',
+            note: 'Monthly fee by traffic and resources (e.g. Vercel). Free tiers exist but production often has a cost.',
+          },
+          { name: 'HTTPS', note: 'Usually included when the domain is linked to hosting.' },
+        ],
+      },
+      {
+        title: 'Database',
+        items: [
+          {
+            name: 'Managed PostgreSQL (Supabase, Neon, etc.)',
+            note: 'Account in the centre’s name. Free tier possible; monthly cost as data and usage grow.',
+          },
+        ],
+      },
+      {
+        title: 'Online payments',
+        items: [
+          {
+            name: 'Stripe (centre’s account)',
+            note: 'Fee per successful transaction (percentage + fixed). Charged by Stripe, not Nina Lab. Payouts to the centre’s bank.',
+          },
+        ],
+      },
+      {
+        title: 'Email and notifications',
+        items: [
+          {
+            name: 'Transactional email',
+            note: 'Resend, Postmark, SendGrid, etc.: priced by volume. Domain DNS setup required.',
+          },
+          { name: 'SMS (optional)', note: 'Per-message cost if the centre wants SMS reminders.' },
+        ],
+      },
+      {
+        title: 'App stores (if included)',
+        items: [
+          { name: 'Apple Developer Program', note: 'Approx. USD 99/year — centre-owned developer account.' },
+          { name: 'Google Play Console', note: 'Approx. USD 25 one-time — centre-owned account.' },
+        ],
+      },
+      {
+        title: 'Optional',
+        items: [
+          { name: 'AI (API)', note: 'Usage-based billing if AI features are integrated.' },
+          { name: 'Other integrations', note: 'Calendars, analytics, marketing tools, as agreed in scope.' },
+        ],
+      },
+    ],
+    maintenanceNote:
+      'Optional Nina Lab maintenance covers software we built: incidents, agreed technical updates, etc. It does not pay domain, hosting, database, Stripe, email, store, or other third-party bills.',
+    closing:
+      'We recommend opening these accounts in the centre’s name from the start and stating them in the contract, to avoid surprises and simplify handover.',
   },
   footer: 'Proposal by Nina Baldó',
   demo: {
