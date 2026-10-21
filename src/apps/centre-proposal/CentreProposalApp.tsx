@@ -241,6 +241,17 @@ export function CentreProposalApp() {
           <p className="centre-proposal__closing-text">{copy.section07.intro}</p>
           <p className="centre-proposal__handover-note">{copy.section07.disclaimer}</p>
 
+          <div className="centre-proposal__setup-block">
+            <h3 className="centre-proposal__handover-subtitle">{copy.section07.setupTitle}</h3>
+            <p className="centre-proposal__closing-text">{copy.section07.setupIntro}</p>
+            <ul className="centre-proposal__handover-list">
+              {copy.section07.setupItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="centre-proposal__setup-access">{copy.section07.setupAccessNote}</p>
+          </div>
+
           {copy.section07.groups.map((group) => (
             <div key={group.title} className="centre-proposal__handover-block">
               <h3 className="centre-proposal__handover-subtitle">{group.title}</h3>

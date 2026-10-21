@@ -52,8 +52,8 @@ const it: CentreProposalCopy = {
     title: 'Configura il budget',
     lead: 'Tre passi per software, funzionalità e manutenzione.',
     externalCostsTeaser:
-      'Implementazione e manutenzione Nina Lab opzionale non includono fatture di terzi.',
-    externalCostsLink: 'Vedi costi esterni (a carico del centro)',
+      'Implementazione e manutenzione opzionale non includono abbonamenti di terzi; possiamo configurarli con account e dati del centro.',
+    externalCostsLink: 'Costi esterni e cosa configuriamo',
     base: {
       title: 'Software base',
       subtitle: 'Piattaforma prenotazioni e gestione',
@@ -242,6 +242,20 @@ const it: CentreProposalCopy = {
       'Oltre allo sviluppo e, se scelto, alla manutenzione mensile Nina Lab, il centro paga direttamente i fornitori che tengono la piattaforma in produzione. Questi importi non si pagano a Nina Lab.',
     disclaimer:
       'Importi indicativi; variano per fornitore, paese, IVA, volume e piano.',
+    setupTitle: 'Non incluso come abbonamento, ma lo configuriamo con i vostri account',
+    setupIntro:
+      'I canoni dei fornitori non fanno parte del prezzo di implementazione Nina Lab, ma possiamo collegare e documentare: integrazione nel codice, ambienti, deploy e test, con account intestati al centro e dati forniti dal centro o dal suo admin IT.',
+    setupItems: [
+      'Repository GitHub del centro, CI/CD e deploy iniziale su hosting (web e API).',
+      'Collegamento dominio e HTTPS (DNS presso il registrar del centro).',
+      'Database gestito: progetto, schema iniziale, migrazioni e variabili d’ambiente.',
+      'Stripe: connessione all’account del centro, ambienti test e live, webhook.',
+      'Email transazionale: verifica dominio, DNS e template base se in scope.',
+      'App (se contrattate): build e pubblicazione store con account sviluppatore del centro.',
+      'Altre integrazioni in scope con chiavi o inviti admin del centro.',
+    ],
+    setupAccessNote:
+      'Il centro apre gli account a proprio nome e concede accesso admin a Nina Lab. Niente password via email; chiavi API e secret in variabili d’ambiente con documentazione per handover sicuro.',
     groups: [
       {
         title: 'Dominio e hosting',

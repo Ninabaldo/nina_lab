@@ -190,6 +190,10 @@ export interface CentreProposalCopy {
     title: string
     intro: string
     disclaimer: string
+    setupTitle: string
+    setupIntro: string
+    setupItems: string[]
+    setupAccessNote: string
     groups: { title: string; items: { name: string; note: string }[] }[]
     maintenanceNote: string
     closing: string

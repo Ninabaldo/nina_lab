@@ -50,8 +50,8 @@ const en: CentreProposalCopy = {
     title: 'Configure your budget',
     lead: 'Three steps to define software, features, and maintenance.',
     externalCostsTeaser:
-      'Implementation and optional Nina Lab maintenance do not include third-party invoices.',
-    externalCostsLink: 'External costs (paid by the centre)',
+      'Implementation and optional maintenance do not include third-party subscriptions; we can configure them using the centre’s accounts and data.',
+    externalCostsLink: 'External costs and what we set up',
     base: {
       title: 'Base software',
       subtitle: 'Booking and management platform',
@@ -238,6 +238,20 @@ const en: CentreProposalCopy = {
       'Beyond development and any optional monthly maintenance with Nina Lab, the centre pays providers directly for the services that keep the platform running in production. These charges are not paid to Nina Lab.',
     disclaimer:
       'Figures below are rough guides only; they vary by provider, country, tax, usage, and plan.',
+    setupTitle: 'Not included as a subscription, but we configure it with your accounts',
+    setupIntro:
+      'Provider fees are not part of Nina Lab’s implementation price, but we can connect and document everything: code integration, environments, deployment, and testing—using centre-owned accounts and data supplied by the centre or its IT admin.',
+    setupItems: [
+      'Centre GitHub repo, CI/CD, and initial hosting deployment (web and API).',
+      'Domain linking and HTTPS (DNS at the centre’s registrar).',
+      'Managed database: project, initial schema, migrations, and env vars (dev / production).',
+      'Stripe: connection to the centre’s account, test and live modes, webhooks, and agreed flows.',
+      'Transactional email: domain verification, DNS, and basic templates if in scope.',
+      'Apps (if purchased): builds and App Store / Google Play publishing with the centre’s developer accounts.',
+      'Other in-scope integrations (calendars, analytics, AI, etc.) with keys or admin invites from the centre.',
+    ],
+    setupAccessNote:
+      'The centre opens accounts in its name and grants Nina Lab admin access (GitHub, Stripe, hosting, DB invites, etc.). We do not ask for passwords by email; API keys and secrets go in environment variables with secure handover documentation.',
     groups: [
       {
         title: 'Domain and hosting',

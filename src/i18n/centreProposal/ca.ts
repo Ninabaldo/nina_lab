@@ -53,8 +53,8 @@ const ca: CentreProposalCopy = {
     title: 'Configura el teu pressupost',
     lead: 'Tres passos per definir software, funcionalitats i manteniment.',
     externalCostsTeaser:
-      'Els preus d’implementació i el manteniment opcional de Nina Lab no inclouen factures de tercers.',
-    externalCostsLink: 'Veure costos externs (a càrrec del centre)',
+      'Els preus d’implementació i el manteniment opcional no inclouen subscripcions de tercers; sí que podem configurar-les amb comptes i dades del centre.',
+    externalCostsLink: 'Veure costos externs i què configurem',
     base: {
       title: 'Software base',
       subtitle: 'Plataforma de reserves i gestió',
@@ -250,6 +250,20 @@ const ca: CentreProposalCopy = {
       'A banda del pressupost de desenvolupament i, si s’escull, del manteniment mensual amb Nina Lab, el centre haurà de mantenir els comptes i subscripcions dels serveis que fan funcionar la plataforma en producció. Aquests imports es paguen directament als proveïdors, no a Nina Lab.',
     disclaimer:
       'Les xifres següents són ordres de magnitud orientatius; poden variar segons el proveïdor, el país, l’IVA, el volum d’ús i el pla contractat.',
+    setupTitle: 'No inclòs com a subscripció, però sí que ho configurem amb les vostres dades',
+    setupIntro:
+      'Les quotes dels proveïdors no formen part del preu d’implementació de Nina Lab, però sí que podem deixar-ho connectat i documentat: integració al codi, entorns, desplegament i proves, sempre amb comptes al nom del centre i dades que faciliti el centre (o el seu administrador IT).',
+    setupItems: [
+      'Repositori GitHub del centre, CI/CD i desplegament inicial a hosting (web i API).',
+      'Enllaç del domini i HTTPS (registres DNS al registrador del centre).',
+      'Base de dades gestionada: projecte, esquema inicial, migracions i variables d’entorn (dev / producció).',
+      'Stripe: connexió al compte del centre, entorns de prova i producció, webhooks i fluxos acordats.',
+      'Email transaccional: verificació del domini, DNS i plantilles bàsiques si s’inclouen a l’abast.',
+      'Apps (si s’han contractat): builds i publicació a App Store / Google Play amb comptes de desenvolupador del centre.',
+      'Altres integracions de l’abast (calendaris, analytics, IA, etc.) amb les claus o invitacions d’admin que proporcioni el centre.',
+    ],
+    setupAccessNote:
+      'El centre obre els comptes al seu nom i dona accés d’administrador a Nina Lab (invitació GitHub, Stripe, hosting, BD, etc.). No demanem contrasenyes per email; secrets i claus API es configuren com a variables d’entorn i es documenten per a una transferència segura.',
     groups: [
       {
         title: 'Domini i hosting',

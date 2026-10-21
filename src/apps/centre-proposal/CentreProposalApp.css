@@ -2476,6 +2476,26 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   color: var(--color-text);
 }
 
+.centre-proposal__setup-block {
+  margin: 1.5rem 0 1.75rem;
+  max-width: 42rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--color-accent-sage) 45%, transparent);
+  background: color-mix(in srgb, var(--color-accent-sage) 10%, var(--color-bg-alt));
+}
+
+.centre-proposal__setup-block .centre-proposal__closing-text {
+  margin-bottom: 0.75rem;
+}
+
+.centre-proposal__setup-access {
+  margin: 0.85rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
 .centre-proposal__external-costs-teaser {
   margin: -0.35rem 0 1.25rem;
   max-width: 40rem;

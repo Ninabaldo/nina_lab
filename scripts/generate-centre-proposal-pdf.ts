@@ -252,6 +252,12 @@ function buildHtml(): string {
     <h2>${esc(copy.section07.title)}</h2>
     <p>${esc(copy.section07.intro)}</p>
     <p class="muted">${esc(copy.section07.disclaimer)}</p>
+    <div class="timeline-overview">
+      <h3>${esc(copy.section07.setupTitle)}</h3>
+      <p>${esc(copy.section07.setupIntro)}</p>
+      <ul>${copy.section07.setupItems.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+      <p class="note">${esc(copy.section07.setupAccessNote)}</p>
+    </div>
     ${copy.section07.groups
       .map(
         (group) => `

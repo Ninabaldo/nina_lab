@@ -52,8 +52,8 @@ const es: CentreProposalCopy = {
     title: 'Configura tu presupuesto',
     lead: 'Tres pasos para definir software, funcionalidades y mantenimiento.',
     externalCostsTeaser:
-      'Los precios de implementación y el mantenimiento opcional de Nina Lab no incluyen facturas de terceros.',
-    externalCostsLink: 'Ver costes externos (a cargo del centro)',
+      'Implementación y mantenimiento opcional no incluyen suscripciones de terceros; sí podemos configurarlas con cuentas y datos del centro.',
+    externalCostsLink: 'Ver costes externos y qué configuramos',
     base: {
       title: 'Software base',
       subtitle: 'Plataforma de reservas y gestión',
@@ -242,6 +242,20 @@ const es: CentreProposalCopy = {
       'Además del presupuesto de desarrollo y, si se elige, del mantenimiento mensual con Nina Lab, el centro paga directamente a los proveedores los servicios que mantienen la plataforma en producción. Estos importes no se pagan a Nina Lab.',
     disclaimer:
       'Las cifras son orientativas; varían según proveedor, país, IVA, volumen y plan contratado.',
+    setupTitle: 'No incluido como suscripción, pero lo configuramos con vuestras cuentas',
+    setupIntro:
+      'Las cuotas de los proveedores no forman parte del precio de implementación de Nina Lab, pero sí podemos dejarlo conectado y documentado: integración en el código, entornos, despliegue y pruebas, con cuentas a nombre del centro y datos que facilite el centro o su administrador.',
+    setupItems: [
+      'Repositorio GitHub del centro, CI/CD y despliegue inicial en hosting (web y API).',
+      'Enlace del dominio y HTTPS (DNS en el registrador del centro).',
+      'Base de datos gestionada: proyecto, esquema inicial, migraciones y variables de entorno.',
+      'Stripe: conexión a la cuenta del centro, entornos de prueba y producción, webhooks.',
+      'Email transaccional: verificación del dominio, DNS y plantillas básicas si están en el alcance.',
+      'Apps (si se contratan): builds y publicación en stores con cuentas de desarrollador del centro.',
+      'Otras integraciones del alcance con claves o invitaciones de admin del centro.',
+    ],
+    setupAccessNote:
+      'El centro abre las cuentas a su nombre y da acceso de administrador a Nina Lab. No pedimos contraseñas por email; claves y secretos van en variables de entorno con documentación de transferencia segura.',
     groups: [
       {
         title: 'Dominio y hosting',
