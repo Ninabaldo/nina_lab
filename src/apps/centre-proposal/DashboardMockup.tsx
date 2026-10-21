@@ -130,7 +130,6 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                       ? {
                           periodLabel: highlightedMonth.label,
                           amount: revenueKpi.value,
-                          hint: revenueKpi.hint,
                         }
                       : undefined
                   }
