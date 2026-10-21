@@ -1233,7 +1233,8 @@
   padding-top: 0.25rem;
 }
 
-.centre-demo__chart-col {
+.centre-demo__chart-col,
+.centre-demo__chart-col-btn {
   flex: 1;
   min-width: 0;
   display: flex;
@@ -1241,6 +1242,32 @@
   align-items: center;
   gap: 0.25rem;
   height: 100%;
+}
+
+.centre-demo__chart-col-btn {
+  margin: 0;
+  padding: 0.15rem 0.05rem 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  color: inherit;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.centre-demo__chart-col-btn:hover .centre-demo__chart-bar:not(.centre-demo__chart-bar--hi) {
+  background: color-mix(in srgb, var(--color-accent-sage) 70%, var(--color-bg-alt));
+}
+
+.centre-demo__chart-col-btn:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-accent-sage) 65%, var(--color-text));
+  outline-offset: 2px;
+}
+
+.centre-demo__chart-col--selected .centre-demo__chart-label {
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 .centre-demo__chart-value {

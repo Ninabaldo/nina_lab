@@ -431,13 +431,14 @@ const en: CentreProposalCopy = {
         chartsTitle: 'Revenue',
         charts: {
           monthlyTitle: 'Monthly revenue',
+          monthlySelectHint: 'Click a month in the chart to see its total.',
           annualTitle: 'Annual revenue',
           monthly: [
-            { label: 'May', valueLabel: '€3.2k', amount: 3200 },
-            { label: 'Jun', valueLabel: '€3.4k', amount: 3400 },
-            { label: 'Jul', valueLabel: '€3.6k', amount: 3600 },
-            { label: 'Aug', valueLabel: '€3.9k', amount: 3900 },
-            { label: 'Sep', valueLabel: '€4.1k', amount: 4100 },
+            { label: 'May', valueLabel: '€3,200', amount: 3200 },
+            { label: 'Jun', valueLabel: '€3,400', amount: 3400 },
+            { label: 'Jul', valueLabel: '€3,600', amount: 3600 },
+            { label: 'Aug', valueLabel: '€3,900', amount: 3900 },
+            { label: 'Sep', valueLabel: '€4,100', amount: 4100 },
             { label: 'Oct', valueLabel: '€4,280', amount: 4280, highlight: true },
           ],
           annual: [

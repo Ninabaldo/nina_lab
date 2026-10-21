@@ -35,8 +35,6 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
   const resum = demo.dashboard.resum
   const revenueKpi = resum.kpis.find((k) => k.id === 'revenue')
   const secondaryKpis = resum.kpis.filter((k) => k.id !== 'revenue')
-  const highlightedMonth = resum.charts.monthly.find((bar) => bar.highlight)
-
   const resumLead = resum.leadTemplate
     .replace('{bookings}', String(confirmedBookings))
     .replace('{full}', '2')
@@ -125,14 +123,8 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                 <CentreDashboardBarChart
                   title={resum.charts.monthlyTitle}
                   bars={resum.charts.monthly}
-                  featured={
-                    revenueKpi && highlightedMonth
-                      ? {
-                          periodLabel: highlightedMonth.label,
-                          amount: revenueKpi.value,
-                        }
-                      : undefined
-                  }
+                  selectable
+                  selectHint={resum.charts.monthlySelectHint}
                 />
                 <CentreDashboardBarChart
                   title={resum.charts.annualTitle}

@@ -426,13 +426,14 @@ const it: CentreProposalCopy = {
         chartsTitle: 'Incassi',
         charts: {
           monthlyTitle: 'Incassi mensili',
+          monthlySelectHint: 'Clicca un mese nel grafico per vedere il totale.',
           annualTitle: 'Incassi annuali',
           monthly: [
-            { label: 'Mag', valueLabel: '3,2k €', amount: 3200 },
-            { label: 'Giu', valueLabel: '3,4k €', amount: 3400 },
-            { label: 'Lug', valueLabel: '3,6k €', amount: 3600 },
-            { label: 'Ago', valueLabel: '3,9k €', amount: 3900 },
-            { label: 'Set', valueLabel: '4,1k €', amount: 4100 },
+            { label: 'Mag', valueLabel: '3.200 €', amount: 3200 },
+            { label: 'Giu', valueLabel: '3.400 €', amount: 3400 },
+            { label: 'Lug', valueLabel: '3.600 €', amount: 3600 },
+            { label: 'Ago', valueLabel: '3.900 €', amount: 3900 },
+            { label: 'Set', valueLabel: '4.100 €', amount: 4100 },
             { label: 'Ott', valueLabel: '4.280 €', amount: 4280, highlight: true },
           ],
           annual: [

@@ -461,13 +461,14 @@ const ca: CentreProposalCopy = {
         chartsTitle: 'Ingressos',
         charts: {
           monthlyTitle: 'Ingressos mensuals',
+          monthlySelectHint: 'Clica un mes al diagrama per veure el total.',
           annualTitle: 'Ingressos anuals',
           monthly: [
-            { label: 'Mai', valueLabel: '3,2k €', amount: 3200 },
-            { label: 'Jun', valueLabel: '3,4k €', amount: 3400 },
-            { label: 'Jul', valueLabel: '3,6k €', amount: 3600 },
-            { label: 'Ago', valueLabel: '3,9k €', amount: 3900 },
-            { label: 'Set', valueLabel: '4,1k €', amount: 4100 },
+            { label: 'Mai', valueLabel: '3.200 €', amount: 3200 },
+            { label: 'Jun', valueLabel: '3.400 €', amount: 3400 },
+            { label: 'Jul', valueLabel: '3.600 €', amount: 3600 },
+            { label: 'Ago', valueLabel: '3.900 €', amount: 3900 },
+            { label: 'Set', valueLabel: '4.100 €', amount: 4100 },
             { label: 'Oct', valueLabel: '4.280 €', amount: 4280, highlight: true },
           ],
           annual: [

@@ -424,13 +424,14 @@ const fr: CentreProposalCopy = {
         chartsTitle: 'Revenus',
         charts: {
           monthlyTitle: 'Revenus mensuels',
+          monthlySelectHint: 'Cliquez sur un mois du graphique pour voir le total.',
           annualTitle: 'Revenus annuels',
           monthly: [
-            { label: 'Mai', valueLabel: '3,2k €', amount: 3200 },
-            { label: 'Juin', valueLabel: '3,4k €', amount: 3400 },
-            { label: 'Juil.', valueLabel: '3,6k €', amount: 3600 },
-            { label: 'Août', valueLabel: '3,9k €', amount: 3900 },
-            { label: 'Sep.', valueLabel: '4,1k €', amount: 4100 },
+            { label: 'Mai', valueLabel: '3 200 €', amount: 3200 },
+            { label: 'Juin', valueLabel: '3 400 €', amount: 3400 },
+            { label: 'Juil.', valueLabel: '3 600 €', amount: 3600 },
+            { label: 'Août', valueLabel: '3 900 €', amount: 3900 },
+            { label: 'Sep.', valueLabel: '4 100 €', amount: 4100 },
             { label: 'Oct.', valueLabel: '4 280 €', amount: 4280, highlight: true },
           ],
           annual: [

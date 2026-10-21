@@ -268,6 +268,7 @@ export interface CentreProposalCopy {
         chartsTitle: string
         charts: {
           monthlyTitle: string
+          monthlySelectHint: string
           annualTitle: string
           monthly: { label: string; valueLabel: string; amount: number; highlight?: boolean }[]
           annual: { label: string; valueLabel: string; amount: number; highlight?: boolean }[]
