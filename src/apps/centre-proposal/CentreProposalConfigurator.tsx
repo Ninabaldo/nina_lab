@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { flushSync } from 'react-dom'
 import type { CentreProposalCopy } from '../../i18n/centreProposal/types'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { CentreProposalBudgetSummary } from './CentreProposalBudgetSummary'
@@ -165,7 +166,7 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
 
   const downloadPdf = async () => {
     if (pdfState === 'busy') return
-    setPdfState('busy')
+    flushSync(() => setPdfState('busy'))
     const started = performance.now()
     try {
       await downloadConfiguratorProposalPdf({
@@ -489,11 +490,7 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
           aria-busy={pdfBusy}
           onClick={() => void downloadPdf()}
         >
-          <CpPdfBusyLabel
-            busy={pdfBusy}
-            idleText={cfg.summary.mobileCta}
-            busyText={cfg.proposal.downloadPdfBusy}
-          />
+          <CpPdfBusyLabel busy={false} idleText={cfg.summary.mobileCta} busyText="" />
         </button>
       </div>
 
@@ -561,11 +558,7 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
             aria-busy={pdfBusy}
             onClick={() => void downloadPdf()}
           >
-            <CpPdfBusyLabel
-              busy={pdfBusy}
-              idleText={cfg.proposal.downloadPdfCta}
-              busyText={cfg.proposal.downloadPdfBusy}
-            />
+            <CpPdfBusyLabel busy={false} idleText={cfg.proposal.downloadPdfCta} busyText="" />
           </button>
           <button
             type="button"

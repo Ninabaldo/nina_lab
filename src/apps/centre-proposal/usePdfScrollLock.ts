@@ -1,42 +1,17 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
-/** Keeps the page fixed (no shift) while a full-screen PDF overlay is shown. */
+/**
+ * While the PDF overlay is open: hide page content (no reflow visible),
+ * keep scroll position, avoid body position:fixed jumps.
+ */
 export function usePdfScrollLock(active: boolean) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!active) return
 
-    const scrollY = window.scrollY
-    const scrollbarWidth = Math.max(0, window.innerWidth - document.documentElement.clientWidth)
-    const { body, documentElement: html } = document
-
-    const prev = {
-      bodyOverflow: body.style.overflow,
-      bodyPaddingRight: body.style.paddingRight,
-      bodyPosition: body.style.position,
-      bodyTop: body.style.top,
-      bodyWidth: body.style.width,
-      htmlOverflow: html.style.overflow,
-    }
-
-    body.classList.add('cp-pdf-lock')
-    body.style.setProperty('--cp-pdf-scrollbar', `${scrollbarWidth}px`)
-    body.style.overflow = 'hidden'
-    body.style.paddingRight = `${scrollbarWidth}px`
-    body.style.position = 'fixed'
-    body.style.top = `-${scrollY}px`
-    body.style.width = '100%'
-    html.style.overflow = 'hidden'
+    document.documentElement.classList.add('cp-pdf-lock')
 
     return () => {
-      body.classList.remove('cp-pdf-lock')
-      body.style.removeProperty('--cp-pdf-scrollbar')
-      body.style.overflow = prev.bodyOverflow
-      body.style.paddingRight = prev.bodyPaddingRight
-      body.style.position = prev.bodyPosition
-      body.style.top = prev.bodyTop
-      body.style.width = prev.bodyWidth
-      html.style.overflow = prev.htmlOverflow
-      window.scrollTo(0, scrollY)
+      document.documentElement.classList.remove('cp-pdf-lock')
     }
   }, [active])
 }

@@ -1,3 +1,26 @@
+html {
+  scrollbar-gutter: stable;
+}
+
+html.cp-pdf-lock {
+  overflow: hidden;
+}
+
+html.cp-pdf-lock .centre-proposal {
+  visibility: hidden;
+}
+
+/* html2pdf / html2canvas may inject nodes on body during capture */
+html.cp-pdf-lock body > .html2canvas-container,
+html.cp-pdf-lock body > div.html2pdf__overlay {
+  position: fixed !important;
+  left: -99999px !important;
+  top: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 .centre-proposal {
   --cp-max: 52rem;
   --cp-wide: 72rem;
@@ -2486,19 +2509,8 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   position: fixed;
   inset: 0;
   z-index: 10049;
-  background: color-mix(in srgb, var(--color-bg) 28%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: var(--color-bg);
   pointer-events: all;
-}
-
-body.cp-pdf-lock .centre-proposal__sticky {
-  padding-right: var(--cp-pdf-scrollbar, 0);
-}
-
-body.cp-pdf-lock .cp-config__mobile-bar {
-  margin-right: 0;
-  padding-right: calc(0.85rem + var(--cp-pdf-scrollbar, 0));
 }
 
 .cp-pdf-status {

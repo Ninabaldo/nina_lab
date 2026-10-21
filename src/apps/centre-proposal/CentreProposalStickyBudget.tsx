@@ -69,7 +69,7 @@ export function CentreProposalStickyBudget({
           onClick={onDownloadPdf}
         >
           <CpPdfBusyLabel
-            busy={downloadBusy}
+            busy={false}
             idleText={downloadIdleLabel}
             busyText={downloadBusyLabel}
           />

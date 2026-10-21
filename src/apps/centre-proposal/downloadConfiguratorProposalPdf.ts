@@ -442,7 +442,7 @@ async function mountHiddenPdfRoot(html: string): Promise<{
   iframe.setAttribute('tabindex', '-1')
   iframe.title = 'pdf-export'
   iframe.style.cssText =
-    'position:fixed;width:0;height:0;border:0;opacity:0;visibility:hidden;pointer-events:none;'
+    'position:fixed;left:-9999px;top:0;width:1px;height:1px;border:0;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden;'
 
   document.body.appendChild(iframe)
 
