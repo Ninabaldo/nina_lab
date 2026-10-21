@@ -280,6 +280,10 @@ export interface CentreProposalCopy {
         lead: string
         viewWeek: string
         viewMonth: string
+        monthLegendTitle: string
+        monthLegend: { tone: 'yoga' | 'pilates' | 'stretching' | 'other'; label: string }[]
+        monthMoreEvents: string
+        todayBadge: string
         days: { label: string; meta: string }[]
       }
       classes: {

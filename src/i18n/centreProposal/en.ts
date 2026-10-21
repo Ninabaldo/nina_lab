@@ -438,7 +438,7 @@ const en: CentreProposalCopy = {
             { label: 'Jul', valueLabel: '€3.6k', amount: 3600 },
             { label: 'Aug', valueLabel: '€3.9k', amount: 3900 },
             { label: 'Sep', valueLabel: '€4.1k', amount: 4100 },
-            { label: 'Oct', valueLabel: '€4.3k', amount: 4280, highlight: true },
+            { label: 'Oct', valueLabel: '€4,280', amount: 4280, highlight: true },
           ],
           annual: [
             { label: '2022', valueLabel: '€38k', amount: 38000 },
@@ -479,6 +479,15 @@ const en: CentreProposalCopy = {
         lead: 'Switch between week and month to see scheduled activities.',
         viewWeek: 'Week',
         viewMonth: 'Month',
+        monthLegendTitle: 'Activity type',
+        monthLegend: [
+          { tone: 'yoga', label: 'Yoga' },
+          { tone: 'pilates', label: 'Pilates' },
+          { tone: 'stretching', label: 'Stretching' },
+          { tone: 'other', label: 'Other' },
+        ],
+        monthMoreEvents: '+{n} more',
+        todayBadge: 'Today',
         days: [
           { label: 'Monday', meta: '10:00 Yoga · 18:30 Pilates' },
           { label: 'Tuesday', meta: '09:00 Stretching · 19:00 HIIT' },

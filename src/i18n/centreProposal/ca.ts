@@ -468,7 +468,7 @@ const ca: CentreProposalCopy = {
             { label: 'Jul', valueLabel: '3,6k €', amount: 3600 },
             { label: 'Ago', valueLabel: '3,9k €', amount: 3900 },
             { label: 'Set', valueLabel: '4,1k €', amount: 4100 },
-            { label: 'Oct', valueLabel: '4,3k €', amount: 4280, highlight: true },
+            { label: 'Oct', valueLabel: '4.280 €', amount: 4280, highlight: true },
           ],
           annual: [
             { label: '2022', valueLabel: '38k €', amount: 38000 },
@@ -509,6 +509,15 @@ const ca: CentreProposalCopy = {
         lead: 'Canvia entre vista setmanal i mensual de les activitats programades.',
         viewWeek: 'Setmana',
         viewMonth: 'Mes',
+        monthLegendTitle: 'Tipus d’activitat',
+        monthLegend: [
+          { tone: 'yoga', label: 'Yoga' },
+          { tone: 'pilates', label: 'Pilates' },
+          { tone: 'stretching', label: 'Stretching' },
+          { tone: 'other', label: 'Altres' },
+        ],
+        monthMoreEvents: '+{n} més',
+        todayBadge: 'Avui',
         days: [
           { label: 'Dilluns', meta: '10:00 Yoga · 18:30 Pilates' },
           { label: 'Dimarts', meta: '09:00 Stretching · 19:00 HIIT' },

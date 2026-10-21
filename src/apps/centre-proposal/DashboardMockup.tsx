@@ -32,7 +32,12 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
   const { yogaOccupancy, yogaCapacity, confirmedBookings, studentBookedYoga, isClassFull } =
     useCentreDemo()
 
-  const resumLead = demo.dashboard.resum.leadTemplate
+  const resum = demo.dashboard.resum
+  const revenueKpi = resum.kpis.find((k) => k.id === 'revenue')
+  const secondaryKpis = resum.kpis.filter((k) => k.id !== 'revenue')
+  const highlightedMonth = resum.charts.monthly.find((bar) => bar.highlight)
+
+  const resumLead = resum.leadTemplate
     .replace('{bookings}', String(confirmedBookings))
     .replace('{full}', '2')
 
@@ -90,10 +95,17 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
         <div key={tab} className="centre-demo__screen-pane">
           {tab === 'resum' ? (
             <>
-              <h1>{demo.dashboard.resum.title}</h1>
+              <h1>{resum.title}</h1>
               <p className="centre-demo__panel-lead centre-demo__panel-lead--live">{resumLead}</p>
-              <div className="centre-demo__kpi-grid" role="list">
-                {demo.dashboard.resum.kpis.map((kpi) => {
+              {revenueKpi ? (
+                <div className="centre-demo__revenue-spotlight" role="group" aria-label={revenueKpi.label}>
+                  <p className="centre-demo__revenue-spotlight-label">{revenueKpi.label}</p>
+                  <p className="centre-demo__revenue-spotlight-value">{revenueKpi.value}</p>
+                  <p className="centre-demo__revenue-spotlight-hint">{revenueKpi.hint}</p>
+                </div>
+              ) : null}
+              <div className="centre-demo__kpi-grid centre-demo__kpi-grid--secondary" role="list">
+                {secondaryKpis.map((kpi) => {
                   const live = kpi.id === 'bookingsToday' && studentBookedYoga
                   return (
                     <div
@@ -108,20 +120,29 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                   )
                 })}
               </div>
-              <h2 className="centre-demo__panel-subtitle">{demo.dashboard.resum.chartsTitle}</h2>
+              <h2 className="centre-demo__panel-subtitle">{resum.chartsTitle}</h2>
               <div className="centre-demo__chart-row">
                 <CentreDashboardBarChart
-                  title={demo.dashboard.resum.charts.monthlyTitle}
-                  bars={demo.dashboard.resum.charts.monthly}
+                  title={resum.charts.monthlyTitle}
+                  bars={resum.charts.monthly}
+                  featured={
+                    revenueKpi && highlightedMonth
+                      ? {
+                          periodLabel: highlightedMonth.label,
+                          amount: revenueKpi.value,
+                          hint: revenueKpi.hint,
+                        }
+                      : undefined
+                  }
                 />
                 <CentreDashboardBarChart
-                  title={demo.dashboard.resum.charts.annualTitle}
-                  bars={demo.dashboard.resum.charts.annual}
+                  title={resum.charts.annualTitle}
+                  bars={resum.charts.annual}
                 />
               </div>
-              <h2 className="centre-demo__panel-subtitle">{demo.dashboard.resum.paymentsTitle}</h2>
+              <h2 className="centre-demo__panel-subtitle">{resum.paymentsTitle}</h2>
               <ul className="centre-demo__payment-list">
-                {demo.dashboard.resum.payments.map((payment) => (
+                {resum.payments.map((payment) => (
                   <li key={`${payment.label}-${payment.meta}`} className="centre-demo__payment">
                     <div className="centre-demo__payment-head">
                       <span className="centre-demo__payment-label">{payment.label}</span>
@@ -136,9 +157,9 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                   </li>
                 ))}
               </ul>
-              <h2 className="centre-demo__panel-subtitle">{demo.dashboard.resum.scheduleTitle}</h2>
+              <h2 className="centre-demo__panel-subtitle">{resum.scheduleTitle}</h2>
               <ul className="centre-demo__card-list">
-                {demo.dashboard.resum.rows.map((row) => {
+                {resum.rows.map((row) => {
                   const occupancy = occupancyForRow(row.id)
                   const warn = occupancy.includes('10/10')
                   const live = row.id === 'yoga' && studentBookedYoga

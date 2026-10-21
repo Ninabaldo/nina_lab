@@ -1008,11 +1008,48 @@
   color: var(--color-text-light);
 }
 
+.centre-demo__revenue-spotlight {
+  margin: 0 0 0.75rem;
+  padding: 1rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-accent-sage) 45%, var(--color-border));
+  background: color-mix(in srgb, var(--color-accent-sage) 12%, var(--color-bg-warm));
+}
+
+.centre-demo__revenue-spotlight-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.centre-demo__revenue-spotlight-value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.5vw, 2.35rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.centre-demo__revenue-spotlight-hint {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
 .centre-demo__kpi-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.55rem;
   margin-bottom: 0.25rem;
+}
+
+.centre-demo__kpi-grid--secondary {
+  margin-bottom: 0.85rem;
 }
 
 .centre-demo__kpi {
@@ -1109,8 +1146,12 @@
 }
 
 @media (min-width: 900px) {
-  .centre-demo__kpi-grid {
+  .centre-demo__kpi-grid:not(.centre-demo__kpi-grid--secondary) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .centre-demo__kpi-grid--secondary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1136,8 +1177,17 @@
   min-width: 0;
 }
 
+.centre-demo__chart-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.65rem;
+}
+
 .centre-demo__chart-title {
-  margin: 0 0 0.65rem;
+  margin: 0;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1145,11 +1195,41 @@
   color: var(--color-text-light);
 }
 
+.centre-demo__chart-feature {
+  text-align: right;
+  min-width: 0;
+}
+
+.centre-demo__chart-feature-label {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.centre-demo__chart-feature-value {
+  margin: 0.1rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.centre-demo__chart-feature-hint {
+  margin: 0.15rem 0 0;
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+}
+
 .centre-demo__chart-bars {
   display: flex;
   align-items: flex-end;
   gap: 0.35rem;
-  height: 7.5rem;
+  height: 8.75rem;
   padding-top: 0.25rem;
 }
 
@@ -1164,11 +1244,16 @@
 }
 
 .centre-demo__chart-value {
-  font-size: 0.58rem;
+  font-size: 0.66rem;
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   color: var(--color-text-muted);
   white-space: nowrap;
+}
+
+.centre-demo__chart-col:has(.centre-demo__chart-bar--hi) .centre-demo__chart-value {
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 .centre-demo__chart-track {
@@ -2016,13 +2101,156 @@ button.centre-demo__cal-event:hover:not(:disabled) {
 }
 
 .centre-demo__cal-month-cell--today {
-  border-color: color-mix(in srgb, var(--color-primary, #111) 40%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent-sage) 55%, var(--color-border));
+  background: color-mix(in srgb, var(--color-accent-sage) 8%, var(--color-bg));
+}
+
+.centre-demo__cal-month-cell--agenda {
+  min-height: 4.75rem;
+}
+
+.centre-demo__cal-month-day-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem;
+  min-width: 0;
 }
 
 .centre-demo__cal-month-day {
   font-size: 0.62rem;
   font-weight: 600;
-  align-self: flex-end;
+}
+
+.centre-demo__cal-month-today {
+  font-size: 0.52rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.28rem;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--color-accent-sage) 22%, transparent);
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.centre-demo__cal-month-agenda {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.centre-demo__cal-month-agenda-item {
+  display: flex;
+  gap: 0.2rem;
+  align-items: baseline;
+  min-width: 0;
+  padding: 0.1rem 0.15rem;
+  border-radius: 3px;
+  border-left: 2px solid color-mix(in srgb, var(--color-text) 25%, transparent);
+  font-size: 0.56rem;
+  line-height: 1.25;
+}
+
+.centre-demo__cal-month-agenda-item--yoga {
+  border-left-color: #5b8a72;
+}
+
+.centre-demo__cal-month-agenda-item--pilates {
+  border-left-color: #6b7aa1;
+}
+
+.centre-demo__cal-month-agenda-item--stretching {
+  border-left-color: #a18b6b;
+}
+
+.centre-demo__cal-month-agenda-item--other {
+  border-left-color: color-mix(in srgb, var(--color-text) 35%, transparent);
+}
+
+.centre-demo__cal-month-agenda-item--live {
+  background: color-mix(in srgb, var(--color-accent-sage) 12%, transparent);
+}
+
+.centre-demo__cal-month-agenda-time {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.centre-demo__cal-month-agenda-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.centre-demo__cal-month-agenda-more {
+  font-size: 0.54rem;
+  color: var(--color-text-muted);
+  padding-left: 0.15rem;
+}
+
+.centre-demo__cal-legend {
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.centre-demo__cal-legend-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+}
+
+.centre-demo__cal-legend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+}
+
+.centre-demo__cal-legend-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.centre-demo__cal-legend-swatch {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.centre-demo__cal-legend-swatch--yoga {
+  background: #5b8a72;
+}
+
+.centre-demo__cal-legend-swatch--pilates {
+  background: #6b7aa1;
+}
+
+.centre-demo__cal-legend-swatch--stretching {
+  background: #a18b6b;
+}
+
+.centre-demo__cal-legend-swatch--other {
+  background: color-mix(in srgb, var(--color-text) 35%, transparent);
 }
 
 .centre-demo__cal-month-dots {

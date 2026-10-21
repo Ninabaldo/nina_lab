@@ -3,12 +3,12 @@ import type { Language } from '../../lib/preferences'
 import type { DemoClassId } from './centreDemoContext'
 import {
   buildDemoCalendarEvents,
+  DEMO_WEEK_MONDAY,
   demoWeekDays,
   eventsForDate,
   formatDemoWeekRange,
   formatMonthTitle,
   isDemoMonth,
-  jsDateToIsoDay,
   monthGridCells,
   type DemoCalendarEventTemplate,
 } from './demoCalendarData'
@@ -94,9 +94,11 @@ export function CentreDemoCalendar({
   isClassFull,
   liveClassId,
 }: CentreDemoCalendarProps) {
-  const [view, setView] = useState<CalendarViewMode>('week')
+  const calendari = copy.demo.dashboard.calendari
+  const [view, setView] = useState<CalendarViewMode>(surface === 'dashboard' ? 'month' : 'week')
   const weekAsList = surface === 'phone'
-  const monthCompact = surface === 'phone' || compact
+  const monthAgenda = surface === 'dashboard'
+  const monthCompact = surface === 'phone' || (compact && !monthAgenda)
   const templates = useMemo(() => buildDemoCalendarEvents(copy), [copy])
   const weekDays = useMemo(() => demoWeekDays(language), [language])
   const weekRange = useMemo(() => formatDemoWeekRange(language), [language])
@@ -133,7 +135,7 @@ export function CentreDemoCalendar({
       data-view={view}
     >
       <div className="centre-demo__cal-toolbar">
-        <div className="centre-demo__cal-toggle" role="tablist" aria-label={copy.demo.dashboard.calendari.title}>
+        <div className="centre-demo__cal-toggle" role="tablist" aria-label={calendari.title}>
           <button
             type="button"
             role="tab"
@@ -197,43 +199,94 @@ export function CentreDemoCalendar({
             {monthGridCells().map((date) => {
               const inMonth = isDemoMonth(date)
               const dayEvents = inMonth ? eventsForDate(date, templates, language) : []
-              const todayHighlight = jsDateToIsoDay(date) === 1 && date.getDate() === 20
+              const todayHighlight = inMonth && date.getDate() === DEMO_WEEK_MONDAY
+              const moreCount = dayEvents.length > 2 ? dayEvents.length - 2 : 0
               return (
                 <div
                   key={date.toISOString()}
                   className={`centre-demo__cal-month-cell${inMonth ? '' : ' centre-demo__cal-month-cell--muted'}${
                     todayHighlight ? ' centre-demo__cal-month-cell--today' : ''
-                  }`}
+                  }${monthAgenda ? ' centre-demo__cal-month-cell--agenda' : ''}`}
                 >
-                  <span className="centre-demo__cal-month-day">{date.getDate()}</span>
+                  <div className="centre-demo__cal-month-day-row">
+                    <span className="centre-demo__cal-month-day">{date.getDate()}</span>
+                    {todayHighlight ? (
+                      <span className="centre-demo__cal-month-today">{calendari.todayBadge}</span>
+                    ) : null}
+                  </div>
                   {dayEvents.length > 0 ? (
-                    <div
-                      className="centre-demo__cal-month-dots"
-                      role="list"
-                      aria-label={dayEvents.map((ev) => `${ev.timeLabel} ${ev.title}`).join(', ')}
-                    >
-                      {dayEvents.slice(0, 4).map((ev) => {
-                        const live = ev.classId != null && ev.classId === liveClassId
-                        return (
-                          <span
-                            key={`${ev.timeLabel}-${ev.title}`}
-                            role="listitem"
-                            className={`centre-demo__cal-month-dot${
-                              ev.classId ? ` centre-demo__cal-month-dot--${ev.classId}` : ''
-                            }${live ? ' centre-demo__cal-month-dot--live' : ''}`}
-                            title={`${ev.timeLabel} · ${ev.title}`}
-                          />
-                        )
-                      })}
-                      {dayEvents.length > 4 ? (
-                        <span className="centre-demo__cal-month-more">+{dayEvents.length - 4}</span>
-                      ) : null}
-                    </div>
+                    monthAgenda ? (
+                      <ul
+                        className="centre-demo__cal-month-agenda"
+                        aria-label={dayEvents.map((ev) => `${ev.timeLabel} ${ev.title}`).join(', ')}
+                      >
+                        {dayEvents.slice(0, 2).map((ev) => {
+                          const live = ev.classId != null && ev.classId === liveClassId
+                          const tone = ev.classId ?? 'other'
+                          return (
+                            <li
+                              key={`${ev.timeLabel}-${ev.title}`}
+                              className={`centre-demo__cal-month-agenda-item centre-demo__cal-month-agenda-item--${tone}${
+                                live ? ' centre-demo__cal-month-agenda-item--live' : ''
+                              }`}
+                              title={`${ev.timeLabel} · ${ev.title}`}
+                            >
+                              <span className="centre-demo__cal-month-agenda-time">{ev.timeLabel}</span>
+                              <span className="centre-demo__cal-month-agenda-title">{ev.title}</span>
+                            </li>
+                          )
+                        })}
+                        {moreCount > 0 ? (
+                          <li className="centre-demo__cal-month-agenda-more">
+                            {calendari.monthMoreEvents.replace('{n}', String(moreCount))}
+                          </li>
+                        ) : null}
+                      </ul>
+                    ) : (
+                      <div
+                        className="centre-demo__cal-month-dots"
+                        role="list"
+                        aria-label={dayEvents.map((ev) => `${ev.timeLabel} ${ev.title}`).join(', ')}
+                      >
+                        {dayEvents.slice(0, 4).map((ev) => {
+                          const live = ev.classId != null && ev.classId === liveClassId
+                          return (
+                            <span
+                              key={`${ev.timeLabel}-${ev.title}`}
+                              role="listitem"
+                              className={`centre-demo__cal-month-dot${
+                                ev.classId ? ` centre-demo__cal-month-dot--${ev.classId}` : ''
+                              }${live ? ' centre-demo__cal-month-dot--live' : ''}`}
+                              title={`${ev.timeLabel} · ${ev.title}`}
+                            />
+                          )
+                        })}
+                        {dayEvents.length > 4 ? (
+                          <span className="centre-demo__cal-month-more">+{dayEvents.length - 4}</span>
+                        ) : null}
+                      </div>
+                    )
                   ) : null}
                 </div>
               )
             })}
           </div>
+          {monthAgenda ? (
+            <div className="centre-demo__cal-legend">
+              <p className="centre-demo__cal-legend-title">{calendari.monthLegendTitle}</p>
+              <ul className="centre-demo__cal-legend-list">
+                {calendari.monthLegend.map((item) => (
+                  <li key={item.tone}>
+                    <span
+                      className={`centre-demo__cal-legend-swatch centre-demo__cal-legend-swatch--${item.tone}`}
+                      aria-hidden
+                    />
+                    {item.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </>
       )}
     </div>
