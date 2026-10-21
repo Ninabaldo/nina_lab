@@ -16,6 +16,7 @@ export function CentreProposalApp() {
   const copy = useCentreProposalCopy()
   const experiencesRef = useScrollReveal<HTMLElement>()
   const configRef = useScrollReveal<HTMLElement>()
+  const handoverRef = useScrollReveal<HTMLElement>()
 
   return (
     <div className="centre-proposal">
@@ -166,6 +167,7 @@ export function CentreProposalApp() {
 
         <section
           id="continuitat"
+          ref={handoverRef}
           className="centre-proposal__section centre-proposal__section--handover reveal"
           aria-labelledby="centre-proposal-handover-heading"
         >
