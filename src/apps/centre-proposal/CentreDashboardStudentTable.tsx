@@ -27,16 +27,30 @@ export function CentreDashboardStudentTable({
         <p className="centre-demo__db-count">{countLabel}</p>
       </div>
 
-      <div className="centre-demo__db-wrap">
+      <p className="centre-demo__db-scroll-hint">{alumnes.tableScrollHint}</p>
+
+      <div className="centre-demo__db-wrap" tabIndex={0} aria-label={alumnes.tableScrollHint}>
         <table className="centre-demo__db-table">
           <thead>
             <tr>
-              <th scope="col">{alumnes.columns.name}</th>
-              <th scope="col">{alumnes.columns.email}</th>
-              <th scope="col">{alumnes.columns.plan}</th>
-              <th scope="col">{alumnes.columns.payments}</th>
-              <th scope="col">{alumnes.columns.status}</th>
-              <th scope="col">{alumnes.columns.activity}</th>
+              <th scope="col" className="centre-demo__db-col-name">
+                {alumnes.columns.name}
+              </th>
+              <th scope="col" className="centre-demo__db-col-payments">
+                {alumnes.columns.payments}
+              </th>
+              <th scope="col" className="centre-demo__db-col-plan">
+                {alumnes.columns.plan}
+              </th>
+              <th scope="col" className="centre-demo__db-col-status">
+                {alumnes.columns.status}
+              </th>
+              <th scope="col" className="centre-demo__db-col-activity">
+                {alumnes.columns.activity}
+              </th>
+              <th scope="col" className="centre-demo__db-col-email">
+                {alumnes.columns.email}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -47,24 +61,32 @@ export function CentreDashboardStudentTable({
                   key={row.id}
                   className={`centre-demo__db-row${live ? ' centre-demo__db-row--live' : ''}`}
                 >
-                  <td data-label={alumnes.columns.name}>{row.name}</td>
-                  <td data-label={alumnes.columns.email}>{row.email}</td>
-                  <td data-label={alumnes.columns.plan}>{row.plan}</td>
-                  <td data-label={alumnes.columns.payments}>
+                  <td className="centre-demo__db-col-name" data-label={alumnes.columns.name}>
+                    {row.name}
+                  </td>
+                  <td className="centre-demo__db-col-payments" data-label={alumnes.columns.payments}>
                     <span
                       className={`centre-demo__db-payment centre-demo__db-payment--${row.paymentTone}`}
                     >
                       {row.payments}
                     </span>
                   </td>
-                  <td data-label={alumnes.columns.status}>
+                  <td className="centre-demo__db-col-plan" data-label={alumnes.columns.plan}>
+                    {row.plan}
+                  </td>
+                  <td className="centre-demo__db-col-status" data-label={alumnes.columns.status}>
                     <span
                       className={`centre-demo__db-status centre-demo__db-status--${row.status}`}
                     >
                       {row.statusLabel}
                     </span>
                   </td>
-                  <td data-label={alumnes.columns.activity}>{row.activity}</td>
+                  <td className="centre-demo__db-col-activity" data-label={alumnes.columns.activity}>
+                    {row.activity}
+                  </td>
+                  <td className="centre-demo__db-col-email" data-label={alumnes.columns.email}>
+                    {row.email}
+                  </td>
                 </tr>
               )
             })}

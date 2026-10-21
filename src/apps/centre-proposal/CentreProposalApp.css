@@ -1226,18 +1226,52 @@
   white-space: nowrap;
 }
 
+.centre-demo__db-scroll-hint {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
 .centre-demo__db-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-bg);
+  position: relative;
+  box-shadow: inset -10px 0 12px -10px color-mix(in srgb, var(--color-text) 12%, transparent);
 }
 
 .centre-demo__db-table {
   width: 100%;
-  min-width: 36rem;
+  min-width: 40rem;
   border-collapse: collapse;
   font-size: 0.78rem;
+}
+
+.centre-demo__db-col-payments {
+  min-width: 9.5rem;
+}
+
+.centre-demo__db-col-name {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--color-bg);
+  box-shadow: 2px 0 6px color-mix(in srgb, var(--color-text) 6%, transparent);
+}
+
+.centre-demo__db-table thead .centre-demo__db-col-name {
+  background: var(--color-bg-alt);
+}
+
+.centre-demo__dash--compact .centre-demo__db-col-email {
+  display: none;
+}
+
+.centre-demo__dash--compact .centre-demo__db-table {
+  min-width: 34rem;
 }
 
 .centre-demo__db-table th,
@@ -1317,6 +1351,86 @@
 .centre-demo__db-payment--overdue {
   background: color-mix(in srgb, var(--color-accent-coral) 28%, transparent);
   color: var(--color-text);
+}
+
+.centre-demo__invoice-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.65rem;
+}
+
+.centre-demo__invoice-filter {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  border-radius: 999px;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.72rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+
+.centre-demo__invoice-filter--active {
+  border-color: var(--color-text);
+  color: var(--color-text);
+  font-weight: 600;
+  background: var(--color-bg-alt);
+}
+
+.centre-demo__db-table--invoices {
+  min-width: 44rem;
+}
+
+.centre-demo__invoice-number {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.centre-demo__invoice-amount {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.centre-demo__db-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.45rem;
+  background: var(--color-bg-alt);
+  font-size: 0.72rem;
+  cursor: pointer;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.centre-demo__db-pdf:hover {
+  border-color: var(--color-text-muted);
+}
+
+.centre-demo__db-pdf-badge {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.28rem;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--color-accent-coral) 18%, transparent);
+  color: var(--color-accent-coral);
+}
+
+.centre-demo__db-pdf-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
 }
 
 .centre-demo__db-status--off {

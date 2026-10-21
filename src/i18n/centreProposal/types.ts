@@ -86,6 +86,7 @@ export type CentreProposalDashTab =
   | 'classes'
   | 'personal'
   | 'alumnes'
+  | 'factures'
   | 'abonaments'
 
 export interface CentreProposalFeatureLine {
@@ -314,6 +315,7 @@ export interface CentreProposalCopy {
         lead: string
         searchPlaceholder: string
         countTemplate: string
+        tableScrollHint: string
         columns: {
           name: string
           email: string
@@ -332,6 +334,39 @@ export interface CentreProposalCopy {
           status: 'active' | 'pending'
           statusLabel: string
           activity: string
+        }[]
+      }
+      factures: {
+        title: string
+        lead: string
+        searchPlaceholder: string
+        countTemplate: string
+        filters: {
+          all: string
+          paid: string
+          pending: string
+          overdue: string
+        }
+        downloadPdfLabel: string
+        columns: {
+          number: string
+          date: string
+          customer: string
+          concept: string
+          amount: string
+          status: string
+          pdf: string
+        }
+        rows: {
+          id: string
+          number: string
+          date: string
+          customer: string
+          concept: string
+          amount: string
+          status: 'paid' | 'pending' | 'overdue'
+          statusLabel: string
+          pdfFile: string
         }[]
       }
       abonaments: { title: string; lead: string; rows: { name: string; price: string; meta: string }[] }

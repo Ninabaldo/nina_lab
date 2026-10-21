@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { CentreProposalCopy, CentreProposalDashTab } from '../../i18n/centreProposal/types'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { CentreDashboardBarChart } from './CentreDashboardBarChart'
+import { CentreDashboardInvoicesTable } from './CentreDashboardInvoicesTable'
 import { CentreDashboardStaffTable } from './CentreDashboardStaffTable'
 import { CentreDashboardStudentTable } from './CentreDashboardStudentTable'
 import { CentreDemoCalendar } from './CentreDemoCalendar'
@@ -14,6 +15,7 @@ const TAB_ORDER: CentreProposalDashTab[] = [
   'classes',
   'personal',
   'alumnes',
+  'factures',
   'abonaments',
 ]
 
@@ -239,6 +241,14 @@ export function DashboardMockup({ copy, compact = false }: DashboardMockupProps)
                   demo.dashboard.resum.kpis.find((k) => k.id === 'activeStudents')?.value ?? '212'
                 }
               />
+            </>
+          ) : null}
+
+          {tab === 'factures' ? (
+            <>
+              <h1>{demo.dashboard.factures.title}</h1>
+              <p className="centre-demo__panel-lead">{demo.dashboard.factures.lead}</p>
+              <CentreDashboardInvoicesTable copy={copy} />
             </>
           ) : null}
 
