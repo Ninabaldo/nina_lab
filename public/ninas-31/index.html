@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="theme-color" content="#2f3d2c" />
+    <meta name="theme-color" content="#e8e6e0" />
     <meta
       name="description"
-      content="31 anys a l'Empordà · 6 de novembre · Menjar, beguda, jocs i bicis. Confirma la teva assistència!"
+      content="Els 31 són els nous 26 · Empordà, 6 de novembre. Menjar, beguda, jocs i bicis. Confirma assistència."
     />
-    <meta property="og:title" content="Els 31 a l'Empordà!" />
+    <meta property="og:title" content="Els 31 són els nous 26 · Empordà" />
     <meta
       property="og:description"
-      content="6 de novembre · Divendres festa, dissabte bici i bon ambient. Confirma assistència."
+      content="6 de novembre · No vaig fer els 30, així que ho celebrem ara. Confirma assistència."
     />
     <meta property="og:type" content="website" />
-    <title>Els 31 a l'Empordà · 6 Nov</title>
+    <title>Els 31 són els nous 26 · Empordà</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,19 +27,22 @@
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'] },
+            fontFamily: { sans: ['"DM Sans"', 'system-ui', 'sans-serif'] },
             colors: {
-              olive: { DEFAULT: '#5c6b4a', dark: '#2f3d2c', light: '#8a9a76', muted: '#4a5840' },
-              terracotta: { DEFAULT: '#d4845f', soft: '#e8a882', deep: '#b86a45' },
-              sand: { DEFAULT: '#f7f3ec', dark: '#ebe4d8', deep: '#ddd4c6' },
-              earth: '#5c4a3d',
+              sage: { DEFAULT: '#8a9480', dark: '#5f6b58', light: '#b5bdb0', wash: '#eef0eb' },
+              clay: { DEFAULT: '#c9a995', soft: '#dcc9bb', muted: '#a88978' },
+              linen: { DEFAULT: '#f5f3ef', dark: '#e8e4dc', line: '#d9d4cb' },
+              ink: { DEFAULT: '#4a4540', muted: '#7a746c' },
             },
             boxShadow: {
-              soft: '0 20px 50px -20px rgba(47, 61, 44, 0.35)',
-              card: '0 8px 32px rgba(47, 61, 44, 0.1)',
-              glow: '0 0 0 1px rgba(255,255,255,0.6) inset, 0 12px 40px rgba(47, 61, 44, 0.12)',
+              soft: '0 16px 40px -24px rgba(74, 69, 64, 0.2)',
+              card: '0 2px 12px rgba(74, 69, 64, 0.06)',
             },
-            borderRadius: { '4xl': '2rem' },
+            borderRadius: {
+              DEFAULT: '6px',
+              md: '8px',
+              lg: '10px',
+            },
           },
         },
       }
@@ -48,6 +51,7 @@
       :root {
         --safe-bottom: env(safe-area-inset-bottom, 0px);
         --safe-top: env(safe-area-inset-top, 0px);
+        --radius: 8px;
       }
       html {
         scroll-behavior: smooth;
@@ -56,135 +60,112 @@
         -webkit-tap-highlight-color: transparent;
       }
       .page-bg {
-        background-color: #f7f3ec;
-        background-image:
-          radial-gradient(ellipse 100% 60% at 50% -10%, rgba(232, 168, 130, 0.45), transparent 50%),
-          radial-gradient(ellipse 60% 40% at 0% 40%, rgba(138, 154, 118, 0.25), transparent 55%),
-          radial-gradient(ellipse 50% 35% at 100% 70%, rgba(212, 132, 95, 0.2), transparent 50%),
-          linear-gradient(165deg, #faf7f1 0%, #f0e9de 45%, #ebe4d8 100%);
+        background: linear-gradient(180deg, #f8f6f2 0%, #f0ede8 50%, #ebe8e2 100%);
       }
-      .page-bg::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.35;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-        z-index: 0;
+      .surface {
+        background: rgba(255, 255, 255, 0.65);
+        border: 1px solid rgba(217, 212, 203, 0.9);
       }
-      .glass {
-        background: rgba(255, 255, 255, 0.72);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+      .surface-solid {
+        background: #faf9f7;
+        border: 1px solid #d9d4cb;
       }
-      .glass-strong {
-        background: rgba(255, 255, 255, 0.88);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-      }
-      .title-gradient {
-        background: linear-gradient(135deg, #2f3d2c 0%, #5c6b4a 45%, #b86a45 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+      h1,
+      h2,
+      h3 {
+        letter-spacing: -0.02em;
       }
       .timeline-line {
-        background: linear-gradient(180deg, #d4845f, #5c6b4a 70%, #8a9a76);
+        background: linear-gradient(180deg, #dcc9bb, #b5bdb0);
       }
       .check-card {
-        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      }
-      .check-card:active {
-        transform: scale(0.98);
+        border-radius: var(--radius);
+        transition: border-color 0.2s ease, background 0.2s ease;
       }
       .check-card:has(input:checked) {
-        border-color: #5c6b4a;
-        background: rgba(92, 107, 74, 0.1);
-        box-shadow: 0 0 0 2px rgba(92, 107, 74, 0.12);
+        border-color: #8a9480;
+        background: rgba(138, 148, 128, 0.08);
       }
       .check-card input {
-        accent-color: #5c6b4a;
-        width: 1.25rem;
-        height: 1.25rem;
+        accent-color: #6b7564;
+        width: 1.125rem;
+        height: 1.125rem;
       }
       .btn-primary {
-        background: linear-gradient(135deg, #2f3d2c 0%, #4a5840 50%, #5c6b4a 100%);
-        box-shadow: 0 12px 28px -8px rgba(47, 61, 44, 0.55);
+        background: #5f6b58;
+        border-radius: var(--radius);
       }
       .btn-primary:hover {
-        filter: brightness(1.06);
+        background: #556050;
       }
       .nav-pill {
-        scroll-margin-top: calc(4.5rem + var(--safe-top));
+        scroll-margin-top: calc(4rem + var(--safe-top));
       }
       .reveal {
         opacity: 0;
-        transform: translateY(18px);
-        transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        transform: translateY(12px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
       }
       .reveal.is-visible {
         opacity: 1;
         transform: translateY(0);
       }
-      .hero-img-wrap {
-        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      .carousel-viewport {
+        overflow: hidden;
+        border-radius: var(--radius);
       }
-      @media (hover: hover) {
-        .hero-img-wrap:hover {
-          transform: scale(1.015);
-        }
+      .carousel-track {
+        display: flex;
+        transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        touch-action: pan-y pinch-zoom;
       }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
+      .carousel-slide {
+        flex: 0 0 100%;
+        min-width: 100%;
       }
-      .bike-float {
-        animation: float 4.5s ease-in-out infinite;
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .carousel-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 2px;
+        background: #d9d4cb;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background 0.2s ease, width 0.2s ease;
+      }
+      .carousel-dot.is-active {
+        width: 18px;
+        background: #8a9480;
       }
       @keyframes modal-in {
         from {
           opacity: 0;
-          transform: translateY(24px) scale(0.96);
+          transform: translateY(16px);
         }
         to {
           opacity: 1;
-          transform: translateY(0) scale(1);
+          transform: translateY(0);
         }
       }
       .modal-panel {
-        animation: modal-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation: modal-in 0.4s ease both;
+        border-radius: var(--radius) var(--radius) 0 0;
       }
-      @keyframes confetti-fall {
-        to {
-          transform: translateY(100vh) rotate(720deg);
-          opacity: 0;
-        }
-      }
-      .confetti-piece {
-        position: fixed;
-        top: -10px;
-        width: 8px;
-        height: 8px;
-        border-radius: 2px;
-        pointer-events: none;
-        z-index: 60;
-        animation: confetti-fall 2.8s ease-in forwards;
-      }
-      @media (min-width: 1024px) {
-        .plan-grid .plan-card {
-          min-height: 100%;
+      @media (min-width: 640px) {
+        .modal-panel {
+          border-radius: var(--radius);
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .bike-float,
         .modal-panel,
-        .confetti-piece,
-        .reveal {
+        .reveal,
+        .carousel-track {
           animation: none !important;
           transition: none !important;
           opacity: 1 !important;
@@ -196,196 +177,155 @@
       }
     </style>
   </head>
-  <body class="font-sans text-earth antialiased min-h-screen page-bg relative">
-    <!-- Nav ràpid -->
+  <body class="font-sans text-ink antialiased min-h-screen page-bg">
     <nav
-      class="sticky top-0 z-40 px-4 pt-[calc(0.65rem+var(--safe-top))] pb-3 glass border-b border-white/50"
+      class="sticky top-0 z-40 px-4 pt-[calc(0.6rem+var(--safe-top))] pb-2.5 surface border-b border-linen-line/80 backdrop-blur-sm"
       aria-label="Seccions"
     >
       <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
-        <span class="text-xs font-bold uppercase tracking-widest text-olive-muted hidden sm:inline">Nina · 31</span>
-        <div class="flex flex-1 sm:flex-none justify-center sm:justify-end gap-2 text-sm font-semibold">
+        <span class="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-ink-muted hidden sm:inline">Empordà</span>
+        <div class="flex flex-1 sm:flex-none justify-center sm:justify-end gap-2 text-sm font-medium">
           <a
             href="#planning"
-            class="nav-pill px-4 py-2 rounded-full bg-white/60 border border-olive/10 text-olive-dark hover:bg-white transition"
+            class="nav-pill px-3.5 py-2 rounded-md surface-solid text-ink hover:bg-white transition"
             >Planning</a
           >
-          <a
-            href="#rsvp"
-            class="nav-pill px-4 py-2 rounded-full bg-olive-dark text-white shadow-card hover:brightness-110 transition"
-            >Confirmar</a
-          >
+          <a href="#rsvp" class="nav-pill px-3.5 py-2 rounded-md btn-primary text-white transition">Confirmar</a>
         </div>
       </div>
     </nav>
 
-    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-[calc(2.5rem+var(--safe-bottom))]">
-      <div class="lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14 lg:items-start">
-        <!-- Columna esquerra: hero + foto -->
-        <div class="lg:col-span-5 xl:col-span-5 lg:sticky lg:top-24 pt-8 sm:pt-10 lg:pt-12">
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-[calc(2rem+var(--safe-bottom))]">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start">
+        <div class="lg:col-span-5 lg:sticky lg:top-20 pt-8 sm:pt-10">
           <header class="text-center lg:text-left reveal">
-            <p
-              class="inline-flex items-center gap-2 text-[0.65rem] sm:text-xs font-bold uppercase tracking-[0.25em] text-olive mb-4"
-            >
-              <span class="w-6 sm:w-10 h-px bg-terracotta"></span>
-              Empordà · 2025
-              <span class="w-6 sm:w-10 h-px bg-terracotta lg:hidden"></span>
+            <p class="text-[0.65rem] sm:text-xs font-medium uppercase tracking-[0.22em] text-sage-dark mb-3">
+              6 de novembre · Masia a l'Empordà
             </p>
-            <h1
-              class="text-[clamp(2.25rem,8vw,3.75rem)] font-extrabold leading-[1.02] tracking-tight title-gradient"
-            >
-              Els 31 a l'Empordà!
+            <h1 class="text-[clamp(1.85rem,6.5vw,2.85rem)] font-semibold leading-[1.12] text-ink">
+              Els 31 són els nous 26
             </h1>
-            <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-3 items-center">
-              <p
-                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-strong border border-white/80 shadow-glow text-base sm:text-lg font-bold text-terracotta-deep"
-              >
-                <span class="w-2 h-2 rounded-full bg-terracotta animate-pulse" aria-hidden="true"></span>
-                6 de novembre
-              </p>
-              <span class="text-sm font-medium text-earth/70">Cap de setmana llarg</span>
-            </div>
-            <p class="mt-5 text-base sm:text-lg text-earth/90 leading-relaxed max-w-md mx-auto lg:mx-0">
-              Menjar, beguda, jocs i bicis inclòs! Tot preparat.
+            <p class="mt-3 text-base sm:text-lg text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0 font-normal">
+              Ningú celebra els 31… i jo no vaig fer els 30. Doncs ara sí: cap de setmana a la masia, amb menjar,
+              beguda, jocs i bicis. Tot preparat.
             </p>
-            <div class="mt-6 flex justify-center lg:justify-start gap-4 text-2xl sm:text-3xl" aria-hidden="true">
-              <span class="bike-float drop-shadow-sm">🚴‍♀️</span>
-              <span>🌿</span>
-              <span>🏡</span>
-            </div>
+            <p
+              class="mt-4 inline-block px-4 py-2 rounded-md surface-solid text-sm font-medium text-clay-muted border-linen-line"
+            >
+              Data: <span class="text-ink">6 de novembre</span>
+            </p>
           </header>
 
-          <!-- POSAR AQUÍ FOTOS REALS DE LA CASA -->
-          <section class="mt-8 sm:mt-10 reveal" aria-label="La casa" style="transition-delay: 0.08s">
+          <!-- POSAR AQUÍ FOTOS REALS DE LA MASIA: edita MASIA_PHOTOS al final del fitxer -->
+          <section class="mt-8 reveal" aria-label="Fotos de la masia" aria-roledescription="carousel">
             <div
-              class="hero-img-wrap relative overflow-hidden rounded-4xl shadow-soft border border-white/70 aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/5] bg-olive/10"
+              class="carousel-viewport relative aspect-[4/3] lg:aspect-[4/5] bg-linen-dark shadow-card border border-linen-line"
+              id="masia-carousel"
             >
-              <img
-                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=85"
-                srcset="
-                  https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80   600w,
-                  https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=85   900w,
-                  https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=85 1200w
-                "
-                sizes="(max-width: 1024px) 100vw, 420px"
-                alt="Casa rural a l'Empordà — substitueix per foto real"
-                class="w-full h-full object-cover"
-                loading="eager"
-              />
+              <div class="carousel-track h-full" id="carousel-track"></div>
               <div
-                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-olive-dark/85 via-olive-dark/35 to-transparent px-5 py-5 sm:py-6"
+                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent px-4 py-4 pointer-events-none"
               >
-                <p class="text-white/90 text-xs uppercase tracking-widest font-semibold">On serà</p>
-                <p class="text-white text-lg sm:text-xl font-bold mt-0.5">Casa + natura + bon rollo</p>
+                <p class="text-white/80 text-[0.65rem] uppercase tracking-widest font-medium">La masia</p>
+                <p class="text-white text-sm font-medium mt-0.5" id="carousel-caption">Empordà</p>
               </div>
+              <button
+                type="button"
+                class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-md surface-solid text-ink text-lg leading-none shadow-card hover:bg-white"
+                id="carousel-prev"
+                aria-label="Foto anterior"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-md surface-solid text-ink text-lg leading-none shadow-card hover:bg-white"
+                id="carousel-next"
+                aria-label="Foto següent"
+              >
+                ›
+              </button>
             </div>
-            <p class="mt-3 text-center lg:text-left text-xs text-earth/55">
-              <!-- Canvia el src de la imatge per les teves fotos reals -->
-              Substituïu la foto al codi quan la tingueu
+            <div class="flex justify-center gap-1.5 mt-3" id="carousel-dots" role="tablist" aria-label="Fotos"></div>
+            <p class="mt-2 text-center lg:text-left text-xs text-ink-muted/80">
+              Placeholders — substitueix les URLs a <code class="text-[0.7rem]">MASIA_PHOTOS</code>
             </p>
           </section>
         </div>
 
-        <!-- Columna dreta: planning + form -->
-        <div class="lg:col-span-7 xl:col-span-7 mt-12 lg:mt-12 space-y-12 sm:space-y-14">
+        <div class="lg:col-span-7 mt-10 lg:mt-10 space-y-10 sm:space-y-12">
           <section id="planning" class="nav-pill reveal" aria-labelledby="planning-heading">
-            <div class="flex flex-wrap items-end justify-between gap-3 mb-6 sm:mb-8">
-              <h2 id="planning-heading" class="text-2xl sm:text-3xl font-extrabold text-olive-dark tracking-tight">
-                El planning
-              </h2>
-              <span class="text-xs font-bold uppercase tracking-wider text-terracotta px-3 py-1 rounded-full bg-terracotta/10"
-                >Tot inclòs divendres</span
+            <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+              <h2 id="planning-heading" class="text-xl sm:text-2xl font-semibold text-ink">El planning</h2>
+              <span class="text-[0.65rem] font-medium uppercase tracking-wider text-clay-muted px-2.5 py-1 rounded-md bg-clay-soft/40"
+                >Divendres tot inclòs</span
               >
             </div>
 
-            <!-- Desktop / tablet: grid -->
-            <div class="plan-grid hidden md:grid md:grid-cols-2 gap-4">
-              <article class="plan-card glass-strong rounded-3xl p-5 shadow-glow border border-white/60">
-                <p class="text-[0.65rem] font-bold uppercase tracking-wider text-terracotta mb-1">Divendres</p>
-                <h3 class="font-bold text-olive-dark text-xl">Arribada + festa</h3>
-                <p class="mt-3 text-sm text-earth/85 leading-relaxed">
-                  A partir de les <strong>16h</strong>. Jocs, pica-pica, sopar i festeta.
-                  <span class="block mt-2 text-olive font-semibold">Tot inclòs ✨</span>
+            <div class="plan-grid hidden md:grid md:grid-cols-2 gap-3">
+              <article class="surface-solid rounded-md p-4 shadow-card">
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-clay-muted mb-1">Divendres</p>
+                <h3 class="font-semibold text-ink text-lg">Arribada + festa</h3>
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                  A partir de les <strong class="text-ink font-medium">16h</strong>. Jocs, pica-pica, sopar i festeta.
+                  <span class="block mt-1.5 text-sage-dark font-medium">Tot inclòs.</span>
                 </p>
               </article>
-              <article class="plan-card glass rounded-3xl p-5 border border-white/50">
-                <p class="text-[0.65rem] font-bold uppercase tracking-wider text-olive mb-1">Dissabte · matí</p>
-                <h3 class="font-bold text-olive-dark text-xl">Esmorzar tranquil</h3>
-                <p class="mt-3 text-sm text-earth/85 leading-relaxed">
-                  Després, qui vulgui marxar pot fer-ho lliurement — zero pressió.
+              <article class="surface rounded-md p-4">
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-sage mb-1">Dissabte · matí</p>
+                <h3 class="font-semibold text-ink text-lg">Esmorzar tranquil</h3>
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed">Després, marxada lliure per qui vulgui.</p>
+              </article>
+              <article class="surface-solid rounded-md p-4 border-clay-soft md:col-span-2">
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-clay-muted mb-1">
+                  Dissabte · migdia / tarda
+                </p>
+                <h3 class="font-semibold text-ink text-lg">Dinar + sortida en bici</h3>
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                  Dinar tranquil. A la tarda, ruta en bici per les amigues ciclistes. Qui no vulgui bici, té el seu espai
+                  sense cap problema.
                 </p>
               </article>
-              <article
-                class="plan-card glass-strong rounded-3xl p-5 shadow-glow border-2 border-terracotta/25 md:col-span-2"
-              >
-                <div class="flex flex-wrap items-start gap-3">
-                  <span class="text-2xl" aria-hidden="true">🚴‍♀️</span>
-                  <div class="flex-1 min-w-[12rem]">
-                    <p class="text-[0.65rem] font-bold uppercase tracking-wider text-terracotta mb-1">
-                      Dissabte · migdia / tarda
-                    </p>
-                    <h3 class="font-bold text-olive-dark text-xl">Dinar + sortida en bici</h3>
-                    <p class="mt-3 text-sm text-earth/85 leading-relaxed">
-                      Dinar tranquil. A la tarda, <strong>ruta en bici</strong> per les amigues ciclistes. Qui no vulgui
-                      bici, té el seu espai sense cap problema.
-                    </p>
-                  </div>
-                </div>
-              </article>
-              <article class="plan-card glass rounded-3xl p-5 border border-white/50 md:col-span-2">
-                <p class="text-[0.65rem] font-bold uppercase tracking-wider text-earth/60 mb-1">Dissabte · nit</p>
-                <h3 class="font-bold text-olive-dark text-xl">Sopar i dormir</h3>
-                <p class="mt-3 text-sm text-earth/85 leading-relaxed">
-                  Sopar i opció de quedar-se a dormir de nou. Fins on aguantem! 😄
-                </p>
+              <article class="surface rounded-md p-4 md:col-span-2">
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Dissabte · nit</p>
+                <h3 class="font-semibold text-ink text-lg">Sopar i dormir</h3>
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed">Sopar i opció de quedar-s'hi a dormir de nou.</p>
               </article>
             </div>
 
-            <!-- Mobile: timeline -->
-            <div class="md:hidden relative pl-6 space-y-4">
-              <div class="absolute left-[7px] top-2 bottom-2 w-0.5 timeline-line rounded-full opacity-70" aria-hidden="true"></div>
-
-              <article class="relative glass-strong rounded-2xl p-4 shadow-card border border-white/60">
-                <span class="absolute -left-6 top-5 w-3.5 h-3.5 rounded-full bg-terracotta ring-4 ring-sand" aria-hidden="true"></span>
-                <p class="text-xs font-bold uppercase tracking-wider text-terracotta mb-1">Divendres</p>
-                <h3 class="font-bold text-olive-dark text-lg">Arribada + festa</h3>
-                <p class="mt-2 text-sm text-earth/85 leading-relaxed">
-                  Des de les <strong>16h</strong>. Jocs, pica-pica, sopar i festeta. <strong>Tot inclòs.</strong>
-                </p>
+            <div class="md:hidden relative pl-5 space-y-3">
+              <div class="absolute left-[5px] top-2 bottom-2 w-px timeline-line" aria-hidden="true"></div>
+              <article class="relative surface-solid rounded-md p-3.5 shadow-card">
+                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-clay-soft border border-linen-line" aria-hidden="true"></span>
+                <p class="text-xs font-medium uppercase tracking-wider text-clay-muted mb-0.5">Divendres</p>
+                <h3 class="font-semibold text-ink">Arribada + festa (des de 16h)</h3>
               </article>
-              <article class="relative glass rounded-2xl p-4 border border-white/50">
-                <span class="absolute -left-6 top-5 w-3.5 h-3.5 rounded-full bg-olive ring-4 ring-sand" aria-hidden="true"></span>
-                <p class="text-xs font-bold uppercase tracking-wider text-olive mb-1">Dissabte · matí</p>
-                <h3 class="font-bold text-olive-dark text-lg">Esmorzar tranquil</h3>
-                <p class="mt-2 text-sm text-earth/85 leading-relaxed">Marxada lliure després de l'esmorzar.</p>
+              <article class="relative surface rounded-md p-3.5">
+                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-sage-light border border-linen-line" aria-hidden="true"></span>
+                <p class="text-xs font-medium uppercase tracking-wider text-sage-dark mb-0.5">Dissabte matí</p>
+                <h3 class="font-semibold text-ink">Esmorzar tranquil</h3>
               </article>
-              <article class="relative glass-strong rounded-2xl p-4 border-2 border-terracotta/20">
-                <span class="absolute -left-6 top-5 w-3.5 h-3.5 rounded-full bg-terracotta-soft ring-4 ring-sand" aria-hidden="true"></span>
-                <p class="text-xs font-bold uppercase tracking-wider text-terracotta mb-1">Dissabte · tarda</p>
-                <h3 class="font-bold text-olive-dark text-lg">Dinar + bici 🚴‍♀️</h3>
-                <p class="mt-2 text-sm text-earth/85 leading-relaxed">Sortida en bici o espai propi per qui prefereixi.</p>
+              <article class="relative surface-solid rounded-md p-3.5">
+                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-clay border border-linen-line" aria-hidden="true"></span>
+                <p class="text-xs font-medium uppercase tracking-wider text-clay-muted mb-0.5">Dissabte tarda</p>
+                <h3 class="font-semibold text-ink">Dinar + bici</h3>
               </article>
-              <article class="relative glass rounded-2xl p-4 border border-white/50">
-                <span class="absolute -left-6 top-5 w-3.5 h-3.5 rounded-full bg-earth/40 ring-4 ring-sand" aria-hidden="true"></span>
-                <p class="text-xs font-bold uppercase tracking-wider text-earth/60 mb-1">Dissabte · nit</p>
-                <h3 class="font-bold text-olive-dark text-lg">Sopar i dormir</h3>
-                <p class="mt-2 text-sm text-earth/85 leading-relaxed">Opció de quedar-s'hi a dormir.</p>
+              <article class="relative surface rounded-md p-3.5">
+                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-linen-line border border-linen-line" aria-hidden="true"></span>
+                <p class="text-xs font-medium uppercase tracking-wider text-ink-muted mb-0.5">Dissabte nit</p>
+                <h3 class="font-semibold text-ink">Sopar i dormir</h3>
               </article>
             </div>
           </section>
 
-          <section id="rsvp" class="nav-pill reveal" aria-labelledby="rsvp-heading" style="transition-delay: 0.1s">
-            <div class="glass-strong rounded-4xl shadow-soft border border-white/70 p-5 sm:p-7 lg:p-8">
-              <h2 id="rsvp-heading" class="text-2xl sm:text-3xl font-extrabold text-olive-dark tracking-tight">
-                Confirma assistència
-              </h2>
-              <p class="text-sm sm:text-base text-earth/70 mt-2 mb-6 sm:mb-8 max-w-xl">
-                Omple el formulari i t'envio els detalls finals per WhatsApp.
-              </p>
+          <section id="rsvp" class="nav-pill reveal" aria-labelledby="rsvp-heading">
+            <div class="surface-solid rounded-md shadow-soft p-5 sm:p-7 border-linen-line">
+              <h2 id="rsvp-heading" class="text-xl sm:text-2xl font-semibold text-ink">Confirma assistència</h2>
+              <p class="text-sm text-ink-muted mt-2 mb-6">Omple el formulari i et responc per WhatsApp amb els detalls.</p>
 
-              <form id="rsvp-form" class="space-y-6 sm:space-y-7" novalidate>
+              <form id="rsvp-form" class="space-y-5 sm:space-y-6" novalidate>
                 <div>
-                  <label for="nom" class="block text-sm font-bold text-olive-dark mb-2">Nom complet</label>
+                  <label for="nom" class="block text-sm font-medium text-ink mb-1.5">Nom complet</label>
                   <input
                     type="text"
                     id="nom"
@@ -393,67 +333,65 @@
                     required
                     autocomplete="name"
                     placeholder="Com et diuen?"
-                    class="w-full px-4 py-3.5 sm:py-4 rounded-2xl border border-olive/15 bg-white/70 focus:outline-none focus:ring-2 focus:ring-olive/25 focus:border-olive text-base min-h-[3rem]"
+                    class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-sage text-base"
                   />
                 </div>
 
                 <fieldset>
-                  <legend class="block text-sm font-bold text-olive-dark mb-3">Quins dies et quedes a dormir?</legend>
-                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-                    <label class="check-card flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl border border-olive/12 cursor-pointer glass min-h-[3.25rem]">
+                  <legend class="block text-sm font-medium text-ink mb-2">Quins dies et quedes a dormir?</legend>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="checkbox" name="dormir" value="divendres" />
-                      <span class="text-sm font-semibold leading-tight">Divendres nit</span>
+                      <span class="text-sm">Divendres nit</span>
                     </label>
-                    <label class="check-card flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl border border-olive/12 cursor-pointer glass min-h-[3.25rem]">
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="checkbox" name="dormir" value="dissabte" />
-                      <span class="text-sm font-semibold leading-tight">Dissabte nit</span>
+                      <span class="text-sm">Dissabte nit</span>
                     </label>
-                    <label class="check-card flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl border border-olive/12 cursor-pointer glass min-h-[3.25rem] sm:col-span-1">
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="checkbox" name="dormir" value="no" id="dormir-no" />
-                      <span class="text-sm font-semibold leading-tight">No em quedo</span>
+                      <span class="text-sm">No em quedo</span>
                     </label>
                   </div>
                 </fieldset>
 
                 <fieldset>
-                  <legend class="block text-sm font-bold text-olive-dark mb-3">A què t'apuntes?</legend>
-                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-                    <label class="check-card flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl border border-olive/12 cursor-pointer glass min-h-[3.25rem]">
+                  <legend class="block text-sm font-medium text-ink mb-2">A què t'apuntes?</legend>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="checkbox" name="activitats" value="festa-divendres" />
-                      <span class="text-sm font-semibold leading-tight">Festa divendres</span>
+                      <span class="text-sm">Festa divendres</span>
                     </label>
-                    <label class="check-card flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl border border-olive/12 cursor-pointer glass min-h-[3.25rem]">
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="checkbox" name="activitats" value="dinar-dissabte" />
-                      <span class="text-sm font-semibold leading-tight">Dinar dissabte</span>
+                      <span class="text-sm">Dinar dissabte</span>
                     </label>
-                    <label class="check-card flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl border border-olive/12 cursor-pointer glass min-h-[3.25rem]">
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="checkbox" name="activitats" value="bici-dissabte" />
-                      <span class="text-sm font-semibold leading-tight">Bici dissabte</span>
+                      <span class="text-sm">Bici dissabte</span>
                     </label>
                   </div>
                 </fieldset>
 
-                <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
+                <div class="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label for="intolerancies" class="block text-sm font-bold text-olive-dark mb-2">
-                      Intoleràncies / al·lèrgies
-                    </label>
+                    <label for="intolerancies" class="block text-sm font-medium text-ink mb-1.5">Intoleràncies / al·lèrgies</label>
                     <textarea
                       id="intolerancies"
                       name="intolerancies"
                       rows="3"
                       placeholder="Si no en tens, en blanc"
-                      class="w-full px-4 py-3.5 rounded-2xl border border-olive/15 bg-white/70 focus:outline-none focus:ring-2 focus:ring-olive/25 text-base resize-none min-h-[5rem]"
+                      class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-sage text-base resize-none"
                     ></textarea>
                   </div>
                   <div>
-                    <label for="alcohol" class="block text-sm font-bold text-olive-dark mb-2">Preferències d'alcohol</label>
+                    <label for="alcohol" class="block text-sm font-medium text-ink mb-1.5">Preferències d'alcohol</label>
                     <input
                       type="text"
                       id="alcohol"
                       name="alcohol"
                       placeholder="Vi, cervesa, gin-tonic..."
-                      class="w-full px-4 py-3.5 sm:py-4 rounded-2xl border border-olive/15 bg-white/70 focus:outline-none focus:ring-2 focus:ring-olive/25 text-base min-h-[3rem]"
+                      class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-sage text-base"
                     />
                   </div>
                 </div>
@@ -461,39 +399,38 @@
                 <button
                   type="submit"
                   id="submit-btn"
-                  class="btn-primary w-full py-4 sm:py-[1.15rem] px-6 rounded-2xl text-white font-bold text-base sm:text-lg active:scale-[0.98] transition disabled:opacity-60 disabled:pointer-events-none min-h-[3.25rem]"
+                  class="btn-primary w-full py-3.5 px-6 text-white font-medium text-base active:opacity-90 transition disabled:opacity-50"
                 >
                   Enviar confirmació
                 </button>
-                <p class="text-xs text-center text-earth/50">Resposta simulada — enllaça WhatsApp quan vulguis.</p>
+                <p class="text-xs text-center text-ink-muted/70">Simulació local — enllaça WhatsApp quan vulguis.</p>
               </form>
             </div>
           </section>
         </div>
       </div>
 
-      <footer class="pt-12 sm:pt-16 text-center text-xs sm:text-sm text-earth/45 reveal">
-        <p>Fet amb carinyo per als 31 · Ens veiem a l'Empordà 🌿</p>
+      <footer class="pt-10 text-center text-xs text-ink-muted reveal">
+        <p>Fins l'Empordà · Nina</p>
       </footer>
     </main>
 
     <div
       id="thanks-modal"
-      class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-olive-dark/45 backdrop-blur-md"
+      class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-ink/30 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-labelledby="thanks-title"
     >
       <div
-        class="modal-panel w-full sm:max-w-md glass-strong rounded-t-4xl sm:rounded-4xl p-7 sm:p-8 shadow-soft text-center border border-white/60 pb-[calc(1.75rem+var(--safe-bottom))] sm:pb-8"
+        class="modal-panel w-full sm:max-w-sm surface-solid p-6 sm:p-7 shadow-soft border-linen-line pb-[calc(1.5rem+var(--safe-bottom))] sm:pb-7 text-center"
       >
-        <div class="text-5xl sm:text-6xl mb-4" aria-hidden="true">🎉</div>
-        <h2 id="thanks-title" class="text-2xl sm:text-3xl font-extrabold title-gradient">Gràcies per confirmar!</h2>
-        <p id="thanks-message" class="mt-3 text-sm sm:text-base text-earth/80 leading-relaxed max-w-sm mx-auto"></p>
+        <h2 id="thanks-title" class="text-xl sm:text-2xl font-semibold text-ink">Gràcies per confirmar</h2>
+        <p id="thanks-message" class="mt-3 text-sm text-ink-muted leading-relaxed"></p>
         <button
           type="button"
           id="close-modal"
-          class="mt-8 w-full py-3.5 rounded-2xl bg-terracotta text-white font-bold text-base hover:bg-terracotta-deep transition min-h-[3rem]"
+          class="mt-6 w-full py-3 rounded-md bg-clay-muted text-white font-medium hover:bg-clay transition"
         >
           Tancar
         </button>
@@ -502,19 +439,108 @@
 
     <script>
       ;(function () {
-        const form = document.getElementById('rsvp-form')
-        const modal = document.getElementById('thanks-modal')
-        const thanksMessage = document.getElementById('thanks-message')
-        const closeBtn = document.getElementById('close-modal')
-        const submitBtn = document.getElementById('submit-btn')
-        const dormirNo = document.getElementById('dormir-no')
+        /** POSAR AQUÍ FOTOS REALS DE LA MASIA */
+        var MASIA_PHOTOS = [
+          {
+            src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+            caption: 'Exterior',
+            alt: 'Masia — exterior (placeholder)',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
+            caption: 'Saló',
+            alt: 'Masia — interior (placeholder)',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
+            caption: 'Terrassa',
+            alt: 'Masia — terrassa (placeholder)',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1600047509807-ba389f0d935a?auto=format&fit=crop&w=1200&q=80',
+            caption: 'Entorn',
+            alt: 'Camp i natura (placeholder)',
+          },
+        ]
 
-        document.querySelectorAll('.reveal').forEach(function (el, i) {
-          el.style.transitionDelay = el.style.transitionDelay || i * 0.05 + 's'
+        var track = document.getElementById('carousel-track')
+        var dotsRoot = document.getElementById('carousel-dots')
+        var captionEl = document.getElementById('carousel-caption')
+        var prevBtn = document.getElementById('carousel-prev')
+        var nextBtn = document.getElementById('carousel-next')
+        var viewport = document.getElementById('masia-carousel')
+        var index = 0
+        var touchStartX = 0
+
+        MASIA_PHOTOS.forEach(function (photo, i) {
+          var slide = document.createElement('div')
+          slide.className = 'carousel-slide h-full'
+          slide.innerHTML =
+            '<img src="' +
+            photo.src +
+            '" alt="' +
+            photo.alt.replace(/"/g, '&quot;') +
+            '" loading="' +
+            (i === 0 ? 'eager' : 'lazy') +
+            '" />'
+          track.appendChild(slide)
+
+          var dot = document.createElement('button')
+          dot.type = 'button'
+          dot.className = 'carousel-dot' + (i === 0 ? ' is-active' : '')
+          dot.setAttribute('aria-label', 'Foto ' + (i + 1))
+          dot.setAttribute('role', 'tab')
+          dot.addEventListener('click', function () {
+            goTo(i)
+          })
+          dotsRoot.appendChild(dot)
         })
 
+        function goTo(i) {
+          index = (i + MASIA_PHOTOS.length) % MASIA_PHOTOS.length
+          track.style.transform = 'translateX(-' + index * 100 + '%)'
+          captionEl.textContent = MASIA_PHOTOS[index].caption
+          dotsRoot.querySelectorAll('.carousel-dot').forEach(function (dot, j) {
+            dot.classList.toggle('is-active', j === index)
+          })
+        }
+
+        prevBtn.addEventListener('click', function () {
+          goTo(index - 1)
+        })
+        nextBtn.addEventListener('click', function () {
+          goTo(index + 1)
+        })
+
+        viewport.addEventListener(
+          'touchstart',
+          function (e) {
+            touchStartX = e.changedTouches[0].screenX
+          },
+          { passive: true },
+        )
+        viewport.addEventListener(
+          'touchend',
+          function (e) {
+            var dx = e.changedTouches[0].screenX - touchStartX
+            if (Math.abs(dx) < 40) return
+            if (dx < 0) goTo(index + 1)
+            else goTo(index - 1)
+          },
+          { passive: true },
+        )
+
+        goTo(0)
+
+        var form = document.getElementById('rsvp-form')
+        var modal = document.getElementById('thanks-modal')
+        var thanksMessage = document.getElementById('thanks-message')
+        var closeBtn = document.getElementById('close-modal')
+        var submitBtn = document.getElementById('submit-btn')
+        var dormirNo = document.getElementById('dormir-no')
+
         if ('IntersectionObserver' in window) {
-          const io = new IntersectionObserver(
+          var io = new IntersectionObserver(
             function (entries) {
               entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -523,7 +549,7 @@
                 }
               })
             },
-            { threshold: 0.12, rootMargin: '0px 0px -5% 0px' },
+            { threshold: 0.1 },
           )
           document.querySelectorAll('.reveal').forEach(function (el) {
             io.observe(el)
@@ -541,14 +567,14 @@
         }
 
         function labelDormir(values) {
-          const map = { divendres: 'Divendres nit', dissabte: 'Dissabte nit', no: 'No em quedo a dormir' }
+          var map = { divendres: 'Divendres nit', dissabte: 'Dissabte nit', no: 'No em quedo a dormir' }
           return values.map(function (v) {
             return map[v] || v
           })
         }
 
         function labelActivitats(values) {
-          const map = {
+          var map = {
             'festa-divendres': 'Festa divendres',
             'dinar-dissabte': 'Dinar dissabte',
             'bici-dissabte': 'Sortida bici',
@@ -558,30 +584,12 @@
           })
         }
 
-        function spawnConfetti() {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-          const colors = ['#d4845f', '#5c6b4a', '#e8a882', '#8a9a76']
-          for (let i = 0; i < 28; i++) {
-            const piece = document.createElement('div')
-            piece.className = 'confetti-piece'
-            piece.style.left = Math.random() * 100 + 'vw'
-            piece.style.background = colors[i % colors.length]
-            piece.style.animationDelay = Math.random() * 0.4 + 's'
-            piece.style.animationDuration = 2 + Math.random() * 1.5 + 's'
-            document.body.appendChild(piece)
-            setTimeout(function () {
-              piece.remove()
-            }, 3500)
-          }
-        }
-
         function openModal(nom) {
           modal.classList.remove('hidden')
           modal.classList.add('flex')
           document.body.style.overflow = 'hidden'
           thanksMessage.textContent =
-            (nom ? nom + ', ' : '') + "ja tinc la teva resposta. Et contactaré aviat amb els detalls. Fins l'Empordà!"
-          spawnConfetti()
+            (nom ? nom + ', ' : '') + "ja tinc la teva resposta. Et escriuré aviat amb els detalls. Fins l'Empordà."
           closeBtn.focus()
         }
 
@@ -608,34 +616,31 @@
 
         form.addEventListener('submit', function (e) {
           e.preventDefault()
-          const nom = form.nom.value.trim()
+          var nom = form.nom.value.trim()
           if (!nom) {
             form.nom.focus()
-            form.nom.classList.add('ring-2', 'ring-terracotta')
+            form.nom.classList.add('ring-1', 'ring-clay-muted')
             return
           }
-          form.nom.classList.remove('ring-2', 'ring-terracotta')
+          form.nom.classList.remove('ring-1', 'ring-clay-muted')
 
-          const payload = {
+          console.log("[RSVP Nina's 31]", {
             nom: nom,
             dormir: labelDormir(getChecked('dormir')),
             activitats: labelActivitats(getChecked('activitats')),
             intolerancies: form.intolerancies.value.trim() || '—',
             alcohol: form.alcohol.value.trim() || '—',
             enviat: new Date().toISOString(),
-          }
-
-          console.log("[RSVP Nina's 31]", payload)
+          })
 
           submitBtn.disabled = true
           submitBtn.textContent = 'Enviant…'
-
           setTimeout(function () {
             submitBtn.disabled = false
             submitBtn.textContent = 'Enviar confirmació'
             openModal(nom.split(' ')[0])
             form.reset()
-          }, 650)
+          }, 550)
         })
 
         closeBtn.addEventListener('click', closeModal)
