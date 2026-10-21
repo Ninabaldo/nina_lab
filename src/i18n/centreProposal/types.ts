@@ -109,6 +109,23 @@ export interface CentreProposalCopy {
     ctaExplore: string
     ctaBudget: string
   }
+  mobilePager: {
+    carouselLabel: string
+    navLabel: string
+    dotsLabel: string
+    prev: string
+    next: string
+    slideOf: string
+    slides: {
+      intro: string
+      student: string
+      dashboard: string
+      config: string
+      next: string
+      handover: string
+      external: string
+    }
+  }
   configurator: CentreProposalConfiguratorCopy
   section01: {
     index: string

@@ -4,6 +4,7 @@ import type { CentreProposalCopy } from '../../i18n/centreProposal/types'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { CentreProposalBudgetSummary } from './CentreProposalBudgetSummary'
 import { CentreProposalStickyBudget } from './CentreProposalStickyBudget'
+import { CpConfigMobileBar } from './CpConfigMobileBar'
 import { CpPdfBusyLabel } from './CpPdfBusyLabel'
 import { CpPdfCenterStatus } from './CpPdfCenterStatus'
 import { downloadConfiguratorProposalPdf } from './downloadConfiguratorProposalPdf'
@@ -473,26 +474,19 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
         />
       </div>
 
-      <div className="cp-config__mobile-bar" aria-hidden={false}>
-        <div className="cp-config__mobile-bar-main">
-          <p className="cp-config__mobile-total">
-            <span>{cfg.summary.implementation}</span>
-            <strong key={pulseKey}>{formatEuro(implementationTotal, language)}</strong>
-          </p>
-          <p className="cp-config__mobile-timeline">
-            {cfg.step1.timelineLabel} {cfg.software[softwareId].timeline}
-          </p>
-        </div>
-        <button
-          type="button"
-          className="centre-proposal__sticky-cta"
-          disabled={pdfBusy}
-          aria-busy={pdfBusy}
-          onClick={() => void downloadPdf()}
-        >
-          <CpPdfBusyLabel busy={false} idleText={cfg.summary.mobileCta} busyText="" />
-        </button>
-      </div>
+      <CpConfigMobileBar
+        copy={copy}
+        language={language}
+        step={step}
+        implementationTotal={implementationTotal}
+        pulseKey={pulseKey}
+        maintenanceId={maintenanceId}
+        proposalOpen={proposalOpen}
+        pdfBusy={pdfBusy}
+        onContinue={() => setStep(3)}
+        onPrepare={openProposal}
+        onDownloadPdf={() => void downloadPdf()}
+      />
 
       {includesModal ? (
         <div

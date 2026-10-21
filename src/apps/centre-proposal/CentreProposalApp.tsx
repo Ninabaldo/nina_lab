@@ -1,187 +1,202 @@
 import { CentreDemoSyncBanner } from './CentreDemoSyncBanner'
 import { CentreDemoProvider } from './centreDemoContext'
 import { CentreProposalConfigurator } from './CentreProposalConfigurator'
+import { CentreProposalMobilePager } from './CentreProposalMobilePager'
 import { CentreProposalTimelinesOverview } from './CentreProposalTimelinesOverview'
 import { DashboardMockup } from './DashboardMockup'
+import { MobilePagerSlide } from './MobilePagerSlide'
 import { StudentAppMockup } from './StudentAppMockup'
+import { useProposalNavigation } from './centreProposalPagerContext'
 import { useCentreProposalCopy } from './useCentreProposalCopy'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import type { CentreProposalCopy } from '../../i18n/centreProposal/types'
 import './CentreProposalApp.css'
 
-function scrollToId(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+function HeroActions({ copy }: { copy: CentreProposalCopy }) {
+  const goTo = useProposalNavigation()
+
+  return (
+    <div className="centre-proposal__hero-actions">
+      <button
+        type="button"
+        className="centre-proposal__button centre-proposal__button--primary"
+        onClick={() => goTo('experiencies')}
+      >
+        {copy.hero.ctaExplore}
+      </button>
+      <button
+        type="button"
+        className="centre-proposal__button centre-proposal__button--ghost"
+        onClick={() => goTo('configura')}
+      >
+        {copy.hero.ctaBudget}
+      </button>
+    </div>
+  )
+}
+
+function ExternalCostsTeaser({ copy }: { copy: CentreProposalCopy }) {
+  const goTo = useProposalNavigation()
+
+  return (
+    <p className="centre-proposal__external-costs-teaser">
+      {copy.section02.externalCostsTeaser}{' '}
+      <button
+        type="button"
+        className="centre-proposal__inline-link"
+        onClick={() => goTo('costos-externs')}
+      >
+        {copy.section02.externalCostsLink}
+      </button>
+    </p>
+  )
 }
 
 export function CentreProposalApp() {
   const copy = useCentreProposalCopy()
-  const experiencesRef = useScrollReveal<HTMLElement>()
+  const mp = copy.mobilePager
   const configRef = useScrollReveal<HTMLElement>()
   const handoverRef = useScrollReveal<HTMLElement>()
   const externalCostsRef = useScrollReveal<HTMLElement>()
+  const studentRef = useScrollReveal<HTMLElement>()
+  const dashboardRef = useScrollReveal<HTMLElement>()
 
   return (
-    <div className="centre-proposal">
-      <header className="centre-proposal__hero centre-proposal__hero--animated">
-        <div className="centre-proposal__hero-decor" aria-hidden="true">
-          <span className="centre-proposal__hero-orb centre-proposal__hero-orb--1" />
-          <span className="centre-proposal__hero-orb centre-proposal__hero-orb--2" />
-          <span className="centre-proposal__hero-orb centre-proposal__hero-orb--3" />
-        </div>
-        <div className="centre-proposal__hero-inner">
-          <p className="centre-proposal__eyebrow">{copy.hero.eyebrow}</p>
-          <h1 className="centre-proposal__title">{copy.hero.title}</h1>
-          <p className="centre-proposal__lead">{copy.hero.lead}</p>
-          <p className="centre-proposal__intro">{copy.hero.intro}</p>
-          <div className="centre-proposal__hero-actions">
-            <button
-              type="button"
-              className="centre-proposal__button centre-proposal__button--primary"
-              onClick={() => scrollToId('experiencies')}
-            >
-              {copy.hero.ctaExplore}
-            </button>
-            <button
-              type="button"
-              className="centre-proposal__button centre-proposal__button--ghost"
-              onClick={() => scrollToId('configura')}
-            >
-              {copy.hero.ctaBudget}
-            </button>
+    <CentreDemoProvider>
+      <CentreProposalMobilePager copy={copy}>
+      <MobilePagerSlide id="intro" label={mp.slides.intro}>
+        <header className="centre-proposal__hero centre-proposal__hero--animated">
+          <div className="centre-proposal__hero-decor" aria-hidden="true">
+            <span className="centre-proposal__hero-orb centre-proposal__hero-orb--1" />
+            <span className="centre-proposal__hero-orb centre-proposal__hero-orb--2" />
+            <span className="centre-proposal__hero-orb centre-proposal__hero-orb--3" />
           </div>
-        </div>
-      </header>
+          <div className="centre-proposal__hero-inner">
+            <p className="centre-proposal__eyebrow">{copy.hero.eyebrow}</p>
+            <h1 className="centre-proposal__title">{copy.hero.title}</h1>
+            <p className="centre-proposal__lead">{copy.hero.lead}</p>
+            <p className="centre-proposal__intro">{copy.hero.intro}</p>
+            <HeroActions copy={copy} />
+          </div>
+        </header>
+      </MobilePagerSlide>
 
-      <main className="centre-proposal__main">
-        <section
-          id="experiencies"
-          ref={experiencesRef}
-          className="centre-proposal__section reveal"
-          aria-labelledby="centre-proposal-exp-heading"
+        <MobilePagerSlide
+          ref={studentRef}
+          id="student"
+          label={mp.slides.student}
+          className="centre-proposal__section reveal cp-mobile-pager__slide--section01"
         >
-          <p className="centre-proposal__section-index">{copy.section01.index}</p>
-          <h2 id="centre-proposal-exp-heading" className="centre-proposal__section-title">
-            {copy.section01.title}
-          </h2>
-
-          <CentreDemoProvider>
             <CentreDemoSyncBanner />
-            <div className="centre-proposal__profiles">
-              <article className="centre-proposal__profile">
-                <div className="centre-proposal__profile-copy">
-                  <h3 className="centre-proposal__profile-title">{copy.section01.student.title}</h3>
-                  <p className="centre-proposal__profile-lead">{copy.section01.student.lead}</p>
-                  <p className="centre-proposal__profile-demo-label">
-                    {copy.section01.student.demoLabel}
-                  </p>
-                  <ul className="centre-proposal__feature-list">
-                    {copy.section01.student.features.map((feature) => (
-                      <li key={feature.label}>
-                        <strong>{feature.label}:</strong> {feature.text}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="centre-proposal__profile-links">
-                    <a href="/proposta-centre/alumnes" className="centre-proposal__link-button">
-                      {copy.section01.student.cta}
-                      <span aria-hidden="true">→</span>
-                    </a>
-                    <span className="centre-proposal__link-hint">
-                      {copy.section01.student.openFull}
-                    </span>
-                  </div>
+            <p className="centre-proposal__section-index">{copy.section01.index}</p>
+            <h2 className="centre-proposal__section-title">{copy.section01.title}</h2>
+            <article className="centre-proposal__profile">
+              <div className="centre-proposal__profile-copy">
+                <h3 className="centre-proposal__profile-title">{copy.section01.student.title}</h3>
+                <p className="centre-proposal__profile-lead">{copy.section01.student.lead}</p>
+                <p className="centre-proposal__profile-demo-label">
+                  {copy.section01.student.demoLabel}
+                </p>
+                <ul className="centre-proposal__feature-list">
+                  {copy.section01.student.features.map((feature) => (
+                    <li key={feature.label}>
+                      <strong>{feature.label}:</strong> {feature.text}
+                    </li>
+                  ))}
+                </ul>
+                <div className="centre-proposal__profile-links">
+                  <a href="/proposta-centre/alumnes" className="centre-proposal__link-button">
+                    {copy.section01.student.cta}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                  <span className="centre-proposal__link-hint">
+                    {copy.section01.student.openFull}
+                  </span>
                 </div>
-                <div className="centre-proposal__profile-mock">
-                  <StudentAppMockup copy={copy} compact />
-                </div>
-              </article>
+              </div>
+              <div className="centre-proposal__profile-mock">
+                <StudentAppMockup copy={copy} compact />
+              </div>
+            </article>
+        </MobilePagerSlide>
 
-              <article className="centre-proposal__profile">
-                <div className="centre-proposal__profile-copy">
-                  <h3 className="centre-proposal__profile-title">
-                    {copy.section01.dashboard.title}
-                  </h3>
-                  <p className="centre-proposal__profile-lead">{copy.section01.dashboard.lead}</p>
-                  <p className="centre-proposal__profile-demo-label">
-                    {copy.section01.dashboard.demoLabel}
-                  </p>
-                  <ul className="centre-proposal__feature-list">
-                    {copy.section01.dashboard.features.map((feature) => (
-                      <li key={feature.label}>
-                        <strong>{feature.label}:</strong> {feature.text}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="centre-proposal__profile-links">
-                    <a href="/proposta-centre/dashboard" className="centre-proposal__link-button">
-                      {copy.section01.dashboard.cta}
-                      <span aria-hidden="true">→</span>
-                    </a>
-                    <span className="centre-proposal__link-hint">
-                      {copy.section01.dashboard.openFull}
-                    </span>
-                  </div>
-                </div>
-                <div className="centre-proposal__profile-mock centre-proposal__profile-mock--wide">
-                  <DashboardMockup copy={copy} compact />
-                </div>
-              </article>
-            </div>
-          </CentreDemoProvider>
-        </section>
-
-        <section
-          id="configura"
-          ref={configRef}
-          className="centre-proposal__section reveal"
-          aria-labelledby="centre-proposal-config-heading"
+        <MobilePagerSlide
+          ref={dashboardRef}
+          id="dashboard"
+          label={mp.slides.dashboard}
+          className="centre-proposal__section reveal cp-mobile-pager__slide--section01-part"
         >
+            <article className="centre-proposal__profile">
+              <div className="centre-proposal__profile-copy">
+                <h3 className="centre-proposal__profile-title">
+                  {copy.section01.dashboard.title}
+                </h3>
+                <p className="centre-proposal__profile-lead">{copy.section01.dashboard.lead}</p>
+                <p className="centre-proposal__profile-demo-label">
+                  {copy.section01.dashboard.demoLabel}
+                </p>
+                <ul className="centre-proposal__feature-list">
+                  {copy.section01.dashboard.features.map((feature) => (
+                    <li key={feature.label}>
+                      <strong>{feature.label}:</strong> {feature.text}
+                    </li>
+                  ))}
+                </ul>
+                <div className="centre-proposal__profile-links">
+                  <a href="/proposta-centre/dashboard" className="centre-proposal__link-button">
+                    {copy.section01.dashboard.cta}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                  <span className="centre-proposal__link-hint">
+                    {copy.section01.dashboard.openFull}
+                  </span>
+                </div>
+              </div>
+              <div className="centre-proposal__profile-mock centre-proposal__profile-mock--wide">
+                <DashboardMockup copy={copy} compact />
+              </div>
+            </article>
+        </MobilePagerSlide>
+
+      <MobilePagerSlide
+        ref={configRef}
+        id="config"
+        label={mp.slides.config}
+        className="centre-proposal__section reveal"
+      >
           <p className="centre-proposal__section-index">{copy.section02.index}</p>
-          <h2 id="centre-proposal-config-heading" className="centre-proposal__section-title">
-            {copy.section02.title}
-          </h2>
+          <h2 className="centre-proposal__section-title">{copy.section02.title}</h2>
           <p className="centre-proposal__section-lead">{copy.section02.lead}</p>
-          <p className="centre-proposal__external-costs-teaser">
-            {copy.section02.externalCostsTeaser}{' '}
-            <a href="#costos-externs" className="centre-proposal__inline-link">
-              {copy.section02.externalCostsLink}
-            </a>
-          </p>
+          <ExternalCostsTeaser copy={copy} />
 
           <CentreProposalTimelinesOverview copy={copy} />
           <CentreProposalConfigurator copy={copy} />
-        </section>
+      </MobilePagerSlide>
 
-        <section
-          className="centre-proposal__section centre-proposal__section--closing"
-          aria-labelledby="centre-proposal-next-heading"
-        >
-          <p className="centre-proposal__section-index">{copy.section05.index}</p>
-          <h2 id="centre-proposal-next-heading" className="centre-proposal__section-title">
-            {copy.section05.title}
-          </h2>
-          <p className="centre-proposal__closing-text">{copy.section05.intro}</p>
-          <ul className="centre-proposal__closing-steps">
-            {copy.section05.steps.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ul>
-          {copy.section05.closing.map((paragraph) => (
-            <p key={paragraph} className="centre-proposal__closing-text">
-              {paragraph}
-            </p>
+      <MobilePagerSlide id="next" label={mp.slides.next} className="centre-proposal__section centre-proposal__section--closing">
+        <p className="centre-proposal__section-index">{copy.section05.index}</p>
+        <h2 className="centre-proposal__section-title">{copy.section05.title}</h2>
+        <p className="centre-proposal__closing-text">{copy.section05.intro}</p>
+        <ul className="centre-proposal__closing-steps">
+          {copy.section05.steps.map((step) => (
+            <li key={step}>{step}</li>
           ))}
-        </section>
+        </ul>
+        {copy.section05.closing.map((paragraph) => (
+          <p key={paragraph} className="centre-proposal__closing-text">
+            {paragraph}
+          </p>
+        ))}
+      </MobilePagerSlide>
 
-        <section
-          id="continuitat"
-          ref={handoverRef}
-          className="centre-proposal__section centre-proposal__section--handover reveal"
-          aria-labelledby="centre-proposal-handover-heading"
-        >
+      <MobilePagerSlide
+        ref={handoverRef}
+        id="handover"
+        label={mp.slides.handover}
+        className="centre-proposal__section centre-proposal__section--handover reveal"
+      >
           <p className="centre-proposal__section-index">{copy.section06.index}</p>
-          <h2 id="centre-proposal-handover-heading" className="centre-proposal__section-title">
-            {copy.section06.title}
-          </h2>
+          <h2 className="centre-proposal__section-title">{copy.section06.title}</h2>
           <p className="centre-proposal__closing-text">{copy.section06.intro}</p>
           <ul className="centre-proposal__closing-steps">
             {copy.section06.context.map((item) => (
@@ -223,21 +238,16 @@ export function CentreProposalApp() {
           <p className="centre-proposal__closing-text centre-proposal__handover-closing">
             {copy.section06.closing}
           </p>
-        </section>
+      </MobilePagerSlide>
 
-        <section
-          id="costos-externs"
-          ref={externalCostsRef}
-          className="centre-proposal__section centre-proposal__section--external-costs reveal"
-          aria-labelledby="centre-proposal-external-costs-heading"
-        >
+      <MobilePagerSlide
+        ref={externalCostsRef}
+        id="external"
+        label={mp.slides.external}
+        className="centre-proposal__section centre-proposal__section--external-costs reveal"
+      >
           <p className="centre-proposal__section-index">{copy.section07.index}</p>
-          <h2
-            id="centre-proposal-external-costs-heading"
-            className="centre-proposal__section-title"
-          >
-            {copy.section07.title}
-          </h2>
+          <h2 className="centre-proposal__section-title">{copy.section07.title}</h2>
           <p className="centre-proposal__closing-text">{copy.section07.intro}</p>
           <p className="centre-proposal__handover-note">{copy.section07.disclaimer}</p>
 
@@ -270,12 +280,12 @@ export function CentreProposalApp() {
           <p className="centre-proposal__closing-text centre-proposal__handover-closing">
             {copy.section07.closing}
           </p>
-        </section>
-      </main>
 
-      <footer className="centre-proposal__footer">
-        <p>{copy.footer}</p>
-      </footer>
-    </div>
+        <footer className="centre-proposal__footer">
+          <p>{copy.footer}</p>
+        </footer>
+      </MobilePagerSlide>
+      </CentreProposalMobilePager>
+    </CentreDemoProvider>
   )
 }

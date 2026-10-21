@@ -13,6 +13,23 @@ const it: CentreProposalCopy = {
     ctaExplore: 'Esplora il software',
     ctaBudget: 'Configura il budget',
   },
+  mobilePager: {
+    carouselLabel: 'Sezioni della proposta',
+    navLabel: 'Navigazione tra schermate',
+    dotsLabel: 'Vai alla schermata',
+    prev: 'Precedente',
+    next: 'Successivo',
+    slideOf: '{current} / {total}',
+    slides: {
+      intro: 'Introduzione',
+      student: 'App studenti',
+      dashboard: 'Dashboard',
+      config: 'Budget',
+      next: 'Prossimi passi',
+      handover: 'Continuità',
+      external: 'Costi esterni',
+    },
+  },
   section01: {
     index: '01',
     title: "Un'esperienza per ogni profilo",

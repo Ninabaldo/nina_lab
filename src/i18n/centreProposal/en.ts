@@ -12,6 +12,23 @@ const en: CentreProposalCopy = {
     ctaExplore: 'Explore the software',
     ctaBudget: 'Configure budget',
   },
+  mobilePager: {
+    carouselLabel: 'Proposal sections',
+    navLabel: 'Screen navigation',
+    dotsLabel: 'Go to screen',
+    prev: 'Previous',
+    next: 'Next',
+    slideOf: '{current} / {total}',
+    slides: {
+      intro: 'Introduction',
+      student: 'Student app',
+      dashboard: 'Dashboard',
+      config: 'Budget',
+      next: 'Next steps',
+      handover: 'Handover',
+      external: 'External costs',
+    },
+  },
   section01: {
     index: '01',
     title: 'One experience per role',

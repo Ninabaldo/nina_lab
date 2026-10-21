@@ -424,77 +424,104 @@ function buildHtml(input: ConfiguratorPdfInput): string {
 </div>`
 }
 
-function hidePdfClone(_document: Document, element: HTMLElement) {
-  element.style.setProperty('position', 'fixed', 'important')
-  element.style.setProperty('left', '-100000px', 'important')
-  element.style.setProperty('top', '0', 'important')
-  element.style.setProperty('opacity', '1', 'important')
-  element.style.setProperty('pointer-events', 'none', 'important')
-  element.style.setProperty('z-index', '-1', 'important')
+function isIosWebKit(): boolean {
+  if (typeof navigator === 'undefined') return false
+  const ua = navigator.userAgent
+  return (
+    /iPad|iPhone|iPod/.test(ua) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+  )
+}
+
+function pdfCanvasScale(): number {
+  if (isIosWebKit()) return 1
+  if (typeof window !== 'undefined' && window.innerWidth <= 720) return 1.25
+  return 2
+}
+
+function preparePdfClone(_document: Document, element: HTMLElement) {
+  element.style.setProperty('background', '#ffffff', 'important')
+  element.style.setProperty('color', '#1a1a1a', 'important')
 }
 
 async function mountHiddenPdfRoot(html: string): Promise<{
-  iframe: HTMLIFrameElement
+  shell: HTMLDivElement
   root: HTMLElement
 }> {
-  const iframe = document.createElement('iframe')
-  iframe.setAttribute('aria-hidden', 'true')
-  iframe.setAttribute('tabindex', '-1')
-  iframe.title = 'pdf-export'
-  iframe.style.cssText =
-    'position:fixed;left:-9999px;top:0;width:1px;height:1px;border:0;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden;'
+  const shell = document.createElement('div')
+  shell.className = 'cp-pdf-export-shell'
+  shell.setAttribute('aria-hidden', 'true')
+  shell.style.cssText = [
+    'position:fixed',
+    'left:0',
+    'top:0',
+    'width:794px',
+    'max-width:100vw',
+    'overflow:visible',
+    'opacity:1',
+    'pointer-events:none',
+    'z-index:-1',
+  ].join(';')
+  shell.innerHTML = html
+  document.body.appendChild(shell)
 
-  document.body.appendChild(iframe)
+  await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
 
-  await new Promise<void>((resolve, reject) => {
-    iframe.onload = () => resolve()
-    iframe.onerror = () => reject(new Error('pdf-iframe-load'))
-    const doc = iframe.contentDocument
-    if (!doc) {
-      reject(new Error('pdf-iframe-doc'))
-      return
-    }
-    doc.open()
-    doc.write(
-      `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0">${html}</body></html>`,
-    )
-    doc.close()
-    if (doc.readyState === 'complete') resolve()
-  })
-
-  const root = iframe.contentDocument?.querySelector('.proposal-pdf') as HTMLElement | null
+  const root = shell.querySelector('.proposal-pdf') as HTMLElement | null
   if (!root) {
-    document.body.removeChild(iframe)
+    shell.remove()
     throw new Error('proposal-pdf-root-missing')
   }
+  root.style.background = '#ffffff'
 
-  return { iframe, root }
+  return { shell, root }
+}
+
+function savePdfBlob(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = filename
+  anchor.rel = 'noopener'
+  document.body.appendChild(anchor)
+  anchor.click()
+  window.setTimeout(() => {
+    URL.revokeObjectURL(url)
+    anchor.remove()
+  }, 2500)
 }
 
 export async function downloadConfiguratorProposalPdf(input: ConfiguratorPdfInput): Promise<void> {
   const html = buildHtml(input)
-  const { iframe, root } = await mountHiddenPdfRoot(html)
+  const { shell, root } = await mountHiddenPdfRoot(html)
+  const filename = pdfFilename(input.language)
+  const scale = pdfCanvasScale()
 
   try {
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
 
     const html2pdf = (await import('html2pdf.js')).default
-    await html2pdf()
-      .set({
-        margin: [14, 14, 14, 14],
-        filename: pdfFilename(input.language),
-        image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          logging: false,
-          onclone: hidePdfClone,
-        },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      })
-      .from(root)
-      .save()
+    const worker = html2pdf().set({
+      margin: [14, 14, 14, 14],
+      filename,
+      image: { type: 'jpeg', quality: 0.92 },
+      html2canvas: {
+        scale,
+        useCORS: true,
+        logging: false,
+        backgroundColor: '#ffffff',
+        onclone: preparePdfClone,
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    })
+
+    if (isIosWebKit()) {
+      const blob = await worker.from(root).outputPdf('blob')
+      savePdfBlob(blob, filename)
+    } else {
+      await worker.from(root).save()
+    }
   } finally {
-    document.body.removeChild(iframe)
+    shell.remove()
   }
 }
