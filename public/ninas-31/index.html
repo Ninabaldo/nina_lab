@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="theme-color" content="#e8e6e0" />
+    <meta name="theme-color" content="#f0efec" />
     <meta
       name="description"
-      content="6 de novembre · Celebrating Life. Els 31 són, també un inici. Masia a l'Empordà. Confirma assistència."
+      content="Nina's 31 · Celebrating life. 6 de novembre, Empordà. Confirma assistència."
     />
-    <meta property="og:title" content="6 de novembre · Celebrating Life" />
+    <meta property="og:title" content="Nina's 31 · Celebrating life" />
     <meta
       property="og:description"
       content="Els 31 són, també un inici. Sempre hi ha una excusa per celebrar la vida."
     />
     <meta property="og:type" content="website" />
-    <title>6 de novembre · Celebrating Life · Empordà</title>
+    <title>Nina's 31 · Celebrating life</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,10 +29,8 @@
           extend: {
             fontFamily: { sans: ['"DM Sans"', 'system-ui', 'sans-serif'] },
             colors: {
-              sage: { DEFAULT: '#8a9480', dark: '#5f6b58', light: '#b5bdb0', wash: '#eef0eb' },
-              clay: { DEFAULT: '#c9a995', soft: '#dcc9bb', muted: '#a88978' },
-              linen: { DEFAULT: '#f5f3ef', dark: '#e8e4dc', line: '#d9d4cb' },
-              ink: { DEFAULT: '#4a4540', muted: '#7a746c' },
+              linen: { DEFAULT: '#f4f3f0', dark: '#eae8e4', line: '#d8d5cf' },
+              ink: { DEFAULT: '#2c2a27', muted: '#6b6761', faint: '#949088' },
             },
             boxShadow: {
               soft: '0 16px 40px -24px rgba(74, 69, 64, 0.2)',
@@ -60,15 +58,18 @@
         -webkit-tap-highlight-color: transparent;
       }
       .page-bg {
-        background: linear-gradient(180deg, #f8f6f2 0%, #f0ede8 50%, #ebe8e2 100%);
+        background: #f0efec;
       }
       .surface {
-        background: rgba(255, 255, 255, 0.65);
-        border: 1px solid rgba(217, 212, 203, 0.9);
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid #dcd9d3;
       }
       .surface-solid {
-        background: #faf9f7;
-        border: 1px solid #d9d4cb;
+        background: #f8f7f5;
+        border: 1px solid #dcd9d3;
+      }
+      .site-brand {
+        letter-spacing: 0.02em;
       }
       h1,
       h2,
@@ -76,27 +77,27 @@
         letter-spacing: -0.02em;
       }
       .timeline-line {
-        background: linear-gradient(180deg, #dcc9bb, #b5bdb0);
+        background: linear-gradient(180deg, #c4c0b8, #a8a49c);
       }
       .check-card {
         border-radius: var(--radius);
         transition: border-color 0.2s ease, background 0.2s ease;
       }
       .check-card:has(input:checked) {
-        border-color: #8a9480;
-        background: rgba(138, 148, 128, 0.08);
+        border-color: #6b6761;
+        background: rgba(44, 42, 39, 0.05);
       }
       .check-card input {
-        accent-color: #6b7564;
+        accent-color: #2c2a27;
         width: 1.125rem;
         height: 1.125rem;
       }
       .btn-primary {
-        background: #5f6b58;
+        background: #2c2a27;
         border-radius: var(--radius);
       }
       .btn-primary:hover {
-        background: #556050;
+        background: #3d3a36;
       }
       .nav-pill {
         scroll-margin-top: calc(4rem + var(--safe-top));
@@ -133,7 +134,7 @@
         width: 6px;
         height: 6px;
         border-radius: 2px;
-        background: #d9d4cb;
+        background: #d0cdc6;
         border: none;
         padding: 0;
         cursor: pointer;
@@ -141,7 +142,7 @@
       }
       .carousel-dot.is-active {
         width: 18px;
-        background: #8a9480;
+        background: #2c2a27;
       }
       @keyframes modal-in {
         from {
@@ -182,9 +183,12 @@
       class="sticky top-0 z-40 px-4 pt-[calc(0.6rem+var(--safe-top))] pb-2.5 surface border-b border-linen-line/80 backdrop-blur-sm"
       aria-label="Seccions"
     >
-      <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
-        <span class="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-ink-muted hidden sm:inline">Empordà</span>
-        <div class="flex flex-1 sm:flex-none justify-center sm:justify-end gap-2 text-sm font-medium">
+      <div class="max-w-6xl mx-auto flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
+        <p class="site-brand text-[0.8125rem] sm:text-[0.9375rem] font-medium text-ink leading-snug min-w-0 flex-1 sm:flex-none">
+          <span class="text-ink">Nina's 31</span>
+          <span class="text-ink-muted font-normal"> · Celebrating life</span>
+        </p>
+        <div class="flex shrink-0 gap-2 text-sm font-medium w-full sm:w-auto justify-end">
           <a
             href="#planning"
             class="nav-pill px-3.5 py-2 rounded-md surface-solid text-ink hover:bg-white transition"
@@ -199,17 +203,27 @@
       <div class="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start">
         <div class="lg:col-span-5 lg:sticky lg:top-20 pt-8 sm:pt-10">
           <header class="text-center lg:text-left reveal">
-            <p class="text-[0.65rem] sm:text-xs font-medium uppercase tracking-[0.22em] text-sage-dark mb-3">
-              6 de novembre · Celebrating Life
+            <p class="text-[0.65rem] sm:text-xs font-medium uppercase tracking-[0.2em] text-ink-muted mb-3">
+              6 de novembre · Masia a l'Empordà
             </p>
             <h1 class="text-[clamp(1.85rem,6.5vw,2.85rem)] font-semibold leading-[1.12] text-ink">
               Els 31 són, també un inici.
             </h1>
             <p class="mt-3 text-base sm:text-lg text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0 font-normal">
-              Sempre hi ha una excusa per celebrar la vida. Cap de setmana a la masia a l'Empordà: divendres amb tot
-              inclòs, jocs, bici i bon ambient.
+              Sempre hi ha una excusa per celebrar la vida.
             </p>
-            <p class="mt-4 text-sm text-ink-muted/90 max-w-md mx-auto lg:mx-0 italic">Masia a l'Empordà</p>
+            <div
+              class="mt-5 max-w-md mx-auto lg:mx-0 text-left surface-solid rounded-md border-l-4 border-ink px-4 py-3.5 shadow-card"
+              role="note"
+            >
+              <p class="text-sm font-semibold text-ink leading-snug">No cal que paguis res.</p>
+              <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                Només organitza't per <strong class="text-ink font-medium">venir i tornar</strong>. Divendres ho tinc tot
+                inclòs. Dissabte, si t'apuntes, tindrem en compte el <strong class="text-ink font-medium">dinar o el sopar</strong>
+                — sobre la marxa (arrossos, pizza, pica-pica…).
+              </p>
+            </div>
+            <p class="mt-4 text-sm text-ink-muted/90 max-w-md mx-auto lg:mx-0">Masia a l'Empordà</p>
           </header>
 
           <!-- POSAR AQUÍ FOTOS REALS DE LA MASIA: edita MASIA_PHOTOS al final del fitxer -->
@@ -243,9 +257,6 @@
               </button>
             </div>
             <div class="flex justify-center gap-1.5 mt-3" id="carousel-dots" role="tablist" aria-label="Fotos"></div>
-            <p class="mt-2 text-center lg:text-left text-xs text-ink-muted/80">
-              Placeholders — substitueix les URLs a <code class="text-[0.7rem]">MASIA_PHOTOS</code>
-            </p>
           </section>
         </div>
 
@@ -253,42 +264,40 @@
           <section id="planning" class="nav-pill reveal" aria-labelledby="planning-heading">
             <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
               <h2 id="planning-heading" class="text-xl sm:text-2xl font-semibold text-ink">El planning</h2>
-              <span class="text-[0.65rem] font-medium uppercase tracking-wider text-clay-muted px-2.5 py-1 rounded-md bg-clay-soft/40"
+              <span class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted px-2.5 py-1 rounded-md bg-linen-dark"
                 >Divendres tot inclòs</span
               >
             </div>
 
             <div class="plan-grid hidden md:grid md:grid-cols-2 gap-3">
               <article class="surface-solid rounded-md p-4 shadow-card">
-                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-clay-muted mb-1">Divendres</p>
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Divendres</p>
                 <h3 class="font-semibold text-ink text-lg">Arribada + festa</h3>
                 <p class="mt-2 text-sm text-ink-muted leading-relaxed">
                   A partir de les <strong class="text-ink font-medium">16h</strong>. Jocs, pica-pica, sopar i festeta.
-                  <span class="block mt-1.5 text-sage-dark font-medium">Tot inclòs.</span>
+                  <span class="block mt-1.5 text-ink font-medium">Tot inclòs.</span>
                 </p>
               </article>
               <article class="surface rounded-md p-4">
-                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-sage mb-1">Dissabte · matí</p>
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Dissabte · matí</p>
                 <h3 class="font-semibold text-ink text-lg">Esmorzar tranquil</h3>
                 <p class="mt-2 text-sm text-ink-muted leading-relaxed">Després, marxada lliure per qui vulgui.</p>
               </article>
-              <article class="surface-solid rounded-md p-4 border-clay-soft md:col-span-2">
-                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-clay-muted mb-1">
+              <article class="surface-solid rounded-md p-4 border-linen-line md:col-span-2">
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">
                   Dissabte · migdia / tarda
                 </p>
                 <h3 class="font-semibold text-ink text-lg">Dinar + sortida en bici</h3>
                 <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  <strong class="text-ink font-medium">Dinar sobre la marxa</strong>: demanarem arrossos o pizza i
-                  pica-pica. A la tarda, ruta en bici per les amigues ciclistes. Qui no vulgui bici, té el seu espai
-                  sense cap problema.
+                  Dinar sobre la marxa (ho tindrem en compte si vens). A la tarda, ruta en bici per les amigues
+                  ciclistes. Qui no vulgui bici, té el seu espai sense cap problema.
                 </p>
               </article>
               <article class="surface rounded-md p-4 md:col-span-2">
                 <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Dissabte · nit</p>
                 <h3 class="font-semibold text-ink text-lg">Sopar i dormir</h3>
                 <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  <strong class="text-ink font-medium">Sopar sobre la marxa</strong>: podem demanar o comprar el sopar i
-                  pica-pica. Opció de quedar-s'hi a dormir de nou.
+                  Sopar sobre la marxa (també en compte si et quedes). Opció de dormir una altra nit.
                 </p>
               </article>
             </div>
@@ -296,26 +305,26 @@
             <div class="md:hidden relative pl-5 space-y-3">
               <div class="absolute left-[5px] top-2 bottom-2 w-px timeline-line" aria-hidden="true"></div>
               <article class="relative surface-solid rounded-md p-3.5 shadow-card">
-                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-clay-soft border border-linen-line" aria-hidden="true"></span>
-                <p class="text-xs font-medium uppercase tracking-wider text-clay-muted mb-0.5">Divendres</p>
+                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-linen-dark border border-linen-line" aria-hidden="true"></span>
+                <p class="text-xs font-medium uppercase tracking-wider text-ink-muted mb-0.5">Divendres</p>
                 <h3 class="font-semibold text-ink">Arribada + festa (des de 16h)</h3>
               </article>
               <article class="relative surface rounded-md p-3.5">
-                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-sage-light border border-linen-line" aria-hidden="true"></span>
-                <p class="text-xs font-medium uppercase tracking-wider text-sage-dark mb-0.5">Dissabte matí</p>
+                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-linen-dark border border-linen-line" aria-hidden="true"></span>
+                <p class="text-xs font-medium uppercase tracking-wider text-ink mb-0.5">Dissabte matí</p>
                 <h3 class="font-semibold text-ink">Esmorzar tranquil</h3>
               </article>
               <article class="relative surface-solid rounded-md p-3.5">
-                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-clay border border-linen-line" aria-hidden="true"></span>
-                <p class="text-xs font-medium uppercase tracking-wider text-clay-muted mb-0.5">Dissabte tarda</p>
+                <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-ink-faint border border-linen-line" aria-hidden="true"></span>
+                <p class="text-xs font-medium uppercase tracking-wider text-ink-muted mb-0.5">Dissabte tarda</p>
                 <h3 class="font-semibold text-ink">Dinar + bici</h3>
-                <p class="mt-1 text-xs text-ink-muted leading-relaxed">Dinar sobre la marxa (arrossos o pizza + pica-pica).</p>
+                <p class="mt-1 text-xs text-ink-muted leading-relaxed">Dinar sobre la marxa — en compte si vens.</p>
               </article>
               <article class="relative surface rounded-md p-3.5">
                 <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-linen-line border border-linen-line" aria-hidden="true"></span>
                 <p class="text-xs font-medium uppercase tracking-wider text-ink-muted mb-0.5">Dissabte nit</p>
                 <h3 class="font-semibold text-ink">Sopar i dormir</h3>
-                <p class="mt-1 text-xs text-ink-muted leading-relaxed">Sopar sobre la marxa — demanem o comprem. Qui vulgui, dorm.</p>
+                <p class="mt-1 text-xs text-ink-muted leading-relaxed">Sopar sobre la marxa — en compte si et quedes.</p>
               </article>
             </div>
           </section>
@@ -335,7 +344,7 @@
                     required
                     autocomplete="name"
                     placeholder="Nom"
-                    class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-sage text-base"
+                    class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-ink-muted text-base"
                   />
                 </div>
 
@@ -383,7 +392,7 @@
                       name="intolerancies"
                       rows="3"
                       placeholder="Si no en tens, en blanc"
-                      class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-sage text-base resize-none"
+                      class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-ink-muted text-base resize-none"
                     ></textarea>
                   </div>
                   <div>
@@ -393,7 +402,7 @@
                       id="alcohol"
                       name="alcohol"
                       placeholder="Vi, cervesa, gin-tonic..."
-                      class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-sage text-base"
+                      class="w-full px-3.5 py-3 rounded-md border border-linen-line bg-linen/80 focus:outline-none focus:ring-1 focus:ring-ink-muted text-base"
                     />
                   </div>
                 </div>
@@ -432,7 +441,7 @@
         <button
           type="button"
           id="close-modal"
-          class="mt-6 w-full py-3 rounded-md bg-clay-muted text-white font-medium hover:bg-clay transition"
+          class="mt-6 w-full py-3 rounded-md btn-primary text-white font-medium transition"
         >
           Tancar
         </button>
@@ -441,28 +450,19 @@
 
     <script>
       ;(function () {
-        /** POSAR AQUÍ FOTOS REALS DE LA MASIA */
+        /** Fotos de la masia — fitxers a /ninas-31/fotos/ */
         var MASIA_PHOTOS = [
-          {
-            src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-            caption: 'Exterior',
-            alt: 'Masia — exterior (placeholder)',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-            caption: 'Saló',
-            alt: 'Masia — interior (placeholder)',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
-            caption: 'Terrassa',
-            alt: 'Masia — terrassa (placeholder)',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1600047509807-ba389f0d935a?auto=format&fit=crop&w=1200&q=80',
-            caption: 'Entorn',
-            alt: 'Camp i natura (placeholder)',
-          },
+          { src: '/ninas-31/fotos/01-exterior-facana.png', caption: 'Façana i porxo', alt: 'Exterior de la masia amb porxo i terrassa' },
+          { src: '/ninas-31/fotos/02-pati-sofa.png', caption: 'Pati i vistes', alt: 'Pati amb sofà i vista al jardí' },
+          { src: '/ninas-31/fotos/03-menjador-sala.png', caption: 'Menjador', alt: 'Menjador i sala amb sortida al jardí' },
+          { src: '/ninas-31/fotos/04-habitacio-vistes.png', caption: 'Habitació', alt: 'Habitació amb vistes al camp' },
+          { src: '/ninas-31/fotos/05-sala-volta.png', caption: 'Sala', alt: 'Sala d\'estar amb volta catalana' },
+          { src: '/ninas-31/fotos/06-porxo-menjador.png', caption: 'Porxo menjador', alt: 'Porxo cobert amb taula de menjador' },
+          { src: '/ninas-31/fotos/07-sala-cuina.png', caption: 'Saló', alt: 'Saló amb arc i cuina al fons' },
+          { src: '/ninas-31/fotos/08-bany.png', caption: 'Bany', alt: 'Bany de la masia' },
+          { src: '/ninas-31/fotos/09-piscina-jardi.png', caption: 'Piscina i jardí', alt: 'Piscina i gespa amb vistes' },
+          { src: '/ninas-31/fotos/10-habitacio-dos-llits.png', caption: 'Dormitori', alt: 'Habitació amb dos llits' },
+          { src: '/ninas-31/fotos/11-habitacio-sofa.png', caption: 'Suite', alt: 'Habitació gran amb sofà i bigues' },
         ]
 
         var track = document.getElementById('carousel-track')
@@ -621,10 +621,10 @@
           var nom = form.nom.value.trim()
           if (!nom) {
             form.nom.focus()
-            form.nom.classList.add('ring-1', 'ring-clay-muted')
+            form.nom.classList.add('ring-1', 'ring-ink-muted')
             return
           }
-          form.nom.classList.remove('ring-1', 'ring-clay-muted')
+          form.nom.classList.remove('ring-1', 'ring-ink-muted')
 
           console.log("[RSVP Nina's 31]", {
             nom: nom,
