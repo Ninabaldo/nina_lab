@@ -33,6 +33,112 @@ function esc(s: string): string {
     .replace(/"/g, '&quot;')
 }
 
+function listItems(items: string[], ordered = false): string {
+  const tag = ordered ? 'ol' : 'ul'
+  return `<${tag}>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</${tag}>`
+}
+
+function sectionBlock(index: string, title: string, body: string): string {
+  return `<section class="pdf-section">
+    <p class="section-index">${esc(index)}</p>
+    <h2>${esc(title)}</h2>
+    ${body}
+  </section>`
+}
+
+function buildAppendixHtml(
+  input: ConfiguratorPdfInput,
+  maintenanceLine: string,
+  perMonth: string,
+): string {
+  const { copy, language, maintenanceId } = input
+  const cfg = copy.configurator
+  const s3 = copy.section03
+  const s5 = copy.section05
+  const s6 = copy.section06
+  const s7 = copy.section07
+  const maintCfg = cfg.maintenance[maintenanceId]
+  const maintCopy = s3.maintenance[maintenanceId]
+  const maintPrice = MAINTENANCE_PRICES_EUR[maintenanceId]
+  const maintPriceLabel =
+    maintPrice > 0 ? `${formatEuro(maintPrice, language)}${perMonth}` : formatEuro(0, language)
+
+  const conditionsBody = `
+    <p>${esc(s5.intro)}</p>
+    ${listItems(s5.steps)}
+    ${s5.closing.map((p) => `<p>${esc(p)}</p>`).join('')}
+    <p class="note-box">${esc(cfg.step1.storeExcludedNote)}</p>
+    ${cfg.step1.timelineDisclaimer.map((p) => `<p class="note-box">${esc(p)}</p>`).join('')}
+  `
+
+  const maintenanceBody = `
+    <p>${esc(s3.lead)}</p>
+    <p class="muted">${esc(cfg.step3.lead)}</p>
+    <div class="highlight-box">
+      <p class="total-label">${esc(s3.maintenanceGroupLabel)} · ${esc(maintCopy.title)}</p>
+      <p class="maint-price">${esc(maintPriceLabel)}</p>
+      <p>${esc(maintCfg.description)}</p>
+      ${maintCopy.includes?.length ? listItems(maintCopy.includes) : ''}
+      ${maintCopy.extra ? `<p class="muted">${esc(maintCopy.extra)}</p>` : ''}
+      ${maintCfg.includes?.length && !maintCopy.includes?.length ? listItems(maintCfg.includes) : ''}
+    </div>
+    <p class="note-box"><strong>${esc(cfg.summary.maintenance)}:</strong> ${esc(maintenanceLine)}</p>
+    <p class="note-box">${esc(s7.maintenanceNote)}</p>
+  `
+
+  const handoverBody = `
+    <p>${esc(s6.intro)}</p>
+    ${listItems(s6.context)}
+    <h3>${esc(s6.deliverablesTitle)}</h3>
+    ${listItems(s6.deliverables)}
+    <h3>${esc(s6.stackTitle)}</h3>
+    <p class="muted">${esc(s6.stackNote)}</p>
+    <table class="stack-table">
+      <tbody>
+        ${s6.stackItems
+          .map(
+            (row) =>
+              `<tr><td><strong>${esc(row.name)}</strong></td><td>${esc(row.detail)}</td></tr>`,
+          )
+          .join('')}
+      </tbody>
+    </table>
+    <h3>${esc(s6.handoverTitle)}</h3>
+    ${listItems(s6.handoverSteps, true)}
+    <p><strong>${esc(s6.closing)}</strong></p>
+  `
+
+  const externalCostsBody = `
+    <p>${esc(s7.intro)}</p>
+    <p class="muted">${esc(s7.disclaimer)}</p>
+    <div class="highlight-box highlight-box--soft">
+      <h3>${esc(s7.setupTitle)}</h3>
+      <p>${esc(s7.setupIntro)}</p>
+      ${listItems(s7.setupItems)}
+      <p class="note-box">${esc(s7.setupAccessNote)}</p>
+    </div>
+    ${s7.groups
+      .map(
+        (group) => `
+      <h3>${esc(group.title)}</h3>
+      <ul class="cost-list">
+        ${group.items
+          .map((item) => `<li><strong>${esc(item.name)}</strong> — ${esc(item.note)}</li>`)
+          .join('')}
+      </ul>`,
+      )
+      .join('')}
+    <p>${esc(s7.closing)}</p>
+  `
+
+  return (
+    sectionBlock(s5.index, s5.title, conditionsBody) +
+    sectionBlock(s7.index, s7.title, externalCostsBody) +
+    sectionBlock(s3.index, s3.title, maintenanceBody) +
+    sectionBlock(s6.index, s6.title, handoverBody)
+  )
+}
+
 function pdfFilename(language: Language): string {
   const map: Record<Language, string> = {
     ca: 'proposta-centre.pdf',
@@ -203,6 +309,69 @@ function buildHtml(input: ConfiguratorPdfInput): string {
       font-size: 9pt;
       color: #666;
     }
+    h3 {
+      font-size: 10.5pt;
+      margin: 16px 0 8px;
+      page-break-after: avoid;
+    }
+    .pdf-section {
+      margin-top: 24px;
+      padding-top: 8px;
+      page-break-inside: avoid;
+    }
+    .pdf-section + .pdf-section {
+      page-break-before: always;
+    }
+    .section-index {
+      font-size: 8pt;
+      color: #999;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin: 0 0 4px;
+    }
+    ul, ol {
+      margin: 0 0 12px;
+      padding-left: 18px;
+    }
+    li { margin-bottom: 4px; }
+    .muted { font-size: 9.5pt; color: #666; }
+    .note-box {
+      font-size: 9pt;
+      color: #555;
+      background: #f6f6f4;
+      border: 1px solid #e8e8e4;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin: 10px 0;
+    }
+    .highlight-box {
+      margin: 12px 0;
+      padding: 12px 14px;
+      border: 1px solid #c5d4c8;
+      border-radius: 8px;
+      background: #f4f8f5;
+    }
+    .highlight-box--soft {
+      border-color: #ddd;
+      background: #fafafa;
+    }
+    .maint-price {
+      font-size: 14pt;
+      font-weight: 700;
+      margin: 4px 0 8px;
+    }
+    .stack-table td {
+      font-size: 9pt;
+      padding: 6px 8px;
+      border-bottom: 1px solid #eee;
+    }
+    .stack-table td:first-child {
+      width: 28%;
+      vertical-align: top;
+    }
+    .cost-list {
+      font-size: 9.5pt;
+    }
   </style>
   <p class="eyebrow">${esc(copy.hero.eyebrow)}</p>
   <h1>${esc(cfg.proposal.title)}</h1>
@@ -248,6 +417,8 @@ function buildHtml(input: ConfiguratorPdfInput): string {
 
   <h2>${esc(copy.mail.intro)}</h2>
   <pre>${mailBody}</pre>
+
+  ${buildAppendixHtml(input, maintenanceLine, perMonth)}
 
   <footer>${esc(copy.footer)}</footer>
 </div>`
