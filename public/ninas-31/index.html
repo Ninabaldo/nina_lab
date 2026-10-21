@@ -127,7 +127,10 @@
       .carousel-slide img {
         width: 100%;
         height: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
         object-fit: cover;
+        object-position: center;
         display: block;
       }
       .carousel-dot {
@@ -229,7 +232,7 @@
           <!-- POSAR AQUÍ FOTOS REALS DE LA MASIA: edita MASIA_PHOTOS al final del fitxer -->
           <section class="mt-8 reveal" aria-label="Fotos de la masia" aria-roledescription="carousel">
             <div
-              class="carousel-viewport relative aspect-[4/3] lg:aspect-[4/5] bg-linen-dark shadow-card border border-linen-line"
+              class="carousel-viewport relative aspect-[4/3] bg-linen-dark shadow-card border border-linen-line"
               id="masia-carousel"
             >
               <div class="carousel-track h-full" id="carousel-track"></div>
@@ -450,20 +453,22 @@
 
     <script>
       ;(function () {
-        /** Fotos de la masia — fitxers a /ninas-31/fotos/ */
+        /** Fotos: substitueix .jpg per originals ~2000px d'amplada per Retina nítid */
         var MASIA_PHOTOS = [
-          { src: '/ninas-31/fotos/01-exterior-facana.png', caption: 'Façana i porxo', alt: 'Exterior de la masia amb porxo i terrassa' },
-          { src: '/ninas-31/fotos/02-pati-sofa.png', caption: 'Pati i vistes', alt: 'Pati amb sofà i vista al jardí' },
-          { src: '/ninas-31/fotos/03-menjador-sala.png', caption: 'Menjador', alt: 'Menjador i sala amb sortida al jardí' },
-          { src: '/ninas-31/fotos/04-habitacio-vistes.png', caption: 'Habitació', alt: 'Habitació amb vistes al camp' },
-          { src: '/ninas-31/fotos/05-sala-volta.png', caption: 'Sala', alt: 'Sala d\'estar amb volta catalana' },
-          { src: '/ninas-31/fotos/06-porxo-menjador.png', caption: 'Porxo menjador', alt: 'Porxo cobert amb taula de menjador' },
-          { src: '/ninas-31/fotos/07-sala-cuina.png', caption: 'Saló', alt: 'Saló amb arc i cuina al fons' },
-          { src: '/ninas-31/fotos/08-bany.png', caption: 'Bany', alt: 'Bany de la masia' },
-          { src: '/ninas-31/fotos/09-piscina-jardi.png', caption: 'Piscina i jardí', alt: 'Piscina i gespa amb vistes' },
-          { src: '/ninas-31/fotos/10-habitacio-dos-llits.png', caption: 'Dormitori', alt: 'Habitació amb dos llits' },
-          { src: '/ninas-31/fotos/11-habitacio-sofa.png', caption: 'Suite', alt: 'Habitació gran amb sofà i bigues' },
+          { src: '/ninas-31/fotos/01-exterior-facana.jpg', caption: 'Façana i porxo', alt: 'Exterior de la masia amb porxo i terrassa' },
+          { src: '/ninas-31/fotos/02-pati-sofa.jpg', caption: 'Pati i vistes', alt: 'Pati amb sofà i vista al jardí' },
+          { src: '/ninas-31/fotos/03-menjador-sala.jpg', caption: 'Menjador', alt: 'Menjador i sala amb sortida al jardí' },
+          { src: '/ninas-31/fotos/04-habitacio-vistes.jpg', caption: 'Habitació', alt: 'Habitació amb vistes al camp' },
+          { src: '/ninas-31/fotos/05-sala-volta.jpg', caption: 'Sala', alt: 'Sala d\'estar amb volta catalana' },
+          { src: '/ninas-31/fotos/06-porxo-menjador.jpg', caption: 'Porxo menjador', alt: 'Porxo cobert amb taula de menjador' },
+          { src: '/ninas-31/fotos/07-sala-cuina.jpg', caption: 'Saló', alt: 'Saló amb arc i cuina al fons' },
+          { src: '/ninas-31/fotos/08-bany.jpg', caption: 'Bany', alt: 'Bany de la masia' },
+          { src: '/ninas-31/fotos/09-piscina-jardi.jpg', caption: 'Piscina i jardí', alt: 'Piscina i gespa amb vistes' },
+          { src: '/ninas-31/fotos/10-habitacio-dos-llits.jpg', caption: 'Dormitori', alt: 'Habitació amb dos llits' },
+          { src: '/ninas-31/fotos/11-habitacio-sofa.jpg', caption: 'Suite', alt: 'Habitació gran amb sofà i bigues' },
         ]
+        var IMG_W = 1024
+        var IMG_H = 683
 
         var track = document.getElementById('carousel-track')
         var dotsRoot = document.getElementById('carousel-dots')
@@ -482,9 +487,15 @@
             photo.src +
             '" alt="' +
             photo.alt.replace(/"/g, '&quot;') +
-            '" loading="' +
+            '" width="' +
+            IMG_W +
+            '" height="' +
+            IMG_H +
+            '" sizes="(min-width: 1024px) 480px, 100vw" loading="' +
             (i === 0 ? 'eager' : 'lazy') +
-            '" />'
+            '"' +
+            (i === 0 ? ' fetchpriority="high"' : '') +
+            ' decoding="async" />'
           track.appendChild(slide)
 
           var dot = document.createElement('button')
