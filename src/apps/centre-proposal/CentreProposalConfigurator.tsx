@@ -185,6 +185,13 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
 
   return (
     <div className="cp-config">
+      {pdfState === 'busy' ? (
+        <div className="cp-pdf-busy" role="status" aria-live="polite" aria-busy="true">
+          <div className="cp-pdf-busy__card">
+            <p>{cfg.proposal.downloadPdfBusy}</p>
+          </div>
+        </div>
+      ) : null}
       <CentreProposalStickyBudget
         implementationTotal={implementationTotal}
         pulseKey={pulseKey}

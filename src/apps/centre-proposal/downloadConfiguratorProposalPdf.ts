@@ -424,34 +424,77 @@ function buildHtml(input: ConfiguratorPdfInput): string {
 </div>`
 }
 
-export async function downloadConfiguratorProposalPdf(input: ConfiguratorPdfInput): Promise<void> {
-  const html = buildHtml(input)
-  const mount = document.createElement('div')
-  mount.style.position = 'fixed'
-  mount.style.left = '-10000px'
-  mount.style.top = '0'
-  mount.style.width = '720px'
-  mount.innerHTML = html
-  document.body.appendChild(mount)
-  const pdfRoot = mount.querySelector('.proposal-pdf') as HTMLElement | null
-  if (!pdfRoot) {
-    document.body.removeChild(mount)
+function hidePdfClone(_document: Document, element: HTMLElement) {
+  element.style.setProperty('position', 'fixed', 'important')
+  element.style.setProperty('left', '-100000px', 'important')
+  element.style.setProperty('top', '0', 'important')
+  element.style.setProperty('opacity', '1', 'important')
+  element.style.setProperty('pointer-events', 'none', 'important')
+  element.style.setProperty('z-index', '-1', 'important')
+}
+
+async function mountHiddenPdfRoot(html: string): Promise<{
+  iframe: HTMLIFrameElement
+  root: HTMLElement
+}> {
+  const iframe = document.createElement('iframe')
+  iframe.setAttribute('aria-hidden', 'true')
+  iframe.setAttribute('tabindex', '-1')
+  iframe.title = 'pdf-export'
+  iframe.style.cssText =
+    'position:fixed;width:0;height:0;border:0;opacity:0;visibility:hidden;pointer-events:none;'
+
+  document.body.appendChild(iframe)
+
+  await new Promise<void>((resolve, reject) => {
+    iframe.onload = () => resolve()
+    iframe.onerror = () => reject(new Error('pdf-iframe-load'))
+    const doc = iframe.contentDocument
+    if (!doc) {
+      reject(new Error('pdf-iframe-doc'))
+      return
+    }
+    doc.open()
+    doc.write(
+      `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0">${html}</body></html>`,
+    )
+    doc.close()
+    if (doc.readyState === 'complete') resolve()
+  })
+
+  const root = iframe.contentDocument?.querySelector('.proposal-pdf') as HTMLElement | null
+  if (!root) {
+    document.body.removeChild(iframe)
     throw new Error('proposal-pdf-root-missing')
   }
 
+  return { iframe, root }
+}
+
+export async function downloadConfiguratorProposalPdf(input: ConfiguratorPdfInput): Promise<void> {
+  const html = buildHtml(input)
+  const { iframe, root } = await mountHiddenPdfRoot(html)
+
   try {
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+
     const html2pdf = (await import('html2pdf.js')).default
     await html2pdf()
       .set({
         margin: [14, 14, 14, 14],
         filename: pdfFilename(input.language),
         image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: { scale: 2, useCORS: true, logging: false },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          onclone: hidePdfClone,
+        },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
       })
-      .from(pdfRoot)
+      .from(root)
       .save()
   } finally {
-    document.body.removeChild(mount)
+    document.body.removeChild(iframe)
   }
 }
