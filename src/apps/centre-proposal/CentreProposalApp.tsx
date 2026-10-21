@@ -163,6 +163,58 @@ export function CentreProposalApp() {
             </p>
           ))}
         </section>
+
+        <section
+          id="continuitat"
+          className="centre-proposal__section centre-proposal__section--handover reveal"
+          aria-labelledby="centre-proposal-handover-heading"
+        >
+          <p className="centre-proposal__section-index">{copy.section06.index}</p>
+          <h2 id="centre-proposal-handover-heading" className="centre-proposal__section-title">
+            {copy.section06.title}
+          </h2>
+          <p className="centre-proposal__closing-text">{copy.section06.intro}</p>
+          <ul className="centre-proposal__closing-steps">
+            {copy.section06.context.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
+          <div className="centre-proposal__handover-block">
+            <h3 className="centre-proposal__handover-subtitle">{copy.section06.deliverablesTitle}</h3>
+            <ul className="centre-proposal__handover-list">
+              {copy.section06.deliverables.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="centre-proposal__handover-block">
+            <h3 className="centre-proposal__handover-subtitle">{copy.section06.stackTitle}</h3>
+            <p className="centre-proposal__handover-note">{copy.section06.stackNote}</p>
+            <dl className="centre-proposal__stack">
+              {copy.section06.stackItems.map((item) => (
+                <div key={item.name} className="centre-proposal__stack-row">
+                  <dt>{item.name}</dt>
+                  <dd>{item.detail}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="centre-proposal__handover-block">
+            <h3 className="centre-proposal__handover-subtitle">{copy.section06.handoverTitle}</h3>
+            <ol className="centre-proposal__handover-steps">
+              {copy.section06.handoverSteps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
+
+          <p className="centre-proposal__closing-text centre-proposal__handover-closing">
+            {copy.section06.closing}
+          </p>
+        </section>
       </main>
 
       <footer className="centre-proposal__footer">

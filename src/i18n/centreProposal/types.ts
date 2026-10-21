@@ -169,6 +169,20 @@ export interface CentreProposalCopy {
     steps: string[]
     closing: string[]
   }
+  section06: {
+    index: string
+    title: string
+    intro: string
+    context: string[]
+    deliverablesTitle: string
+    deliverables: string[]
+    stackTitle: string
+    stackNote: string
+    stackItems: { name: string; detail: string }[]
+    handoverTitle: string
+    handoverSteps: string[]
+    closing: string
+  }
   footer: string
   demo: {
     back: string

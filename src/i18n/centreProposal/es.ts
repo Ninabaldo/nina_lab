@@ -175,6 +175,63 @@ const es: CentreProposalCopy = {
       'El proyecto comenzará cuando se apruebe la propuesta definitiva y se acuerden las condiciones de inicio.',
     ],
   },
+  section06: {
+    index: '06',
+    title: 'Si dejáis el mantenimiento o cambiáis de desarrollador',
+    intro:
+      'El centro es propietario del software desarrollado. Tanto si optáis por no contratar mantenimiento como si en el futuro queréis trabajar con otro equipo, el proyecto debe seguir operativo y ser transferible sin depender exclusivamente de Nina Lab.',
+    context: [
+      'Sin mantenimiento: el software sigue funcionando; actualizaciones, incidencias y evoluciones pueden encargarse internamente o con otro proveedor.',
+      'Cambio de desarrollador: entregamos el proyecto de forma ordenada para que un nuevo equipo pueda continuar el desarrollo y el despliegue.',
+    ],
+    deliverablesTitle: 'Qué entregaríamos',
+    deliverables: [
+      'Código fuente completo en un repositorio GitHub del centro (web, backend, apps y scripts de despliegue).',
+      'Documentación para instalar el proyecto, ejecutarlo en local y desplegarlo en producción.',
+      'Lista de variables de entorno y guía de transferencia segura de secretos (sin enviar contraseñas por email).',
+      'Acceso o exportación de la base de datos, esquema, migraciones y procedimiento de copias de seguridad.',
+      'Inventario de cuentas externas a nombre del centro (dominio, hosting, stores, pagos, email).',
+    ],
+    stackTitle: 'Herramientas y stack previsto',
+    stackNote:
+      'La combinación concreta se valida al inicio del proyecto; la entrega incluye la lista exacta con versiones y enlaces.',
+    stackItems: [
+      { name: 'GitHub', detail: 'Código versionado, historial, issues y permisos de administración para el centro.' },
+      {
+        name: 'React + TypeScript',
+        detail: 'Web de reservas y dashboard del centro (p. ej. Vite como entorno de build).',
+      },
+      {
+        name: 'Apps móviles (iOS / Android)',
+        detail: 'App para alumnos con stack acordado (p. ej. React Native / Expo o equivalente documentado).',
+      },
+      {
+        name: 'API / backend',
+        detail: 'Servicio backend documentado (p. ej. Node.js) con endpoints de reservas, alumnos y gestión.',
+      },
+      {
+        name: 'Base de datos',
+        detail: 'PostgreSQL o equivalente gestionado; esquema, migraciones y datos en la cuenta del centro.',
+      },
+      {
+        name: 'Hosting y despliegue',
+        detail: 'Web y API en producción (p. ej. Vercel o proveedor acordado), con configuración documentada.',
+      },
+      {
+        name: 'Integraciones',
+        detail: 'Pagos, email, recordatorios y otros servicios conectados a las cuentas del centro.',
+      },
+    ],
+    handoverTitle: 'Cómo sería la transferencia',
+    handoverSteps: [
+      'Sesión de entrega con el centro (y el nuevo equipo, si ya lo tenéis).',
+      'Transferencia del repositorio GitHub y revisión de permisos de administración.',
+      'Revisión conjunta de despliegue, copias de seguridad y restauración de la base de datos.',
+      'Periodo breve de soporte para dudas técnicas de la entrega (duración acordada en el contrato).',
+    ],
+    closing:
+      'El objetivo es que el centro no quede “atrapado”: el producto es vuestro y debe poder evolucionar con el equipo que elijáis.',
+  },
   footer: 'Propuesta preparada por Nina Baldó',
   demo: {
     back: '← Volver a la propuesta',

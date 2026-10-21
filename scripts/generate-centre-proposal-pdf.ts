@@ -225,6 +225,28 @@ function buildHtml(): string {
     ${copy.section05.closing.map((p) => `<p>${esc(p)}</p>`).join('')}
   </section>
 
+  <section>
+    <p class="index">${esc(copy.section06.index)}</p>
+    <h2>${esc(copy.section06.title)}</h2>
+    <p>${esc(copy.section06.intro)}</p>
+    <ul>${copy.section06.context.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+    <h3>${esc(copy.section06.deliverablesTitle)}</h3>
+    <ul>${copy.section06.deliverables.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+    <h3>${esc(copy.section06.stackTitle)}</h3>
+    <p class="muted">${esc(copy.section06.stackNote)}</p>
+    <table>
+      <thead><tr><th>Eina</th><th>Ús al projecte</th></tr></thead>
+      <tbody>
+        ${copy.section06.stackItems
+          .map((row) => `<tr><td><strong>${esc(row.name)}</strong></td><td>${esc(row.detail)}</td></tr>`)
+          .join('')}
+      </tbody>
+    </table>
+    <h3>${esc(copy.section06.handoverTitle)}</h3>
+    <ol>${copy.section06.handoverSteps.map((s) => `<li>${esc(s)}</li>`).join('')}</ol>
+    <p><strong>${esc(copy.section06.closing)}</strong></p>
+  </section>
+
   <footer class="footer">
     <p>${esc(copy.footer)}</p>
     <p>Document generat el ${esc(new Date().toLocaleDateString('ca-ES', { dateStyle: 'long' }))}</p>

@@ -198,6 +198,26 @@
     <p>Una vegada validada aquesta informació, prepararem el pressupost definitiu i el calendari de desenvolupament.</p><p>El projecte començarà un cop aprovada la proposta definitiva i acordades les condicions d’inici.</p>
   </section>
 
+  <section>
+    <p class="index">06</p>
+    <h2>Si deixeu el manteniment o canvieu de desenvolupador</h2>
+    <p>El centre és propietari del software desenvolupat. Tant si opteu per no contractar manteniment com si en el futur voleu treballar amb un altre equip, el projecte ha de quedar operatiu i transferible sense dependre exclusivament de Nina Lab.</p>
+    <ul><li>Sense manteniment: el software continua funcionant; les actualitzacions, incidències i evolucions es poden encarregar internament o amb un altre proveïdor.</li><li>Canvi de desenvolupador: lliurem el projecte de forma ordenada perquè un nou equip pugui continuar el desenvolupament i el desplegament.</li></ul>
+    <h3>Què lliuraríem</h3>
+    <ul><li>Codi font complet en un repositori GitHub del centre (web, backend, apps i scripts de desplegament).</li><li>Documentació per instal·lar el projecte, executar-lo en local i desplegar-lo a producció.</li><li>Llista de variables d’entorn i guia de transferència segura de secrets (sense enviar contrasenyes per email).</li><li>Accés o export de la base de dades, esquema, migracions i procediment de còpies de seguretat.</li><li>Inventari de comptes externs al nom del centre (domini, hosting, stores, pagaments, email).</li></ul>
+    <h3>Eines i stack previst</h3>
+    <p class="muted">La combinació concreta es valida a l’inici del projecte; el lliurament inclou la llista exacta amb versions i enllaços.</p>
+    <table>
+      <thead><tr><th>Eina</th><th>Ús al projecte</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GitHub</strong></td><td>Codi versionat, historial, issues i permisos d’administració per al centre.</td></tr><tr><td><strong>React + TypeScript</strong></td><td>Web de reserves i dashboard del centre (p. ex. Vite com a entorn de build).</td></tr><tr><td><strong>Apps mòbils (iOS / Android)</strong></td><td>App per als alumnes amb stack acordat (p. ex. React Native / Expo o equivalent documentat).</td></tr><tr><td><strong>API / backend</strong></td><td>Servei backend documentat (p. ex. Node.js) amb endpoints de reserves, alumnes i gestió.</td></tr><tr><td><strong>Base de dades</strong></td><td>PostgreSQL o equivalent gestionat; esquema, migracions i dades al compte del centre.</td></tr><tr><td><strong>Hosting i desplegament</strong></td><td>Web i API en producció (p. ex. Vercel o proveïdor acordat), amb configuració documentada.</td></tr><tr><td><strong>Integracions</strong></td><td>Pagaments, email, recordatoris i altres serveis connectats als comptes del centre.</td></tr>
+      </tbody>
+    </table>
+    <h3>Com seria la transferència</h3>
+    <ol><li>Sessió de lliurament amb el centre (i el nou equip, si ja el teniu).</li><li>Transferència del repositori GitHub i revisió de permisos d’administració.</li><li>Revisió conjunta de desplegament, còpies de seguretat i restauració de la base de dades.</li><li>Període breu de suport per dubtes tècnics del lliurament (durada acordada al contracte).</li></ol>
+    <p><strong>L’objectiu és que el centre no quedi “atrapat”: el producte és vostre i ha de poder evolucionar amb l’equip que trieu.</strong></p>
+  </section>
+
   <footer class="footer">
     <p>Proposta preparada per Nina Baldó</p>
     <p>Document generat el 21 d’octubre del 2026</p>

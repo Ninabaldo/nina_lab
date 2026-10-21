@@ -183,6 +183,63 @@ const ca: CentreProposalCopy = {
       'El projecte començarà un cop aprovada la proposta definitiva i acordades les condicions d’inici.',
     ],
   },
+  section06: {
+    index: '06',
+    title: 'Si deixeu el manteniment o canvieu de desenvolupador',
+    intro:
+      'El centre és propietari del software desenvolupat. Tant si opteu per no contractar manteniment com si en el futur voleu treballar amb un altre equip, el projecte ha de quedar operatiu i transferible sense dependre exclusivament de Nina Lab.',
+    context: [
+      'Sense manteniment: el software continua funcionant; les actualitzacions, incidències i evolucions es poden encarregar internament o amb un altre proveïdor.',
+      'Canvi de desenvolupador: lliurem el projecte de forma ordenada perquè un nou equip pugui continuar el desenvolupament i el desplegament.',
+    ],
+    deliverablesTitle: 'Què lliuraríem',
+    deliverables: [
+      'Codi font complet en un repositori GitHub del centre (web, backend, apps i scripts de desplegament).',
+      'Documentació per instal·lar el projecte, executar-lo en local i desplegar-lo a producció.',
+      'Llista de variables d’entorn i guia de transferència segura de secrets (sense enviar contrasenyes per email).',
+      'Accés o export de la base de dades, esquema, migracions i procediment de còpies de seguretat.',
+      'Inventari de comptes externs al nom del centre (domini, hosting, stores, pagaments, email).',
+    ],
+    stackTitle: 'Eines i stack previst',
+    stackNote:
+      'La combinació concreta es valida a l’inici del projecte; el lliurament inclou la llista exacta amb versions i enllaços.',
+    stackItems: [
+      { name: 'GitHub', detail: 'Codi versionat, historial, issues i permisos d’administració per al centre.' },
+      {
+        name: 'React + TypeScript',
+        detail: 'Web de reserves i dashboard del centre (p. ex. Vite com a entorn de build).',
+      },
+      {
+        name: 'Apps mòbils (iOS / Android)',
+        detail: 'App per als alumnes amb stack acordat (p. ex. React Native / Expo o equivalent documentat).',
+      },
+      {
+        name: 'API / backend',
+        detail: 'Servei backend documentat (p. ex. Node.js) amb endpoints de reserves, alumnes i gestió.',
+      },
+      {
+        name: 'Base de dades',
+        detail: 'PostgreSQL o equivalent gestionat; esquema, migracions i dades al compte del centre.',
+      },
+      {
+        name: 'Hosting i desplegament',
+        detail: 'Web i API en producció (p. ex. Vercel o proveïdor acordat), amb configuració documentada.',
+      },
+      {
+        name: 'Integracions',
+        detail: 'Pagaments, email, recordatoris i altres serveis connectats als comptes del centre.',
+      },
+    ],
+    handoverTitle: 'Com seria la transferència',
+    handoverSteps: [
+      'Sessió de lliurament amb el centre (i el nou equip, si ja el teniu).',
+      'Transferència del repositori GitHub i revisió de permisos d’administració.',
+      'Revisió conjunta de desplegament, còpies de seguretat i restauració de la base de dades.',
+      'Període breu de suport per dubtes tècnics del lliurament (durada acordada al contracte).',
+    ],
+    closing:
+      'L’objectiu és que el centre no quedi “atrapat”: el producte és vostre i ha de poder evolucionar amb l’equip que trieu.',
+  },
   footer: 'Proposta preparada per Nina Baldó',
   demo: {
     back: '← Tornar a la proposta',

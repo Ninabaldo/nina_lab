@@ -2395,6 +2395,87 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   margin-top: 0.35rem;
 }
 
+.centre-proposal__section--handover {
+  margin-top: 0.5rem;
+}
+
+.centre-proposal__handover-block {
+  margin: 1.75rem 0 0;
+  max-width: 42rem;
+}
+
+.centre-proposal__handover-subtitle {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.centre-proposal__handover-note {
+  margin: 0 0 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 40rem;
+}
+
+.centre-proposal__handover-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__handover-list li + li {
+  margin-top: 0.35rem;
+}
+
+.centre-proposal__stack {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.centre-proposal__stack-row {
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+
+.centre-proposal__stack-row dt {
+  margin: 0 0 0.25rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.centre-proposal__stack-row dd {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__handover-steps {
+  margin: 0;
+  padding-left: 1.25rem;
+  max-width: 40rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.centre-proposal__handover-steps li + li {
+  margin-top: 0.35rem;
+}
+
+.centre-proposal__handover-closing {
+  margin-top: 1.5rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
 .cp-soft-card__tagline {
   margin-top: 0.25rem;
   font-size: 0.82rem;

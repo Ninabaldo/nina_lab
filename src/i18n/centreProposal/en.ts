@@ -171,6 +171,63 @@ const en: CentreProposalCopy = {
       'The project begins after the final proposal is approved and start conditions are agreed.',
     ],
   },
+  section06: {
+    index: '06',
+    title: 'If you stop maintenance or change developer',
+    intro:
+      'The centre owns the software we build. Whether you choose not to take ongoing maintenance or you later work with another team, the project should stay operational and transferable without depending solely on Nina Lab.',
+    context: [
+      'Without maintenance: the software keeps running; updates, incidents, and new features can be handled in-house or by another provider.',
+      'Changing developer: we hand over the project in an orderly way so a new team can continue development and deployment.',
+    ],
+    deliverablesTitle: 'What we would deliver',
+    deliverables: [
+      'Full source code in the centre’s GitHub repository (web, backend, apps, and deployment scripts).',
+      'Documentation to install the project, run it locally, and deploy to production.',
+      'Environment variable list and a secure handover guide for secrets (no passwords sent by email).',
+      'Database access or export, schema, migrations, and backup procedures.',
+      'Inventory of external accounts in the centre’s name (domain, hosting, stores, payments, email).',
+    ],
+    stackTitle: 'Tools and expected stack',
+    stackNote:
+      'The exact combination is confirmed at project kick-off; delivery includes the definitive list with versions and links.',
+    stackItems: [
+      { name: 'GitHub', detail: 'Versioned code, history, issues, and admin permissions for the centre.' },
+      {
+        name: 'React + TypeScript',
+        detail: 'Booking web and centre dashboard (e.g. Vite as the build toolchain).',
+      },
+      {
+        name: 'Mobile apps (iOS / Android)',
+        detail: 'Student app using an agreed stack (e.g. React Native / Expo or equivalent, documented).',
+      },
+      {
+        name: 'API / backend',
+        detail: 'Documented backend service (e.g. Node.js) with booking, student, and management endpoints.',
+      },
+      {
+        name: 'Database',
+        detail: 'PostgreSQL or equivalent managed service; schema, migrations, and data under the centre’s account.',
+      },
+      {
+        name: 'Hosting and deployment',
+        detail: 'Production web and API (e.g. Vercel or agreed provider) with documented configuration.',
+      },
+      {
+        name: 'Integrations',
+        detail: 'Payments, email, reminders, and other services connected to the centre’s accounts.',
+      },
+    ],
+    handoverTitle: 'How handover would work',
+    handoverSteps: [
+      'Handover session with the centre (and the new team, if you already have one).',
+      'GitHub repository transfer and review of admin permissions.',
+      'Joint review of deployment, backups, and database restore.',
+      'Short support window for technical questions about the handover (duration agreed in the contract).',
+    ],
+    closing:
+      'The goal is that the centre is never “locked in”: the product is yours and should evolve with whichever team you choose.',
+  },
   footer: 'Proposal by Nina Baldó',
   demo: {
     back: '← Back to proposal',
