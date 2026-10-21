@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react'
 import { formatEuro } from './pricing'
 import { useCentreProposalCopy } from './useCentreProposalCopy'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
+import { CpPdfBusyLabel } from './CpPdfBusyLabel'
 import './CentreProposalApp.css'
 
 interface CentreProposalStickyBudgetProps {
   implementationTotal: number
   pulseKey: number
   onDownloadPdf: () => void
-  downloadLabel: string
+  downloadIdleLabel: string
+  downloadBusyLabel: string
   downloadBusy?: boolean
 }
 
@@ -16,7 +18,8 @@ export function CentreProposalStickyBudget({
   implementationTotal,
   pulseKey,
   onDownloadPdf,
-  downloadLabel,
+  downloadIdleLabel,
+  downloadBusyLabel,
   downloadBusy = false,
 }: CentreProposalStickyBudgetProps) {
   const copy = useCentreProposalCopy()
@@ -62,9 +65,14 @@ export function CentreProposalStickyBudget({
           type="button"
           className="centre-proposal__sticky-cta"
           disabled={downloadBusy}
+          aria-busy={downloadBusy}
           onClick={onDownloadPdf}
         >
-          {downloadLabel}
+          <CpPdfBusyLabel
+            busy={downloadBusy}
+            idleText={downloadIdleLabel}
+            busyText={downloadBusyLabel}
+          />
         </button>
       </div>
     </div>

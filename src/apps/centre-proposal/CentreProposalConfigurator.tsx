@@ -3,6 +3,7 @@ import type { CentreProposalCopy } from '../../i18n/centreProposal/types'
 import { useSiteLanguage } from '../../hooks/useSiteLanguage'
 import { CentreProposalBudgetSummary } from './CentreProposalBudgetSummary'
 import { CentreProposalStickyBudget } from './CentreProposalStickyBudget'
+import { CpPdfBusyLabel } from './CpPdfBusyLabel'
 import { downloadConfiguratorProposalPdf } from './downloadConfiguratorProposalPdf'
 import {
   ADDON_GROUPS,
@@ -163,6 +164,7 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
   const downloadPdf = async () => {
     if (pdfState === 'busy') return
     setPdfState('busy')
+    const started = performance.now()
     try {
       await downloadConfiguratorProposalPdf({
         copy,
@@ -172,32 +174,28 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
         storePublishing,
         maintenanceId,
       })
+      const wait = Math.max(0, 350 - (performance.now() - started))
+      if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait))
       setPdfState('idle')
     } catch {
       setPdfState('err')
     }
   }
 
-  const pdfButtonLabel =
-    pdfState === 'busy'
-      ? cfg.proposal.downloadPdfBusy
-      : cfg.summary.mobileCta
+  const pdfBusy = pdfState === 'busy'
 
   return (
-    <div className="cp-config">
-      {pdfState === 'busy' ? (
-        <div className="cp-pdf-busy" role="status" aria-live="polite" aria-busy="true">
-          <div className="cp-pdf-busy__card">
-            <p>{cfg.proposal.downloadPdfBusy}</p>
-          </div>
-        </div>
-      ) : null}
+    <div
+      className={`cp-config${pdfBusy ? ' cp-config--pdf-busy' : ''}`}
+      aria-busy={pdfBusy}
+    >
       <CentreProposalStickyBudget
         implementationTotal={implementationTotal}
         pulseKey={pulseKey}
         onDownloadPdf={() => void downloadPdf()}
-        downloadLabel={pdfButtonLabel}
-        downloadBusy={pdfState === 'busy'}
+        downloadIdleLabel={cfg.summary.mobileCta}
+        downloadBusyLabel={cfg.proposal.downloadPdfBusy}
+        downloadBusy={pdfBusy}
       />
       <ol className="cp-config__progress" aria-label={copy.section02.title}>
         {(
@@ -483,10 +481,15 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
         <button
           type="button"
           className="centre-proposal__sticky-cta"
-          disabled={pdfState === 'busy'}
+          disabled={pdfBusy}
+          aria-busy={pdfBusy}
           onClick={() => void downloadPdf()}
         >
-          {pdfButtonLabel}
+          <CpPdfBusyLabel
+            busy={pdfBusy}
+            idleText={cfg.summary.mobileCta}
+            busyText={cfg.proposal.downloadPdfBusy}
+          />
         </button>
       </div>
 
@@ -550,10 +553,15 @@ export function CentreProposalConfigurator({ copy }: { copy: CentreProposalCopy 
           <button
             type="button"
             className="centre-proposal__button centre-proposal__button--primary"
-            disabled={pdfState === 'busy'}
+            disabled={pdfBusy}
+            aria-busy={pdfBusy}
             onClick={() => void downloadPdf()}
           >
-            {pdfState === 'busy' ? cfg.proposal.downloadPdfBusy : cfg.proposal.downloadPdfCta}
+            <CpPdfBusyLabel
+              busy={pdfBusy}
+              idleText={cfg.proposal.downloadPdfCta}
+              busyText={cfg.proposal.downloadPdfBusy}
+            />
           </button>
           <button
             type="button"

@@ -2478,31 +2478,32 @@ button.centre-demo__cal-event:hover:not(:disabled) {
   position: relative;
 }
 
-.cp-pdf-busy {
-  position: fixed;
-  inset: 0;
-  z-index: 10050;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  background: color-mix(in srgb, var(--color-bg) 72%, transparent);
-  backdrop-filter: blur(4px);
+.cp-config--pdf-busy {
+  cursor: wait;
 }
 
-.cp-pdf-busy__card {
-  padding: 1rem 1.35rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-bg-alt);
-  box-shadow: 0 12px 40px color-mix(in srgb, var(--color-text) 12%, transparent);
+.cp-pdf-spinner {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-right: 0.4em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  vertical-align: -0.12em;
+  animation: cp-pdf-spin 0.7s linear infinite;
 }
 
-.cp-pdf-busy__card p {
-  margin: 0;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--color-text);
+@keyframes cp-pdf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.centre-proposal__sticky-cta:disabled,
+.cp-config__mobile-bar .centre-proposal__sticky-cta:disabled {
+  opacity: 0.92;
+  cursor: wait;
 }
 
 .cp-config__progress {
