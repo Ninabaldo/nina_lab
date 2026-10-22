@@ -457,6 +457,29 @@
                   </div>
                 </fieldset>
 
+                <fieldset id="arribada-fieldset">
+                  <legend class="block text-sm font-medium text-ink mb-1">Franja d'arribada aproximada</legend>
+                  <p class="text-xs text-ink-muted mb-2.5">Per quadrar el check-in i l'ambient quan arribis.</p>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
+                      <input type="radio" name="arribada" value="dv-17-19" required />
+                      <span class="text-sm">Divendres, 17h – 19h</span>
+                    </label>
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
+                      <input type="radio" name="arribada" value="dv-19-21" />
+                      <span class="text-sm">Divendres, 19h – 21h</span>
+                    </label>
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
+                      <input type="radio" name="arribada" value="ds-migmati" />
+                      <span class="text-sm">Dissabte, mig matí</span>
+                    </label>
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
+                      <input type="radio" name="arribada" value="ds-tarda-bici" />
+                      <span class="text-sm">Dissabte, tarda (abans de la bici)</span>
+                    </label>
+                  </div>
+                </fieldset>
+
                 <fieldset id="dormir-fieldset">
                   <legend class="block text-sm font-medium text-ink mb-1">Quins dies et quedes a dormir?</legend>
                   <p class="text-xs text-ink-muted mb-2.5 leading-relaxed beds-note !mb-3 !text-xs">
@@ -773,6 +796,16 @@
           })
         }
 
+        function labelArribada(value) {
+          var map = {
+            'dv-17-19': 'Divendres, 17h – 19h',
+            'dv-19-21': 'Divendres, 19h – 21h',
+            'ds-migmati': 'Dissabte, mig matí',
+            'ds-tarda-bici': 'Dissabte, tarda (abans de la bici)',
+          }
+          return map[value] || value || '—'
+        }
+
         function openModal(nom) {
           modal.classList.remove('hidden')
           modal.classList.add('flex')
@@ -825,6 +858,12 @@
           }
           form.nom.classList.remove('ring-1', 'ring-ink-muted')
 
+          var arribadaInput = form.querySelector('input[name="arribada"]:checked')
+          if (!arribadaInput) {
+            document.getElementById('arribada-fieldset').scrollIntoView({ behavior: 'smooth', block: 'center' })
+            return
+          }
+
           var dormirChecked = getChecked('dormir')
           if (dormirChecked.length === 0) {
             document.getElementById('dormir-fieldset').scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -849,6 +888,7 @@
             _captcha: 'false',
             Nom: nom,
             '+1': portoPlusOne.checked ? plusOneNom.value.trim() : 'No',
+            'Arribada aproximada': labelArribada(arribadaInput.value),
             Dormir: dormirLabels.length ? dormirLabels.join(', ') : '—',
             Activitats: activitatsLabels.length ? activitatsLabels.join(', ') : '—',
             'Intoleràncies / al·lèrgies': form.intolerancies.value.trim() || '—',
