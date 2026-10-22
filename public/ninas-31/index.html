@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#f0efec" />
     <meta
       name="description"
-      content="Nina's 31 · Celebrating life. 6 de novembre, Empordà. Confirma assistència."
+      content="Nina's 31 · Celebrating life. 6–8 de novembre, Masia a l'Empordà. Confirma assistència."
     />
     <meta property="og:title" content="Nina's 31 · Celebrating life" />
     <meta
@@ -102,22 +102,6 @@
       .nav-pill {
         scroll-margin-top: calc(4rem + var(--safe-top));
       }
-      .all-included {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        margin-top: 1.25rem;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--ink-muted, #6b6761);
-      }
-      .all-included-heart {
-        font-size: 0.65rem;
-        line-height: 1;
-        color: var(--ink, #2c2a27);
-      }
       .check-times {
         display: flex;
         flex-wrap: wrap;
@@ -129,6 +113,20 @@
         color: #6b6761;
       }
       .check-times strong {
+        color: #2c2a27;
+        font-weight: 600;
+      }
+      .beds-note {
+        font-size: 0.8125rem;
+        line-height: 1.55;
+        color: #6b6761;
+        margin-bottom: 1rem;
+        padding: 0.75rem 0.85rem;
+        border-radius: var(--radius);
+        background: #e8e6e1;
+        border: 1px solid #dcd9d3;
+      }
+      .beds-note strong {
         color: #2c2a27;
         font-weight: 600;
       }
@@ -157,7 +155,7 @@
       .carousel-slide img {
         width: 100%;
         height: 100%;
-        max-width: 1024px;
+        max-width: 100%;
         margin: 0 auto;
         object-fit: cover;
         object-position: center;
@@ -237,7 +235,7 @@
         <div class="lg:col-span-5 lg:sticky lg:top-20 pt-8 sm:pt-10">
           <header class="text-center lg:text-left reveal">
             <p class="text-[0.65rem] sm:text-xs font-medium uppercase tracking-[0.2em] text-ink-muted mb-3">
-              Nina's 31 · 6 de novembre
+              Nina's 31 · 6–8 de novembre
             </p>
             <h1 class="text-[clamp(1.85rem,6.5vw,2.85rem)] font-semibold leading-[1.12] text-ink">
               Els 31 són, també un inici.
@@ -245,18 +243,13 @@
             <p class="mt-3 text-base sm:text-lg text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0 font-normal">
               Sempre hi ha una excusa per celebrar la vida.
             </p>
-            <p class="all-included max-w-md mx-auto lg:mx-0" role="note">
-              <span class="all-included-heart" aria-hidden="true">♥</span>
-              All included
-            </p>
+            <p class="mt-4 text-sm text-ink-muted/90 max-w-md mx-auto lg:mx-0">Masia a l'Empordà</p>
             <p class="mt-3 text-sm text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0">
-              Només organitza't per <strong class="text-ink font-medium">venir i tornar</strong>. Divendres ho tinc tot cobert.
-              Dissabte, si t'apuntes, tindrem en compte el <strong class="text-ink font-medium">dinar o el sopar</strong> sobre
-              la marxa.
+              Només organitza't per <strong class="text-ink font-medium">l'anada i la tornada</strong>. Una escapada de dos
+              dies, amb llibertat d'entrada i sortida.
             </p>
-            <p class="mt-4 text-sm text-ink-muted/90 max-w-md mx-auto lg:mx-0 leading-relaxed">
-              Masia a l'Empordà · <strong class="text-ink font-medium">10 places</strong> per dormir i algun sofà extra si
-              cal.
+            <p class="mt-2 text-sm text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0">
+              Tot està planificat: senta't lliure de venir, tornar i marxar quan ho vulguis.
             </p>
           </header>
 
@@ -296,55 +289,56 @@
 
         <div class="lg:col-span-7 mt-10 lg:mt-10 space-y-10 sm:space-y-12">
           <section id="planning" class="nav-pill reveal" aria-labelledby="planning-heading">
-            <div class="flex flex-wrap items-end justify-between gap-3 mb-3">
-              <h2 id="planning-heading" class="text-xl sm:text-2xl font-semibold text-ink">El planning</h2>
-              <span class="all-included !mt-0 text-[0.65rem]">
-                <span class="all-included-heart" aria-hidden="true">♥</span>
-                All included
-              </span>
-            </div>
+            <h2 id="planning-heading" class="text-xl sm:text-2xl font-semibold text-ink mb-3">El planning</h2>
 
             <div class="check-times">
-              <span><strong>Check-in</strong> divendres, a partir de les 16h</span>
+              <span><strong>Check-in</strong> divendres, a partir de les 17h</span>
               <span><strong>Check-out</strong> diumenge, 11h</span>
             </div>
+
+            <p class="beds-note" role="note">
+              <strong>Tema important — allotjament:</strong> només hi ha <strong>12 places de llit</strong>. Marca al
+              formulari quins dies et vols quedar per gestionar bé l'estada. Si manquessin llits, podríem muntar
+              matalassos inflables extres.
+            </p>
 
             <div class="plan-grid hidden md:grid md:grid-cols-2 gap-3">
               <article class="surface-solid rounded-md p-4 shadow-card md:col-span-2">
                 <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Divendres</p>
-                <h3 class="font-semibold text-ink text-lg">Arribada + festa</h3>
-                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  <strong class="text-ink font-medium">Check-in des de les 16h.</strong> Us esperem a la masia: temps per
-                  instal·lar-vos, xerrar i ambient relaxat.
-                </p>
-                <ul class="mt-2 text-sm text-ink-muted leading-relaxed space-y-1 list-disc pl-4">
-                  <li>Jocs i dinàmiques en grup (per trencar el gel)</li>
-                  <li>Pica-pica i begudes</li>
-                  <li>Sopar conjunt</li>
-                  <li>Festeta — música, ballar, el que surti</li>
+                <h3 class="font-semibold text-ink text-lg">Check-in i benvinguda</h3>
+                <ul class="mt-2 text-sm text-ink-muted leading-relaxed space-y-1.5 list-none pl-0">
+                  <li>
+                    <strong class="text-ink font-medium">A partir de les 17h.</strong> Benvinguda, temps per instal·lar-vos i
+                    temps lliure per la masia i els voltants.
+                  </li>
+                  <li>
+                    <strong class="text-ink font-medium">19:00 – late:</strong> pica-pica i jocs per animar l'ambient.
+                  </li>
+                  <li>Després: copes i música.</li>
                 </ul>
-                <p class="mt-2 text-sm text-ink font-medium">Divendres tot inclòs.</p>
               </article>
-              <article class="surface rounded-md p-4">
-                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Dissabte · matí</p>
-                <h3 class="font-semibold text-ink text-lg">Esmorzar tranquil</h3>
-                <p class="mt-2 text-sm text-ink-muted leading-relaxed">Després, marxada lliure per qui vulgui.</p>
+              <article class="surface rounded-md p-4 md:col-span-2">
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Dissabte · matí i migdia</p>
+                <h3 class="font-semibold text-ink text-lg">Esmorzar i ritme lliure</h3>
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                  Esmorzar des de l'hora que vulgueu (menjar disponible a la masia). Marxada lliure per qui ho vulgui; qui
+                  vulgui seguir es pot quedar tranquil·lament, compartint el dinar.
+                </p>
               </article>
               <article class="surface-solid rounded-md p-4 border-linen-line md:col-span-2">
-                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">
-                  Dissabte · migdia / tarda
-                </p>
-                <h3 class="font-semibold text-ink text-lg">Dinar + sortida en bici</h3>
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Dissabte · tarda</p>
+                <h3 class="font-semibold text-ink text-lg">Sortida en bici</h3>
                 <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  Dinar sobre la marxa (ho tindrem en compte si vens). A la tarda, ruta en bici per les amigues
-                  ciclistes. Qui no vulgui bici, té el seu espai sense cap problema.
+                  Cap a les <strong class="text-ink font-medium">16:00</strong>, sortida en bici suau: ruta preparada per a
+                  tots els nivells i per gaudir dels voltants (Banyoles, zona Girona). Qui no vulgui bici, té el seu espai
+                  sense cap problema.
                 </p>
               </article>
               <article class="surface rounded-md p-4 md:col-span-2">
-                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Dissabte · nit</p>
-                <h3 class="font-semibold text-ink text-lg">Sopar i dormir</h3>
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Dissabte · vespre i nit</p>
+                <h3 class="font-semibold text-ink text-lg">Tornada, relax i sopar</h3>
                 <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  Sopar sobre la marxa (també en compte si et quedes). Opció de dormir una altra nit.
+                  Arribada a la masia: dutxes, relax, desconnexió. Sopar i dormir.
                 </p>
               </article>
               <article class="surface rounded-md p-4 md:col-span-2">
@@ -359,32 +353,32 @@
             <div class="md:hidden relative pl-5 space-y-3">
               <div class="absolute left-[5px] top-2 bottom-2 w-px timeline-line" aria-hidden="true"></div>
               <p class="text-xs text-ink-muted leading-relaxed pl-0 mb-1 -ml-0">
-                <strong class="text-ink">Check-in</strong> dv. 16h · <strong class="text-ink">Check-out</strong> dg. 11h
+                <strong class="text-ink">Check-in</strong> dv. 17h · <strong class="text-ink">Check-out</strong> dg. 11h
               </p>
               <article class="relative surface-solid rounded-md p-3.5 shadow-card">
                 <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-linen-dark border border-linen-line" aria-hidden="true"></span>
                 <p class="text-xs font-medium uppercase tracking-wider text-ink-muted mb-0.5">Divendres</p>
-                <h3 class="font-semibold text-ink">Arribada + festa</h3>
+                <h3 class="font-semibold text-ink">17h check-in · 19h pica-pica</h3>
                 <p class="mt-1 text-xs text-ink-muted leading-relaxed">
-                  Des de 16h: instal·lar-vos, jocs, pica-pica, sopar, festeta. Tot inclòs.
+                  Instal·lar-vos, temps lliure, jocs, copes i música.
                 </p>
               </article>
               <article class="relative surface rounded-md p-3.5">
                 <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-linen-dark border border-linen-line" aria-hidden="true"></span>
                 <p class="text-xs font-medium uppercase tracking-wider text-ink mb-0.5">Dissabte matí</p>
-                <h3 class="font-semibold text-ink">Esmorzar tranquil</h3>
+                <h3 class="font-semibold text-ink">Esmorzar quan vulgueu</h3>
+                <p class="mt-1 text-xs text-ink-muted leading-relaxed">Marxada lliure o dinar tranquil qui es quedi.</p>
               </article>
               <article class="relative surface-solid rounded-md p-3.5">
                 <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-ink-faint border border-linen-line" aria-hidden="true"></span>
-                <p class="text-xs font-medium uppercase tracking-wider text-ink-muted mb-0.5">Dissabte tarda</p>
-                <h3 class="font-semibold text-ink">Dinar + bici</h3>
-                <p class="mt-1 text-xs text-ink-muted leading-relaxed">Dinar sobre la marxa — en compte si vens.</p>
+                <p class="text-xs font-medium uppercase tracking-wider text-ink-muted mb-0.5">Dissabte ~16h</p>
+                <h3 class="font-semibold text-ink">Bici suau</h3>
+                <p class="mt-1 text-xs text-ink-muted leading-relaxed">Banyoles, voltants Girona — tots els nivells.</p>
               </article>
               <article class="relative surface rounded-md p-3.5">
                 <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-linen-line border border-linen-line" aria-hidden="true"></span>
                 <p class="text-xs font-medium uppercase tracking-wider text-ink-muted mb-0.5">Dissabte nit</p>
-                <h3 class="font-semibold text-ink">Sopar i dormir</h3>
-                <p class="mt-1 text-xs text-ink-muted leading-relaxed">Sopar sobre la marxa — en compte si et quedes.</p>
+                <h3 class="font-semibold text-ink">Dutxes, sopar, dormir</h3>
               </article>
               <article class="relative surface rounded-md p-3.5">
                 <span class="absolute -left-5 top-4 w-2.5 h-2.5 rounded-sm bg-linen-line border border-linen-line" aria-hidden="true"></span>
@@ -392,6 +386,20 @@
                 <h3 class="font-semibold text-ink">Check-out 11h</h3>
               </article>
             </div>
+
+            <article class="mt-6 surface-solid rounded-md p-4 sm:p-5 shadow-card border border-linen-line">
+              <h3 class="text-sm font-semibold text-ink uppercase tracking-wider">Què poso jo · què no inclou</h3>
+              <p class="mt-3 text-sm text-ink-muted leading-relaxed">
+                <strong class="text-ink font-medium">Jo poso el vi i les cerveses</strong> (divendres).
+              </p>
+              <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                <strong class="text-ink font-medium">No inclòs:</strong> dinar i sopar del dissabte, esmorzar del diumenge,
+                beguda alcohòlica per copes.
+              </p>
+              <p class="mt-3 text-xs text-ink-muted leading-relaxed">
+                Supermercat a 7 minuts de la masia · Banyoles a 17 km.
+              </p>
+            </article>
           </section>
 
           <section id="rsvp" class="nav-pill reveal" aria-labelledby="rsvp-heading">
@@ -436,10 +444,11 @@
                   </div>
                 </fieldset>
 
-                <fieldset>
-                  <legend class="block text-sm font-medium text-ink mb-2">Quins dies et quedes a dormir?</legend>
-                  <p class="text-xs text-ink-muted mb-2.5 -mt-1">
-                    A la masia hi ha 10 places per dormir i algun sofà disponible.
+                <fieldset id="dormir-fieldset">
+                  <legend class="block text-sm font-medium text-ink mb-1">Quins dies et quedes a dormir?</legend>
+                  <p class="text-xs text-ink-muted mb-2.5 leading-relaxed beds-note !mb-3 !text-xs">
+                    <strong class="text-ink font-medium">12 llits disponibles.</strong> Marca els dies (i el teu +1, si
+                    dorm) per poder quadrar l'allotjament. Si cal, afegirem matalassos inflables.
                   </p>
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
@@ -551,20 +560,70 @@
       ;(function () {
         /** Fotos: substitueix .jpg per originals ~2000px d'amplada per Retina nítid */
         var MASIA_PHOTOS = [
-          { src: '/ninas-31/fotos/01-exterior-facana.jpg', caption: 'Façana i porxo', alt: 'Exterior de la masia amb porxo i terrassa' },
-          { src: '/ninas-31/fotos/02-pati-sofa.jpg', caption: 'Pati i vistes', alt: 'Pati amb sofà i vista al jardí' },
-          { src: '/ninas-31/fotos/03-menjador-sala.jpg', caption: 'Menjador', alt: 'Menjador i sala amb sortida al jardí' },
-          { src: '/ninas-31/fotos/04-habitacio-vistes.jpg', caption: 'Habitació', alt: 'Habitació amb vistes al camp' },
-          { src: '/ninas-31/fotos/05-sala-volta.jpg', caption: 'Sala', alt: 'Sala d\'estar amb volta catalana' },
-          { src: '/ninas-31/fotos/06-porxo-menjador.jpg', caption: 'Porxo menjador', alt: 'Porxo cobert amb taula de menjador' },
-          { src: '/ninas-31/fotos/07-sala-cuina.jpg', caption: 'Saló', alt: 'Saló amb arc i cuina al fons' },
-          { src: '/ninas-31/fotos/08-bany.jpg', caption: 'Bany', alt: 'Bany de la masia' },
-          { src: '/ninas-31/fotos/09-piscina-jardi.jpg', caption: 'Piscina i jardí', alt: 'Piscina i gespa amb vistes' },
-          { src: '/ninas-31/fotos/10-habitacio-dos-llits.jpg', caption: 'Dormitori', alt: 'Habitació amb dos llits' },
-          { src: '/ninas-31/fotos/11-habitacio-sofa.jpg', caption: 'Suite', alt: 'Habitació gran amb sofà i bigues' },
+          {
+            src: '/ninas-31/fotos/01-vista-aeria-piscina.jpg',
+            caption: 'Vista aèria · piscina',
+            alt: 'Vista aèria de la masia amb piscina i camps de l\'Empordà',
+            w: 1024,
+            h: 576,
+          },
+          {
+            src: '/ninas-31/fotos/02-barbacoa-exterior.jpg',
+            caption: 'Barbacoa i jardí',
+            alt: 'Barbacoa exterior de pedra al jardí de la masia',
+            w: 1024,
+            h: 576,
+          },
+          {
+            src: '/ninas-31/fotos/03-habitacio.jpg',
+            caption: 'Habitació',
+            alt: 'Habitació amb llit i llum natural',
+            w: 1024,
+            h: 794,
+          },
+          {
+            src: '/ninas-31/fotos/04-masia-entorn.jpg',
+            caption: 'La masia · entorn',
+            alt: 'Masia de pedra envoltada de camps i boscos',
+            w: 1024,
+            h: 576,
+          },
+          {
+            src: '/ninas-31/fotos/05-porxo-menjador.jpg',
+            caption: 'Porxo menjador',
+            alt: 'Porxo cobert amb taula de menjador exterior',
+            w: 1024,
+            h: 768,
+          },
+          {
+            src: '/ninas-31/fotos/06-salo.jpg',
+            caption: 'Saló',
+            alt: 'Saló lluminós amb sortida al jardí',
+            w: 1024,
+            h: 768,
+          },
+          {
+            src: '/ninas-31/fotos/07-jardi-pingpong.jpg',
+            caption: 'Jardí · ping-pong',
+            alt: 'Taula de ping-pong al jardí amb piscina al fons',
+            w: 1024,
+            h: 768,
+          },
+          {
+            src: '/ninas-31/fotos/08-sala-jocs.jpg',
+            caption: 'Sala de jocs',
+            alt: 'Sala de jocs amb billar',
+            w: 1024,
+            h: 768,
+          },
+          {
+            src: '/ninas-31/fotos/09-menjador.jpg',
+            caption: 'Menjador',
+            alt: 'Menjador interior amb bigues de fusta',
+            w: 1024,
+            h: 768,
+          },
         ]
-        var IMG_W = 1024
-        var IMG_H = 683
 
         var track = document.getElementById('carousel-track')
         var dotsRoot = document.getElementById('carousel-dots')
@@ -584,9 +643,9 @@
             '" alt="' +
             photo.alt.replace(/"/g, '&quot;') +
             '" width="' +
-            IMG_W +
+            (photo.w || 1024) +
             '" height="' +
-            IMG_H +
+            (photo.h || 768) +
             '" sizes="(min-width: 1024px) 480px, 100vw" loading="' +
             (i === 0 ? 'eager' : 'lazy') +
             '"' +
@@ -747,6 +806,12 @@
             return
           }
           form.nom.classList.remove('ring-1', 'ring-ink-muted')
+
+          var dormirChecked = getChecked('dormir')
+          if (dormirChecked.length === 0) {
+            document.getElementById('dormir-fieldset').scrollIntoView({ behavior: 'smooth', block: 'center' })
+            return
+          }
 
           if (portoPlusOne.checked) {
             var companyia = plusOneNom.value.trim()
