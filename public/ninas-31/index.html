@@ -247,8 +247,7 @@
           >
           <a
             href="#playlist"
-            id="nav-playlist"
-            class="nav-pill px-3.5 py-2 rounded-md surface-solid text-ink hover:bg-white transition hidden"
+            class="nav-pill px-3.5 py-2 rounded-md surface-solid text-ink hover:bg-white transition"
             >Música</a
           >
           <a href="#rsvp" class="nav-pill px-3.5 py-2 rounded-md btn-primary text-white transition">Confirmar</a>
@@ -320,15 +319,20 @@
             <div class="flex justify-center gap-1.5 mt-3" id="carousel-dots" role="tablist" aria-label="Fotos"></div>
           </section>
 
-          <section id="playlist" class="nav-pill mt-8 reveal hidden" aria-labelledby="playlist-heading">
+          <section id="playlist" class="nav-pill mt-8 reveal" aria-labelledby="playlist-heading">
             <h2 id="playlist-heading" class="text-lg sm:text-xl font-semibold text-ink">La banda sonora</h2>
             <p class="mt-1.5 text-sm text-ink-muted leading-relaxed">
               Playlist a Spotify — per escoltar abans, de camí o a la masia.
             </p>
-            <div
-              id="spotify-embed-root"
-              class="spotify-embed mt-3 surface-solid rounded-md overflow-hidden border border-linen-line shadow-card"
-            ></div>
+            <div class="spotify-embed mt-3 surface-solid rounded-md overflow-hidden border border-linen-line shadow-card">
+              <iframe
+                title="Playlist Spotify — nina31BD"
+                src="https://open.spotify.com/embed/playlist/4Qk97i4PRiy9yq86RPyRdb?utm_source=generator&theme=0"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
           </section>
         </div>
 
@@ -598,43 +602,6 @@
 
     <script>
       ;(function () {
-        /**
-         * Spotify playlist: enganxa l'enllaç complet o només l'ID.
-         * Ex: https://open.spotify.com/playlist/XXXXXXXX
-         * Deixa en blanc per amagar la secció.
-         */
-        var SPOTIFY_PLAYLIST = 'https://open.spotify.com/playlist/4Qk97i4PRiy9yq86RPyRdb'
-
-        function spotifyPlaylistId(input) {
-          if (!input || !String(input).trim()) return ''
-          var s = String(input).trim()
-          var m = s.match(/playlist\/([a-zA-Z0-9]+)(?:\?|$)/)
-          return m ? m[1] : s
-        }
-
-        function mountSpotifyPlaylist() {
-          var id = spotifyPlaylistId(SPOTIFY_PLAYLIST)
-          var section = document.getElementById('playlist')
-          var root = document.getElementById('spotify-embed-root')
-          var navLink = document.getElementById('nav-playlist')
-          if (!section || !root || !id) return
-
-          var iframe = document.createElement('iframe')
-          iframe.title = 'Playlist Spotify — nina31BD'
-          iframe.loading = 'lazy'
-          iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-          iframe.src =
-            'https://open.spotify.com/embed/playlist/' +
-            encodeURIComponent(id) +
-            '?utm_source=generator&theme=0'
-
-          root.appendChild(iframe)
-          section.classList.remove('hidden')
-          if (navLink) navLink.classList.remove('hidden')
-        }
-
-        mountSpotifyPlaylist()
-
         /** Fotos: substitueix .jpg per originals ~2000px d'amplada per Retina nítid */
         var MASIA_PHOTOS = [
           {
