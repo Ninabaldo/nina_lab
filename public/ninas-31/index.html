@@ -188,11 +188,19 @@
         color: var(--accent);
       }
       .invite-photo-wrap {
+        width: 100%;
+        max-width: 14rem;
+        margin-inline: auto;
         border: 2px solid var(--accent);
         border-radius: var(--radius);
         overflow: hidden;
         background: var(--accent);
         box-shadow: 0 8px 28px rgba(255, 92, 32, 0.14);
+      }
+      @media (min-width: 640px) {
+        .invite-photo-wrap {
+          max-width: 16rem;
+        }
       }
       .invite-photo {
         display: block;
