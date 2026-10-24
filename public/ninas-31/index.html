@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#f0efec" />
     <meta
       name="description"
-      content="NINA 31- BD · Sopar 6 de novembre, 20:30h. Confirma assistència i tria el menú."
+      content="NINA 31- BD · Sopar 6 de novembre al Curcuma Club, Vilassar de Mar. Confirma i tria postres."
     />
     <meta property="og:title" content="Nina's 31 · Celebrating life with love" />
     <meta
@@ -271,14 +271,19 @@
               d'una taula.
             </p>
             <p class="mt-4 text-sm text-ink leading-relaxed max-w-md mx-auto lg:mx-0">
-              <strong class="font-medium">Dijous 6 de novembre · sopar 20:30h</strong>
+              <strong class="font-medium">Dijous 6 de novembre</strong>
             </p>
             <p class="mt-2 text-sm text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0">
-              Restaurant encara per confirmar — t'avisaré tan aviat com el tingui tancat.
+              <strong class="text-ink font-medium">Curcuma Club</strong> · Vilassar de Mar
+            </p>
+            <p class="mt-2 text-sm text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0">
+              Arribada <strong class="text-ink font-medium">20:30h</strong> · sopar <strong class="text-ink font-medium"
+                >21:30h – late</strong
+              >
             </p>
             <p class="mt-3 text-sm text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0">
               Menú tancat amb begudes incloses: <strong class="text-ink font-medium">convido jo</strong>. Després, qui
-              vulgui, copes allà mateix o en un local proper — lliure elecció.
+              vulgui, copes allà mateix o en un local proper.
             </p>
           </header>
 
@@ -304,20 +309,42 @@
             <h2 id="planning-heading" class="text-xl sm:text-2xl font-semibold text-ink mb-3">La nit</h2>
 
             <div class="check-times">
-              <span><strong>Data</strong> dijous, 6 de novembre</span>
-              <span><strong>Hora</strong> sopar 20:30h</span>
+              <span><strong>On</strong> Curcuma Club, Vilassar de Mar</span>
+              <span><strong>Arribada</strong> 20:30h</span>
+              <span><strong>Sopar</strong> 21:30h – late</span>
             </div>
+
+            <figure class="mt-3 mb-4 surface-solid rounded-md overflow-hidden border border-linen-line shadow-card">
+              <img
+                src="/ninas-31/menu-curcuma.jpg"
+                alt="Menú Nina's 31 Bday al Curcuma Club"
+                width="794"
+                height="1123"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-auto block"
+              />
+            </figure>
 
             <div class="grid grid-cols-1 gap-3">
               <article class="surface-solid rounded-md p-4 shadow-card">
-                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Sopar</p>
-                <h3 class="font-semibold text-ink text-lg">Menú tancat · convido jo</h3>
+                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Menú</p>
+                <h3 class="font-semibold text-ink text-lg">Per compartir · convido jo</h3>
                 <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  Ens asseurem tots junts. Entra <strong class="text-ink font-medium">menú tancat amb begudes</strong>.
-                  Al formulari tries primer i postres (actualitzarem les opcions quan confirmem restaurant).
+                  <strong class="text-ink font-medium">Per començar:</strong> cocktail de benvinguda, gildes, xips i
+                  fruits secs.
                 </p>
-                <p class="mt-2 text-xs text-ink-muted leading-relaxed">
-                  Lloc: pendent de confirmar — rebràs l'adreça per WhatsApp.
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                  <strong class="text-ink font-medium">Per compartir:</strong> tagliere català, laminat de tomàquets amb
+                  burrata, torradeta d'anxova amb mantega trufada, salmó fumat amb blinis, crema de feta vegana,
+                  croquetes variades, truita de patates amb ceba, focaccia amb toppings.
+                </p>
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                  <strong class="text-ink font-medium">Postres</strong> (tria al formulari): creps dolces o trufes de
+                  xocolata negra.
+                </p>
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
+                  <strong class="text-ink font-medium">Begudes:</strong> vi, cervesa, aigua i refrescs inclosos.
                 </p>
               </article>
               <article class="surface rounded-md p-4">
@@ -333,7 +360,7 @@
             <article class="mt-4 beds-note" role="note">
               <p class="text-sm leading-relaxed">
                 <strong class="text-ink font-medium">Important:</strong> confirma assistència el més aviat possible per
-                reservar places i quadrar el menú amb el restaurant.
+                reservar places al Curcuma Club i quadrar postres.
               </p>
             </article>
           </section>
@@ -389,7 +416,7 @@
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="radio" name="assistencia" value="si" required />
-                      <span class="text-sm">Hi seré · 6 nov 20:30h</span>
+                      <span class="text-sm">Hi seré · arribada 20:30h</span>
                     </label>
                     <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
                       <input type="radio" name="assistencia" value="no" />
@@ -398,40 +425,39 @@
                   </div>
                 </fieldset>
 
-                <!-- Edita les opcions quan tinguis la carta del restaurant -->
-                <fieldset id="primers-fieldset">
-                  <legend class="block text-sm font-medium text-ink mb-1">Primer plat</legend>
-                  <p class="text-xs text-ink-muted mb-2.5">Opcions provisionals — les actualitzarem amb la carta real.</p>
-                  <div class="grid grid-cols-1 gap-2">
-                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="primer" value="primer-1" required />
-                      <span class="text-sm">Primer 1 (pendent carta)</span>
-                    </label>
-                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="primer" value="primer-2" />
-                      <span class="text-sm">Primer 2 (pendent carta)</span>
-                    </label>
-                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="primer" value="primer-3" />
-                      <span class="text-sm">Primer 3 (pendent carta)</span>
-                    </label>
-                  </div>
-                </fieldset>
+                <p id="menu-share-note" class="text-xs text-ink-muted leading-relaxed beds-note hidden">
+                  El sopar és <strong class="text-ink font-medium">menú per compartir</strong> al centre de la taula — al
+                  formulari només tries <strong class="text-ink font-medium">postres</strong> i al·lèrgies.
+                </p>
 
                 <fieldset id="postres-fieldset">
                   <legend class="block text-sm font-medium text-ink mb-1">Postres</legend>
                   <div class="grid grid-cols-1 gap-2">
                     <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="postre" value="postre-1" required />
-                      <span class="text-sm">Postre 1 (pendent carta)</span>
+                      <input type="radio" name="postre" value="creps" />
+                      <span class="text-sm">Creps dolces</span>
                     </label>
                     <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="postre" value="postre-2" />
-                      <span class="text-sm">Postre 2 (pendent carta)</span>
+                      <input type="radio" name="postre" value="trufes" />
+                      <span class="text-sm">Trufes de xocolata negra</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <fieldset id="creps-fieldset" class="hidden">
+                  <legend class="block text-sm font-medium text-ink mb-1">Creps — tria</legend>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
+                      <input type="radio" name="creps" value="melmelada" />
+                      <span class="text-sm">Melmelada</span>
                     </label>
                     <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="postre" value="postre-3" />
-                      <span class="text-sm">Postre 3 (pendent carta)</span>
+                      <input type="radio" name="creps" value="sucre" />
+                      <span class="text-sm">Sucre</span>
+                    </label>
+                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
+                      <input type="radio" name="creps" value="nutella" />
+                      <span class="text-sm">Nutella</span>
                     </label>
                   </div>
                 </fieldset>
@@ -459,7 +485,7 @@
                   <label for="intolerancies" class="block text-sm font-medium text-ink mb-1.5"
                     >Intoleràncies / al·lèrgies</label
                   >
-                  <p class="text-xs text-ink-muted mb-2">Imprescindible per al restaurant — si no en tens, escriu «Cap».</p>
+                  <p class="text-xs text-ink-muted mb-2">Imprescindible per al sopar — si no en tens, escriu «Cap».</p>
                   <textarea
                     id="intolerancies"
                     name="intolerancies"
@@ -567,7 +593,7 @@
           if (assistenciaSi) {
             thanksMessage.textContent =
               (nom ? nom + ', ' : '') +
-              'gràcies per confirmar! Rebré la teva tria de menú i aviat t\'enviaré el restaurant i els detalls per WhatsApp.'
+              'gràcies per confirmar! Ens veiem el 6 al Curcuma Club — arribada 20:30h. Uns dies abans obriré el grup de WhatsApp.'
           } else {
             thanksMessage.textContent =
               (nom ? nom + ', ' : '') + 'gràcies per avisar. Una abraçada — i ens veiem aviat en una altra ocasió.'
@@ -592,16 +618,32 @@
           }
         })
 
-        var menuFieldsets = ['primers-fieldset', 'postres-fieldset', 'copes-fieldset']
+        var menuFieldsets = ['postres-fieldset', 'copes-fieldset']
+        function syncCrepsFields() {
+          var showCreps = radioValue('assistencia') === 'si' && radioValue('postre') === 'creps'
+          var fs = document.getElementById('creps-fieldset')
+          if (fs) fs.classList.toggle('hidden', !showCreps)
+          if (!showCreps) {
+            form.querySelectorAll('input[name="creps"]').forEach(function (input) {
+              input.checked = false
+            })
+          }
+        }
         function syncMenuFields() {
           var show = radioValue('assistencia') === 'si'
+          var note = document.getElementById('menu-share-note')
+          if (note) note.classList.toggle('hidden', !show)
           menuFieldsets.forEach(function (id) {
             var fs = document.getElementById(id)
             if (fs) fs.classList.toggle('hidden', !show)
           })
+          syncCrepsFields()
         }
         form.querySelectorAll('input[name="assistencia"]').forEach(function (input) {
           input.addEventListener('change', syncMenuFields)
+        })
+        form.querySelectorAll('input[name="postre"]').forEach(function (input) {
+          input.addEventListener('change', syncCrepsFields)
         })
         syncMenuFields()
 
@@ -635,12 +677,12 @@
 
           var intolerancies = form.intolerancies.value.trim()
           if (assistenciaSi) {
-            if (!radioValue('primer')) {
-              document.getElementById('primers-fieldset').scrollIntoView({ behavior: 'smooth', block: 'center' })
-              return
-            }
             if (!radioValue('postre')) {
               document.getElementById('postres-fieldset').scrollIntoView({ behavior: 'smooth', block: 'center' })
+              return
+            }
+            if (radioValue('postre') === 'creps' && !radioValue('creps')) {
+              document.getElementById('creps-fieldset').scrollIntoView({ behavior: 'smooth', block: 'center' })
               return
             }
             if (!radioValue('copes')) {
@@ -655,22 +697,25 @@
           }
           form.intolerancies.classList.remove('ring-1', 'ring-ink-muted')
 
-          var primerMap = {
-            'primer-1': 'Primer 1 (pendent carta)',
-            'primer-2': 'Primer 2 (pendent carta)',
-            'primer-3': 'Primer 3 (pendent carta)',
-          }
           var postreMap = {
-            'postre-1': 'Postre 1 (pendent carta)',
-            'postre-2': 'Postre 2 (pendent carta)',
-            'postre-3': 'Postre 3 (pendent carta)',
+            creps: 'Creps dolces',
+            trufes: 'Trufes de xocolata negra',
+          }
+          var crepsMap = { melmelada: 'Melmelada', sucre: 'Sucre', nutella: 'Nutella' }
+          function postresLabel() {
+            var base = labelRadio('postre', postreMap)
+            if (radioValue('postre') === 'creps') {
+              var tria = labelRadio('creps', crepsMap)
+              return tria !== '—' ? base + ' — ' + tria : base
+            }
+            return base
           }
           var copesMap = {
             allà: 'Copes allà mateix',
             local: 'Local proper',
             marxo: 'Marxo després del sopar',
           }
-          var assistenciaMap = { si: 'Hi seré · 6 nov 20:30h', no: 'Finalment no puc' }
+          var assistenciaMap = { si: 'Hi seré · arribada 20:30h', no: 'Finalment no puc' }
 
           var payload = {
             _subject: "RSVP NINA 31- BD — " + nom,
@@ -679,8 +724,8 @@
             Nom: nom,
             '+1': portoPlusOne.checked ? plusOneNom.value.trim() : 'No',
             Assistència: labelRadio('assistencia', assistenciaMap),
-            Primer: assistenciaSi ? labelRadio('primer', primerMap) : '—',
-            Postres: assistenciaSi ? labelRadio('postre', postreMap) : '—',
+            Sopar: assistenciaSi ? 'Menú per compartir (Curcuma Club)' : '—',
+            Postres: assistenciaSi ? postresLabel() : '—',
             'Després del sopar': assistenciaSi ? labelRadio('copes', copesMap) : '—',
             'Intoleràncies / al·lèrgies': intolerancies || '—',
           }
@@ -691,6 +736,7 @@
           openModal(nom.split(' ')[0], assistenciaSi)
           form.reset()
           plusOneWrap.classList.add('hidden')
+          syncMenuFields()
           submitBtn.disabled = false
           submitBtn.textContent = 'Enviar confirmació'
 
