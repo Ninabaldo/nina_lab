@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#f0efec" />
     <meta
       name="description"
-      content="NINA 31- BD · Sopar 6 de novembre al Curcuma Club, Vilassar de Mar. Confirma i tria postres."
+      content="NINA 31- BD · Sopar 6 de novembre al Curcuma Club, Vilassar de Mar. Confirma assistència."
     />
     <meta property="og:title" content="Nina's 31 · Celebrating life with love" />
     <meta
@@ -60,6 +60,36 @@
       }
       .page-bg {
         background: #f0efec;
+        position: relative;
+        overflow-x: clip;
+      }
+      .page-bg::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(ellipse 85% 55% at 8% 0%, rgba(255, 92, 32, 0.09), transparent 52%),
+          radial-gradient(ellipse 70% 45% at 92% 100%, rgba(255, 92, 32, 0.07), transparent 48%);
+        animation: ambient-shift 20s ease-in-out infinite alternate;
+      }
+      main,
+      nav,
+      footer,
+      .sound-gate {
+        position: relative;
+        z-index: 1;
+      }
+      @keyframes ambient-shift {
+        from {
+          opacity: 0.75;
+          transform: scale(1);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1.04);
+        }
       }
       .surface {
         background: rgba(255, 255, 255, 0.55);
@@ -157,18 +187,18 @@
       .accent-text {
         color: var(--accent);
       }
-      .beds-note {
+      .important-note {
         font-size: 0.8125rem;
         line-height: 1.55;
-        color: #6b6761;
+        color: #6b534c;
         margin-bottom: 1rem;
         padding: 0.75rem 0.85rem;
         border-radius: var(--radius);
-        background: #e8e6e1;
-        border: 1px solid #dcd9d3;
-        border-left: 3px solid var(--accent);
+        background: rgba(255, 92, 32, 0.1);
+        border: 1px solid rgba(255, 92, 32, 0.2);
+        border-left: 3px solid rgba(255, 92, 32, 0.45);
       }
-      .beds-note strong {
+      .important-note strong {
         color: #2c2a27;
         font-weight: 600;
       }
@@ -179,15 +209,42 @@
         line-height: 1;
         color: var(--accent);
         vertical-align: 0.12em;
+        animation: heart-soft 2.4s ease-in-out infinite;
+        transform-origin: center;
+      }
+      @keyframes heart-soft {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.14);
+        }
       }
       .reveal {
         opacity: 0;
-        transform: translateY(12px);
-        transition: opacity 0.55s ease, transform 0.55s ease;
+        transform: translateY(14px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        transition-delay: var(--reveal-delay, 0ms);
       }
       .reveal.is-visible {
         opacity: 1;
         transform: translateY(0);
+      }
+      .nav-enter {
+        animation: nav-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes nav-enter {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       .carousel-viewport {
         overflow: hidden;
@@ -211,16 +268,78 @@
         object-position: center;
         display: block;
       }
+      .spotify-embed {
+        border: 2px solid var(--accent);
+        background: rgba(255, 92, 32, 0.14);
+        border-radius: var(--radius);
+        padding: 0.35rem;
+        box-shadow: 0 4px 20px rgba(255, 92, 32, 0.12);
+        transition: box-shadow 0.35s ease;
+      }
+      .spotify-embed.is-highlight {
+        animation: spotify-pulse 1.1s ease 2;
+      }
+      @keyframes spotify-pulse {
+        0%,
+        100% {
+          box-shadow: 0 4px 20px rgba(255, 92, 32, 0.12);
+        }
+        50% {
+          box-shadow: 0 4px 28px rgba(255, 92, 32, 0.38);
+        }
+      }
       .spotify-embed iframe {
         display: block;
         width: 100%;
         height: 152px;
         border: 0;
+        border-radius: calc(var(--radius) - 2px);
       }
       @media (min-width: 640px) {
         .spotify-embed iframe {
           height: 352px;
         }
+      }
+      .sound-gate {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: rgba(240, 239, 236, 0.92);
+        backdrop-filter: blur(6px);
+        transition: opacity 0.45s ease, visibility 0.45s ease;
+      }
+      .sound-gate.is-dismissed {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .sound-gate-panel {
+        max-width: 18rem;
+        text-align: center;
+        padding: 1.75rem 1.5rem;
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.85);
+        border: 2px solid var(--accent);
+        box-shadow: 0 12px 40px rgba(255, 92, 32, 0.15);
+        cursor: pointer;
+        animation: gate-float 3s ease-in-out infinite;
+      }
+      @keyframes gate-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+      .sound-gate-panel:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
       }
       .carousel-dot {
         width: 6px;
@@ -258,9 +377,17 @@
       @media (prefers-reduced-motion: reduce) {
         .modal-panel,
         .reveal,
-        .carousel-track {
+        .carousel-track,
+        .title-heart,
+        .page-bg::before,
+        .sound-gate-panel,
+        .spotify-embed.is-highlight {
           animation: none !important;
           transition: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .reveal.is-visible {
           opacity: 1 !important;
           transform: none !important;
         }
@@ -271,8 +398,26 @@
     </style>
   </head>
   <body class="font-sans text-ink antialiased min-h-screen page-bg">
+    <div
+      id="sound-gate"
+      class="sound-gate"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="sound-gate-title"
+      hidden
+    >
+      <button type="button" id="sound-gate-btn" class="sound-gate-panel border-0 font-sans">
+        <p class="text-[0.65rem] font-medium uppercase tracking-[0.18em] accent-text">NINA 31</p>
+        <p id="sound-gate-title" class="text-lg font-semibold text-ink mt-2">Entra</p>
+        <p class="text-xs text-ink-muted mt-2 leading-relaxed">
+          Obrirem la playlist — després prem <strong class="text-ink font-medium">▶</strong> al Spotify (el navegador no
+          deixa arrencar sola).
+        </p>
+      </button>
+    </div>
+
     <nav
-      class="sticky top-0 z-40 px-4 pt-[calc(0.6rem+var(--safe-top))] pb-2.5 surface border-b border-linen-line/80 backdrop-blur-sm"
+      class="nav-enter sticky top-0 z-40 px-4 pt-[calc(0.6rem+var(--safe-top))] pb-2.5 surface border-b border-linen-line/80 backdrop-blur-sm"
       aria-label="Seccions"
     >
       <div class="max-w-6xl mx-auto flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
@@ -295,7 +440,7 @@
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-[calc(2rem+var(--safe-bottom))]">
       <div class="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start">
         <div class="lg:col-span-5 lg:sticky lg:top-20 pt-8 sm:pt-10">
-          <header class="text-center lg:text-left reveal">
+          <header class="text-center lg:text-left reveal" style="--reveal-delay: 80ms">
             <p class="text-[0.65rem] sm:text-xs font-medium uppercase tracking-[0.2em] text-ink-muted mb-3">
               NINA 31- BD · 6 de novembre
             </p>
@@ -325,16 +470,22 @@
             </p>
           </header>
 
-          <section id="playlist" class="nav-pill mt-8 reveal" aria-labelledby="playlist-heading">
-            <h2 id="playlist-heading" class="text-lg sm:text-xl font-semibold text-ink">La banda sonora</h2>
+          <section
+            id="playlist"
+            class="nav-pill mt-8 reveal"
+            style="--reveal-delay: 160ms"
+            aria-labelledby="playlist-heading"
+          >
+            <h2 id="playlist-heading" class="section-title text-lg sm:text-xl font-semibold text-ink">La banda sonora</h2>
             <p class="mt-1.5 text-sm text-ink-muted leading-relaxed">
               Playlist a Spotify — per escoltar abans o de camí cap al sopar.
             </p>
-            <div class="spotify-embed mt-3 surface-solid rounded-md overflow-hidden border border-linen-line shadow-card">
+            <div id="spotify-embed-wrap" class="spotify-embed mt-3 overflow-hidden">
               <iframe
+                id="spotify-iframe"
                 title="Playlist Spotify — nina31BD"
-                src="https://open.spotify.com/embed/playlist/4Qk97i4PRiy9yq86RPyRdb?utm_source=generator&theme=0"
-                loading="lazy"
+                data-src="https://open.spotify.com/embed/playlist/4Qk97i4PRiy9yq86RPyRdb?utm_source=generator&theme=0"
+                src="about:blank"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 allowfullscreen
               ></iframe>
@@ -343,7 +494,7 @@
         </div>
 
         <div class="lg:col-span-7 mt-10 lg:mt-10 space-y-10 sm:space-y-12">
-          <section id="planning" class="nav-pill reveal" aria-labelledby="planning-heading">
+          <section id="planning" class="nav-pill reveal" style="--reveal-delay: 120ms" aria-labelledby="planning-heading">
             <h2 id="planning-heading" class="section-title text-xl sm:text-2xl font-semibold text-ink mb-3">La nit</h2>
 
             <div class="check-times">
@@ -384,7 +535,7 @@
               </p>
             </article>
 
-            <article class="mt-4 beds-note" role="note">
+            <article class="mt-4 important-note" role="note">
               <p class="text-sm leading-relaxed">
                 <strong class="text-ink font-medium">Important:</strong> confirma assistència el més aviat possible per
                 reservar places al Curcuma Club.
@@ -392,7 +543,7 @@
             </article>
           </section>
 
-          <section id="rsvp" class="nav-pill reveal" aria-labelledby="rsvp-heading">
+          <section id="rsvp" class="nav-pill reveal" style="--reveal-delay: 200ms" aria-labelledby="rsvp-heading">
             <div class="surface-solid rounded-md shadow-soft p-5 sm:p-7 border-linen-line">
               <h2 id="rsvp-heading" class="section-title text-xl sm:text-2xl font-semibold text-ink">Confirma assistència</h2>
               <p class="text-sm text-ink-muted mt-2 mb-6">
@@ -467,44 +618,7 @@
                   </div>
                 </fieldset>
 
-                <p id="menu-share-note" class="text-xs text-ink-muted leading-relaxed beds-note hidden">
-                  El sopar és <strong class="text-ink font-medium">menú per compartir</strong> al centre de la taula — al
-                  formulari només tries <strong class="text-ink font-medium">postres</strong> i al·lèrgies.
-                </p>
-
-                <fieldset id="postres-fieldset">
-                  <legend class="block text-sm font-medium text-ink mb-1">Postres</legend>
-                  <div class="grid grid-cols-1 gap-2">
-                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="postre" value="creps" />
-                      <span class="text-sm">Creps dolces</span>
-                    </label>
-                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="postre" value="trufes" />
-                      <span class="text-sm">Trufes de xocolata negra</span>
-                    </label>
-                  </div>
-                </fieldset>
-
-                <fieldset id="creps-fieldset" class="hidden">
-                  <legend class="block text-sm font-medium text-ink mb-1">Creps — tria</legend>
-                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="creps" value="melmelada" />
-                      <span class="text-sm">Melmelada</span>
-                    </label>
-                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="creps" value="sucre" />
-                      <span class="text-sm">Sucre</span>
-                    </label>
-                    <label class="check-card flex items-center gap-2.5 p-3 surface border border-linen-line cursor-pointer">
-                      <input type="radio" name="creps" value="nutella" />
-                      <span class="text-sm">Nutella</span>
-                    </label>
-                  </div>
-                </fieldset>
-
-                <div>
+                <div id="intolerancies-wrap" class="hidden">
                   <label for="intolerancies" class="block text-sm font-medium text-ink mb-1.5"
                     >Intoleràncies / al·lèrgies</label
                   >
@@ -580,6 +694,11 @@
         var plusOneNom = document.getElementById('plus_one_nom')
         var horaArribadaWrap = document.getElementById('hora-arribada-wrap')
         var horaArribada = document.getElementById('hora_arribada')
+        var soundGate = document.getElementById('sound-gate')
+        var soundGateBtn = document.getElementById('sound-gate-btn')
+        var spotifyIframe = document.getElementById('spotify-iframe')
+        var spotifyWrap = document.getElementById('spotify-embed-wrap')
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         var menuPdfUrl = '/ninas-31/ninas-bday-31-menu.pdf'
         var menuCanvas = document.getElementById('menu-pdf-canvas')
         var menuWrap = document.getElementById('menu-pdf-wrap')
@@ -587,6 +706,49 @@
         function assistenciaParticipa() {
           var a = radioValue('assistencia')
           return a === 'si' || a === 'tard'
+        }
+
+        function loadSpotifyEmbed() {
+          if (!spotifyIframe || !spotifyIframe.dataset.src) return
+          if (spotifyIframe.src === 'about:blank' || !spotifyIframe.src) {
+            spotifyIframe.src = spotifyIframe.dataset.src
+          }
+        }
+
+        function dismissSoundGate(scrollToPlaylist) {
+          if (!soundGate) return
+          soundGate.classList.add('is-dismissed')
+          window.setTimeout(function () {
+            soundGate.hidden = true
+          }, 480)
+          try {
+            sessionStorage.setItem('nina31-entered', '1')
+          } catch (e) {}
+          loadSpotifyEmbed()
+          if (scrollToPlaylist) {
+            var playlist = document.getElementById('playlist')
+            if (playlist) playlist.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+            if (spotifyWrap) spotifyWrap.classList.add('is-highlight')
+          }
+        }
+
+        var hasEnteredBefore = false
+        try {
+          hasEnteredBefore = !!sessionStorage.getItem('nina31-entered')
+        } catch (e) {}
+
+        if (hasEnteredBefore || prefersReducedMotion) {
+          if (soundGate) soundGate.hidden = true
+          loadSpotifyEmbed()
+        } else if (soundGate) {
+          soundGate.hidden = false
+          if (soundGateBtn) soundGateBtn.focus()
+        }
+
+        if (soundGateBtn) {
+          soundGateBtn.addEventListener('click', function () {
+            dismissSoundGate(true)
+          })
         }
 
         function renderMenuPdfPreview() {
@@ -703,35 +865,16 @@
           }
         })
 
-        var menuFieldsets = ['postres-fieldset']
-        function syncCrepsFields() {
-          var showCreps = assistenciaParticipa() && radioValue('postre') === 'creps'
-          var fs = document.getElementById('creps-fieldset')
-          if (fs) fs.classList.toggle('hidden', !showCreps)
-          if (!showCreps) {
-            form.querySelectorAll('input[name="creps"]').forEach(function (input) {
-              input.checked = false
-            })
-          }
-        }
+        var intoleranciesWrap = document.getElementById('intolerancies-wrap')
         function syncMenuFields() {
           var a = radioValue('assistencia')
           var show = assistenciaParticipa()
           if (horaArribadaWrap) horaArribadaWrap.classList.toggle('hidden', a !== 'tard')
           if (a !== 'tard' && horaArribada) horaArribada.value = ''
-          var note = document.getElementById('menu-share-note')
-          if (note) note.classList.toggle('hidden', !show)
-          menuFieldsets.forEach(function (id) {
-            var fs = document.getElementById(id)
-            if (fs) fs.classList.toggle('hidden', !show)
-          })
-          syncCrepsFields()
+          if (intoleranciesWrap) intoleranciesWrap.classList.toggle('hidden', !show)
         }
         form.querySelectorAll('input[name="assistencia"]').forEach(function (input) {
           input.addEventListener('change', syncMenuFields)
-        })
-        form.querySelectorAll('input[name="postre"]').forEach(function (input) {
-          input.addEventListener('change', syncCrepsFields)
         })
         syncMenuFields()
 
@@ -774,14 +917,6 @@
               return
             }
             if (horaArribada) horaArribada.classList.remove('ring-1', 'ring-[#ff5c20]')
-            if (!radioValue('postre')) {
-              document.getElementById('postres-fieldset').scrollIntoView({ behavior: 'smooth', block: 'center' })
-              return
-            }
-            if (radioValue('postre') === 'creps' && !radioValue('creps')) {
-              document.getElementById('creps-fieldset').scrollIntoView({ behavior: 'smooth', block: 'center' })
-              return
-            }
             if (!intolerancies) {
               form.intolerancies.focus()
               form.intolerancies.classList.add('ring-1', 'ring-ink-muted')
@@ -790,19 +925,6 @@
           }
           form.intolerancies.classList.remove('ring-1', 'ring-ink-muted')
 
-          var postreMap = {
-            creps: 'Creps dolces',
-            trufes: 'Trufes de xocolata negra',
-          }
-          var crepsMap = { melmelada: 'Melmelada', sucre: 'Sucre', nutella: 'Nutella' }
-          function postresLabel() {
-            var base = labelRadio('postre', postreMap)
-            if (radioValue('postre') === 'creps') {
-              var tria = labelRadio('creps', crepsMap)
-              return tria !== '—' ? base + ' — ' + tria : base
-            }
-            return base
-          }
           function assistenciaLabel() {
             if (assistencia === 'si') return 'Hi seré · arribada 20:30h'
             if (assistencia === 'no') return 'Finalment no puc'
@@ -821,7 +943,6 @@
             '+1': portoPlusOne.checked ? plusOneNom.value.trim() : 'No',
             Assistència: assistenciaLabel(),
             Sopar: participa ? 'Menú per compartir (Curcuma Club)' : '—',
-            Postres: participa ? postresLabel() : '—',
             'Intoleràncies / al·lèrgies': intolerancies || '—',
           }
 
