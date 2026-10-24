@@ -187,6 +187,19 @@
       .accent-text {
         color: var(--accent);
       }
+      .invite-photo-wrap {
+        border: 2px solid var(--accent);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--accent);
+        box-shadow: 0 8px 28px rgba(255, 92, 32, 0.14);
+      }
+      .invite-photo {
+        display: block;
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+      }
       .important-note {
         font-size: 0.8125rem;
         line-height: 1.55;
@@ -496,6 +509,18 @@
         <div class="lg:col-span-7 mt-10 lg:mt-10 space-y-10 sm:space-y-12">
           <section id="planning" class="nav-pill reveal" style="--reveal-delay: 120ms" aria-labelledby="planning-heading">
             <h2 id="planning-heading" class="section-title text-xl sm:text-2xl font-semibold text-ink mb-3">La nit</h2>
+
+            <figure class="invite-photo-wrap mb-4">
+              <img
+                src="/ninas-31/curcuma-sopar.jpg"
+                alt="Mesa preparada al Curcuma Club"
+                width="768"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                class="invite-photo"
+              />
+            </figure>
 
             <div class="check-times">
               <span><strong>On</strong> Curcuma Club, Vilassar de Mar</span>
