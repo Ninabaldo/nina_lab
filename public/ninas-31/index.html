@@ -116,6 +116,18 @@
         color: #2c2a27;
         font-weight: 600;
       }
+      .menu-card-img {
+        display: block;
+        width: 100%;
+        max-width: 16.5rem;
+        height: auto;
+        margin-inline: auto;
+      }
+      @media (min-width: 640px) {
+        .menu-card-img {
+          max-width: 18rem;
+        }
+      }
       .beds-note {
         font-size: 0.8125rem;
         line-height: 1.55;
@@ -281,9 +293,8 @@
                 >21:30h – late</strong
               >
             </p>
-            <p class="mt-3 text-sm text-ink-muted leading-relaxed max-w-md mx-auto lg:mx-0">
-              Menú tancat amb begudes incloses: <strong class="text-ink font-medium">convido jo</strong>. Després, qui
-              vulgui, copes allà mateix o en un local proper.
+            <p class="mt-3 text-sm text-ink leading-relaxed max-w-md mx-auto lg:mx-0">
+              <strong class="font-medium">All included tonight</strong>
             </p>
           </header>
 
@@ -314,39 +325,19 @@
               <span><strong>Sopar</strong> 21:30h – late</span>
             </div>
 
-            <figure class="mt-3 mb-4 surface-solid rounded-md overflow-hidden border border-linen-line shadow-card">
+            <figure class="mt-3 mb-5">
               <img
                 src="/ninas-31/menu-curcuma.jpg"
                 alt="Menú Nina's 31 Bday al Curcuma Club"
-                width="794"
-                height="1123"
+                width="724"
+                height="1024"
                 loading="lazy"
                 decoding="async"
-                class="w-full h-auto block"
+                class="menu-card-img"
               />
             </figure>
 
             <div class="grid grid-cols-1 gap-3">
-              <article class="surface-solid rounded-md p-4 shadow-card">
-                <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Menú</p>
-                <h3 class="font-semibold text-ink text-lg">Per compartir · convido jo</h3>
-                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  <strong class="text-ink font-medium">Per començar:</strong> cocktail de benvinguda, gildes, xips i
-                  fruits secs.
-                </p>
-                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  <strong class="text-ink font-medium">Per compartir:</strong> tagliere català, laminat de tomàquets amb
-                  burrata, torradeta d'anxova amb mantega trufada, salmó fumat amb blinis, crema de feta vegana,
-                  croquetes variades, truita de patates amb ceba, focaccia amb toppings.
-                </p>
-                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  <strong class="text-ink font-medium">Postres</strong> (tria al formulari): creps dolces o trufes de
-                  xocolata negra.
-                </p>
-                <p class="mt-2 text-sm text-ink-muted leading-relaxed">
-                  <strong class="text-ink font-medium">Begudes:</strong> vi, cervesa, aigua i refrescs inclosos.
-                </p>
-              </article>
               <article class="surface rounded-md p-4">
                 <p class="text-[0.65rem] font-medium uppercase tracking-wider text-ink-muted mb-1">Després</p>
                 <h3 class="font-semibold text-ink text-lg">Copes, si et ve de gust</h3>
