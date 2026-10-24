@@ -189,17 +189,19 @@
       }
       .invite-photo-wrap {
         width: 100%;
-        max-width: 14rem;
+        max-width: 17.5rem;
         margin-inline: auto;
-        border: 2px solid var(--accent);
         border-radius: var(--radius);
         overflow: hidden;
-        background: var(--accent);
-        box-shadow: 0 8px 28px rgba(255, 92, 32, 0.14);
+        border: 1px solid #dcd9d3;
+        border-left: 3px solid rgba(255, 92, 32, 0.5);
+        background: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 2px 12px rgba(74, 69, 64, 0.06);
       }
-      @media (min-width: 640px) {
+      @media (min-width: 1024px) {
         .invite-photo-wrap {
-          max-width: 16rem;
+          margin-inline: 0;
+          max-width: 100%;
         }
       }
       .invite-photo {
@@ -207,6 +209,22 @@
         width: 100%;
         height: auto;
         vertical-align: top;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: center 42%;
+      }
+      .invite-photo-caption {
+        font-size: 0.6875rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #949088;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+      @media (min-width: 1024px) {
+        .invite-photo-caption {
+          text-align: left;
+        }
       }
       .important-note {
         font-size: 0.8125rem;
@@ -491,10 +509,23 @@
             </p>
           </header>
 
+          <figure class="invite-photo-wrap mt-6 reveal max-w-md mx-auto lg:mx-0" style="--reveal-delay: 120ms">
+            <img
+              src="/ninas-31/curcuma-sopar.jpg"
+              alt="Mesa preparada al Curcuma Club"
+              width="768"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+              class="invite-photo"
+            />
+            <figcaption class="invite-photo-caption px-3 py-2 border-t border-linen-line/80">Curcuma Club</figcaption>
+          </figure>
+
           <section
             id="playlist"
             class="nav-pill mt-8 reveal"
-            style="--reveal-delay: 160ms"
+            style="--reveal-delay: 200ms"
             aria-labelledby="playlist-heading"
           >
             <h2 id="playlist-heading" class="section-title text-lg sm:text-xl font-semibold text-ink">La banda sonora</h2>
@@ -517,18 +548,6 @@
         <div class="lg:col-span-7 mt-10 lg:mt-10 space-y-10 sm:space-y-12">
           <section id="planning" class="nav-pill reveal" style="--reveal-delay: 120ms" aria-labelledby="planning-heading">
             <h2 id="planning-heading" class="section-title text-xl sm:text-2xl font-semibold text-ink mb-3">La nit</h2>
-
-            <figure class="invite-photo-wrap mb-4">
-              <img
-                src="/ninas-31/curcuma-sopar.jpg"
-                alt="Mesa preparada al Curcuma Club"
-                width="768"
-                height="1024"
-                loading="lazy"
-                decoding="async"
-                class="invite-photo"
-              />
-            </figure>
 
             <div class="check-times">
               <span><strong>On</strong> Curcuma Club, Vilassar de Mar</span>
